@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'onboarding_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -14,11 +15,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-        backgroundColor: Color(0xff040B32),
-        splash: Image.asset('assets/icons/Mentorea Icon.png',),
+        backgroundColor: const Color(0xff040B32),
+        splash: Image.asset(
+          'assets/icons/Mentorea Icon.png',
+        ),
         splashIconSize: 200,
         pageTransitionType: PageTransitionType.topToBottom,
-        animationDuration: Duration(milliseconds: 800),
-        nextScreen: OnboardingScreen());
+        animationDuration: const Duration(milliseconds: 800),
+        nextScreen: const OnboardingScreen());
   }
 }

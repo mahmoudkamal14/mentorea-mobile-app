@@ -25,6 +25,7 @@ class WelcomeMessageWidget extends StatelessWidget {
         Text(
           'Enter the required details to access your account and find the right mentor for you',
           style: AppStyles.style16Meduim,
+          textAlign: TextAlign.center,
         ),
       ],
     );
