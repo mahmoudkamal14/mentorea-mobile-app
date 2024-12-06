@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 
-class WelcomeMessageWidget extends StatelessWidget {
-  const WelcomeMessageWidget({
+class CreateAccountMessageWidget extends StatelessWidget {
+  const CreateAccountMessageWidget({
     super.key,
   });
 
@@ -15,16 +15,17 @@ class WelcomeMessageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome back',
+              'Create an account',
               textAlign: TextAlign.center,
-              style: AppStyles.style20Meduim,
+              style: AppStyles.style28Bold,
             ),
           ],
         ),
         verticalSpace(8),
         Text(
-          'Enter the required details to access your account and find the right mentor for you',
+          'Start your journey with Mentorea and connect with expert mentors today',
           style: AppStyles.style16Meduim,
+          textAlign: TextAlign.center,
         ),
       ],
     );
