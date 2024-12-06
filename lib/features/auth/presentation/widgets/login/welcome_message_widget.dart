@@ -17,7 +17,7 @@ class WelcomeMessageWidget extends StatelessWidget {
             Text(
               'Welcome back',
               textAlign: TextAlign.center,
-              style: AppStyles.style20Meduim,
+              style: AppStyles.style28Bold,
             ),
           ],
         ),

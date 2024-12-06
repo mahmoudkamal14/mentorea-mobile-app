@@ -4,6 +4,8 @@ import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 
+import '../forgot password/forgot_password_widget.dart';
+
 class LoginFormWidget extends StatefulWidget {
   const LoginFormWidget({super.key});
 
@@ -53,13 +55,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           ),
         ),
         verticalSpace(8),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: () {},
-            child: Text('Forgot password?', style: AppStyles.style18Meduim),
-          ),
-        ),
+        const ForgotPasswordWidget(),
         verticalSpace(30),
         AppTextButton(
           textButton: 'Login',

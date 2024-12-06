@@ -57,9 +57,8 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                       length: onBoardingList.length,
                       controller: onBoardingController,
                     ),
-                    verticalSpace(60),
-                    OnBoardingTextWidget(widget: widget),
-                    const Spacer(),
+                    verticalSpace(45),
+                    Expanded(child: OnBoardingTextWidget(widget: widget)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

@@ -17,7 +17,7 @@ List<OnBoardingModel> onBoardingList = [
     title: 'Connect with Expert Mentors',
     image: 'assets/images/undraw_active_support_re_b7sj.svg',
     textBody:
-        'Find mentors specialized in your field and easily\n connect with them via chat or video calls.\n Mentorea brings expertise right\n to your fingertips.',
+        'Find mentors specialized in your field and\n easily connect with them via chat\n or video calls. Mentorea brings expertise right\n to your fingertips.',
     textButton: 'Next',
   ),
   OnBoardingModel(

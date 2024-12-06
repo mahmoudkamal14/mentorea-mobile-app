@@ -27,6 +27,14 @@ class AppStyles {
     height: 0,
   );
 
+  static TextStyle style24Bold = TextStyle(
+    color: Colors.black,
+    fontSize: 20.sp,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    height: 0,
+  );
+
   static TextStyle style28Bold = TextStyle(
     color: Colors.black,
     fontSize: 28.sp,
