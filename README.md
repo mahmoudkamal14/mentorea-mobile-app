@@ -60,10 +60,6 @@ lib/
 │   │   │   ├── models/            # النماذج (Models)
 │   │   │   ├── datasources/       # مصادر البيانات (API, Local DB)
 │   │   │   └── repositories_impl/ # تنفيذ الـ Repositories
-│   │   ├── domain/                # طبقة المجال (Domain Layer)
-│   │   │   ├── entities/          # الكيانات (Entities)
-│   │   │   ├── repositories/      # تعريف الـ Repositories (Interfaces)
-│   │   │   └── usecases/          # حالات الاستخدام (Use Cases)
 │   │   └── presentation/          # طبقة العرض (Presentation Layer)
 │   │       ├── logic/             # إدارة الحالة باستخدام Cubit/Bloc
 │   │       ├── screens/           # الشاشات (UI Screens)
@@ -71,7 +67,6 @@ lib/
 │   │
 │   └── profile_management/        # وحدة أخرى على سبيل المثال
 │       ├── data/
-│       ├── domain/
 │       └── presentation/
 │
 │
