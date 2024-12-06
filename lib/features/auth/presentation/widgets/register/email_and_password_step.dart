@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
-import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 
-import 'term_of_service.dart';
-
-class RegisterFormWidget extends StatefulWidget {
-  const RegisterFormWidget({super.key});
+class EmailAndPasswordStep extends StatefulWidget {
+  const EmailAndPasswordStep({super.key});
 
   @override
-  State<RegisterFormWidget> createState() => _RegisterFormWidgetState();
+  State<EmailAndPasswordStep> createState() => _RegisterFormWidgetState();
 }
 
-class _RegisterFormWidgetState extends State<RegisterFormWidget> {
+class _RegisterFormWidgetState extends State<EmailAndPasswordStep> {
   bool isObscureText = true;
   bool isObscureTextConfirm = true;
   IconData visibility = Icons.visibility_off_outlined;
@@ -23,10 +20,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Email',
-          style: AppStyles.style18Meduim.copyWith(color: Colors.black),
-        ),
+        Text('Email', style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.emailAddress,
@@ -34,10 +28,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
           validator: (value) {},
         ),
         verticalSpace(16),
-        Text(
-          'Password',
-          style: AppStyles.style18Meduim.copyWith(color: Colors.black),
-        ),
+        Text('Password', style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
@@ -54,10 +45,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
           ),
         ),
         verticalSpace(16),
-        Text(
-          'Confirm password',
-          style: AppStyles.style18Meduim.copyWith(color: Colors.black),
-        ),
+        Text('Confirm password', style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
@@ -74,14 +62,6 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
               isObscureTextConfirm == true ? visibility : Icons.visibility,
             ),
           ),
-        ),
-        verticalSpace(16),
-        const TermOfService(),
-        verticalSpace(30),
-        AppTextButton(
-          textButton: 'Create an account',
-          textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
-          onPressed: () {},
         ),
       ],
     );

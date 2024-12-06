@@ -17,7 +17,7 @@ List<OnBoardingModel> onBoardingList = [
     title: 'Connect with Expert Mentors',
     image: 'assets/images/undraw_active_support_re_b7sj.svg',
     textBody:
-        'Find mentors specialized in your field and\n easily connect with them via chat\n or video calls. Mentorea brings expertise right\n to your fingertips.',
+        'Find mentors specialized in your field and\n easily connect with them via chat or\n video calls. Mentorea brings\n expertise right to your fingertips.',
     textButton: 'Next',
   ),
   OnBoardingModel(
@@ -31,7 +31,7 @@ List<OnBoardingModel> onBoardingList = [
     title: 'Join to Mentorea Community',
     image: 'assets/images/undraw_engineering_team_a7n2.svg',
     textBody:
-        'Be part of a thriving community of mentees and mentors. Share knowledge, collaborate,\n and grow together in Mentorea.',
+        'Be part of a thriving community of mentees and mentors. Share knowledge, collaborate, and grow together in Mentorea.',
     textButton: 'Get Started',
   ),
 ];

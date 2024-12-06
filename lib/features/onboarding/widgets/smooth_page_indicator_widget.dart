@@ -19,15 +19,15 @@ class SmoothPageIndicatorWidget extends StatelessWidget {
       controller: controller,
       count: length,
       axisDirection: Axis.horizontal,
-      effect: SlideEffect(
-        spacing: 8.0,
-        radius: 10.0,
-        dotWidth: 50.0,
-        dotHeight: 5.0.h,
-        paintStyle: PaintingStyle.fill,
-        strokeWidth: 1.5,
-        dotColor: Colors.grey,
+      effect: ExpandingDotsEffect(
         activeDotColor: const Color(0xFF103A69),
+        dotColor: Colors.grey,
+        paintStyle: PaintingStyle.fill,
+        dotWidth: 20.w,
+        dotHeight: 5.0.h,
+        radius: 20.0.r,
+        spacing: 8.0.w,
+        strokeWidth: 1.5.w,
       ),
     );
   }

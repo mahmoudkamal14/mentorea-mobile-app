@@ -7,6 +7,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool? isObscureText;
+  final int? maxLines;
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
@@ -34,11 +35,13 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     required this.validator,
     this.onChanged,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines ?? 1,
       style: inputTextStyle ??
           AppStyles.style18Meduim.copyWith(color: const Color(0xFF120E1A)),
       controller: controller,

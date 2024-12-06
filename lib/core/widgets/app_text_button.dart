@@ -31,13 +31,13 @@ class AppTextButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        //  width: buttonWidth ?? double.infinity,
-        height: 60.h,
+        width: buttonWidth ?? double.infinity,
+        height: buttonHeight ?? 60.h,
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
           color: backgroundColor ?? const Color(0xFF103A69),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(borderRadius ?? 16),
           ),
         ),
         child: Center(
