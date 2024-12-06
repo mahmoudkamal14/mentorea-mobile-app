@@ -15,7 +15,7 @@ class CreateAccountMessageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Create an account',
+              'Create an Account',
               textAlign: TextAlign.center,
               style: AppStyles.style28Bold,
             ),

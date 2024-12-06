@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
@@ -22,10 +24,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Email',
-          style: AppStyles.style18Meduim.copyWith(color: Colors.black),
-        ),
+        Text('Email', style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.emailAddress,
@@ -33,10 +32,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           validator: (value) {},
         ),
         verticalSpace(16),
-        Text(
-          'Password',
-          style: AppStyles.style18Meduim.copyWith(color: Colors.black),
-        ),
+        Text('Password', style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
@@ -60,7 +56,9 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
         AppTextButton(
           textButton: 'Login',
           textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            context.navigateToReplacement(Routes.bottomNavBar);
+          },
         ),
       ],
     );

@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/widgets/register/already_have_an_account_widget.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/widgets/register/create_account_message_widget.dart';
-import 'package:mentorea_mobile_app/features/auth/presentation/widgets/login_with_google_and_linkedin.dart';
-import 'package:mentorea_mobile_app/features/auth/presentation/widgets/register/mentee_register_form_widget.dart';
+import 'package:mentorea_mobile_app/features/auth/presentation/widgets/register/mentee_register_steper_widget.dart';
 
 class MenteeRegisterScreen extends StatelessWidget {
   const MenteeRegisterScreen({super.key});
@@ -21,9 +20,7 @@ class MenteeRegisterScreen extends StatelessWidget {
               children: [
                 const CreateAccountMessageWidget(),
                 verticalSpace(32),
-                const RegisterFormWidget(),
-                verticalSpace(24),
-                const LoginWithGoogleAndLinkedin(),
+                const MenteeRegisterSteperWidget(),
                 verticalSpace(43),
                 const AlreadyHaveAnAccountWidget(),
               ],

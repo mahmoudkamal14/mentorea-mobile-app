@@ -19,6 +19,14 @@ class AppStyles {
     height: 0,
   );
 
+  static TextStyle style18MeduimBlack = TextStyle(
+    color: Colors.black,
+    fontSize: 18.sp,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w500,
+    height: 0,
+  );
+
   static TextStyle style20Meduim = TextStyle(
     color: Colors.black,
     fontSize: 20.sp,

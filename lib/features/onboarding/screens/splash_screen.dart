@@ -16,9 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
         backgroundColor: const Color(0xff040B32),
-        splash: Image.asset(
-          'assets/icons/Mentorea Icon.png',
-        ),
+        splash: Image.asset('assets/icons/Mentorea Icon.png'),
         splashIconSize: 200,
         pageTransitionType: PageTransitionType.topToBottom,
         animationDuration: const Duration(milliseconds: 800),

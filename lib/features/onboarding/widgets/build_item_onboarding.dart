@@ -106,8 +106,8 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
       setState(() {
         onBoardingController.animateToPage(
           widget.index! + 1,
-          duration: const Duration(milliseconds: 700),
-          curve: Curves.easeInCirc,
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
         );
       });
     } else {
