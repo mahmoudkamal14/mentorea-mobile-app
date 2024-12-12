@@ -4,6 +4,7 @@ import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class PasswordUpdateSuccessfullyWidget extends StatelessWidget {
   const PasswordUpdateSuccessfullyWidget({super.key});
@@ -27,19 +28,19 @@ class PasswordUpdateSuccessfullyWidget extends StatelessWidget {
         ),
         verticalSpace(20),
         Text(
-          'Password Update Successfully',
+          S.of(context).passwordUpdateSuccessfullyTitle,
           style: AppStyles.style28Bold,
           textAlign: TextAlign.center,
         ),
         verticalSpace(16),
         Text(
-          'Your password has been\n updated successfully',
+          S.of(context).passwordUpdateSuccessfullyContent,
           style: AppStyles.style16Regular,
           textAlign: TextAlign.center,
         ),
         verticalSpace(40),
         AppTextButton(
-          textButton: 'Back to Login',
+          textButton: S.of(context).backToLogin,
           textStyle: AppStyles.style20Meduim.copyWith(color: Colors.white),
           onPressed: () {
             context.pop();

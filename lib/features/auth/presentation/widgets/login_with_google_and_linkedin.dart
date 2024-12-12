@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'login_with_social_item.dart';
 
@@ -11,16 +12,16 @@ class LoginWithGoogleAndLinkedin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('OR', style: AppStyles.style16Meduim),
+        Text(S.of(context).or, style: AppStyles.style16Meduim),
         verticalSpace(24),
         LoginWithSocialItem(
-          text: 'Continue with Google',
+          text: S.of(context).continueWithGoogle,
           iconPath: 'assets/icons/google icon.svg',
           onTap: () {},
         ),
         verticalSpace(16),
         LoginWithSocialItem(
-          text: 'Continue with LinkedIn',
+          text: S.of(context).continueWithLinkedIn,
           iconPath: 'assets/icons/linkedin icon.svg',
           onTap: () {},
         ),

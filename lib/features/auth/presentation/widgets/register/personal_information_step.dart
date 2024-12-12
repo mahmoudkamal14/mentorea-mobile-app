@@ -4,6 +4,7 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class PersonalInformationStep extends StatelessWidget {
   const PersonalInformationStep({super.key});
@@ -13,7 +14,7 @@ class PersonalInformationStep extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Your Name', style: AppStyles.style18MeduimBlack),
+        Text(S.of(context).name, style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.name,
@@ -21,7 +22,7 @@ class PersonalInformationStep extends StatelessWidget {
           validator: (value) {},
         ),
         verticalSpace(16),
-        Text('Phone', style: AppStyles.style18MeduimBlack),
+        Text(S.of(context).phone, style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         InternationalPhoneNumberInput(
           inputDecoration: InputDecoration(
@@ -48,12 +49,12 @@ class PersonalInformationStep extends StatelessWidget {
           onInputChanged: (value) {},
         ),
         verticalSpace(16),
-        Text('About Me', style: AppStyles.style18MeduimBlack),
+        Text(S.of(context).about, style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.text,
           maxLines: 5,
-          hintText: 'Im .......',
+          hintText: '.......',
           validator: (value) {},
         ),
       ],

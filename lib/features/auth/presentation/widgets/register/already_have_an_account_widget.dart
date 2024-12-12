@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class AlreadyHaveAnAccountWidget extends StatelessWidget {
   const AlreadyHaveAnAccountWidget({super.key});
@@ -13,7 +14,7 @@ class AlreadyHaveAnAccountWidget extends StatelessWidget {
         context.navigateToReplacement(Routes.loginScreen);
       },
       child: Text(
-        'I already have an account',
+        S.of(context).IAlreadyHaveAnAccount,
         textAlign: TextAlign.center,
         style: AppStyles.style18Meduim,
       ),

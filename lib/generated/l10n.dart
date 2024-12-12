@@ -49,6 +49,396 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back`
+  String get welcomeMessage {
+    return Intl.message(
+      'Welcome back',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the required details to access your account and find the right mentor for you`
+  String get welcomeMessageContent {
+    return Intl.message(
+      'Enter the required details to access your account and find the right mentor for you',
+      name: 'welcomeMessageContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an Account`
+  String get createAccountMessage {
+    return Intl.message(
+      'Create an Account',
+      name: 'createAccountMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start your journey with Mentorea and connect with expert mentors today`
+  String get createAccountMessageContent {
+    return Intl.message(
+      'Start your journey with Mentorea and connect with expert mentors today',
+      name: 'createAccountMessageContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get or {
+    return Intl.message(
+      'Or',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Google`
+  String get continueWithGoogle {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continueWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with LinkedIn`
+  String get continueWithLinkedIn {
+    return Intl.message(
+      'Continue with LinkedIn',
+      name: 'continueWithLinkedIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I don’t have an account`
+  String get IDontHaveAnAccount {
+    return Intl.message(
+      'I don’t have an account',
+      name: 'IDontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I already have an account`
+  String get IAlreadyHaveAnAccount {
+    return Intl.message(
+      'I already have an account',
+      name: 'IAlreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get Continue {
+    return Intl.message(
+      'Continue',
+      name: 'Continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email and Password`
+  String get emailAndPasswordStep {
+    return Intl.message(
+      'Email and Password',
+      name: 'emailAndPasswordStep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal Information`
+  String get personalInformationStep {
+    return Intl.message(
+      'Personal Information',
+      name: 'personalInformationStep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Career`
+  String get yourCareerStep {
+    return Intl.message(
+      'Your Career',
+      name: 'yourCareerStep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your field of study`
+  String get selectYourFieldOfStudy {
+    return Intl.message(
+      'Select your field of study',
+      name: 'selectYourFieldOfStudy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Goal`
+  String get yourGoal {
+    return Intl.message(
+      'Your Goal',
+      name: 'yourGoal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgotPasswordTitle {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email to receive a one-time password (OTP) for resetting your password.`
+  String get forgotPasswordContent {
+    return Intl.message(
+      'Enter your email to receive a one-time password (OTP) for resetting your password.',
+      name: 'forgotPasswordContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get sendCode {
+    return Intl.message(
+      'Send Code',
+      name: 'sendCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Verification Code`
+  String get verificationCodeTitle {
+    return Intl.message(
+      'Enter Verification Code',
+      name: 'verificationCodeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have to sent the verification code to\n`
+  String get verificationCodeContent {
+    return Intl.message(
+      'We have to sent the verification code to\n',
+      name: 'verificationCodeContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend code after`
+  String get resendCodeAfter {
+    return Intl.message(
+      'Resend code after',
+      name: 'resendCodeAfter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Password`
+  String get enterNewPasswordTitle {
+    return Intl.message(
+      'Enter New Password',
+      name: 'enterNewPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your new password`
+  String get enterNewPasswordContent {
+    return Intl.message(
+      'Please enter your new password',
+      name: 'enterNewPasswordContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Update Successfully`
+  String get passwordUpdateSuccessfullyTitle {
+    return Intl.message(
+      'Password Update Successfully',
+      name: 'passwordUpdateSuccessfullyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been\n updated successfully`
+  String get passwordUpdateSuccessfullyContent {
+    return Intl.message(
+      'Your password has been\n updated successfully',
+      name: 'passwordUpdateSuccessfullyContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Login`
+  String get backToLogin {
+    return Intl.message(
+      'Back to Login',
+      name: 'backToLogin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +447,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 

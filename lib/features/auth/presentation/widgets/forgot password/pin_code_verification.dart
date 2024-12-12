@@ -6,6 +6,7 @@ import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -29,10 +30,10 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Enter Verification Code', style: AppStyles.style28Bold),
+        Text(S.of(context).verificationCodeTitle, style: AppStyles.style28Bold),
         verticalSpace(16),
         Text(
-          'We have to sent the verification code to\n mentoreaapp19@gmail.com',
+          '${S.of(context).verificationCodeContent}mentoreaapp19@gmail.com',
           style: AppStyles.style16Regular,
           textAlign: TextAlign.center,
         ),
@@ -61,7 +62,7 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
         ),
         verticalSpace(30),
         AppTextButton(
-          textButton: 'Submit',
+          textButton: S.of(context).submit,
           textStyle: AppStyles.style20Meduim.copyWith(color: Colors.white),
           onPressed: () {
             context.pop();
@@ -72,7 +73,7 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
         TextButton(
           onPressed: () {},
           child: Text(
-            'Resend code after 00:52s',
+            '${S.of(context).resendCodeAfter} 00:52s',
             style: AppStyles.style18Meduim,
           ),
         ),

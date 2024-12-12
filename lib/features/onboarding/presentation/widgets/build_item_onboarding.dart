@@ -3,12 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/functions/build_animation.dart';
+import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
-import 'package:mentorea_mobile_app/features/onboarding/models/onboard_model.dart';
+import 'package:mentorea_mobile_app/features/onboarding/data/datasource/onboarding_data_list.dart';
+import 'package:mentorea_mobile_app/features/onboarding/data/models/onboard_model.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'onboarding_text_widget.dart';
 import 'onborading_image_widget.dart';
 import 'smooth_page_indicator_widget.dart';
@@ -22,7 +25,8 @@ class BuildItemOnBoarding extends StatefulWidget {
   State<BuildItemOnBoarding> createState() => _BuildItemOnBoardingState();
 }
 
-List<OnBoardingModel> model = onBoardingList;
+List<OnBoardingModel> model =
+    isArabic() ? onBoardingArabicList : onBoardingEnglishList;
 
 PageController onBoardingController = PageController();
 
@@ -54,7 +58,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                 child: Column(
                   children: [
                     SmoothPageIndicatorWidget(
-                      length: onBoardingList.length,
+                      length: onBoardingArabicList.length,
                       controller: onBoardingController,
                     ),
                     verticalSpace(45),
@@ -65,7 +69,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                         widget.index! != 2
                             ? Expanded(
                                 child: AppTextButton(
-                                  textButton: 'Skip',
+                                  textButton: S.of(context).skip,
                                   backgroundColor: const Color(0xFFFAFAFB),
                                   textStyle: AppStyles.style18Meduim
                                       .copyWith(color: Colors.black),

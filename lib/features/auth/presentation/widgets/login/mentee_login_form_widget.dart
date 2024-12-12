@@ -5,6 +5,7 @@ import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import '../forgot password/forgot_password_widget.dart';
 
@@ -24,7 +25,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Email', style: AppStyles.style18MeduimBlack),
+        Text(S.of(context).email, style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.emailAddress,
@@ -32,7 +33,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           validator: (value) {},
         ),
         verticalSpace(16),
-        Text('Password', style: AppStyles.style18MeduimBlack),
+        Text(S.of(context).password, style: AppStyles.style18MeduimBlack),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
@@ -54,7 +55,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
         const ForgotPasswordWidget(),
         verticalSpace(30),
         AppTextButton(
-          textButton: 'Login',
+          textButton: S.of(context).login,
           textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
           onPressed: () {
             context.navigateToReplacement(Routes.bottomNavBar);

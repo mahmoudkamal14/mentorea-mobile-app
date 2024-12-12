@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'forgot_password_form_widget.dart';
 
@@ -18,7 +19,8 @@ class ForgotPasswordWidget extends StatelessWidget {
         onPressed: () {
           forgotPasswordBottomSheet(context);
         },
-        child: Text('Forgot password?', style: AppStyles.style18Meduim),
+        child:
+            Text(S.of(context).forgotPassword, style: AppStyles.style18Meduim),
       ),
     );
   }
@@ -45,10 +47,11 @@ class ForgotPasswordWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Text('Forgot Password', style: AppStyles.style28Bold),
+              Text(S.of(context).forgotPasswordTitle,
+                  style: AppStyles.style28Bold),
               verticalSpace(16),
               Text(
-                'Enter your email to receive a one-time password (OTP) for resetting your password.',
+                S.of(context).forgotPasswordContent,
                 style: AppStyles.style16Regular,
                 textAlign: TextAlign.center,
               ),
