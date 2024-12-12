@@ -6,6 +6,7 @@ import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/widgets/forgot%20password/pin_code_verification.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class ForgorPasswordFormWidget extends StatelessWidget {
   const ForgorPasswordFormWidget({
@@ -18,7 +19,7 @@ class ForgorPasswordFormWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email',
+          S.of(context).email,
           style: AppStyles.style18Meduim.copyWith(color: Colors.black),
         ),
         verticalSpace(8),
@@ -29,7 +30,7 @@ class ForgorPasswordFormWidget extends StatelessWidget {
         ),
         verticalSpace(30),
         AppTextButton(
-          textButton: 'Send Code',
+          textButton: S.of(context).sendCode,
           textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
           onPressed: () {
             context.pop();

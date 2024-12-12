@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class DontHaveAnAccountWidget extends StatelessWidget {
   const DontHaveAnAccountWidget({super.key});
@@ -13,7 +14,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
         context.navigateToReplacement(Routes.registerScreen);
       },
       child: Text(
-        'I don’t have an account',
+        S.of(context).IDontHaveAnAccount,
         textAlign: TextAlign.center,
         style: AppStyles.style18Meduim,
       ),

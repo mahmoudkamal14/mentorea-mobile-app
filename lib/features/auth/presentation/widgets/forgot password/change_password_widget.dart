@@ -5,6 +5,7 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'password_update_successfully_widget.dart';
 
@@ -24,10 +25,10 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Enter New Password', style: AppStyles.style28Bold),
+        Text(S.of(context).enterNewPasswordTitle, style: AppStyles.style28Bold),
         verticalSpace(16),
         Text(
-          'Please enter your new password',
+          S.of(context).enterNewPasswordContent,
           style: AppStyles.style16Regular,
           textAlign: TextAlign.center,
         ),
@@ -36,7 +37,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Password',
+              S.of(context).password,
               style: AppStyles.style18Meduim.copyWith(color: Colors.black),
             ),
             verticalSpace(8),
@@ -57,7 +58,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
             verticalSpace(16),
             Text(
-              'Confirm password',
+              S.of(context).confirmPassword,
               style: AppStyles.style18Meduim.copyWith(color: Colors.black),
             ),
             verticalSpace(8),
@@ -79,7 +80,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
             verticalSpace(30),
             AppTextButton(
-              textButton: 'Change Password',
+              textButton: S.of(context).changePassword,
               textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
               onPressed: () {
                 context.pop();

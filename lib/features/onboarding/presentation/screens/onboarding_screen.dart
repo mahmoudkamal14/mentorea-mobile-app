@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/features/onboarding/models/onboard_model.dart';
-import 'package:mentorea_mobile_app/features/onboarding/widgets/build_item_onboarding.dart';
+import 'package:mentorea_mobile_app/features/onboarding/data/datasource/onboarding_data_list.dart';
+import 'package:mentorea_mobile_app/features/onboarding/presentation/widgets/build_item_onboarding.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -9,7 +9,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView.builder(
       itemBuilder: (context, index) => BuildItemOnBoarding(index: index),
-      itemCount: onBoardingList.length,
+      itemCount: onBoardingArabicList.length,
       controller: onBoardingController,
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class CreateAccountMessageWidget extends StatelessWidget {
   const CreateAccountMessageWidget({
@@ -15,7 +16,7 @@ class CreateAccountMessageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Create an Account',
+              S.of(context).createAccountMessage,
               textAlign: TextAlign.center,
               style: AppStyles.style28Bold,
             ),
@@ -23,7 +24,7 @@ class CreateAccountMessageWidget extends StatelessWidget {
         ),
         verticalSpace(8),
         Text(
-          'Start your journey with Mentorea and connect with expert mentors today',
+          S.of(context).createAccountMessageContent,
           style: AppStyles.style16Meduim,
           textAlign: TextAlign.center,
         ),

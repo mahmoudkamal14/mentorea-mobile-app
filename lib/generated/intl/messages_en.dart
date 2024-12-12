@@ -21,5 +21,68 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Continue": MessageLookupByLibrary.simpleMessage("Continue"),
+        "IAlreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("I already have an account"),
+        "IDontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("I don’t have an account"),
+        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "backToLogin": MessageLookupByLibrary.simpleMessage("Back to Login"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "continueWithGoogle":
+            MessageLookupByLibrary.simpleMessage("Continue with Google"),
+        "continueWithLinkedIn":
+            MessageLookupByLibrary.simpleMessage("Continue with LinkedIn"),
+        "createAccountMessage":
+            MessageLookupByLibrary.simpleMessage("Create an Account"),
+        "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
+            "Start your journey with Mentorea and connect with expert mentors today"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailAndPasswordStep":
+            MessageLookupByLibrary.simpleMessage("Email and Password"),
+        "enterNewPasswordContent": MessageLookupByLibrary.simpleMessage(
+            "Please enter your new password"),
+        "enterNewPasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Enter New Password"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "forgotPasswordContent": MessageLookupByLibrary.simpleMessage(
+            "Enter your email to receive a one-time password (OTP) for resetting your password."),
+        "forgotPasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordUpdateSuccessfullyContent":
+            MessageLookupByLibrary.simpleMessage(
+                "Your password has been\n updated successfully"),
+        "passwordUpdateSuccessfullyTitle": MessageLookupByLibrary.simpleMessage(
+            "Password Update Successfully"),
+        "personalInformationStep":
+            MessageLookupByLibrary.simpleMessage("Personal Information"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "resendCodeAfter":
+            MessageLookupByLibrary.simpleMessage("Resend code after"),
+        "selectYourFieldOfStudy":
+            MessageLookupByLibrary.simpleMessage("Select your field of study"),
+        "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "verificationCodeContent": MessageLookupByLibrary.simpleMessage(
+            "We have to sent the verification code to\n"),
+        "verificationCodeTitle":
+            MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
+        "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome back"),
+        "welcomeMessageContent": MessageLookupByLibrary.simpleMessage(
+            "Enter the required details to access your account and find the right mentor for you"),
+        "yourCareerStep": MessageLookupByLibrary.simpleMessage("Your Career"),
+        "yourGoal": MessageLookupByLibrary.simpleMessage("Your Goal")
+      };
 }

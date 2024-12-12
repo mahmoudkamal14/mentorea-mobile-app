@@ -5,6 +5,7 @@ import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/widgets/register/personal_information_step.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'career_information_step.dart';
 import 'email_and_password_step.dart';
@@ -32,7 +33,9 @@ class _MenteeRegisterSteperWidgetState
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               AppTextButton(
-                textButton: currentStep < 2 ? 'Continue' : 'Register',
+                textButton: currentStep < 2
+                    ? S.of(context).Continue
+                    : S.of(context).register,
                 textStyle:
                     AppStyles.style18Meduim.copyWith(color: Colors.white),
                 buttonHeight: 40.h,
@@ -49,7 +52,7 @@ class _MenteeRegisterSteperWidgetState
                 },
               ),
               AppTextButton(
-                textButton: 'Cancel',
+                textButton: S.of(context).cancel,
                 backgroundColor: const Color(0xFFF9F6FD),
                 textStyle: AppStyles.style18MeduimBlack,
                 buttonHeight: 40,
@@ -73,15 +76,18 @@ class _MenteeRegisterSteperWidgetState
       },
       steps: [
         Step(
-          title: Text('Email and Password', style: AppStyles.style20Meduim),
+          title: Text(S.of(context).emailAndPasswordStep,
+              style: AppStyles.style20Meduim),
           content: const EmailAndPasswordStep(),
         ),
         Step(
-          title: Text('Personal Information', style: AppStyles.style20Meduim),
+          title: Text(S.of(context).personalInformationStep,
+              style: AppStyles.style20Meduim),
           content: const PersonalInformationStep(),
         ),
         Step(
-          title: Text('Your Career', style: AppStyles.style20Meduim),
+          title: Text(S.of(context).yourCareerStep,
+              style: AppStyles.style20Meduim),
           content: const CareerInformationStep(),
         ),
       ],
