@@ -59,4 +59,11 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     height: 0,
   );
+
+  static TextStyle style14RegularWhite = TextStyle(
+    color: Colors.white,
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w400,
+    height: 0.h,
+  );
 }

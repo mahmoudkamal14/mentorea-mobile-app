@@ -29,14 +29,14 @@ List<OnBoardingModel> onBoardingEnglishList = [
     title: 'Connect with Expert Mentors',
     image: 'assets/images/undraw_active_support_re_b7sj.svg',
     textBody:
-        'Find mentors specialized in your field and\n easily connect with them via chat or\n video calls. Mentorea brings\n expertise right to your fingertips.',
+        'Find mentors specialized in your field and easily connect with them via chat or video calls. Mentorea brings expertise right to your fingertips.',
     textButton: 'Next',
   ),
   OnBoardingModel(
     title: 'Plan Your Sessions Easily',
     image: 'assets/images/undraw_online_learning_re_qw08.svg',
     textBody:
-        'Set up convenient times for your mentoring sessions with a user-friendly interface.\n We make time management simple\n and effective.',
+        'Set up convenient times for your mentoring sessions with a user-friendly interface. We make time management simple and effective.',
     textButton: 'Next',
   ),
   OnBoardingModel(
