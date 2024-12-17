@@ -37,5 +37,20 @@
       "changePassword": "Change Password",
       "passwordUpdateSuccessfullyTitle": "Password Update Successfully",
       "passwordUpdateSuccessfullyContent": "Your password has been\n updated successfully",
-      "backToLogin": "Back to Login"
+      "backToLogin": "Back to Login",
+      "Home": "Home",
+      "Explore": "Explore",
+      "Bookings": "Bookings",
+      "Community": "Community",
+      "Profile": "Profile",
+      "EditProfile": "Edit Profile",
+      "PersonalInformation": "Personal Information",
+      "CardDetails": "Card details",
+      "ManageNotifications": "Manage notifications",
+      "Settings": "Settings",
+      "PrivacyPolicy": "Privacy policy",
+      "Logout": "Logout",
+      "darkMode": "Dark Mode",
+      "Mentorea":"Mentorea"
+
 }

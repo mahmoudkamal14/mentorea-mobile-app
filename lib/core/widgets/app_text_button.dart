@@ -44,7 +44,7 @@ class AppTextButton extends StatelessWidget {
           child: Text(
             textAlign: TextAlign.center,
             textButton,
-            style: textStyle ?? AppStyles.style18Meduim,
+            style: textStyle ?? AppStyles.style18MeduimWhite,
           ),
         ),
       ),

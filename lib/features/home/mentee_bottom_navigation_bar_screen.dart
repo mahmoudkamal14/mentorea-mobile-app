@@ -8,7 +8,8 @@ import 'package:mentorea_mobile_app/features/bookings/mentee_bookings_screen.dar
 import 'package:mentorea_mobile_app/features/community/community_screen.dart';
 import 'package:mentorea_mobile_app/features/explore/explore_screen.dart';
 import 'package:mentorea_mobile_app/features/home/presentation/screens/mentee_home_screen.dart';
-import 'package:mentorea_mobile_app/features/profile/mentee_profile_screen.dart';
+import 'package:mentorea_mobile_app/features/profile/screens/mentee_profile_screen.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class MenteeBottomNavigationBarScreen extends StatefulWidget {
   const MenteeBottomNavigationBarScreen({super.key});
@@ -36,7 +37,7 @@ class _BottomNavigationBarScreenState
       backgroundColor: const Color(0xFFF9F6FD),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(bottom: 30.h),
+          padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           child: screens[_currentIndex],
         ),
       ),
@@ -49,27 +50,27 @@ class _BottomNavigationBarScreenState
         items: [
           CurvedNavigationBarItem(
             child: const Icon(Icons.home_outlined, color: Colors.white),
-            label: 'Home',
+            label: S.of(context).Home,
             labelStyle: AppStyles.style14RegularWhite,
           ),
           CurvedNavigationBarItem(
             child: const Icon(Icons.explore_outlined, color: AppColors.white),
-            label: 'Explore',
+            label: S.of(context).Explore,
             labelStyle: AppStyles.style14RegularWhite,
           ),
           CurvedNavigationBarItem(
             child: const Icon(Icons.access_time, color: AppColors.white),
-            label: 'Bookings',
+            label: S.of(context).Bookings,
             labelStyle: AppStyles.style14RegularWhite,
           ),
           CurvedNavigationBarItem(
             child: const Icon(Icons.people_alt_outlined, color: Colors.white),
-            label: 'Community',
+            label: S.of(context).Community,
             labelStyle: AppStyles.style14RegularWhite,
           ),
           CurvedNavigationBarItem(
             child: const Icon(Icons.perm_identity, color: Colors.white),
-            label: 'Profile',
+            label: S.of(context).Profile,
             labelStyle: AppStyles.style14RegularWhite,
           ),
         ],

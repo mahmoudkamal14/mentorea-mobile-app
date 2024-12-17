@@ -22,11 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Bookings": MessageLookupByLibrary.simpleMessage("الحجوزات"),
+        "CardDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البطاقة"),
+        "Community": MessageLookupByLibrary.simpleMessage("المجتمع"),
         "Continue": MessageLookupByLibrary.simpleMessage("استمر"),
+        "EditProfile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "Explore": MessageLookupByLibrary.simpleMessage("استكشف"),
+        "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "IAlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لدي حساب بالفعل"),
         "IDontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("ليس لدي حساب"),
+        "Logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "ManageNotifications":
+            MessageLookupByLibrary.simpleMessage("إدارة الإشعارات"),
+        "Mentorea": MessageLookupByLibrary.simpleMessage("منتوريا"),
+        "PersonalInformation":
+            MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
+        "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+        "Profile": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "about": MessageLookupByLibrary.simpleMessage("نبذة عنك"),
         "backToLogin":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
@@ -43,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "ابدأ رحلتك مع منتوريا وتواصل مع المرشدين الخبراء اليوم"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("الوضع المظلم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد إلكتروني"),
         "emailAndPasswordStep": MessageLookupByLibrary.simpleMessage(
             "البريد الإلكتروني وكلمة المرور"),
