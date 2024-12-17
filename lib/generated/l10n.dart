@@ -439,6 +439,146 @@ class S {
       args: [],
     );
   }
+
+  /// `Home`
+  String get Home {
+    return Intl.message(
+      'Home',
+      name: 'Home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore`
+  String get Explore {
+    return Intl.message(
+      'Explore',
+      name: 'Explore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bookings`
+  String get Bookings {
+    return Intl.message(
+      'Bookings',
+      name: 'Bookings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Community`
+  String get Community {
+    return Intl.message(
+      'Community',
+      name: 'Community',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get Profile {
+    return Intl.message(
+      'Profile',
+      name: 'Profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get EditProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'EditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal Information`
+  String get PersonalInformation {
+    return Intl.message(
+      'Personal Information',
+      name: 'PersonalInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card details`
+  String get CardDetails {
+    return Intl.message(
+      'Card details',
+      name: 'CardDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage notifications`
+  String get ManageNotifications {
+    return Intl.message(
+      'Manage notifications',
+      name: 'ManageNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get Settings {
+    return Intl.message(
+      'Settings',
+      name: 'Settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy policy`
+  String get PrivacyPolicy {
+    return Intl.message(
+      'Privacy policy',
+      name: 'PrivacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get Logout {
+    return Intl.message(
+      'Logout',
+      name: 'Logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mentorea`
+  String get Mentorea {
+    return Intl.message(
+      'Mentorea',
+      name: 'Mentorea',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

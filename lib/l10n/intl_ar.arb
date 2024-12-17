@@ -37,5 +37,20 @@
       "changePassword": "تغيير كلمة المرور",
       "passwordUpdateSuccessfullyTitle": "تم تحديث كلمة المرور بنجاح",
       "passwordUpdateSuccessfullyContent": "لقد تم تحديث كلمة المرور الخاصة بك بنجاح",
-      "backToLogin": "العودة إلى تسجيل الدخول"
+      "backToLogin": "العودة إلى تسجيل الدخول",
+      "Home": "الرئيسية",
+      "Explore": "استكشف",
+      "Bookings": "الحجوزات",
+      "Community": "المجتمع",
+      "Profile": "الحساب",
+      "EditProfile": "تعديل الملف الشخصي",
+      "PersonalInformation": "المعلومات الشخصية",
+      "CardDetails": "تفاصيل البطاقة",
+      "ManageNotifications": "إدارة الإشعارات",
+      "Settings": "الإعدادات",
+      "PrivacyPolicy": "سياسة الخصوصية",
+      "Logout": "تسجيل الخروج",
+      "darkMode": "الوضع المظلم",
+      "Mentorea":"منتوريا"
+
 }

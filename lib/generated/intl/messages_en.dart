@@ -22,11 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Bookings": MessageLookupByLibrary.simpleMessage("Bookings"),
+        "CardDetails": MessageLookupByLibrary.simpleMessage("Card details"),
+        "Community": MessageLookupByLibrary.simpleMessage("Community"),
         "Continue": MessageLookupByLibrary.simpleMessage("Continue"),
+        "EditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "Explore": MessageLookupByLibrary.simpleMessage("Explore"),
+        "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "IAlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("I already have an account"),
         "IDontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("I don’t have an account"),
+        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "ManageNotifications":
+            MessageLookupByLibrary.simpleMessage("Manage notifications"),
+        "Mentorea": MessageLookupByLibrary.simpleMessage("Mentorea"),
+        "PersonalInformation":
+            MessageLookupByLibrary.simpleMessage("Personal Information"),
+        "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy policy"),
+        "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "backToLogin": MessageLookupByLibrary.simpleMessage("Back to Login"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -42,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create an Account"),
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "Start your journey with Mentorea and connect with expert mentors today"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAndPasswordStep":
             MessageLookupByLibrary.simpleMessage("Email and Password"),

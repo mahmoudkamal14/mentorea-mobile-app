@@ -6,6 +6,10 @@ import 'package:mentorea_mobile_app/features/auth/presentation/screens/mentee_re
 import 'package:mentorea_mobile_app/features/home/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/features/onboarding/presentation/screens/splash_screen.dart';
+import 'package:mentorea_mobile_app/features/profile/screens/manage_notifications_screen.dart';
+import 'package:mentorea_mobile_app/features/profile/screens/mentee_personal_info_screen.dart';
+import 'package:mentorea_mobile_app/features/profile/screens/privacy_policy_screen.dart';
+import 'package:mentorea_mobile_app/features/profile/screens/settings_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -39,6 +43,30 @@ class AppRouter {
       case Routes.bottomNavBar:
         return smoothEaseInOutPageRoute(
           const MenteeBottomNavigationBarScreen(),
+          settings: settings,
+        );
+
+      case Routes.menteePersonalInfo:
+        return smoothEaseInOutPageRoute(
+          const MenteePersonalInfoScreen(),
+          settings: settings,
+        );
+
+      case Routes.manageNotifications:
+        return smoothEaseInOutPageRoute(
+          const ManageNotificationsScreen(),
+          settings: settings,
+        );
+
+      case Routes.privacyPolicy:
+        return smoothEaseInOutPageRoute(
+          const PrivacyPolicyScreen(),
+          settings: settings,
+        );
+
+      case Routes.settingsScreen:
+        return smoothEaseInOutPageRoute(
+          const SettingsScreen(),
           settings: settings,
         );
 
