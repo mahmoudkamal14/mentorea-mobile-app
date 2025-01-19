@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 
@@ -24,25 +25,21 @@ class ProfileListTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SizedBox(
-        height: 76.h,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 60.h,
-              width: double.infinity,
-              child: ListTile(
-                leading: CircleAvatar(child: SvgPicture.asset(image)),
-                title: Text(title, style: AppStyles.style18MeduimBlack),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: colorIcon ?? const Color(0xFF103A69),
-                ),
-              ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 70.h,
+            width: double.infinity,
+            child: Row(
+              children: [
+                CircleAvatar(child: SvgPicture.asset(image)),
+                horizontalSpace(16),
+                Text(title, style: AppStyles.style18MeduimBlack),
+              ],
             ),
-            lastItem == true ? const SizedBox.shrink() : const DividerWidget(),
-          ],
-        ),
+          ),
+          lastItem == true ? const SizedBox.shrink() : const DividerWidget(),
+        ],
       ),
     );
   }
