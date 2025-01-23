@@ -3,18 +3,16 @@ import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title, this.icon});
+  const CustomAppBar({super.key, required this.title});
 
   final String title;
-
-  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AppbarIcon(icon: icon),
+        const AppbarIcon(),
         Text(title, style: AppStyles.style24Meduim),
         Container(
           width: 40,

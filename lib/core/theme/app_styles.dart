@@ -53,7 +53,7 @@ class AppStyles {
 
   static TextStyle style24Bold = TextStyle(
     color: Colors.black,
-    fontSize: 20.sp,
+    fontSize: 24.sp,
     fontFamily: 'Lato',
     fontWeight: FontWeight.w700,
     height: 0,

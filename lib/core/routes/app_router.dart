@@ -3,6 +3,8 @@ import 'package:mentorea_mobile_app/core/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/screens/mentee_login_screen.dart';
 import 'package:mentorea_mobile_app/features/auth/presentation/screens/mentee_register_screen.dart';
+import 'package:mentorea_mobile_app/features/explore/presentation/screens/book_session_screen.dart';
+import 'package:mentorea_mobile_app/features/explore/presentation/screens/mentor_profile_screen.dart';
 import 'package:mentorea_mobile_app/features/home/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/features/onboarding/presentation/screens/splash_screen.dart';
@@ -67,6 +69,18 @@ class AppRouter {
       case Routes.settingsScreen:
         return smoothEaseInOutPageRoute(
           const SettingsScreen(),
+          settings: settings,
+        );
+
+      case Routes.mentorProfileScreen:
+        return smoothEaseInOutPageRoute(
+          const MentorProfileScreen(),
+          settings: settings,
+        );
+
+      case Routes.bookSessionScreen:
+        return smoothEaseInOutPageRoute(
+          const BookSessionScreen(),
           settings: settings,
         );
 
