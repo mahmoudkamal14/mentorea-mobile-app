@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
-import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/mentor_tab_bar_overview.dart';
-import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/mentor_tab_bar_reviews.dart';
-import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/mentor_tab_bar_session.dart';
+import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/overview/mentor_tab_bar_overview.dart';
+import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/reviews/mentor_tab_bar_reviews.dart';
+import 'package:mentorea_mobile_app/features/explore/presentation/widgets/mentor%20profile/sessions/mentor_tab_bar_session.dart';
 
 class MentorInfoTabBarWidget extends StatefulWidget {
   const MentorInfoTabBarWidget({super.key});
@@ -49,7 +49,7 @@ class _MentorInfoTabBarWidgetState extends State<MentorInfoTabBarWidget>
             dividerColor: const Color(0xFF103A69),
             tabs: const [
               Text('Overview'),
-              Text('Session'),
+              Text('Sessions'),
               Text('Reviews'),
             ],
           ),
