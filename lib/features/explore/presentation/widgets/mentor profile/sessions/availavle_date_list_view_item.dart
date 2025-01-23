@@ -4,9 +4,16 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 
 class AvailavleDateListViewItem extends StatelessWidget {
-  const AvailavleDateListViewItem({super.key, required this.slots});
+  const AvailavleDateListViewItem({
+    super.key,
+    required this.slots,
+    required this.selectedItemIndex,
+    required this.itemIndex,
+  });
 
   final int slots;
+  final int selectedItemIndex;
+  final int itemIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +21,8 @@ class AvailavleDateListViewItem extends StatelessWidget {
       height: 120.h,
       width: 100.w,
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5),
+        color: selectedItemIndex == itemIndex ? Colors.blue : Colors.white,
+        border: Border.all(width: 1),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(

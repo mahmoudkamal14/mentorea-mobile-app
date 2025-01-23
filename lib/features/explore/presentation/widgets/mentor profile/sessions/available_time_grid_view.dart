@@ -3,8 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'available_time_grid_view_item.dart';
 
-class AvailableTimeGridView extends StatelessWidget {
+class AvailableTimeGridView extends StatefulWidget {
   const AvailableTimeGridView({super.key});
+
+  @override
+  State<AvailableTimeGridView> createState() => _AvailableTimeGridViewState();
+}
+
+class _AvailableTimeGridViewState extends State<AvailableTimeGridView> {
+  int selectedItemIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,17 @@ class AvailableTimeGridView extends StatelessWidget {
         mainAxisSpacing: 10.h,
         childAspectRatio: 2.5,
       ),
-      itemBuilder: (context, index) => const AvailableTimeGridViewItem(),
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () {
+          setState(() {
+            selectedItemIndex = index;
+          });
+        },
+        child: AvailableTimeGridViewItem(
+          itemIndex: index,
+          selectedItemIndex: selectedItemIndex,
+        ),
+      ),
     );
   }
 }
