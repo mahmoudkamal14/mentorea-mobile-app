@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/register/already_have_an_account_widget.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/register/create_account_message_widget.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/register/mentee_register_steper_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/already_have_an_account_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/create_account_message_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_register_steper_widget.dart';
 
 class MenteeRegisterScreen extends StatelessWidget {
   const MenteeRegisterScreen({super.key});

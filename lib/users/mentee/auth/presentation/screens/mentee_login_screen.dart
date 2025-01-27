@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/login/dont_have_an_account_widget.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/login/mentee_login_form_widget.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/login_with_google_and_linkedin.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/login/welcome_message_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/dont_have_an_account_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/mentee_login_form_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/welcome_message_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login_with_google_and_linkedin.dart';
 
 class MenteeLoginScreen extends StatelessWidget {
   const MenteeLoginScreen({super.key});

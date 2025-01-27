@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/register/field_of_study_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/field_of_study_widget.dart';
 
 class CareerInformationStep extends StatelessWidget {
   const CareerInformationStep({super.key});

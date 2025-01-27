@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/widgets/mentor_card_list_view_item.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor_card_list_view_item.dart';
 
 class MentorListView extends StatelessWidget {
   const MentorListView({super.key});

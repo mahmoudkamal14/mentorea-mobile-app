@@ -6,7 +6,7 @@ import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/widgets/mentor%20profile/sessions/available_date_list_view.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/sessions/available_date_list_view.dart';
 
 import 'sessions/available_time_grid_view.dart';
 

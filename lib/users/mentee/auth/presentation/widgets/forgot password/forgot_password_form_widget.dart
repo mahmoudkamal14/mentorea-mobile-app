@@ -5,8 +5,8 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/forgot%20password/pin_code_verification.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/forgot%20password/pin_code_verification.dart';
 
 class ForgorPasswordFormWidget extends StatelessWidget {
   const ForgorPasswordFormWidget({

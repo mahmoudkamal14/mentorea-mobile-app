@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/custom_appbar.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/widgets/change_theme_mode.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/widgets/change_theme_mode.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
