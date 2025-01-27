@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
+import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
+
+class CommunityPostListViewItem extends StatefulWidget {
+  const CommunityPostListViewItem({
+    super.key,
+    required this.selectedItem,
+  });
+
+  final int selectedItem;
+
+  @override
+  State<CommunityPostListViewItem> createState() =>
+      _CommunityPostListViewItemState();
+}
+
+class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
+  bool liked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ContainerCardWidget(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 28.r,
+                backgroundImage: const AssetImage('assets/images/daif.png'),
+              ),
+              horizontalSpace(12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Ali Daif', style: AppStyles.style24Meduim),
+                  verticalSpace(4),
+                  Text(
+                    'Senior Backend Developer',
+                    style: AppStyles.style16Regular,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          verticalSpace(16),
+          Text(
+            'This is what i learned in my recent course\n“The whole secret of existence”\n\n"The whole secret of existence lies in the pursuit of meaning, purpose, and connection. It is a delicate dance between self-discovery, compassion for others, and embracing the ever-unfolding mysteries of life. Finding harmony in the ebb and flow of experiences, we unlock the profound beauty that resides within our shared journey."',
+            style: AppStyles.style18MeduimBlack.copyWith(
+              color: const Color(0xFF2D3748),
+            ),
+          ),
+          verticalSpace(16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('38' ' Likes', style: AppStyles.style16Regular),
+              Text('12' ' Comments', style: AppStyles.style16Regular),
+              Text('6' ' Repost', style: AppStyles.style16Regular),
+            ],
+          ),
+          const DividerWidget(),
+          verticalSpace(8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    liked = !liked;
+                  });
+                },
+                child: liked
+                    ? const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                      )
+                    : const Icon(
+                        Icons.favorite_border,
+                        color: Color(0xFF2D3748),
+                      ),
+              ),
+              horizontalSpace(8),
+              const Icon(Icons.comment_outlined, color: Color(0xFF2D3748)),
+              horizontalSpace(8),
+              const Icon(Icons.share, color: Color(0xFF2D3748)),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

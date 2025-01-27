@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/screens/mentee_login_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/screens/mentee_register_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/screens/book_session_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/screens/mentor_profile_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/home/mentee_bottom_navigation_bar_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/onboarding/presentation/screens/splash_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/screens/manage_notifications_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/screens/mentee_personal_info_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/screens/privacy_policy_screen.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/screens/settings_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_login_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_register_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/mentee_bottom_navigation_bar_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/screens/manage_notifications_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/screens/mentee_personal_info_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/screens/privacy_policy_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/screens/settings_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {

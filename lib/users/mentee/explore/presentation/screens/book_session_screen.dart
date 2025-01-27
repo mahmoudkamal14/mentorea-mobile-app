@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/widgets/book%20session/book_session_steper.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/book%20session/book_session_steper.dart';
 
 class BookSessionScreen extends StatelessWidget {
   const BookSessionScreen({super.key});

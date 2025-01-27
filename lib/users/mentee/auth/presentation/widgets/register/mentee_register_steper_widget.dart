@@ -4,8 +4,8 @@ import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
-import 'package:mentorea_mobile_app/Mentee/auth/presentation/widgets/register/personal_information_step.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/personal_information_step.dart';
 
 import 'career_information_step.dart';
 import 'email_and_password_step.dart';

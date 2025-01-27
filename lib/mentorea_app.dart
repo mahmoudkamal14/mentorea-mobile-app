@@ -24,7 +24,9 @@ class MentoreaApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.splashScreen,
           onGenerateRoute: appRouter.generateRoute,
-          theme: ThemeData(useMaterial3: true),
+          theme: ThemeData(
+            useMaterial3: false,
+          ),
           locale: const Locale('en', 'ar'),
           localizationsDelegates: const [
             S.delegate,

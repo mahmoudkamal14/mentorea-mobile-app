@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/widgets/profile_list_tile_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/widgets/profile_list_tile_widget.dart';
 
 class MenteeProfileListTileInfo extends StatelessWidget {
   const MenteeProfileListTileInfo({
@@ -51,7 +51,7 @@ class MenteeProfileListTileInfo extends StatelessWidget {
         ProfileListTileWidget(
           image: 'assets/icons/power_settings_new.svg',
           title: S.of(context).Logout,
-          colorIcon: const Color(0xFFD73619),
+          colorIcon: Colors.amber,
           lastItem: true,
           onTap: () {
             context.navigateToReplacement(Routes.loginScreen);

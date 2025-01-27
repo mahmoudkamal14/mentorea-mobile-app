@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/widgets/book%20session/book_session_review_step.dart';
-import 'package:mentorea_mobile_app/Mentee/explore/presentation/widgets/book%20session/book_session_schedule_step.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/book%20session/book_session_review_step.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/book%20session/book_session_schedule_step.dart';
 
 import 'book_session_payment_step.dart';
 

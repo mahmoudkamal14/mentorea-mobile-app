@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
-import 'package:mentorea_mobile_app/Mentee/profile/widgets/mentee_profile_list_tile_info.dart';
-import 'package:mentorea_mobile_app/Mentee/home/presentation/widget/drawer_profile_image.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/widgets/mentee_profile_list_tile_info.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/drawer_profile_image.dart';
 
 class MenteeDrawerWidget extends StatelessWidget {
   const MenteeDrawerWidget({
@@ -19,7 +19,7 @@ class MenteeDrawerWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const DrawerProfileImage(),
-            verticalSpace(100),
+            verticalSpace(85),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
@@ -37,6 +37,7 @@ class MenteeDrawerWidget extends StatelessWidget {
                     height: 1.h,
                     color: const Color(0xFF103A69),
                   ),
+                  verticalSpace(10),
                   const MenteeProfileListTileInfo(),
                 ],
               ),

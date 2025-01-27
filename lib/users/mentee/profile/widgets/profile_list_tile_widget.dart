@@ -28,11 +28,14 @@ class ProfileListTileWidget extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 70.h,
+            height: 60.h,
             width: double.infinity,
             child: Row(
               children: [
-                CircleAvatar(child: SvgPicture.asset(image)),
+                CircleAvatar(
+                  backgroundColor: colorIcon ?? const Color(0xFF103A69),
+                  child: SvgPicture.asset(image),
+                ),
                 horizontalSpace(16),
                 Text(title, style: AppStyles.style18MeduimBlack),
               ],
