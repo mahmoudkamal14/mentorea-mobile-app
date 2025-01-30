@@ -21,7 +21,7 @@ animationWidget({required int delay, required Widget child}) {
   );
 }
 
-Widget animationText(int? index, int delay, Widget child) {
+Widget animationText({int? index, required int delay, required Widget child}) {
   if (index == 1) {
     return FadeInRight(
       delay: Duration(milliseconds: delay),

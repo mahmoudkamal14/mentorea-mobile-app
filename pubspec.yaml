@@ -35,6 +35,7 @@ dependencies:
   easy_stepper: ^0.8.5+1
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.0.0
   flutter_launcher_icons: ^0.14.1
   flutter_localizations:
     sdk: flutter
@@ -46,6 +47,7 @@ dependencies:
   intl_utils: ^2.8.7
   page_transition: ^2.1.0
   pin_code_fields: ^8.0.1
+  shared_preferences: ^2.4.0
   smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:

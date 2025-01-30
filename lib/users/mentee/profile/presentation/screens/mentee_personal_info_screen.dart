@@ -3,8 +3,8 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/widgets/mentee_info_widget.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/widgets/mentee_profile_image.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/mentee_info_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/mentee_profile_image.dart';
 
 class MenteePersonalInfoScreen extends StatelessWidget {
   const MenteePersonalInfoScreen({super.key});
@@ -26,6 +26,7 @@ class MenteePersonalInfoScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
           child: Column(
             children: [
               const MenteeProfileImage(),

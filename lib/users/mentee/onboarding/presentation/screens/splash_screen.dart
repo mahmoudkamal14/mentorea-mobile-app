@@ -1,8 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
 import 'package:page_transition/page_transition.dart';
-
-import 'onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,6 +19,6 @@ class _SplashScreenState extends State<SplashScreen> {
         splashIconSize: 200,
         pageTransitionType: PageTransitionType.topToBottom,
         animationDuration: const Duration(milliseconds: 800),
-        nextScreen: const OnboardingScreen());
+        nextScreen: const LanguageScreen());
   }
 }

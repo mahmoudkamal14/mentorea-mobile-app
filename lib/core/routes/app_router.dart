@@ -6,12 +6,13 @@ import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mente
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/mentee_bottom_navigation_bar_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/screens/manage_notifications_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/screens/mentee_personal_info_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/screens/privacy_policy_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/screens/settings_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/manage_notifications_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -21,6 +22,12 @@ class AppRouter {
       case Routes.splashScreen:
         return smoothEaseInOutPageRoute(
           const SplashScreen(),
+          settings: settings,
+        );
+
+      case Routes.languageScreen:
+        return smoothEaseInOutPageRoute(
+          const LanguageScreen(),
           settings: settings,
         );
 

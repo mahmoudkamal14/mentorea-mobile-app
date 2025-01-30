@@ -69,7 +69,7 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
             changePasswordBottomSheet(context);
           },
         ),
-        const Spacer(),
+        verticalSpace(12),
         TextButton(
           onPressed: () {},
           child: Text(
@@ -88,7 +88,7 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
       builder: (context) {
         return Container(
           width: double.infinity,
-          height: 450.h,
+          height: 496.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
             color: Colors.white,

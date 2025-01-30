@@ -47,7 +47,7 @@ class ForgorPasswordFormWidget extends StatelessWidget {
       builder: (context) {
         return Container(
           width: double.infinity,
-          height: 400.h,
+          height: 450.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
             color: Colors.white,
