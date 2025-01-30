@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mentorea_mobile_app/core/routes/app_router.dart';
 
-import 'package:mentorea_mobile_app/mentorea_app.dart';
+import 'package:mentorea_mobile_app/app/mentorea_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

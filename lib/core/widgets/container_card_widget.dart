@@ -19,7 +19,7 @@ class ContainerCardWidget extends StatelessWidget {
         ),
         shadows: [
           BoxShadow(
-            color: const Color(0x14000000),
+            color: const Color(0xFFFFFFFF),
             blurRadius: 10.07.r,
             offset: const Offset(1.01, 1.01),
             spreadRadius: 0,

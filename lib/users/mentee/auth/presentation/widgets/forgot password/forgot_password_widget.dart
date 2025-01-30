@@ -37,7 +37,7 @@ class ForgotPasswordWidget extends StatelessWidget {
       builder: (context) {
         return Container(
           width: double.infinity,
-          height: 380.h,
+          height: 400.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
             color: Colors.white,
