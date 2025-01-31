@@ -25,17 +25,23 @@ class MenteePersonalInfoScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              const MenteeProfileImage(),
-              verticalSpace(20),
-              const MenteeInfoWidget(),
-            ],
+        child: RefreshIndicator(
+          onRefresh: () => _refreshData(),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const MenteeProfileImage(),
+                verticalSpace(20),
+                const MenteeInfoWidget(),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _refreshData() async {
+    await Future.delayed(const Duration(seconds: 1));
   }
 }

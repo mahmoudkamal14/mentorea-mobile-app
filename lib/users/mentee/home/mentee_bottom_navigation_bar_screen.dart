@@ -2,6 +2,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/theme/app_colors.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -40,6 +41,21 @@ class _BottomNavigationBarScreenState
         elevation: 0.0,
         title: Text(S.of(context).Mentorea, style: AppStyles.style24Bold),
         centerTitle: true,
+        actions: [
+          _currentIndex == 0
+              ? Padding(
+                  padding: EdgeInsets.only(
+                    right: isArabic() == false ? 10.h : 0,
+                    left: isArabic() == true ? 10.h : 0,
+                  ),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child:
+                        const Icon(Icons.notifications_none_outlined, size: 30),
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ],
       ),
       drawer: const MenteeDrawerWidget(),
       body: SafeArea(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/profile_list_tile_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/drawer%20widget/profile_list_tile_widget.dart';
 
 class MenteeProfileListTileInfo extends StatelessWidget {
   const MenteeProfileListTileInfo({
@@ -24,7 +24,7 @@ class MenteeProfileListTileInfo extends StatelessWidget {
           image: 'assets/icons/credit_card.svg',
           title: S.of(context).CardDetails,
           onTap: () {
-            //   context.navigateTo(Routes.menteePersonalInfo);
+            context.navigateTo(Routes.paymentMethodsScreen);
           },
         ),
         ProfileListTileWidget(
