@@ -11,4 +11,5 @@ class Routes {
   static const String privacyPolicy = '/privacyPolicy';
   static const String mentorProfileScreen = '/mentorProfileScreen';
   static const String bookSessionScreen = '/bookSessionScreen';
+  static const String paymentMethodsScreen = '/paymentMethodsScreen';
 }

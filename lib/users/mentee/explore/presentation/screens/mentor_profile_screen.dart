@@ -11,7 +11,7 @@ class MentorProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F6FD),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF103A69),
@@ -34,13 +34,6 @@ class MentorProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      // floatingActionButton: AppTextButton(
-      //   onPressed: () {
-      //     context.navigateTo(Routes.bookSessionScreen);
-      //   },
-      //   textButton: 'Book Session',
-      //   buttonWidth: 150.w,
-      // ),
     );
   }
 }

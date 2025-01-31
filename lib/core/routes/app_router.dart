@@ -11,6 +11,7 @@ import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/manage_notifications_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
 
@@ -88,6 +89,12 @@ class AppRouter {
       case Routes.bookSessionScreen:
         return smoothEaseInOutPageRoute(
           const BookSessionScreen(),
+          settings: settings,
+        );
+
+      case Routes.paymentMethodsScreen:
+        return smoothEaseInOutPageRoute(
+          const PaymentMethodsScreen(),
           settings: settings,
         );
 
