@@ -10,9 +10,9 @@ class AppbarIcon extends StatelessWidget {
       onTap: () {
         context.pop();
       },
-      child: const Icon(
+      child: Icon(
         Icons.arrow_back_ios_new_outlined,
-        color: Colors.white,
+        color: Theme.of(context).appBarTheme.iconTheme?.color,
       ),
     );
   }

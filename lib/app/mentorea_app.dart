@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/routes/app_router.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/theme/dark_mode.dart';
+import 'package:mentorea_mobile_app/core/theme/light_mode.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:mentorea_mobile_app/app/logic/language_cubit.dart';
-import 'package:mentorea_mobile_app/app/logic/language_state.dart';
+import 'package:mentorea_mobile_app/app/logic/app_cubit.dart';
+import 'package:mentorea_mobile_app/app/logic/app_state.dart';
 
 class MentoreaApp extends StatelessWidget {
   const MentoreaApp({super.key, required this.appRouter});
@@ -15,22 +17,22 @@ class MentoreaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
-
     return BlocProvider(
-      create: (context) => LanguageCubit(),
-      child: ScreenUtilInit(
-        designSize: Size(width, height),
-        minTextAdapt: true,
-        builder: (context, child) {
-          return BlocBuilder<LanguageCubit, LanguageState>(
-            builder: (context, state) {
+      create: (context) => AppCubit(),
+      child: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          return ScreenUtilInit(
+            designSize: MediaQuery.sizeOf(context),
+            minTextAdapt: true,
+            builder: (context, child) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 initialRoute: Routes.splashScreen,
+                //home: const HomeScreen(),
                 onGenerateRoute: appRouter.generateRoute,
-                theme: ThemeData(useMaterial3: false),
+                theme: lightTheme,
+                darkTheme: darkTheme,
+                themeMode: AppCubit.get(context).getThemeMode(),
                 locale: const Locale('en'),
                 localizationsDelegates: const [
                   S.delegate,

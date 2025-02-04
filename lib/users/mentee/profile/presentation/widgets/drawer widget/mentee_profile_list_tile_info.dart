@@ -51,7 +51,6 @@ class MenteeProfileListTileInfo extends StatelessWidget {
         ProfileListTileWidget(
           image: 'assets/icons/power_settings_new.svg',
           title: S.of(context).Logout,
-          colorIcon: Colors.amber,
           lastItem: true,
           onTap: () {
             context.navigateToReplacement(Routes.loginScreen);

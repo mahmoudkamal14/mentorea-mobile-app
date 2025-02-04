@@ -1,16 +1,15 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
-import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 
 class ProfileListTileWidget extends StatelessWidget {
   const ProfileListTileWidget({
     super.key,
     required this.image,
     required this.title,
-    this.colorIcon,
     required this.onTap,
     this.lastItem,
   });
@@ -18,7 +17,6 @@ class ProfileListTileWidget extends StatelessWidget {
   final String image;
   final String title;
   final bool? lastItem;
-  final Color? colorIcon;
   final Function() onTap;
 
   @override
@@ -33,15 +31,25 @@ class ProfileListTileWidget extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: colorIcon ?? const Color(0xFF103A69),
-                  child: SvgPicture.asset(image),
+                  backgroundColor:
+                      Theme.of(context).appBarTheme.backgroundColor,
+                  child: SvgPicture.asset(
+                    image,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                 ),
                 horizontalSpace(16),
-                Text(title, style: AppStyles.style18MeduimBlack),
+                Text(title, style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           ),
-          lastItem == true ? const SizedBox.shrink() : const DividerWidget(),
+          lastItem == true
+              ? const SizedBox.shrink()
+              : Container(
+                  width: double.infinity,
+                  height: 1.h,
+                  color: Theme.of(context).dividerColor,
+                ),
         ],
       ),
     );
