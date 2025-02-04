@@ -1,5 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NotificationPlayingWidget extends StatefulWidget {
   const NotificationPlayingWidget({super.key});
@@ -16,13 +18,14 @@ class _NotificationPlayingWidgetState extends State<NotificationPlayingWidget> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
+      color: Theme.of(context).scaffoldBackgroundColor,
       child: ListTile(
-        leading: const Icon(
-          Icons.notifications_none_sharp,
-          color: Color(0xFF103A69),
-          size: 30,
+        leading: SvgPicture.asset(
+          'assets/icons/bell-notification-social-media.svg',
+          color: Theme.of(context).iconTheme.color,
         ),
-        title: Text('Notifications', style: AppStyles.style24Meduim),
+        title:
+            Text('Notifications', style: Theme.of(context).textTheme.bodyLarge),
         trailing: Switch(
           activeColor: const Color(0xFF103A69),
           value: isOpened,

@@ -3,8 +3,6 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
-import 'package:mentorea_mobile_app/core/theme/app_colors.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/mentee_bookings_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/community/presentation/screens/community_screen.dart';
@@ -34,12 +32,16 @@ class _BottomNavigationBarScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        iconTheme: Theme.of(context).appBarTheme.iconTheme,
+        actionsIconTheme: Theme.of(context).appBarTheme.actionsIconTheme,
         elevation: 0.0,
-        title: Text(S.of(context).Mentorea, style: AppStyles.style24Bold),
+        title: Text(
+          S.of(context).Mentorea,
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
         centerTitle: true,
         actions: [
           _currentIndex == 0
@@ -67,30 +69,59 @@ class _BottomNavigationBarScreenState
       bottomNavigationBar: CurvedNavigationBar(
         height: 74.h,
         animationDuration: const Duration(milliseconds: 900),
-        backgroundColor: Colors.white,
-        buttonBackgroundColor: const Color(0xFF103A69),
-        color: const Color(0xFF103A69),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        buttonBackgroundColor:
+            Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        color: Theme.of(context).hoverColor,
         index: _currentIndex,
         items: [
           CurvedNavigationBarItem(
-            child: const Icon(Icons.home_outlined, color: Colors.white),
+            child: Icon(
+              Icons.home_outlined,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedIconTheme
+                  ?.color,
+            ),
             label: S.of(context).Home,
-            labelStyle: AppStyles.style14RegularWhite,
+            labelStyle:
+                Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
-            child: const Icon(Icons.explore_outlined, color: AppColors.white),
+            child: Icon(
+              Icons.explore_outlined,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedIconTheme
+                  ?.color,
+            ),
             label: S.of(context).Explore,
-            labelStyle: AppStyles.style14RegularWhite,
+            labelStyle:
+                Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
-            child: const Icon(Icons.access_time, color: AppColors.white),
+            child: Icon(
+              Icons.access_time,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedIconTheme
+                  ?.color,
+            ),
             label: S.of(context).Bookings,
-            labelStyle: AppStyles.style14RegularWhite,
+            labelStyle:
+                Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
-            child: const Icon(Icons.people_alt_outlined, color: Colors.white),
+            child: Icon(
+              Icons.people_alt_outlined,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedIconTheme
+                  ?.color,
+            ),
             label: S.of(context).Community,
-            labelStyle: AppStyles.style14RegularWhite,
+            labelStyle:
+                Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
         ],
         onTap: (index) {

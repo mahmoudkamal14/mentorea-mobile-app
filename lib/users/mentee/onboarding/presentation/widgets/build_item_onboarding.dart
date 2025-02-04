@@ -50,75 +50,76 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFAFAFB),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            flex: 6,
-            child: OnBoradingImageWidget(image: model[widget.index!].image),
-          ),
-          Expanded(
-            flex: 5,
-            child: animationWidget(
-              delay: 500,
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(28),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          flex: 6,
+          child: OnBoradingImageWidget(image: model[widget.index!].image),
+        ),
+        Expanded(
+          flex: 5,
+          child: animationWidget(
+            delay: 500,
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
+              decoration: ShapeDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+              ),
+              child: Column(
+                children: [
+                  SmoothPageIndicatorWidget(
+                    length: onBoardingArabicList.length,
+                    controller: onBoardingController,
                   ),
-                ),
-                child: Column(
-                  children: [
-                    SmoothPageIndicatorWidget(
-                      length: onBoardingArabicList.length,
-                      controller: onBoardingController,
-                    ),
-                    verticalSpace(45),
-                    Expanded(child: OnBoardingTextWidget(widget: widget)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        widget.index! != 2
-                            ? Expanded(
-                                child: AppTextButton(
-                                  textButton: S.of(context).skip,
-                                  backgroundColor: const Color(0xFFFAFAFB),
-                                  textStyle: AppStyles.style18Meduim
-                                      .copyWith(color: Colors.black),
-                                  onPressed: () {
-                                    context.navigateToReplacement(
-                                        Routes.loginScreen);
-                                  },
-                                ),
-                              )
-                            : const SizedBox(),
-                        widget.index! != 2
-                            ? horizontalSpace(20)
-                            : const SizedBox(),
-                        Expanded(
-                          child: AppTextButton(
-                            textButton: model[widget.index!].textButton,
-                            textStyle: AppStyles.style18Meduim
-                                .copyWith(color: Colors.white),
-                            onPressed: () {
-                              onDotClicked(context);
-                            },
-                          ),
+                  verticalSpace(45),
+                  Expanded(child: OnBoardingTextWidget(widget: widget)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      widget.index! != 2
+                          ? Expanded(
+                              child: AppTextButton(
+                                textButton: S.of(context).skip,
+                                backgroundColor: Theme.of(context).cardColor,
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall
+                                    ?.copyWith(
+                                      color: Theme.of(context).hintColor,
+                                    ),
+                                onPressed: () {
+                                  context.navigateToReplacement(
+                                      Routes.loginScreen);
+                                },
+                              ),
+                            )
+                          : const SizedBox(),
+                      widget.index! != 2
+                          ? horizontalSpace(20)
+                          : const SizedBox(),
+                      Expanded(
+                        child: AppTextButton(
+                          textButton: model[widget.index!].textButton,
+                          textStyle: AppStyles.style18Meduim
+                              .copyWith(color: Colors.white),
+                          onPressed: () {
+                            onDotClicked(context);
+                          },
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 
@@ -36,11 +35,14 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Ali Daif', style: AppStyles.style24Meduim),
+                  Text(
+                    'Ali Daif',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   verticalSpace(4),
                   Text(
                     'Senior Backend Developer',
-                    style: AppStyles.style16Regular,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -49,17 +51,16 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
           verticalSpace(16),
           Text(
             'This is what i learned in my recent course\n“The whole secret of existence”\n\n"The whole secret of existence lies in the pursuit of meaning, purpose, and connection. It is a delicate dance between self-discovery, compassion for others, and embracing the ever-unfolding mysteries of life. Finding harmony in the ebb and flow of experiences, we unlock the profound beauty that resides within our shared journey."',
-            style: AppStyles.style18MeduimBlack.copyWith(
-              color: const Color(0xFF2D3748),
-            ),
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           verticalSpace(16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('38' ' Likes', style: AppStyles.style16Regular),
-              Text('12' ' Comments', style: AppStyles.style16Regular),
-              Text('6' ' Repost', style: AppStyles.style16Regular),
+              Text('38' ' Likes', style: Theme.of(context).textTheme.bodySmall),
+              Text('12' ' Comments',
+                  style: Theme.of(context).textTheme.bodySmall),
+              Text('6' ' Repost', style: Theme.of(context).textTheme.bodySmall),
             ],
           ),
           const DividerWidget(),
@@ -78,15 +79,18 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
                         Icons.favorite,
                         color: Colors.red,
                       )
-                    : const Icon(
+                    : Icon(
                         Icons.favorite_border,
-                        color: Color(0xFF2D3748),
+                        color: Theme.of(context).iconTheme.color,
                       ),
               ),
               horizontalSpace(8),
-              const Icon(Icons.comment_outlined, color: Color(0xFF2D3748)),
+              Icon(
+                Icons.comment_outlined,
+                color: Theme.of(context).iconTheme.color,
+              ),
               horizontalSpace(8),
-              const Icon(Icons.share, color: Color(0xFF2D3748)),
+              Icon(Icons.share, color: Theme.of(context).iconTheme.color),
             ],
           ),
         ],

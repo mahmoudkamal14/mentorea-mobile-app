@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/drawer%20widget/mentee_profile_list_tile_info.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/drawer_profile_image.dart';
 
@@ -13,7 +12,7 @@ class MenteeDrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFFF9F6FD),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,17 +24,20 @@ class MenteeDrawerWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Ali Daif Taha', style: AppStyles.style24Meduim),
+                  Text(
+                    'Ali Daif Taha',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   verticalSpace(10),
                   Text(
                     'Machine Learning Engineer',
-                    style: AppStyles.style16Regular,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   verticalSpace(20),
                   Container(
                     width: double.infinity,
                     height: 1.h,
-                    color: const Color(0xFF103A69),
+                    color: Theme.of(context).dividerColor,
                   ),
                   verticalSpace(10),
                   const MenteeProfileListTileInfo(),

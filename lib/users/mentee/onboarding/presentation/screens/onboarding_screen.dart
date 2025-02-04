@@ -7,10 +7,13 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      itemBuilder: (context, index) => BuildItemOnBoarding(index: index),
-      itemCount: onBoardingArabicList.length,
-      controller: onBoardingController,
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: PageView.builder(
+        itemBuilder: (context, index) => BuildItemOnBoarding(index: index),
+        itemCount: onBoardingArabicList.length,
+        controller: onBoardingController,
+      ),
     );
   }
 }

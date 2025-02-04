@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/card_setting_item_widget.dart';
@@ -15,13 +14,14 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF103A69),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
         leading: const AppbarIcon(),
+        iconTheme: Theme.of(context).appBarTheme.iconTheme,
         centerTitle: true,
         title: Text(
           S.current.Settings,
-          style: AppStyles.style24Bold.copyWith(color: Colors.white),
+          style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
       body: SafeArea(
@@ -47,12 +47,12 @@ class SettingsScreen extends StatelessWidget {
             const ChangeThemeMode(),
             CardSettingItemWidget(
               title: 'Rate Us',
-              image: 'assets/icons/settings_icon.svg',
+              image: 'assets/icons/feedback-review.svg',
               onTap: () {},
             ),
             CardSettingItemWidget(
               title: 'Delete Account',
-              image: 'assets/icons/settings_icon.svg',
+              image: 'assets/icons/delete-user.svg',
               onTap: () {},
             ),
           ],
