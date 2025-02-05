@@ -4,11 +4,14 @@ abstract class AppState {}
 
 final class AppInitialState extends AppState {}
 
-final class LanguageArabicState extends AppState {}
+final class LanguageChangedState extends AppState {
+  final String language;
 
-final class LanguageEnglishState extends AppState {}
+  LanguageChangedState({required this.language});
+}
 
-class ThemeChanged extends AppState {
+class ThemeChangedState extends AppState {
   final ThemeMode themeMode;
-  ThemeChanged({required this.themeMode});
+
+  ThemeChangedState({required this.themeMode});
 }

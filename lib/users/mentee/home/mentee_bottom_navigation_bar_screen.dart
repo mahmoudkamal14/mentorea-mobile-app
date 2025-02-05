@@ -78,48 +78,52 @@ class _BottomNavigationBarScreenState
           CurvedNavigationBarItem(
             child: Icon(
               Icons.home_outlined,
+              size: 30,
               color: Theme.of(context)
                   .bottomNavigationBarTheme
                   .selectedIconTheme
                   ?.color,
             ),
-            label: S.of(context).Home,
+            label: _currentIndex == 0 ? null : S.of(context).Home,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
             child: Icon(
               Icons.explore_outlined,
+              size: 30,
               color: Theme.of(context)
                   .bottomNavigationBarTheme
                   .selectedIconTheme
                   ?.color,
             ),
-            label: S.of(context).Explore,
+            label: _currentIndex == 1 ? null : S.of(context).Explore,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
             child: Icon(
               Icons.access_time,
+              size: 30,
               color: Theme.of(context)
                   .bottomNavigationBarTheme
                   .selectedIconTheme
                   ?.color,
             ),
-            label: S.of(context).Bookings,
+            label: _currentIndex == 2 ? null : S.of(context).Bookings,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
           CurvedNavigationBarItem(
             child: Icon(
               Icons.people_alt_outlined,
+              size: 30,
               color: Theme.of(context)
                   .bottomNavigationBarTheme
                   .selectedIconTheme
                   ?.color,
             ),
-            label: S.of(context).Community,
+            label: _currentIndex == 3 ? null : S.of(context).Community,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/card_setting_item_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/change_language_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/change_theme_mode.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/notification_playing_widget.dart';
 
@@ -29,29 +30,25 @@ class SettingsScreen extends StatelessWidget {
           spacing: 10.h,
           children: [
             CardSettingItemWidget(
-              title: 'Edit Profile',
+              title: S.current.EditProfile,
               image: 'assets/icons/user-pen.svg',
               onTap: () {},
             ),
             CardSettingItemWidget(
-              title: 'Change Password',
+              title: S.current.changePassword,
               image: 'assets/icons/password-lock.svg',
               onTap: () {},
             ),
-            CardSettingItemWidget(
-              title: 'Change Language',
-              image: 'assets/icons/language-exchange.svg',
-              onTap: () {},
-            ),
+            const ChangeLanguageWidget(),
             const NotificationPlayingWidget(),
             const ChangeThemeMode(),
             CardSettingItemWidget(
-              title: 'Rate Us',
+              title: S.current.rateUs,
               image: 'assets/icons/feedback-review.svg',
               onTap: () {},
             ),
             CardSettingItemWidget(
-              title: 'Delete Account',
+              title: S.current.deleteAccount,
               image: 'assets/icons/delete-user.svg',
               onTap: () {},
             ),

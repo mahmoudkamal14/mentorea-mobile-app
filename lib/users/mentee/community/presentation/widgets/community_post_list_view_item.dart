@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class CommunityPostListViewItem extends StatefulWidget {
   const CommunityPostListViewItem({
@@ -57,10 +58,12 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('38' ' Likes', style: Theme.of(context).textTheme.bodySmall),
-              Text('12' ' Comments',
+              Text('38' ' ${S.current.likes}',
                   style: Theme.of(context).textTheme.bodySmall),
-              Text('6' ' Repost', style: Theme.of(context).textTheme.bodySmall),
+              Text('12' ' ${S.current.comments}',
+                  style: Theme.of(context).textTheme.bodySmall),
+              Text('6' ' ${S.current.repost}',
+                  style: Theme.of(context).textTheme.bodySmall),
             ],
           ),
           const DividerWidget(),

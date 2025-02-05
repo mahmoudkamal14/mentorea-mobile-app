@@ -5,6 +5,7 @@ import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class CreateNewPostWidget extends StatelessWidget {
   const CreateNewPostWidget({
@@ -25,7 +26,7 @@ class CreateNewPostWidget extends StatelessWidget {
               ),
               horizontalSpace(12),
               Text(
-                'write your post here',
+                S.current.writeYourPostHere,
                 style: AppStyles.style20Meduim.copyWith(
                   color: const Color(0xFF646366),
                 ),
@@ -40,7 +41,7 @@ class CreateNewPostWidget extends StatelessWidget {
             child: AppTextButton(
               buttonWidth: 140.w,
               buttonHeight: 46.h,
-              textButton: 'Publish Post',
+              textButton: S.current.publishPost,
               onPressed: () {},
             ),
           ),

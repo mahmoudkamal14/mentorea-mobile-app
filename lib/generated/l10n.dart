@@ -560,11 +560,41 @@ class S {
     );
   }
 
-  /// `Dark Mode`
-  String get darkMode {
+  /// `Theme Mode`
+  String get themeMode {
     return Intl.message(
-      'Dark Mode',
-      name: 'darkMode',
+      'Theme Mode',
+      name: 'themeMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System`
+  String get system {
+    return Intl.message(
+      'System',
+      name: 'system',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
       desc: '',
       args: [],
     );
@@ -575,6 +605,186 @@ class S {
     return Intl.message(
       'Mentorea',
       name: 'Mentorea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Language`
+  String get changeLanguage {
+    return Intl.message(
+      'Change Language',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدد لغتك`
+  String get selectYourLanguage {
+    return Intl.message(
+      'حدد لغتك',
+      name: 'selectYourLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate Us`
+  String get rateUs {
+    return Intl.message(
+      'Rate Us',
+      name: 'rateUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Likes`
+  String get likes {
+    return Intl.message(
+      'Likes',
+      name: 'likes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comments`
+  String get comments {
+    return Intl.message(
+      'Comments',
+      name: 'comments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repost`
+  String get repost {
+    return Intl.message(
+      'Repost',
+      name: 'repost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publish Post`
+  String get publishPost {
+    return Intl.message(
+      'Publish Post',
+      name: 'publishPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `write your post here`
+  String get writeYourPostHere {
+    return Intl.message(
+      'write your post here',
+      name: 'writeYourPostHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overview`
+  String get overView {
+    return Intl.message(
+      'Overview',
+      name: 'overView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sessions`
+  String get sessions {
+    return Intl.message(
+      'sessions',
+      name: 'sessions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Education`
+  String get education {
+    return Intl.message(
+      'Education',
+      name: 'education',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skills`
+  String get skills {
+    return Intl.message(
+      'Skills',
+      name: 'skills',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience`
+  String get Experience {
+    return Intl.message(
+      'Experience',
+      name: 'Experience',
       desc: '',
       args: [],
     );

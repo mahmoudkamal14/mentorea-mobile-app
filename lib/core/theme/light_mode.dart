@@ -28,7 +28,7 @@ ThemeData lightTheme = ThemeData(
     titleLarge: TextStyle(
       color: const Color(0xFF1C1C1E),
       fontSize: 28.sp,
-      fontFamily: 'Lato',
+      fontFamily: 'Gilroy',
       fontWeight: FontWeight.w700,
       height: 0,
     ),
@@ -63,7 +63,7 @@ ThemeData lightTheme = ThemeData(
     bodySmall: TextStyle(
       color: const Color(0xFF6A6A6C),
       fontSize: 16.sp,
-      fontFamily: 'Lato',
+      fontFamily: 'Inter',
       fontWeight: FontWeight.w500,
       height: 0,
     ),

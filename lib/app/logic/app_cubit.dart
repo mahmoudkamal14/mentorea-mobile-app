@@ -5,19 +5,23 @@ import 'package:mentorea_mobile_app/core/cache/shared_pref_helper.dart';
 
 enum ThemeModeState { light, dark, system }
 
+enum LanguageState { arabic, english }
+
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitialState()) {
     _loadTheme();
+    _loadLanguage();
   }
 
   static AppCubit get(context) => BlocProvider.of(context);
 
   ThemeModeState currentTheme = ThemeModeState.system;
+  LanguageState currentLanguage = LanguageState.arabic;
 
-  Future<void> setTheme(ThemeModeState theme) async {
+  Future<void> selectTheme(ThemeModeState theme) async {
     currentTheme = theme;
     getThemeMode();
-    emit(ThemeChanged(themeMode: getThemeMode()));
+    emit(ThemeChangedState(themeMode: getThemeMode()));
 
     await CacheHelper.saveData(key: 'themeMode', value: currentTheme.name);
   }
@@ -32,7 +36,7 @@ class AppCubit extends Cubit<AppState> {
       );
     }
 
-    emit(ThemeChanged(themeMode: getThemeMode()));
+    emit(ThemeChangedState(themeMode: getThemeMode()));
   }
 
   ThemeMode getThemeMode() {
@@ -43,6 +47,38 @@ class AppCubit extends Cubit<AppState> {
         return ThemeMode.light;
       case ThemeModeState.system:
         return ThemeMode.system;
+    }
+  }
+
+  Future<void> selectLanguage(LanguageState language) async {
+    currentLanguage = language;
+
+    getCurrentLanguage();
+
+    emit(LanguageChangedState(language: getCurrentLanguage()));
+
+    await CacheHelper.saveData(key: 'language', value: currentLanguage.name);
+  }
+
+  Future<void> _loadLanguage() async {
+    String? savedLanguage = await CacheHelper.getData(key: 'language');
+
+    if (savedLanguage != null) {
+      currentLanguage = LanguageState.values.firstWhere(
+        (e) => e.name == savedLanguage,
+        orElse: () => LanguageState.arabic,
+      );
+    }
+
+    emit(LanguageChangedState(language: getCurrentLanguage()));
+  }
+
+  String getCurrentLanguage() {
+    switch (currentLanguage) {
+      case LanguageState.arabic:
+        return 'ar';
+      case LanguageState.english:
+        return 'en';
     }
   }
 }

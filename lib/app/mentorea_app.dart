@@ -28,12 +28,11 @@ class MentoreaApp extends StatelessWidget {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 initialRoute: Routes.splashScreen,
-                //home: const HomeScreen(),
                 onGenerateRoute: appRouter.generateRoute,
                 theme: lightTheme,
                 darkTheme: darkTheme,
                 themeMode: AppCubit.get(context).getThemeMode(),
-                locale: const Locale('en'),
+                locale: Locale(AppCubit.get(context).getCurrentLanguage()),
                 localizationsDelegates: const [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,
