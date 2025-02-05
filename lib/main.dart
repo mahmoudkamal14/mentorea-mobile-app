@@ -15,6 +15,3 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   runApp(MentoreaApp(appRouter: AppRouter()));
 }
-
-
-// App Cubit -> All Screens

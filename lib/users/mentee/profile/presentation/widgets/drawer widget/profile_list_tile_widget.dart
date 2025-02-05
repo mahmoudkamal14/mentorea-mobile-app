@@ -31,8 +31,7 @@ class ProfileListTileWidget extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundColor:
-                      Theme.of(context).appBarTheme.backgroundColor,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   child: SvgPicture.asset(
                     image,
                     color: Theme.of(context).iconTheme.color,

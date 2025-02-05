@@ -9,7 +9,7 @@ ThemeData darkTheme = ThemeData(
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: Color(0xFF1C1C1E),
+      systemNavigationBarColor: Color(0xFF161617),
       systemNavigationBarIconBrightness: Brightness.light,
     ),
     backgroundColor: const Color(0xFF1C1C1E),
@@ -28,7 +28,7 @@ ThemeData darkTheme = ThemeData(
     titleLarge: TextStyle(
       color: const Color(0xFFE0E0E0),
       fontSize: 28.sp,
-      fontFamily: 'Lato',
+      fontFamily: 'Gilroy',
       fontWeight: FontWeight.w700,
       height: 0,
     ),
@@ -63,7 +63,7 @@ ThemeData darkTheme = ThemeData(
     bodySmall: TextStyle(
       color: const Color(0xFFB0B0B0),
       fontSize: 16.sp,
-      fontFamily: 'Lato',
+      fontFamily: 'Inter',
       fontWeight: FontWeight.w500,
       height: 0,
     ),

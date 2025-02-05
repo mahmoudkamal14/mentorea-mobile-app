@@ -10,14 +10,9 @@ import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/app/logic/app_cubit.dart';
 import 'package:mentorea_mobile_app/app/logic/app_state.dart';
 
-class LanguageScreen extends StatefulWidget {
+class LanguageScreen extends StatelessWidget {
   const LanguageScreen({super.key});
 
-  @override
-  State<LanguageScreen> createState() => _LanguageScreenState();
-}
-
-class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
@@ -47,8 +42,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         child: AppTextButton(
                           textButton: 'العربية',
                           onPressed: () {
-                            // AppCubit.get(context)
-                            //     .selectLanguage(language: 'ar');
+                            AppCubit.get(context)
+                                .selectLanguage(LanguageState.arabic);
                             context.navigateToReplacement(
                               Routes.onboardingScreen,
                             );
@@ -63,8 +58,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           textButton: 'English',
                           backgroundColor: Colors.lightGreen,
                           onPressed: () {
-                            // AppCubit.get(context)
-                            //     .selectLanguage(language: 'en');
+                            AppCubit.get(context)
+                                .selectLanguage(LanguageState.english);
                             context.navigateToReplacement(
                               Routes.onboardingScreen,
                             );

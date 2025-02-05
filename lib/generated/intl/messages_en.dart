@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Community": MessageLookupByLibrary.simpleMessage("Community"),
         "Continue": MessageLookupByLibrary.simpleMessage("Continue"),
         "EditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "Experience": MessageLookupByLibrary.simpleMessage("Experience"),
         "Explore": MessageLookupByLibrary.simpleMessage("Explore"),
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "IAlreadyHaveAnAccount":
@@ -43,10 +44,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "backToLogin": MessageLookupByLibrary.simpleMessage("Back to Login"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("Change Language"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "continueWithGoogle":
@@ -57,10 +62,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create an Account"),
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "Start your journey with Mentorea and connect with expert mentors today"),
-        "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+        "dark": MessageLookupByLibrary.simpleMessage("Dark"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "education": MessageLookupByLibrary.simpleMessage("Education"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAndPasswordStep":
             MessageLookupByLibrary.simpleMessage("Email and Password"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterNewPasswordContent": MessageLookupByLibrary.simpleMessage(
             "Please enter your new password"),
         "enterNewPasswordTitle":
@@ -71,9 +79,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your email to receive a one-time password (OTP) for resetting your password."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "light": MessageLookupByLibrary.simpleMessage("Light"),
+        "likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "overView": MessageLookupByLibrary.simpleMessage("Overview"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordUpdateSuccessfullyContent":
             MessageLookupByLibrary.simpleMessage(
@@ -83,14 +95,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalInformationStep":
             MessageLookupByLibrary.simpleMessage("Personal Information"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "publishPost": MessageLookupByLibrary.simpleMessage("Publish Post"),
+        "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "repost": MessageLookupByLibrary.simpleMessage("Repost"),
         "resendCodeAfter":
             MessageLookupByLibrary.simpleMessage("Resend code after"),
+        "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "selectYourFieldOfStudy":
             MessageLookupByLibrary.simpleMessage("Select your field of study"),
+        "selectYourLanguage": MessageLookupByLibrary.simpleMessage("حدد لغتك"),
         "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "sessions": MessageLookupByLibrary.simpleMessage("sessions"),
+        "skills": MessageLookupByLibrary.simpleMessage("Skills"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "system": MessageLookupByLibrary.simpleMessage("System"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
         "verificationCodeContent": MessageLookupByLibrary.simpleMessage(
             "We have to sent the verification code to\n"),
         "verificationCodeTitle":
@@ -98,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome back"),
         "welcomeMessageContent": MessageLookupByLibrary.simpleMessage(
             "Enter the required details to access your account and find the right mentor for you"),
+        "writeYourPostHere":
+            MessageLookupByLibrary.simpleMessage("write your post here"),
         "yourCareerStep": MessageLookupByLibrary.simpleMessage("Your Career"),
         "yourGoal": MessageLookupByLibrary.simpleMessage("Your Goal")
       };

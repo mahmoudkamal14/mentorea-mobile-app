@@ -1,7 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class NotificationPlayingWidget extends StatefulWidget {
   const NotificationPlayingWidget({super.key});
@@ -24,8 +23,10 @@ class _NotificationPlayingWidgetState extends State<NotificationPlayingWidget> {
           'assets/icons/bell-notification-social-media.svg',
           color: Theme.of(context).iconTheme.color,
         ),
-        title:
-            Text('Notifications', style: Theme.of(context).textTheme.bodyLarge),
+        title: Text(
+          S.current.notifications,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         trailing: Switch(
           activeColor: const Color(0xFF103A69),
           value: isOpened,

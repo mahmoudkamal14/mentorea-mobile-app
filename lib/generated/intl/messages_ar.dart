@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("استمر"),
         "EditProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "Experience": MessageLookupByLibrary.simpleMessage("الخبرة"),
         "Explore": MessageLookupByLibrary.simpleMessage("استكشف"),
         "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "IAlreadyHaveAnAccount":
@@ -44,11 +45,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Profile": MessageLookupByLibrary.simpleMessage("الحساب"),
         "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "about": MessageLookupByLibrary.simpleMessage("نبذة عنك"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "backToLogin":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "comments": MessageLookupByLibrary.simpleMessage("تعليقات"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "continueWithGoogle":
@@ -59,10 +63,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "ابدأ رحلتك مع منتوريا وتواصل مع المرشدين الخبراء اليوم"),
-        "darkMode": MessageLookupByLibrary.simpleMessage("الوضع المظلم"),
+        "dark": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "education": MessageLookupByLibrary.simpleMessage("التعليم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد إلكتروني"),
         "emailAndPasswordStep": MessageLookupByLibrary.simpleMessage(
             "البريد الإلكتروني وكلمة المرور"),
+        "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
         "enterNewPasswordContent": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال كلمة المرور الجديدة"),
         "enterNewPasswordTitle":
@@ -73,9 +80,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل بريدك الإلكتروني لتلقي كلمة مرور لمرة واحدة (OTP) لإعادة تعيين كلمة المرور الخاصة بك."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر"),
+        "light": MessageLookupByLibrary.simpleMessage("الوضع الساطع"),
+        "likes": MessageLookupByLibrary.simpleMessage("تفاعلات"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
+        "overView": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordUpdateSuccessfullyContent":
             MessageLookupByLibrary.simpleMessage(
@@ -85,14 +96,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalInformationStep":
             MessageLookupByLibrary.simpleMessage("معلومات شخصية"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+        "publishPost": MessageLookupByLibrary.simpleMessage("شارك منشورك الآن"),
+        "rateUs": MessageLookupByLibrary.simpleMessage("قم بتقييمنا"),
         "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+        "repost": MessageLookupByLibrary.simpleMessage("إعادة النشر"),
         "resendCodeAfter":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز بعد"),
+        "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "selectYourFieldOfStudy":
             MessageLookupByLibrary.simpleMessage("حدد مجال دراستك"),
+        "selectYourLanguage": MessageLookupByLibrary.simpleMessage("حدد لغتك"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "sessions": MessageLookupByLibrary.simpleMessage("الجلسات"),
+        "skills": MessageLookupByLibrary.simpleMessage("المهارات"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "submit": MessageLookupByLibrary.simpleMessage("تحقق"),
+        "system": MessageLookupByLibrary.simpleMessage("النظام"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("وضع العرض"),
         "verificationCodeContent": MessageLookupByLibrary.simpleMessage(
             "يتعين علينا إرسال رمز التحقق إلى"),
         "verificationCodeTitle":
@@ -100,6 +120,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeMessage": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
         "welcomeMessageContent": MessageLookupByLibrary.simpleMessage(
             "أدخل التفاصيل المطلوبة للوصول إلى حسابك والعثور على المرشد المناسب لك"),
+        "writeYourPostHere":
+            MessageLookupByLibrary.simpleMessage("عبّر عما يدور في بالك"),
         "yourCareerStep":
             MessageLookupByLibrary.simpleMessage("مسيرتك المهنية"),
         "yourGoal": MessageLookupByLibrary.simpleMessage("هدفك")

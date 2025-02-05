@@ -28,13 +28,6 @@ class MenteeProfileListTileInfo extends StatelessWidget {
           },
         ),
         ProfileListTileWidget(
-          image: 'assets/icons/notifications_none.svg',
-          title: S.of(context).ManageNotifications,
-          onTap: () {
-            context.navigateTo(Routes.manageNotifications);
-          },
-        ),
-        ProfileListTileWidget(
           image: 'assets/icons/settings.svg',
           title: S.of(context).Settings,
           onTap: () {
