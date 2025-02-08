@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/book%20session/book_session_steper.dart';
 
@@ -12,16 +11,16 @@ class BookSessionScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF103A69),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
         leading: const AppbarIcon(),
         centerTitle: true,
         title: Text(
           'Book Session',
-          style: AppStyles.style24Bold.copyWith(color: Colors.white),
+          style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
-      backgroundColor: const Color(0xFFF9F6FD),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),

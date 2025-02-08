@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/already_have_an_account_widget.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/create_account_message_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_already_have_an_account_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_create_account_message_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_register_steper_widget.dart';
 
 class MenteeRegisterScreen extends StatelessWidget {
@@ -11,18 +11,18 @@ class MenteeRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F6FD),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
+            padding: EdgeInsets.symmetric(vertical: 40.h),
             child: Column(
               children: [
-                const CreateAccountMessageWidget(),
-                verticalSpace(32),
+                const MenteeCreateAccountMessageWidget(),
+                verticalSpace(24),
                 const MenteeRegisterSteperWidget(),
-                verticalSpace(43),
-                const AlreadyHaveAnAccountWidget(),
+                verticalSpace(20),
+                const MenteeAlreadyHaveAnAccountWidget(),
               ],
             ),
           ),

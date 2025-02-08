@@ -750,11 +750,51 @@ class S {
     );
   }
 
+  /// `Session`
+  String get session {
+    return Intl.message(
+      'Session',
+      name: 'session',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `years`
+  String get years {
+    return Intl.message(
+      'years',
+      name: 'years',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `year`
+  String get year {
+    return Intl.message(
+      'year',
+      name: 'year',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Reviews`
   String get reviews {
     return Intl.message(
       'Reviews',
       name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review`
+  String get review {
+    return Intl.message(
+      'Review',
+      name: 'review',
       desc: '',
       args: [],
     );

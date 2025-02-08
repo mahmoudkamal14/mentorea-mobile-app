@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,19 +6,18 @@ import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/data/datasource/onboarding_data_list.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/data/models/onboard_model.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/data/models/onboarding_model.dart';
 import 'onboarding_text_widget.dart';
 import 'onborading_image_widget.dart';
 import 'smooth_page_indicator_widget.dart';
 
 class BuildItemOnBoarding extends StatefulWidget {
-  BuildItemOnBoarding({super.key, this.index});
+  const BuildItemOnBoarding({super.key, required this.index});
 
-  int? index;
+  final int index;
 
   @override
   State<BuildItemOnBoarding> createState() => _BuildItemOnBoardingState();
@@ -55,7 +52,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
       children: [
         Expanded(
           flex: 6,
-          child: OnBoradingImageWidget(image: model[widget.index!].image),
+          child: OnBoradingImageWidget(image: model[widget.index].image),
         ),
         Expanded(
           flex: 5,
@@ -81,32 +78,24 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      widget.index! != 2
+                      widget.index != 2
                           ? Expanded(
                               child: AppTextButton(
                                 textButton: S.of(context).skip,
-                                backgroundColor: Theme.of(context).cardColor,
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                      color: Theme.of(context).hintColor,
-                                    ),
+                                backgroundColor: Colors.deepOrangeAccent,
                                 onPressed: () {
                                   context.navigateToReplacement(
-                                      Routes.loginScreen);
+                                      Routes.userTypeScreen);
                                 },
                               ),
                             )
                           : const SizedBox(),
-                      widget.index! != 2
+                      widget.index != 2
                           ? horizontalSpace(20)
                           : const SizedBox(),
                       Expanded(
                         child: AppTextButton(
-                          textButton: model[widget.index!].textButton,
-                          textStyle: AppStyles.style18Meduim
-                              .copyWith(color: Colors.white),
+                          textButton: model[widget.index].textButton,
                           onPressed: () {
                             onDotClicked(context);
                           },
@@ -124,16 +113,16 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
   }
 
   void onDotClicked(BuildContext context) {
-    if (widget.index! != 2) {
+    if (widget.index != 2) {
       setState(() {
         onBoardingController.animateToPage(
-          widget.index! + 1,
+          widget.index + 1,
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOut,
         );
       });
     } else {
-      context.navigateToReplacement(Routes.loginScreen);
+      context.navigateToReplacement(Routes.userTypeScreen);
     }
   }
 }

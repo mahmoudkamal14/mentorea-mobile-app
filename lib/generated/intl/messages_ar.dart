@@ -102,11 +102,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "repost": MessageLookupByLibrary.simpleMessage("إعادة النشر"),
         "resendCodeAfter":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز بعد"),
-        "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+        "review": MessageLookupByLibrary.simpleMessage("مراجعة"),
+        "reviews": MessageLookupByLibrary.simpleMessage("المراجعات"),
         "selectYourFieldOfStudy":
             MessageLookupByLibrary.simpleMessage("حدد مجال دراستك"),
         "selectYourLanguage": MessageLookupByLibrary.simpleMessage("حدد لغتك"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "session": MessageLookupByLibrary.simpleMessage("جلسة"),
         "sessions": MessageLookupByLibrary.simpleMessage("الجلسات"),
         "skills": MessageLookupByLibrary.simpleMessage("المهارات"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
@@ -122,6 +124,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل التفاصيل المطلوبة للوصول إلى حسابك والعثور على المرشد المناسب لك"),
         "writeYourPostHere":
             MessageLookupByLibrary.simpleMessage("عبّر عما يدور في بالك"),
+        "year": MessageLookupByLibrary.simpleMessage("سنة"),
+        "years": MessageLookupByLibrary.simpleMessage("سنوات"),
         "yourCareerStep":
             MessageLookupByLibrary.simpleMessage("مسيرتك المهنية"),
         "yourGoal": MessageLookupByLibrary.simpleMessage("هدفك")

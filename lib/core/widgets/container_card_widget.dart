@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContainerCardWidget extends StatelessWidget {
-  const ContainerCardWidget({super.key, required this.child});
+  const ContainerCardWidget({super.key, required this.child, this.height});
 
   final Widget child;
+
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: height,
       padding: const EdgeInsets.all(14.10),
       decoration: ShapeDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,

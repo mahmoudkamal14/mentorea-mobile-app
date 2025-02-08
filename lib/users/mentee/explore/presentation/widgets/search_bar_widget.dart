@@ -16,7 +16,11 @@ class SearchBarWidget extends StatelessWidget {
           child: AppTextFormField(
             textInputType: TextInputType.text,
             hintText: 'Search by name, role',
-            prefixIcon: const Icon(Icons.search, size: 30),
+            prefixIcon: Icon(
+              Icons.search,
+              size: 30,
+              color: Theme.of(context).iconTheme.color!,
+            ),
             validator: (p0) {},
           ),
         ),
@@ -26,9 +30,14 @@ class SearchBarWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(),
+            border: Border.all(
+              color: Theme.of(context).iconTheme.color!,
+            ),
           ),
-          child: const Icon(Icons.filter_list),
+          child: Icon(
+            Icons.filter_list,
+            color: Theme.of(context).iconTheme.color!,
+          ),
         ),
       ],
     );

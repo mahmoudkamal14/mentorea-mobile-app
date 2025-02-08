@@ -84,7 +84,7 @@ class _BottomNavigationBarScreenState
                   .selectedIconTheme
                   ?.color,
             ),
-            label: _currentIndex == 0 ? null : S.of(context).Home,
+            label: S.of(context).Home,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
@@ -97,7 +97,7 @@ class _BottomNavigationBarScreenState
                   .selectedIconTheme
                   ?.color,
             ),
-            label: _currentIndex == 1 ? null : S.of(context).Explore,
+            label: S.of(context).Explore,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
@@ -110,7 +110,7 @@ class _BottomNavigationBarScreenState
                   .selectedIconTheme
                   ?.color,
             ),
-            label: _currentIndex == 2 ? null : S.of(context).Bookings,
+            label: S.of(context).Bookings,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),
@@ -123,7 +123,7 @@ class _BottomNavigationBarScreenState
                   .selectedIconTheme
                   ?.color,
             ),
-            label: _currentIndex == 3 ? null : S.of(context).Community,
+            label: S.of(context).Community,
             labelStyle:
                 Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
           ),

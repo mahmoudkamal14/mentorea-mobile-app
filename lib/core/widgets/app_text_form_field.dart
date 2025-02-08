@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? hintText;
@@ -42,43 +40,23 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: maxLines ?? 1,
-      style: inputTextStyle ??
-          AppStyles.style18Meduim.copyWith(color: const Color(0xFF120E1A)),
+      style: inputTextStyle ?? Theme.of(context).textTheme.titleSmall,
       controller: controller,
       keyboardType: textInputType,
       onChanged: onChanged,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
-        focusedBorder: focusedBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Color(0xFF120E1A),
-                width: 1.3,
-              ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Color(0xFF120E1A),
-                width: 1.3,
-              ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16),
-        ),
+        contentPadding: Theme.of(context).inputDecorationTheme.contentPadding,
+        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+        focusedErrorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
         hintText: hintText,
-        hintStyle: hintTextStyle ?? AppStyles.style16Regular,
+        hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodySmall,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
+        suffixIconColor: Theme.of(context).iconTheme.color!,
+        prefixIconColor: Theme.of(context).iconTheme.color!,
       ),
       obscureText: isObscureText ?? false,
       validator: (value) {

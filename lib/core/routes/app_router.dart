@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_login_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
@@ -9,17 +11,22 @@ import 'package:mentorea_mobile_app/users/mentee/home/mentee_bottom_navigation_b
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/user_type_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/manage_notifications_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
+import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_cubit.dart';
+import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_login_screen.dart';
+import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_register_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     final String routeName = settings.name!;
 
     switch (routeName) {
+      // App
       case Routes.splashScreen:
         return smoothEaseInOutPageRoute(
           const SplashScreen(),
@@ -38,19 +45,29 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.loginScreen:
+      case Routes.userTypeScreen:
+        return smoothEaseInOutPageRoute(
+          const UserTypeScreen(),
+          settings: settings,
+        );
+
+      // Mentee Account
+      case Routes.menteeLoginScreen:
         return smoothEaseInOutPageRoute(
           const MenteeLoginScreen(),
           settings: settings,
         );
 
-      case Routes.registerScreen:
+      case Routes.menteeRegisterScreen:
         return smoothEaseInOutPageRoute(
-          const MenteeRegisterScreen(),
+          BlocProvider(
+            create: (context) => MenteeRegisterCubit(),
+            child: const MenteeRegisterScreen(),
+          ),
           settings: settings,
         );
 
-      case Routes.bottomNavBar:
+      case Routes.menteeBottomNavBar:
         return smoothEaseInOutPageRoute(
           const MenteeBottomNavigationBarScreen(),
           settings: settings,
@@ -95,6 +112,28 @@ class AppRouter {
       case Routes.paymentMethodsScreen:
         return smoothEaseInOutPageRoute(
           const PaymentMethodsScreen(),
+          settings: settings,
+        );
+
+      // Mentor Account
+      case Routes.mentorLoginScreen:
+        return smoothEaseInOutPageRoute(
+          const MentorLoginScreen(),
+          settings: settings,
+        );
+
+      case Routes.mentorRegisterScreen:
+        return smoothEaseInOutPageRoute(
+          BlocProvider(
+            create: (context) => MentorRegisterCubit(),
+            child: const MentorRegisterScreen(),
+          ),
+          settings: settings,
+        );
+
+      case Routes.mentorBottomNavBar:
+        return smoothEaseInOutPageRoute(
+          const MenteeBottomNavigationBarScreen(),
           settings: settings,
         );
 

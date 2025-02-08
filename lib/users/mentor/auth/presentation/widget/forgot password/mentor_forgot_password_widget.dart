@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
-import 'forgot_password_form_widget.dart';
+import 'mentor_forgot_password_form_widget.dart';
 
-class ForgotPasswordWidget extends StatelessWidget {
-  const ForgotPasswordWidget({
+class MentorForgotPasswordWidget extends StatelessWidget {
+  const MentorForgotPasswordWidget({
     super.key,
   });
 
@@ -19,8 +18,10 @@ class ForgotPasswordWidget extends StatelessWidget {
         onPressed: () {
           forgotPasswordBottomSheet(context);
         },
-        child:
-            Text(S.of(context).forgotPassword, style: AppStyles.style18Meduim),
+        child: Text(
+          S.of(context).forgotPassword,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
       ),
     );
   }
@@ -29,6 +30,7 @@ class ForgotPasswordWidget extends StatelessWidget {
       BuildContext context) {
     return showBottomSheet(
       context: context,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       clipBehavior: Clip.antiAlias,
       sheetAnimationStyle: AnimationStyle(
         curve: Curves.slowMiddle,
@@ -40,23 +42,28 @@ class ForgotPasswordWidget extends StatelessWidget {
           height: 400.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(28),
+                topRight: Radius.circular(28),
+              ),
             ),
           ),
           child: Column(
             children: [
-              Text(S.of(context).forgotPasswordTitle,
-                  style: AppStyles.style28Bold),
+              Text(
+                S.of(context).forgotPasswordTitle,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               verticalSpace(16),
               Text(
                 S.of(context).forgotPasswordContent,
-                style: AppStyles.style16Regular,
+                style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),
               verticalSpace(30),
-              const ForgorPasswordFormWidget(),
+              const MentorForgotPasswordFormWidget(),
             ],
           ),
         );

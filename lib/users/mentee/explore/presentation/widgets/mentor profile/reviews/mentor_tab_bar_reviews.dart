@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/reviews/review_list_view_widget.dart';
 
 class MentorTabBarReviews extends StatelessWidget {
@@ -10,7 +9,10 @@ class MentorTabBarReviews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Real experiences with mentor', style: AppStyles.style24Meduim),
+        Text(
+          'Real experiences with mentor',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         verticalSpace(20),
         const ReviewListViewWidget(),
       ],

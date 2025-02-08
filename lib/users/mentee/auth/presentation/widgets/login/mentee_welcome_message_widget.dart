@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
-class CreateAccountMessageWidget extends StatelessWidget {
-  const CreateAccountMessageWidget({
+class MenteeWelcomeMessageWidget extends StatelessWidget {
+  const MenteeWelcomeMessageWidget({
     super.key,
   });
 
@@ -16,16 +15,16 @@ class CreateAccountMessageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              S.of(context).createAccountMessage,
+              S.of(context).welcomeMessage,
               textAlign: TextAlign.center,
-              style: AppStyles.style28Bold,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
         verticalSpace(8),
         Text(
-          S.of(context).createAccountMessageContent,
-          style: AppStyles.style16Meduim,
+          S.of(context).welcomeMessageContent,
+          style: Theme.of(context).textTheme.titleSmall,
           textAlign: TextAlign.center,
         ),
       ],
