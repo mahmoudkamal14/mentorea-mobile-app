@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
-import 'password_update_successfully_widget.dart';
+import 'mentor_password_update_successfully_widget.dart';
 
-class ChangePasswordWidget extends StatefulWidget {
-  const ChangePasswordWidget({super.key});
+class MentorChangePasswordWidget extends StatefulWidget {
+  const MentorChangePasswordWidget({super.key});
 
   @override
-  State<ChangePasswordWidget> createState() => _ChangePasswordWidgetState();
+  State<MentorChangePasswordWidget> createState() =>
+      _MentorChangePasswordWidgetState();
 }
 
-class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
+class _MentorChangePasswordWidgetState
+    extends State<MentorChangePasswordWidget> {
   bool isObscureText = true;
   bool isObscureTextConfirm = true;
   IconData visibility = Icons.visibility_off_outlined;
@@ -25,11 +26,14 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(S.of(context).enterNewPasswordTitle, style: AppStyles.style28Bold),
+        Text(
+          S.of(context).enterNewPasswordTitle,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         verticalSpace(16),
         Text(
           S.of(context).enterNewPasswordContent,
-          style: AppStyles.style16Regular,
+          style: Theme.of(context).textTheme.bodySmall,
           textAlign: TextAlign.center,
         ),
         verticalSpace(40),
@@ -38,7 +42,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           children: [
             Text(
               S.of(context).password,
-              style: AppStyles.style18Meduim.copyWith(color: Colors.black),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             verticalSpace(8),
             AppTextFormField(
@@ -59,7 +63,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             verticalSpace(16),
             Text(
               S.of(context).confirmPassword,
-              style: AppStyles.style18Meduim.copyWith(color: Colors.black),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             verticalSpace(8),
             AppTextFormField(
@@ -81,7 +85,6 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             verticalSpace(30),
             AppTextButton(
               textButton: S.of(context).changePassword,
-              textStyle: AppStyles.style18Meduim.copyWith(color: Colors.white),
               onPressed: () {
                 context.pop();
                 passwordUpdateSuccessBottomSheet(context);
@@ -97,18 +100,22 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
       BuildContext context) {
     return showBottomSheet(
       context: context,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       builder: (context) {
         return Container(
           width: double.infinity,
           height: 480.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(28),
+                topRight: Radius.circular(28),
+              ),
             ),
           ),
-          child: const PasswordUpdateSuccessfullyWidget(),
+          child: const MentorPasswordUpdateSuccessfullyWidget(),
         );
       },
     );

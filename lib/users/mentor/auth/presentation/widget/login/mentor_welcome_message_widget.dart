@@ -3,8 +3,8 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
-class WelcomeMessageWidget extends StatelessWidget {
-  const WelcomeMessageWidget({
+class MentorWelcomeMessageWidget extends StatelessWidget {
+  const MentorWelcomeMessageWidget({
     super.key,
   });
 

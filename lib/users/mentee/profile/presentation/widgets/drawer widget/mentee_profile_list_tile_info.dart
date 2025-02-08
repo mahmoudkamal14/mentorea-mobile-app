@@ -46,7 +46,7 @@ class MenteeProfileListTileInfo extends StatelessWidget {
           title: S.of(context).Logout,
           lastItem: true,
           onTap: () {
-            context.navigateToReplacement(Routes.loginScreen);
+            context.navigateToReplacement(Routes.menteeLoginScreen);
           },
         ),
       ],

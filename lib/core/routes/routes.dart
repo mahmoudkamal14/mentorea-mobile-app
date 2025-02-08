@@ -2,9 +2,12 @@ class Routes {
   static const String splashScreen = '/splashScreen';
   static const String languageScreen = '/languageScreen';
   static const String onboardingScreen = '/onboardingScreen';
-  static const String loginScreen = '/loginScreen';
-  static const String registerScreen = '/registerScreen';
-  static const String bottomNavBar = '/bottomNavBar';
+  static const String userTypeScreen = '/userTypeScreen';
+
+  // Mentee
+  static const String menteeLoginScreen = '/menteeLoginScreen';
+  static const String menteeRegisterScreen = '/menteeRegisterScreen';
+  static const String menteeBottomNavBar = '/menteeBottomNavBar';
   static const String menteePersonalInfo = '/menteePersonalInfo';
   static const String manageNotifications = '/manageNotifications';
   static const String settingsScreen = '/settingsScreen';
@@ -12,4 +15,9 @@ class Routes {
   static const String mentorProfileScreen = '/mentorProfileScreen';
   static const String bookSessionScreen = '/bookSessionScreen';
   static const String paymentMethodsScreen = '/paymentMethodsScreen';
+
+  // Mentor
+  static const String mentorLoginScreen = '/mentorLoginScreen';
+  static const String mentorRegisterScreen = '/mentorRegisterScreen';
+  static const String mentorBottomNavBar = '/mentorBottomNavBar';
 }

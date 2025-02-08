@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 
 class CommunityStatisticsWidget extends StatelessWidget {
   const CommunityStatisticsWidget({
@@ -13,7 +12,10 @@ class CommunityStatisticsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Community statistics', style: AppStyles.style24Bold),
+        Text(
+          'Community statistics',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         verticalSpace(20),
         SizedBox(
           height: 70.h,
@@ -33,11 +35,11 @@ class CommunityStatisticsWidget extends StatelessWidget {
             ),
             title: Text(
               '420 mins',
-              style: AppStyles.style24Meduim,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             subtitle: Text(
               'Total mentoring time',
-              style: AppStyles.style16Regular,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
         ),
@@ -59,11 +61,11 @@ class CommunityStatisticsWidget extends StatelessWidget {
             ),
             title: Text(
               '14 Sessions',
-              style: AppStyles.style24Meduim,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             subtitle: Text(
               'Sessions completed',
-              style: AppStyles.style16Regular,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
         ),

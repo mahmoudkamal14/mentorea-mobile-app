@@ -69,7 +69,11 @@
       "writeYourPostHere":"write your post here",
       "overView":"Overview",
       "sessions":"sessions",
+      "session":"Session",
+      "years":"years",
+      "year":"year",
       "reviews":"Reviews",
+      "review":"Review",
       "education":"Education",
       "skills":"Skills",
       "Experience":"Experience"

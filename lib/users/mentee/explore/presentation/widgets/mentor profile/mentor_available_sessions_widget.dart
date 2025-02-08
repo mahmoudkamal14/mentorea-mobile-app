@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/sessions/available_date_list_view.dart';
@@ -24,16 +23,22 @@ class MentorAvailableSessionsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Available sessions', style: AppStyles.style24Meduim),
+          Text(
+            'Available sessions',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
           verticalSpace(10),
           Text(
             'Book 1:1 sessions from the options based on your needs',
-            style: AppStyles.style16Regular,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           verticalSpace(10),
           const AvailableDateListView(),
           verticalSpace(20),
-          Text('Available time slots', style: AppStyles.style20Meduim),
+          Text(
+            'Available time slots',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           verticalSpace(4),
           const DividerWidget(),
           verticalSpace(10),

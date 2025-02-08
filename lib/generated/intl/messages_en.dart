@@ -101,11 +101,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "repost": MessageLookupByLibrary.simpleMessage("Repost"),
         "resendCodeAfter":
             MessageLookupByLibrary.simpleMessage("Resend code after"),
+        "review": MessageLookupByLibrary.simpleMessage("Review"),
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "selectYourFieldOfStudy":
             MessageLookupByLibrary.simpleMessage("Select your field of study"),
         "selectYourLanguage": MessageLookupByLibrary.simpleMessage("حدد لغتك"),
         "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+        "session": MessageLookupByLibrary.simpleMessage("Session"),
         "sessions": MessageLookupByLibrary.simpleMessage("sessions"),
         "skills": MessageLookupByLibrary.simpleMessage("Skills"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
@@ -121,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter the required details to access your account and find the right mentor for you"),
         "writeYourPostHere":
             MessageLookupByLibrary.simpleMessage("write your post here"),
+        "year": MessageLookupByLibrary.simpleMessage("year"),
+        "years": MessageLookupByLibrary.simpleMessage("years"),
         "yourCareerStep": MessageLookupByLibrary.simpleMessage("Your Career"),
         "yourGoal": MessageLookupByLibrary.simpleMessage("Your Goal")
       };

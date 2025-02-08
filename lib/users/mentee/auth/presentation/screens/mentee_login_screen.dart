@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/dont_have_an_account_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/mentee_dont_have_an_account_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/mentee_login_form_widget.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/welcome_message_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login/mentee_welcome_message_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/login_with_google_and_linkedin.dart';
 
 class MenteeLoginScreen extends StatelessWidget {
@@ -12,20 +12,20 @@ class MenteeLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F6FD),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
             child: Column(
               children: [
-                const WelcomeMessageWidget(),
+                const MenteeWelcomeMessageWidget(),
                 verticalSpace(32),
-                const LoginFormWidget(),
+                const MenteeLoginFormWidget(),
                 verticalSpace(24),
                 const LoginWithGoogleAndLinkedin(),
                 verticalSpace(43),
-                const DontHaveAnAccountWidget(),
+                const MenteeDontHaveAnAccountWidget(),
               ],
             ),
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/overview/mentor_tab_bar_overview.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/reviews/mentor_tab_bar_reviews.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/sessions/mentor_tab_bar_session.dart';
@@ -40,13 +39,13 @@ class _MentorInfoTabBarWidgetState extends State<MentorInfoTabBarWidget>
         children: [
           TabBar(
             controller: tabController,
-            labelStyle: AppStyles.style20Meduim,
+            labelStyle: Theme.of(context).textTheme.bodyMedium,
+            unselectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
             labelPadding: EdgeInsets.symmetric(vertical: 20.h),
             indicatorPadding: EdgeInsets.symmetric(vertical: 10.h),
             indicatorWeight: 1,
-            indicatorColor: Colors.black,
+            indicatorColor: Theme.of(context).dividerTheme.color,
             indicatorSize: TabBarIndicatorSize.label,
-            dividerColor: const Color(0xFF103A69),
             tabs: const [
               Text('Overview'),
               Text('Sessions'),
@@ -55,7 +54,7 @@ class _MentorInfoTabBarWidgetState extends State<MentorInfoTabBarWidget>
           ),
           verticalSpace(20),
           Container(
-            height: 400,
+            height: 450.h,
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
             child: TabBarView(
               controller: tabController,

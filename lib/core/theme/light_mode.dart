@@ -57,7 +57,7 @@ ThemeData lightTheme = ThemeData(
       color: const Color(0xFF2C2C2E),
       fontSize: 20.sp,
       fontFamily: 'Lato',
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w500,
       height: 0,
     ),
     bodySmall: TextStyle(
@@ -106,4 +106,23 @@ ThemeData lightTheme = ThemeData(
   dividerColor: const Color(0xFF103A69),
   hintColor: Colors.black,
   secondaryHeaderColor: const Color(0xffFFFEEE),
+  inputDecorationTheme: InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: const Color(0xFF2C2C2E), width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: const Color(0xFF2C2C2E), width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+  ),
 );

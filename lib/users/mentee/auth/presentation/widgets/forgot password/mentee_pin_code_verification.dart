@@ -10,16 +10,17 @@ import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import 'change_password_widget.dart';
+import 'mentee_change_password_widget.dart';
 
-class PinCodeVerification extends StatefulWidget {
-  const PinCodeVerification({super.key});
+class MenteePinCodeVerification extends StatefulWidget {
+  const MenteePinCodeVerification({super.key});
 
   @override
-  State<PinCodeVerification> createState() => _PinCodeVerificationState();
+  State<MenteePinCodeVerification> createState() =>
+      _MenteePinCodeVerificationState();
 }
 
-class _PinCodeVerificationState extends State<PinCodeVerification> {
+class _MenteePinCodeVerificationState extends State<MenteePinCodeVerification> {
   TextEditingController textEditingController = TextEditingController();
 
   bool hasError = false;
@@ -30,11 +31,14 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(S.of(context).verificationCodeTitle, style: AppStyles.style28Bold),
+        Text(
+          S.of(context).verificationCodeTitle,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         verticalSpace(16),
         Text(
           '${S.of(context).verificationCodeContent}mentoreaapp19@gmail.com',
-          style: AppStyles.style16Regular,
+          style: Theme.of(context).textTheme.bodySmall,
           textAlign: TextAlign.center,
         ),
         verticalSpace(40),
@@ -50,14 +54,16 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
           enableActiveFill: true,
           controller: textEditingController,
           pinTheme: PinTheme(
-              shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(5),
-              fieldHeight: 50.h,
-              fieldWidth: 50.w,
-              activeFillColor: Colors.white,
-              inactiveFillColor: Colors.white,
-              selectedFillColor: Colors.white,
-              inactiveColor: Colors.blue),
+            shape: PinCodeFieldShape.box,
+            borderRadius: BorderRadius.circular(5),
+            fieldHeight: 50.h,
+            fieldWidth: 50.w,
+            activeFillColor: Theme.of(context).hintColor,
+            inactiveFillColor: Theme.of(context).hintColor,
+            selectedFillColor: Theme.of(context).hintColor,
+            errorBorderColor: Colors.red,
+            inactiveColor: Colors.blue,
+          ),
           keyboardType: TextInputType.number,
         ),
         verticalSpace(30),
@@ -74,7 +80,7 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
           onPressed: () {},
           child: Text(
             '${S.of(context).resendCodeAfter} 00:52s',
-            style: AppStyles.style18Meduim,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
       ],
@@ -85,18 +91,22 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
       BuildContext context) {
     return showBottomSheet(
       context: context,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       builder: (context) {
         return Container(
           width: double.infinity,
           height: 496.h,
           padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
           decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(28),
+                topRight: Radius.circular(28),
+              ),
             ),
           ),
-          child: const ChangePasswordWidget(),
+          child: const MenteeChangePasswordWidget(),
         );
       },
     );

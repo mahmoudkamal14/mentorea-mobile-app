@@ -69,7 +69,11 @@
       "writeYourPostHere":"عبّر عما يدور في بالك",
       "overView":"نظرة عامة",
       "sessions":"الجلسات",
-      "reviews":"Reviews",
+      "session":"جلسة",
+      "years":"سنوات",
+      "year":"سنة",
+      "reviews":"المراجعات",
+      "review":"مراجعة",
       "education":"التعليم",
       "skills":"المهارات",
       "Experience":"الخبرة"

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/personal_information_step.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_education_level_dropdown.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_job_title_experience_dropdown.dart';
 
-import 'career_information_step.dart';
-import 'email_and_password_step.dart';
+import 'mentee_additional_details_step.dart';
+import 'mentee_basic_information_step.dart';
 
 class MenteeRegisterSteperWidget extends StatefulWidget {
   const MenteeRegisterSteperWidget({super.key});
@@ -26,6 +26,7 @@ class _MenteeRegisterSteperWidgetState
   Widget build(BuildContext context) {
     return Stepper(
       currentStep: currentStep,
+      physics: const NeverScrollableScrollPhysics(),
       controlsBuilder: (context, details) {
         return Padding(
           padding: EdgeInsets.only(top: 16.h),
@@ -33,28 +34,25 @@ class _MenteeRegisterSteperWidgetState
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               AppTextButton(
-                textButton: currentStep < 2
+                textButton: currentStep < 3
                     ? S.of(context).Continue
                     : S.of(context).register,
-                textStyle:
-                    AppStyles.style18Meduim.copyWith(color: Colors.white),
                 buttonHeight: 40.h,
                 buttonWidth: 120.w,
                 borderRadius: 10.r,
                 onPressed: () {
-                  if (currentStep < 2) {
+                  if (currentStep < 3) {
                     setState(() {
                       currentStep++;
                     });
                   } else {
-                    context.navigateToReplacement(Routes.bottomNavBar);
+                    context.navigateToReplacement(Routes.menteeBottomNavBar);
                   }
                 },
               ),
               AppTextButton(
                 textButton: S.of(context).cancel,
-                backgroundColor: const Color(0xFFF9F6FD),
-                textStyle: AppStyles.style18MeduimBlack,
+                backgroundColor: Colors.deepOrangeAccent,
                 buttonHeight: 40,
                 buttonWidth: 120,
                 borderRadius: 10,
@@ -69,6 +67,7 @@ class _MenteeRegisterSteperWidgetState
         );
       },
       connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
+      connectorThickness: 2,
       onStepTapped: (value) {
         setState(() {
           currentStep = value;
@@ -76,19 +75,32 @@ class _MenteeRegisterSteperWidgetState
       },
       steps: [
         Step(
-          title: Text(S.of(context).emailAndPasswordStep,
-              style: AppStyles.style20Meduim),
-          content: const EmailAndPasswordStep(),
+          content: const MenteeBasicInformationStep(),
+          title: Text(
+            'Basic Information',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
         Step(
-          title: Text(S.of(context).personalInformationStep,
-              style: AppStyles.style20Meduim),
-          content: const PersonalInformationStep(),
+          content: const MenteeEducationLevelDropdown(),
+          title: Text(
+            'Education',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
         Step(
-          title: Text(S.of(context).yourCareerStep,
-              style: AppStyles.style20Meduim),
-          content: const CareerInformationStep(),
+          content: const MenteeJobTitleExperienceDropdown(),
+          title: Text(
+            'Experience Work',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+        Step(
+          content: const MenteeAdditionalDetailsStep(),
+          title: Text(
+            'Additional Details',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
       ],
     );

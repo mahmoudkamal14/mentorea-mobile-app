@@ -57,7 +57,7 @@ ThemeData darkTheme = ThemeData(
       color: const Color(0xFFE0E0E0),
       fontSize: 20.sp,
       fontFamily: 'Lato',
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w500,
       height: 0,
     ),
     bodySmall: TextStyle(
@@ -103,9 +103,28 @@ ThemeData darkTheme = ThemeData(
   ),
   iconTheme: const IconThemeData(color: Color(0xFFE0E0E0)),
   hoverColor: const Color(0xFF161617),
-  cardColor: Colors.grey[900],
+  cardColor: const Color(0xFF1C1C1E),
   canvasColor: const Color.fromARGB(255, 119, 93, 83),
   hintColor: Colors.white,
   dividerColor: const Color(0xFFB0B0B0),
   secondaryHeaderColor: const Color.fromARGB(255, 55, 55, 49),
+  inputDecorationTheme: InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: const Color(0xFFE0E0E0), width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: const Color(0xFFE0E0E0), width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+      borderRadius: BorderRadius.circular(16),
+    ),
+  ),
 );
