@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -24,7 +23,10 @@ class _MentorLoginFormWidgetState extends State<MentorLoginFormWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(S.of(context).email, style: AppStyles.style18MeduimBlack),
+        Text(
+          S.of(context).email,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.emailAddress,
@@ -32,7 +34,10 @@ class _MentorLoginFormWidgetState extends State<MentorLoginFormWidget> {
           validator: (value) {},
         ),
         verticalSpace(16),
-        Text(S.of(context).password, style: AppStyles.style18MeduimBlack),
+        Text(
+          S.of(context).password,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
@@ -56,7 +61,7 @@ class _MentorLoginFormWidgetState extends State<MentorLoginFormWidget> {
         AppTextButton(
           textButton: S.of(context).login,
           onPressed: () {
-            context.navigateToReplacement(Routes.menteeBottomNavBar);
+            context.navigateToReplacement(Routes.mentorBottomNavBar);
           },
         ),
       ],

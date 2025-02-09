@@ -22,7 +22,7 @@ class MentorCreateAccountMessageWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Text(
-            S.of(context).createAccountMessageContent,
+            S.of(context).mentorCreateAccountMessageContent,
             style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.center,
           ),

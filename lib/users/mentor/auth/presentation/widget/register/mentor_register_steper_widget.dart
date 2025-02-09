@@ -45,7 +45,7 @@ class _MentorRegisterSteperWidgetState
                       currentStep++;
                     });
                   } else {
-                    context.navigateToReplacement(Routes.menteeBottomNavBar);
+                    context.navigateToReplacement(Routes.mentorLoginScreen);
                   }
                 },
               ),

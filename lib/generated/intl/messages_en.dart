@@ -63,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "Start your journey with Mentorea and connect with expert mentors today"),
         "dark": MessageLookupByLibrary.simpleMessage("Dark"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "education": MessageLookupByLibrary.simpleMessage("Education"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -82,6 +83,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("Light"),
         "likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "mentorCreateAccountMessageContent": MessageLookupByLibrary.simpleMessage(
+            "Become a mentor on Mentorea! Register now to share your expertise and help mentees grow"),
+        "mentorWelcomeMessageContent": MessageLookupByLibrary.simpleMessage(
+            "Welcome to Mentorea! Please log in to start guiding and empowering the next generation"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
