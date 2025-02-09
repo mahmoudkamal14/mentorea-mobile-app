@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccountMessageContent": MessageLookupByLibrary.simpleMessage(
             "ابدأ رحلتك مع منتوريا وتواصل مع المرشدين الخبراء اليوم"),
         "dark": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("بوابة المنتور"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "education": MessageLookupByLibrary.simpleMessage("التعليم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد إلكتروني"),
@@ -83,6 +84,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("الوضع الساطع"),
         "likes": MessageLookupByLibrary.simpleMessage("تفاعلات"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "mentorCreateAccountMessageContent": MessageLookupByLibrary.simpleMessage(
+            "كن مرشدًا على منتوريا! سجل الآن لمشاركة خبرتك ومساعدة المرشدين على النمو"),
+        "mentorWelcomeMessageContent": MessageLookupByLibrary.simpleMessage(
+            "مرحبًا بكم في منتوريا! يُرجى تسجيل الدخول لبدء توجيه وتمكين الجيل القادم"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class MentorWelcomeMessageWidget extends StatelessWidget {
@@ -18,14 +17,14 @@ class MentorWelcomeMessageWidget extends StatelessWidget {
             Text(
               S.of(context).welcomeMessage,
               textAlign: TextAlign.center,
-              style: AppStyles.style28Bold,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
         verticalSpace(8),
         Text(
-          S.of(context).welcomeMessageContent,
-          style: AppStyles.style16Meduim,
+          S.of(context).mentorWelcomeMessageContent,
+          style: Theme.of(context).textTheme.titleSmall,
           textAlign: TextAlign.center,
         ),
       ],

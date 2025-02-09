@@ -7,7 +7,7 @@ import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mente
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/home/mentee_bottom_navigation_bar_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
@@ -20,6 +20,7 @@ import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/se
 import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_login_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_register_screen.dart';
+import 'package:mentorea_mobile_app/users/mentor/home/presentation/screens/mentor_bottom_navigation_bar_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -133,7 +134,7 @@ class AppRouter {
 
       case Routes.mentorBottomNavBar:
         return smoothEaseInOutPageRoute(
-          const MenteeBottomNavigationBarScreen(),
+          const MentorBottomNavigationBarScreen(),
           settings: settings,
         );
 

@@ -100,6 +100,26 @@ class S {
     );
   }
 
+  /// `Welcome to Mentorea! Please log in to start guiding and empowering the next generation`
+  String get mentorWelcomeMessageContent {
+    return Intl.message(
+      'Welcome to Mentorea! Please log in to start guiding and empowering the next generation',
+      name: 'mentorWelcomeMessageContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Become a mentor on Mentorea! Register now to share your expertise and help mentees grow`
+  String get mentorCreateAccountMessageContent {
+    return Intl.message(
+      'Become a mentor on Mentorea! Register now to share your expertise and help mentees grow',
+      name: 'mentorCreateAccountMessageContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
@@ -455,6 +475,16 @@ class S {
     return Intl.message(
       'Explore',
       name: 'Explore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dashboard`
+  String get dashboard {
+    return Intl.message(
+      'Dashboard',
+      name: 'dashboard',
       desc: '',
       args: [],
     );
