@@ -3,15 +3,15 @@ class Routes {
   static const String languageScreen = '/languageScreen';
   static const String onboardingScreen = '/onboardingScreen';
   static const String userTypeScreen = '/userTypeScreen';
+  static const String notificationScreen = '/notificationScreen';
+  static const String privacyPolicy = '/privacyPolicy';
 
   // Mentee
   static const String menteeLoginScreen = '/menteeLoginScreen';
   static const String menteeRegisterScreen = '/menteeRegisterScreen';
   static const String menteeBottomNavBar = '/menteeBottomNavBar';
   static const String menteePersonalInfo = '/menteePersonalInfo';
-  static const String manageNotifications = '/manageNotifications';
   static const String settingsScreen = '/settingsScreen';
-  static const String privacyPolicy = '/privacyPolicy';
   static const String mentorProfileScreen = '/mentorProfileScreen';
   static const String bookSessionScreen = '/bookSessionScreen';
   static const String paymentMethodsScreen = '/paymentMethodsScreen';
