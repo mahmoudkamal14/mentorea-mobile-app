@@ -12,7 +12,7 @@ import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/user_type_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/manage_notifications_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/notifications_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
@@ -80,9 +80,9 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.manageNotifications:
+      case Routes.notificationScreen:
         return smoothEaseInOutPageRoute(
-          const ManageNotificationsScreen(),
+          const NotificationsScreen(),
           settings: settings,
         );
 
