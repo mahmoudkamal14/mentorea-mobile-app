@@ -5,6 +5,8 @@ class Routes {
   static const String userTypeScreen = '/userTypeScreen';
   static const String notificationScreen = '/notificationScreen';
   static const String privacyPolicy = '/privacyPolicy';
+  static const String chatsScreen = '/chatsScreen';
+  static const String chatsDetailsScreen = '/chatsDetailsScreen';
 
   // Mentee
   static const String menteeLoginScreen = '/menteeLoginScreen';

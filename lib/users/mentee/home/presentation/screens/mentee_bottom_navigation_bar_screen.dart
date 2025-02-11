@@ -2,10 +2,9 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/widgets/action_icon_appbar.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/community/presentation/screens/community_screen.dart';
@@ -46,26 +45,7 @@ class _BottomNavigationBarScreenState
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
         centerTitle: true,
-        actions: [
-          _currentIndex == 0
-              ? Padding(
-                  padding: EdgeInsets.only(
-                    right: isArabic() == false ? 10.h : 0,
-                    left: isArabic() == true ? 10.h : 0,
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      context.navigateTo(Routes.notificationScreen);
-                    },
-                    child: SvgPicture.asset(
-                      'assets/icons/bell-notification-social-media.svg',
-                      color:
-                          Theme.of(context).appBarTheme.actionsIconTheme!.color,
-                    ),
-                  ),
-                )
-              : const SizedBox.shrink(),
-        ],
+        actions: [actionAppBar(_currentIndex)],
       ),
       drawer: const MenteeDrawerWidget(),
       body: SafeArea(
@@ -143,5 +123,25 @@ class _BottomNavigationBarScreenState
         },
       ),
     );
+  }
+
+  Widget actionAppBar(currentIndex) {
+    if (currentIndex == 0) {
+      return ActionIconAppBar(
+        onTap: () {
+          context.navigateTo(Routes.notificationScreen);
+        },
+        image: 'assets/icons/bell-notification-social-media.svg',
+      );
+    } else if (currentIndex == 1) {
+      return ActionIconAppBar(
+        onTap: () {
+          context.navigateTo(Routes.chatsScreen);
+        },
+        image: 'assets/icons/message_icon.svg',
+      );
+    } else {
+      return const SizedBox.shrink();
+    }
   }
 }
