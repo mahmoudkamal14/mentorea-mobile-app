@@ -6,6 +6,8 @@ import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/registe
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_login_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
@@ -49,6 +51,18 @@ class AppRouter {
       case Routes.userTypeScreen:
         return smoothEaseInOutPageRoute(
           const UserTypeScreen(),
+          settings: settings,
+        );
+
+      case Routes.chatsScreen:
+        return smoothEaseInOutPageRoute(
+          const ChatsScreen(),
+          settings: settings,
+        );
+
+      case Routes.chatsDetailsScreen:
+        return smoothEaseInOutPageRoute(
+          const ChatsDetailsScreen(),
           settings: settings,
         );
 
