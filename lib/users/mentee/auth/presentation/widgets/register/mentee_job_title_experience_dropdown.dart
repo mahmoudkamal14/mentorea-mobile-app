@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_dropdown_button_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/data/datasource/local%20datasource/job_title_experience_data.dart';
 
 class MenteeJobTitleExperienceDropdown extends StatefulWidget {
@@ -31,7 +32,7 @@ class _MenteeJobTitleExperienceDropdownState
         verticalSpace(6),
         AppDropdownButtonFormField(
           value: selectedCategory,
-          label: 'Select Category',
+          label: S.current.selectACategory,
           onChanged: (value) {
             setState(() {
               selectedCategory = value;
@@ -46,7 +47,7 @@ class _MenteeJobTitleExperienceDropdownState
         verticalSpace(20),
         AppDropdownButtonFormField(
           value: selectedSpecialization,
-          label: 'Select Specialization',
+          label: S.current.selectSpecialization,
           onChanged: (value) {
             setState(() {
               selectedSpecialization = value;
@@ -63,7 +64,7 @@ class _MenteeJobTitleExperienceDropdownState
         const SizedBox(height: 20),
         AppDropdownButtonFormField(
           value: selectedJobTitle,
-          label: 'Select Job Title',
+          label: S.current.jobTitle,
           onChanged: (value) {
             setState(() {
               selectedJobTitle = value;
@@ -79,7 +80,7 @@ class _MenteeJobTitleExperienceDropdownState
         verticalSpace(20),
         AppDropdownButtonFormField(
           value: selectedExperience,
-          label: 'Select Experience Level',
+          label: S.current.yearsOfExperience,
           onChanged: (value) {
             setState(() {
               selectedExperience = value;

@@ -240,31 +240,31 @@ class S {
     );
   }
 
-  /// `Email and Password`
-  String get emailAndPasswordStep {
+  /// `basic Information`
+  String get basicInformation {
     return Intl.message(
-      'Email and Password',
-      name: 'emailAndPasswordStep',
+      'basic Information',
+      name: 'basicInformation',
       desc: '',
       args: [],
     );
   }
 
-  /// `Personal Information`
-  String get personalInformationStep {
+  /// `Additional Details`
+  String get additionalDetails {
     return Intl.message(
-      'Personal Information',
-      name: 'personalInformationStep',
+      'Additional Details',
+      name: 'additionalDetails',
       desc: '',
       args: [],
     );
   }
 
-  /// `Your Career`
-  String get yourCareerStep {
+  /// `Experience Work`
+  String get experienceWork {
     return Intl.message(
-      'Your Career',
-      name: 'yourCareerStep',
+      'Experience Work',
+      name: 'experienceWork',
       desc: '',
       args: [],
     );
@@ -660,10 +660,10 @@ class S {
     );
   }
 
-  /// `حدد لغتك`
+  /// `Select your language`
   String get selectYourLanguage {
     return Intl.message(
-      'حدد لغتك',
+      'Select your language',
       name: 'selectYourLanguage',
       desc: '',
       args: [],
@@ -855,6 +855,316 @@ class S {
     return Intl.message(
       'Experience',
       name: 'Experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mentor`
+  String get mentor {
+    return Intl.message(
+      'Mentor',
+      name: 'mentor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mentee`
+  String get mentee {
+    return Intl.message(
+      'Mentee',
+      name: 'mentee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Academic degree`
+  String get degreeEducation {
+    return Intl.message(
+      'Academic degree',
+      name: 'degreeEducation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field of study`
+  String get fieldOfStudy {
+    return Intl.message(
+      'Field of study',
+      name: 'fieldOfStudy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your age`
+  String get enterYourAge {
+    return Intl.message(
+      'Enter your age',
+      name: 'enterYourAge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select a category`
+  String get selectACategory {
+    return Intl.message(
+      'Select a category',
+      name: 'selectACategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select specialization`
+  String get selectSpecialization {
+    return Intl.message(
+      'Select specialization',
+      name: 'selectSpecialization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Job Title`
+  String get jobTitle {
+    return Intl.message(
+      'Job Title',
+      name: 'jobTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Years of experience`
+  String get yearsOfExperience {
+    return Intl.message(
+      'Years of experience',
+      name: 'yearsOfExperience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get addImage {
+    return Intl.message(
+      'Add Image',
+      name: 'addImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your gender`
+  String get chooseYourGender {
+    return Intl.message(
+      'Choose your gender',
+      name: 'chooseYourGender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message(
+      'Male',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message(
+      'Female',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for your mentor`
+  String get searchForYourMentor {
+    return Intl.message(
+      'Search for your mentor',
+      name: 'searchForYourMentor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recommended for you`
+  String get recommendedForYou {
+    return Intl.message(
+      'Recommended for you',
+      name: 'recommendedForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Rated`
+  String get topRated {
+    return Intl.message(
+      'Top Rated',
+      name: 'topRated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get seeAll {
+    return Intl.message(
+      'See All',
+      name: 'seeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Skills`
+  String get topSkills {
+    return Intl.message(
+      'Top Skills',
+      name: 'topSkills',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Online`
+  String get online {
+    return Intl.message(
+      'Online',
+      name: 'online',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pubilsh Post`
+  String get pubilshPost {
+    return Intl.message(
+      'Pubilsh Post',
+      name: 'pubilshPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Content`
+  String get content {
+    return Intl.message(
+      'Content',
+      name: 'content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message(
+      'Start',
+      name: 'start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `search by name`
+  String get searchByName {
+    return Intl.message(
+      'search by name',
+      name: 'searchByName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find the right mentor for you`
+  String get FindTheRightMentorTitle {
+    return Intl.message(
+      'Find the right mentor for you',
+      name: 'FindTheRightMentorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enhance your skills and gain knowledge with top experts – make learning an inspiring journey!`
+  String get FindTheRightMentorContent {
+    return Intl.message(
+      'Enhance your skills and gain knowledge with top experts – make learning an inspiring journey!',
+      name: 'FindTheRightMentorContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message(
+      'Pending',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirmed`
+  String get confirmed {
+    return Intl.message(
+      'Confirmed',
+      name: 'confirmed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelled`
+  String get cancelled {
+    return Intl.message(
+      'Cancelled',
+      name: 'cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Account Type`
+  String get chooseAccountType {
+    return Intl.message(
+      'Choose Account Type',
+      name: 'chooseAccountType',
       desc: '',
       args: [],
     );

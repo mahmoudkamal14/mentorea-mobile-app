@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_dropdown_button_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/data/datasource/local%20datasource/education_level_data.dart';
 
 class MenteeEducationLevelDropdown extends StatefulWidget {
   const MenteeEducationLevelDropdown({super.key});
 
   @override
-  _MenteeEducationLevelDropdownState createState() => _MenteeEducationLevelDropdownState();
+  _MenteeEducationLevelDropdownState createState() =>
+      _MenteeEducationLevelDropdownState();
 }
 
-class _MenteeEducationLevelDropdownState extends State<MenteeEducationLevelDropdown> {
+class _MenteeEducationLevelDropdownState
+    extends State<MenteeEducationLevelDropdown> {
   String? selectedDegree;
   String? selectedField;
 
@@ -25,7 +28,7 @@ class _MenteeEducationLevelDropdownState extends State<MenteeEducationLevelDropd
         verticalSpace(6),
         AppDropdownButtonFormField(
           value: selectedDegree,
-          label: 'Degree/Education Level',
+          label: S.current.degreeEducation,
           onChanged: (value) {
             setState(() {
               selectedDegree = value;
@@ -45,7 +48,7 @@ class _MenteeEducationLevelDropdownState extends State<MenteeEducationLevelDropd
         verticalSpace(20),
         AppDropdownButtonFormField(
           value: selectedField,
-          label: 'Fields of Study',
+          label: S.current.fieldOfStudy,
           onChanged: (value) {
             setState(() {
               selectedField = value;
@@ -66,7 +69,7 @@ class _MenteeEducationLevelDropdownState extends State<MenteeEducationLevelDropd
         verticalSpace(16),
         AppTextFormField(
           textInputType: TextInputType.text,
-          hintText: 'Enter your age',
+          hintText: S.current.enterYourAge,
           hintTextStyle: Theme.of(context).textTheme.titleSmall,
           validator: (value) {},
         ),

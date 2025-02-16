@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/local/mentors_data.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/overview/mentor_tab_bar_overview.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/reviews/mentor_tab_bar_reviews.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/sessions/mentor_tab_bar_session.dart';
 
 class MentorInfoTabBarWidget extends StatefulWidget {
-  const MentorInfoTabBarWidget({super.key});
+  const MentorInfoTabBarWidget({
+    super.key,
+    required this.mentor,
+  });
+
+  final MentorInfo mentor;
 
   @override
   State<MentorInfoTabBarWidget> createState() => _MentorInfoTabBarWidgetState();

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_state.dart';
 
@@ -56,7 +57,7 @@ class SelectProfileImage extends StatelessWidget {
                     ),
                     verticalSpace(10),
                     Text(
-                      'Add Image',
+                      S.current.addImage,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
