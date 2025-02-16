@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/local/mentors_data.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor_card_list_view_item.dart';
 
 class MentorListView extends StatelessWidget {
@@ -8,15 +9,16 @@ class MentorListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mentors = listOfMentors;
     return Expanded(
       child: ListView.builder(
-        itemCount: 30,
+        itemCount: 6,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.only(bottom: 16.h),
           child: FadeInRight(
             delay: const Duration(milliseconds: 100),
             curve: Curves.linear,
-            child: const MentorCardListViewItem(),
+            child: MentorCardListViewItem(mentor: mentors[index]),
           ),
         ),
       ),

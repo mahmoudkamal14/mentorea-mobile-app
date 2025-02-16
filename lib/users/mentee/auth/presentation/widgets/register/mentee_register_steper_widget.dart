@@ -77,28 +77,28 @@ class _MenteeRegisterSteperWidgetState
         Step(
           content: const MenteeBasicInformationStep(),
           title: Text(
-            'Basic Information',
+            S.current.basicInformation,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Step(
           content: const MenteeEducationLevelDropdown(),
           title: Text(
-            'Education',
+            S.current.education,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Step(
           content: const MenteeJobTitleExperienceDropdown(),
           title: Text(
-            'Experience Work',
+            S.current.experienceWork,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Step(
           content: const MenteeAdditionalDetailsStep(),
           title: Text(
-            'Additional Details',
+            S.current.additionalDetails,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),

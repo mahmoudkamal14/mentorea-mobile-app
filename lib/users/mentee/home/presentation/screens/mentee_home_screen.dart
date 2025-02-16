@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/find_the_right_mentor_message.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/recommended_mentor_list_view.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/top_mentors_list_view.dart';
 
 class MenteeHomeScreen extends StatelessWidget {
   const MenteeHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        // Row(
-        //   children: [
-        //     Container(
-        //       width: 48,
-        //       height: 48,
-        //       decoration: const ShapeDecoration(
-        //         color: Color(0xFF103A69),
-        //         shape: OvalBorder(),
-        //       ),
-        //       child: Image.asset('assets/icons/Mentorea Icon.png'),
-        //     ),
-        //     horizontalSpace(22),
-        //     Text(S.of(context).Mentorea, style: AppStyles.style24Bold),
-        //   ],
-        // ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 24.h,
+        children: [
+          AppTextFormField(
+            textInputType: TextInputType.text,
+            hintText: S.current.searchForYourMentor,
+            validator: (p0) {},
+          ),
+          const FindTheRightMentorMessage(),
+          const RecommendedMentorListView(),
+          const TopMentorsListView(),
+        ],
+      ),
     );
   }
 }

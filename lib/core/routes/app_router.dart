@@ -8,7 +8,6 @@ import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mente
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
@@ -112,11 +111,11 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.mentorProfileScreen:
-        return smoothEaseInOutPageRoute(
-          const MentorProfileScreen(),
-          settings: settings,
-        );
+      // case Routes.mentorProfileScreen:
+      //   return smoothEaseInOutPageRoute(
+      //     const MentorProfileScreen(),
+      //     settings: settings,
+      //   );
 
       case Routes.bookSessionScreen:
         return smoothEaseInOutPageRoute(

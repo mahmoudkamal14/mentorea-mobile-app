@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_select_profile_image.dart';
 
 class MenteeAdditionalDetailsStep extends StatefulWidget {
@@ -22,11 +23,12 @@ class _MenteeAdditionalDetailsStepState
         const SelectProfileImage(),
         verticalSpace(20),
         Text(
-          'Choose Your Gender:',
+          S.current.chooseYourGender,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         RadioListTile(
-          title: Text('Male', style: Theme.of(context).textTheme.bodyMedium),
+          title: Text(S.current.male,
+              style: Theme.of(context).textTheme.bodyMedium),
           value: 'Male',
           groupValue: selectedGender,
           selectedTileColor: Theme.of(context).iconTheme.color,
@@ -37,7 +39,8 @@ class _MenteeAdditionalDetailsStepState
           },
         ),
         RadioListTile(
-          title: Text('Female', style: Theme.of(context).textTheme.bodyMedium),
+          title: Text(S.current.female,
+              style: Theme.of(context).textTheme.bodyMedium),
           value: 'Female',
           groupValue: selectedGender,
           onChanged: (String? value) {

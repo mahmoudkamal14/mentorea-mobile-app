@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/local/mentors_data.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/mentor_profile_image.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/widgets/mentor%20profile/mentor_info_tab_bar_widget.dart';
 
 class MentorProfileScreen extends StatelessWidget {
-  const MentorProfileScreen({super.key});
+  const MentorProfileScreen({super.key, required this.mentor});
+
+  final MentorInfo mentor;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +29,9 @@ class MentorProfileScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const MentorProfileImage(),
+              MentorProfileImage(mentor: mentor),
               verticalSpace(20),
-              const MentorInfoTabBarWidget(),
+              MentorInfoTabBarWidget(mentor: mentor),
             ],
           ),
         ),

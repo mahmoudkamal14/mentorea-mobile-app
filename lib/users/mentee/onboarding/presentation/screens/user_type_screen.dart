@@ -17,6 +17,19 @@ class UserTypeScreen extends StatefulWidget {
 
 class _UserTypeScreenState extends State<UserTypeScreen> {
   int selectedIndex = 0;
+  List<UserTypeModel> listUserType = [
+    UserTypeModel(
+      image: 'assets/images/mentee.svg',
+      userType: UserType.mentee,
+      user: S.current.mentee,
+    ),
+    UserTypeModel(
+      image: 'assets/images/mentor.svg',
+      userType: UserType.mentor,
+      user: S.current.mentor,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +43,7 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Choose Account Type',
+                  S.current.chooseAccountType,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 verticalSpace(40),

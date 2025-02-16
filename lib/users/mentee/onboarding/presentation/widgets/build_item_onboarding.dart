@@ -82,7 +82,14 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                           ? Expanded(
                               child: AppTextButton(
                                 textButton: S.of(context).skip,
-                                backgroundColor: Colors.deepOrangeAccent,
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall!
+                                    .copyWith(
+                                      color: Theme.of(context).hintColor,
+                                    ),
+                                backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
                                 onPressed: () {
                                   context.navigateToReplacement(
                                       Routes.userTypeScreen);
