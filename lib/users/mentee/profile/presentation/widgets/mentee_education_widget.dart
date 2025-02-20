@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class MenteeEducationWidget extends StatelessWidget {
   const MenteeEducationWidget({
@@ -16,7 +17,8 @@ class MenteeEducationWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('Education', style: AppStyles.style24Meduim),
+              Text(S.current.education,
+                  style: Theme.of(context).textTheme.bodyLarge),
               const Spacer(),
               const Icon(Icons.add, color: Colors.black),
               horizontalSpace(8),
@@ -33,7 +35,7 @@ class MenteeEducationWidget extends StatelessWidget {
             titleAlignment: ListTileTitleAlignment.top,
             title: Text(
               'Fayoum University',
-              style: AppStyles.style24Meduim,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +46,7 @@ class MenteeEducationWidget extends StatelessWidget {
                 ),
                 Text(
                   '2021 - 2025',
-                  style: AppStyles.style16Regular,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

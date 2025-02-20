@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/users/mentee/community/data/datasource/local/list_posts_data.dart';
 
 class CommunityPostListViewItem extends StatefulWidget {
   const CommunityPostListViewItem({
     super.key,
     required this.selectedItem,
+    required this.posts,
   });
 
   final int selectedItem;
+  final PostsData posts;
 
   @override
   State<CommunityPostListViewItem> createState() =>
@@ -24,50 +28,57 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
   @override
   Widget build(BuildContext context) {
     return ContainerCardWidget(
+      width: 356.w,
       child: Column(
         children: [
           Row(
             children: [
               CircleAvatar(
                 radius: 28.r,
-                backgroundImage: const AssetImage('assets/images/daif.png'),
+                backgroundImage: AssetImage(widget.posts.userData.image),
               ),
               horizontalSpace(12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Ali Daif',
+                    widget.posts.userData.name,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   verticalSpace(4),
                   Text(
-                    'Senior Backend Developer',
+                    widget.posts.userData.job,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
+              ),
+              const Spacer(),
+              Icon(
+                Icons.more_vert_outlined,
+                color: Theme.of(context).iconTheme.color,
               ),
             ],
           ),
           verticalSpace(16),
           Text(
-            'This is what i learned in my recent course\n“The whole secret of existence”\n\n"The whole secret of existence lies in the pursuit of meaning, purpose, and connection. It is a delicate dance between self-discovery, compassion for others, and embracing the ever-unfolding mysteries of life. Finding harmony in the ebb and flow of experiences, we unlock the profound beauty that resides within our shared journey."',
+            widget.posts.body,
             style: Theme.of(context).textTheme.titleSmall,
           ),
           verticalSpace(16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('38' ' ${S.current.likes}',
-                  style: Theme.of(context).textTheme.bodySmall),
-              Text('12' ' ${S.current.comments}',
-                  style: Theme.of(context).textTheme.bodySmall),
-              Text('6' ' ${S.current.repost}',
-                  style: Theme.of(context).textTheme.bodySmall),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('${widget.posts.numOfLikes}' ' ${S.current.likes}',
+                    style: Theme.of(context).textTheme.bodySmall),
+                Text('${widget.posts.numOfComments}' ' ${S.current.comments}',
+                    style: Theme.of(context).textTheme.bodySmall),
+              ],
+            ),
           ),
           const DividerWidget(),
-          verticalSpace(8),
+          verticalSpace(4),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -92,8 +103,25 @@ class _CommunityPostListViewItemState extends State<CommunityPostListViewItem> {
                 Icons.comment_outlined,
                 color: Theme.of(context).iconTheme.color,
               ),
-              horizontalSpace(8),
-              Icon(Icons.share, color: Theme.of(context).iconTheme.color),
+            ],
+          ),
+          verticalSpace(4),
+          const DividerWidget(),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 28.r,
+                backgroundImage: const AssetImage('assets/images/daif.png'),
+              ),
+              horizontalSpace(12),
+              Expanded(
+                child: AppTextFormField(
+                  textInputType: TextInputType.text,
+                  hintText: 'Add a comment',
+                  validator: (value) {},
+                  suffixIcon: const Icon(Icons.image),
+                ),
+              ),
             ],
           ),
         ],

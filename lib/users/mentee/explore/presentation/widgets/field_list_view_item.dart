@@ -19,9 +19,7 @@ class FieldListViewItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: selectedIndex == index
-            ? Theme.of(context).appBarTheme.backgroundColor
-            : Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         border: Border.all(
           width: 1.3.w,
           color: index == selectedIndex

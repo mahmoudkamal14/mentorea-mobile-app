@@ -22,7 +22,10 @@ class BuildMessageWidget extends StatelessWidget {
         alignment: AlignmentDirectional.topEnd,
         child: Text(
           'مرحبًا، لدي استفسار حول البرمجة',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Colors.white),
         ),
       ),
     );

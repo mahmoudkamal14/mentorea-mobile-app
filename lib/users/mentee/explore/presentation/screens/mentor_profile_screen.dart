@@ -26,14 +26,12 @@ class MentorProfileScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              MentorProfileImage(mentor: mentor),
-              verticalSpace(20),
-              MentorInfoTabBarWidget(mentor: mentor),
-            ],
-          ),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: MentorProfileImage(mentor: mentor)),
+            SliverToBoxAdapter(child: verticalSpace(20)),
+            SliverToBoxAdapter(child: MentorInfoTabBarWidget(mentor: mentor)),
+          ],
         ),
       ),
     );

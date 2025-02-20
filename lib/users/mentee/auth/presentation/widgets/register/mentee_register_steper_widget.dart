@@ -52,7 +52,11 @@ class _MenteeRegisterSteperWidgetState
               ),
               AppTextButton(
                 textButton: S.of(context).cancel,
-                backgroundColor: Colors.deepOrangeAccent,
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: Theme.of(context).hintColor),
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 buttonHeight: 40,
                 buttonWidth: 120,
                 borderRadius: 10,

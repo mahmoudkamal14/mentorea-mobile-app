@@ -17,7 +17,7 @@ ThemeData lightTheme = ThemeData(
     actionsIconTheme: const IconThemeData(color: Colors.white),
     iconTheme: const IconThemeData(color: Colors.white),
     titleTextStyle: TextStyle(
-      color: const Color(0xFFE0E0E0),
+      color: Colors.white,
       fontSize: 24.sp,
       fontFamily: 'Lato',
       fontWeight: FontWeight.w700,

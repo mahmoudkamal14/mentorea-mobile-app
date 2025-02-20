@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/community/data/datasource/local/list_posts_data.dart';
 import 'package:mentorea_mobile_app/users/mentee/community/presentation/widgets/community_post_list_view_item.dart';
 
 class UserActivityWidget extends StatelessWidget {
@@ -13,12 +14,14 @@ class UserActivityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var posts = listOfPosts;
     return ContainerCardWidget(
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Activity', style: AppStyles.style24Meduim),
+              Text('Activity', style: Theme.of(context).textTheme.bodyLarge),
               const Spacer(),
               AppTextButton(
                 textButton: 'Create Post',
@@ -27,23 +30,25 @@ class UserActivityWidget extends StatelessWidget {
                 buttonWidth: 120.w,
                 onPressed: () {},
               ),
-              horizontalSpace(8),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.edit, color: Colors.black),
-              ),
             ],
           ),
           verticalSpace(20),
           SizedBox(
-            height: 450.h,
+            height: 500.h,
+            width: double.infinity,
             child: ListView.builder(
               itemCount: 4,
-              itemBuilder: (context, index) {
-                return CommunityPostListViewItem(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(
+                  right: isArabic() ? 0 : 16.h,
+                  left: isArabic() ? 16.h : 0,
+                ),
+                child: CommunityPostListViewItem(
+                  posts: posts[index],
                   selectedItem: index,
-                );
-              },
+                ),
+              ),
             ),
           ),
         ],

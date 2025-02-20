@@ -17,10 +17,14 @@ class TopMentorsListView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(S.current.topRated,
-                style: Theme.of(context).textTheme.titleMedium),
-            Text(S.current.seeAll,
-                style: Theme.of(context).textTheme.bodyMedium),
+            Text(
+              S.current.topRated,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              S.current.seeAll,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ],
         ),
         verticalSpace(20),

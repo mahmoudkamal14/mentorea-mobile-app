@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/theme/app_styles.dart';
 
 class MenteeProfileImage extends StatelessWidget {
   const MenteeProfileImage({
@@ -19,7 +18,7 @@ class MenteeProfileImage extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 120.h,
-              color: const Color(0xFF103A69),
+              color: Theme.of(context).appBarTheme.backgroundColor,
             ),
             Positioned(
               top: 30.h,
@@ -34,11 +33,11 @@ class MenteeProfileImage extends StatelessWidget {
           ],
         ),
         verticalSpace(100),
-        Text('Ali Daif Taha', style: AppStyles.style24Bold),
+        Text('Mohamed Gamal', style: Theme.of(context).textTheme.titleMedium),
         verticalSpace(4),
         Text(
-          'Machine Learning Engineer at Apple',
-          style: AppStyles.style16Regular,
+          'Junior Flutter Developer',
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     );

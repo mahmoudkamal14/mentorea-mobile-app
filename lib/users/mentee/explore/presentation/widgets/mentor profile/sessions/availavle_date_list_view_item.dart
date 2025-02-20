@@ -35,11 +35,35 @@ class AvailavleDateListViewItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Mon', style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            'Mon',
+            style: selectedItemIndex == itemIndex
+                ? Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white)
+                : Theme.of(context).textTheme.bodyMedium,
+          ),
           verticalSpace(10),
-          Text('25 Jan', style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            '25 Jan',
+            style: selectedItemIndex == itemIndex
+                ? Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white)
+                : Theme.of(context).textTheme.bodyMedium,
+          ),
           verticalSpace(10),
-          Text('$slots Slots', style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            '$slots Slots',
+            style: selectedItemIndex == itemIndex
+                ? Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white)
+                : Theme.of(context).textTheme.bodyMedium,
+          ),
         ],
       ),
     );

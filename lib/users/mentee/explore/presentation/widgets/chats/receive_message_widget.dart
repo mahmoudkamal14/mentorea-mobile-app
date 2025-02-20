@@ -22,7 +22,10 @@ class ReceiveMessageWidget extends StatelessWidget {
         alignment: AlignmentDirectional.topEnd,
         child: Text(
           'مرحبًا، كيف يمكنني مساعدتك؟',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Colors.white),
         ),
       ),
     );
