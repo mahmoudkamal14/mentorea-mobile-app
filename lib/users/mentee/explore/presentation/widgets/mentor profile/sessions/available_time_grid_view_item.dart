@@ -30,7 +30,12 @@ class AvailableTimeGridViewItem extends StatelessWidget {
       child: Center(
         child: Text(
           '10:30 PM',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: selectedItemIndex == itemIndex
+              ? Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Colors.white)
+              : Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

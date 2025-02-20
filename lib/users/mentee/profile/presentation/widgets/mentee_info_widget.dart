@@ -9,13 +9,16 @@ class MenteeInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 16.h,
-      children: const [
-        MenteeAboutAndSkills(),
-        MenteeEducationWidget(),
-        UserActivityWidget(),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      child: Column(
+        spacing: 16.h,
+        children: const [
+          MenteeAboutAndSkills(),
+          MenteeEducationWidget(),
+          UserActivityWidget(),
+        ],
+      ),
     );
   }
 }

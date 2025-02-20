@@ -9,8 +9,8 @@ class MenteeBookingsScreen extends StatelessWidget {
     return Column(
       children: [
         BookingListViewItem(
-          menteeName: 'Mahmoud Fawzy',
-          menteeImage: 'assets/images/daif.png',
+          menteeName: 'Michael Carter',
+          menteeImage: 'assets/images/mentor2.png',
           sessionDate: 'Sun 2/9/2025',
           sessionTime: '09:45 PM',
           sessionType: 'Back-End Development',
