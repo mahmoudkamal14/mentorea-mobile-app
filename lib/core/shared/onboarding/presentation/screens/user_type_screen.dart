@@ -5,8 +5,8 @@ import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/data/models/user_type_model.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/widgets/user_type_item_widget.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/data/models/user_type_model.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/widgets/user_type_item_widget.dart';
 
 class UserTypeScreen extends StatefulWidget {
   const UserTypeScreen({super.key});

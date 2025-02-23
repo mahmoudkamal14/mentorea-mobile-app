@@ -7,7 +7,7 @@ import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/action_icon_appbar.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/community/presentation/screens/community_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/community/presentation/screens/community_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';

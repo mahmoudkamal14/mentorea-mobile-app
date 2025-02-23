@@ -9,10 +9,10 @@ import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/bo
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_bottom_navigation_bar_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/splash_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/user_type_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/language_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/splash_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/user_type_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/notifications_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';

@@ -5,7 +5,7 @@ import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/divider_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/community/data/datasource/local/list_posts_data.dart';
+import 'package:mentorea_mobile_app/core/shared/community/data/datasource/local/list_posts_data.dart';
 
 class CommunityPostListViewItem extends StatefulWidget {
   const CommunityPostListViewItem({
