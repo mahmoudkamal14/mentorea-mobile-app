@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/users/mentee/onboarding/presentation/screens/language_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/language_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {

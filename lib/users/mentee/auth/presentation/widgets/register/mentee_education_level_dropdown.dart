@@ -45,7 +45,7 @@ class _MenteeEducationLevelDropdownState
             );
           }).toList(),
         ),
-        verticalSpace(20),
+        verticalSpace(16),
         AppDropdownButtonFormField(
           value: selectedField,
           label: S.current.fieldOfStudy,
@@ -69,9 +69,51 @@ class _MenteeEducationLevelDropdownState
         verticalSpace(16),
         AppTextFormField(
           textInputType: TextInputType.text,
-          hintText: S.current.enterYourAge,
+          hintText: 'University',
           hintTextStyle: Theme.of(context).textTheme.titleSmall,
           validator: (value) {},
+        ),
+        verticalSpace(16),
+        Row(
+          children: [
+            Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    showDatePicker(
+                      context: context,
+                      firstDate: DateTime(1980),
+                      lastDate: DateTime(2025),
+                    );
+                  });
+                },
+                child: AppTextFormField(
+                  textInputType: TextInputType.text,
+                  hintText: 'Start Date',
+                  hintTextStyle: Theme.of(context).textTheme.titleSmall,
+                  validator: (value) {},
+                ),
+              ),
+            ),
+            horizontalSpace(20),
+            Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  showDatePicker(
+                    context: context,
+                    firstDate: DateTime(1980),
+                    lastDate: DateTime(2032),
+                  );
+                },
+                child: AppTextFormField(
+                  textInputType: TextInputType.text,
+                  hintText: 'End Date',
+                  hintTextStyle: Theme.of(context).textTheme.titleSmall,
+                  validator: (value) {},
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

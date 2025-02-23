@@ -1,4 +1,4 @@
-import 'package:mentorea_mobile_app/users/mentee/onboarding/data/models/onboarding_model.dart';
+import 'package:mentorea_mobile_app/core/shared/onboarding/data/models/onboarding_model.dart';
 
 List<OnBoardingModel> onBoardingArabicList = [
   OnBoardingModel(
