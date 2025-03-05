@@ -26,28 +26,37 @@ class _MenteeAdditionalDetailsStepState
           S.current.chooseYourGender,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        RadioListTile(
-          title: Text(S.current.male,
-              style: Theme.of(context).textTheme.bodyMedium),
-          value: 'Male',
-          groupValue: selectedGender,
-          selectedTileColor: Theme.of(context).iconTheme.color,
-          onChanged: (String? value) {
-            setState(() {
-              selectedGender = value;
-            });
-          },
-        ),
-        RadioListTile(
-          title: Text(S.current.female,
-              style: Theme.of(context).textTheme.bodyMedium),
-          value: 'Female',
-          groupValue: selectedGender,
-          onChanged: (String? value) {
-            setState(() {
-              selectedGender = value;
-            });
-          },
+        verticalSpace(4),
+        Row(
+          children: [
+            Expanded(
+              child: RadioListTile(
+                title: Text(S.current.male,
+                    style: Theme.of(context).textTheme.bodyMedium),
+                value: 'Male',
+                groupValue: selectedGender,
+                selectedTileColor: Theme.of(context).iconTheme.color,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedGender = value;
+                  });
+                },
+              ),
+            ),
+            Expanded(
+              child: RadioListTile(
+                title: Text(S.current.female,
+                    style: Theme.of(context).textTheme.bodyMedium),
+                value: 'Female',
+                groupValue: selectedGender,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedGender = value;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ],
     );

@@ -56,8 +56,6 @@ class AppTextFormField extends StatelessWidget {
         focusedErrorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
         hintText: hintText,
         hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodySmall,
-        labelText: hintText,
-        labelStyle: hintTextStyle ?? Theme.of(context).textTheme.bodySmall,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         suffixIconColor: Theme.of(context).iconTheme.color!,

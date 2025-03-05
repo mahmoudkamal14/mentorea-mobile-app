@@ -19,7 +19,6 @@ class SelectProfileImage extends StatelessWidget {
             MenteeRegisterCubit.get(context).profileImageFile;
 
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               height: 150.h,
@@ -31,6 +30,7 @@ class SelectProfileImage extends StatelessWidget {
                       color: Theme.of(context).iconTheme.color,
                     ),
             ),
+            horizontalSpace(20),
             Container(
               width: 150.w,
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
