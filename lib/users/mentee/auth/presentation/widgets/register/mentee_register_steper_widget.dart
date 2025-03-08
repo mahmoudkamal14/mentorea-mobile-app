@@ -4,9 +4,8 @@ import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_education_level_dropdown.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_job_title_experience_dropdown.dart';
-
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_birthday_and_location_step.dart';
+import 'package:mentorea_mobile_app/users/mentee/auth/presentation/widgets/register/mentee_interests_and_bio_step.dart';
 import 'mentee_additional_details_step.dart';
 import 'mentee_basic_information_step.dart';
 
@@ -72,11 +71,6 @@ class _MenteeRegisterSteperWidgetState
       },
       connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
       connectorThickness: 2,
-      onStepTapped: (value) {
-        setState(() {
-          currentStep = value;
-        });
-      },
       steps: [
         Step(
           content: const MenteeBasicInformationStep(),
@@ -86,16 +80,9 @@ class _MenteeRegisterSteperWidgetState
           ),
         ),
         Step(
-          content: const MenteeEducationLevelDropdown(),
+          content: const MenteeBirthdayAndLocationStep(),
           title: Text(
-            S.current.education,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: const MenteeJobTitleExperienceDropdown(),
-          title: Text(
-            S.current.experienceWork,
+            'Contact & Personal Details',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -103,6 +90,13 @@ class _MenteeRegisterSteperWidgetState
           content: const MenteeAdditionalDetailsStep(),
           title: Text(
             S.current.additionalDetails,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+        Step(
+          content: const MenteeInterestsAndBioStep(),
+          title: Text(
+            'Interests & Bio',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),

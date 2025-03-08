@@ -26,7 +26,7 @@ class _MenteeBasicInformationStepState
           S.of(context).name,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        verticalSpace(8),
+        verticalSpace(4),
         AppTextFormField(
           textInputType: TextInputType.text,
           hintText: 'Mahmoud Kamal',
@@ -36,12 +36,12 @@ class _MenteeBasicInformationStepState
           ),
           validator: (value) {},
         ),
-        verticalSpace(16),
+        verticalSpace(12),
         Text(
           S.of(context).email,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        verticalSpace(8),
+        verticalSpace(4),
         AppTextFormField(
           textInputType: TextInputType.emailAddress,
           hintText: 'mentoreaapp19@gmail.com',
@@ -51,12 +51,12 @@ class _MenteeBasicInformationStepState
           ),
           validator: (value) {},
         ),
-        verticalSpace(16),
+        verticalSpace(12),
         Text(
           S.of(context).password,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        verticalSpace(8),
+        verticalSpace(4),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
           hintText: '********',
@@ -75,7 +75,6 @@ class _MenteeBasicInformationStepState
             icon: Icon(isObscureText == true ? visibility : Icons.visibility),
           ),
         ),
-        verticalSpace(16),
       ],
     );
   }

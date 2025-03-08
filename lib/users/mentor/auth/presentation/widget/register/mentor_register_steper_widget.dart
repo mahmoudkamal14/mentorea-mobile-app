@@ -5,9 +5,7 @@ import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentor/auth/presentation/widget/register/mentor_job_title_experience_dropdown.dart';
-
 import 'mentor_basic_information_step.dart';
-import 'mentor_education_level_dropdown.dart';
 
 class MentorRegisterSteperWidget extends StatefulWidget {
   const MentorRegisterSteperWidget({super.key});
@@ -77,13 +75,6 @@ class _MentorRegisterSteperWidgetState
           content: const MentorBasicInformationStep(),
           title: Text(
             'Basic Information',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: const MentorEducationLevelDropdown(),
-          title: Text(
-            'Education',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
