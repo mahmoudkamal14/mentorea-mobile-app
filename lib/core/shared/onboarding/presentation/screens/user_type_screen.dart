@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
-import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
-import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/login_screen.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/core/shared/onboarding/data/models/user_type_model.dart';
@@ -17,18 +16,6 @@ class UserTypeScreen extends StatefulWidget {
 
 class _UserTypeScreenState extends State<UserTypeScreen> {
   int selectedIndex = 0;
-  List<UserTypeModel> listUserType = [
-    UserTypeModel(
-      image: 'assets/images/mentee.svg',
-      userType: UserType.mentee,
-      user: S.current.mentee,
-    ),
-    UserTypeModel(
-      image: 'assets/images/mentor.svg',
-      userType: UserType.mentor,
-      user: S.current.mentor,
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +64,11 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
                   buttonWidth: 300.w,
                   onPressed: () {
                     if (selectedIndex == 0) {
-                      context.navigateTo(Routes.menteeLoginScreen);
-                    } else {
-                      context.navigateTo(Routes.mentorLoginScreen);
+                      _navigateToLoginScreen(context,
+                          userType: UserType.mentee);
+                    } else if (selectedIndex == 1) {
+                      _navigateToLoginScreen(context,
+                          userType: UserType.mentor);
                     }
                   },
                 ),
@@ -87,6 +76,26 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void _navigateToLoginScreen(BuildContext context,
+      {required UserType userType}) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            LoginScreen(userType: userType),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var tween = Tween(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: Curves.easeInOut));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
       ),
     );
   }

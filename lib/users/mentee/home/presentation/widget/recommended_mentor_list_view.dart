@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
-import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/local/mentors_data.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/recommended_mentor_list_view_item.dart';

@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
+import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
+import 'package:mentorea_mobile_app/core/networking/api_result.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/auth_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/repository/auth_repository.dart';
+
+part 'login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  final AuthRepository _authRepository;
+  LoginCubit(this._authRepository) : super(LoginInitialState());
+
+  static LoginCubit get(context) => BlocProvider.of(context);
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
+
+  late AuthResponseModel? userModel;
+  String userRole = '';
+
+  void emitLoginStates() async {
+    emit(LoginLoadingState());
+    final response = await _authRepository.loginWithEmailPassword(
+      LoginRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+      ),
+    );
+
+    if (response is Success<AuthResponseModel>) {
+      decodeJwt(token: response.data.accessToken!);
+      saveUserTokens(
+        accessToken: response.data.accessToken!,
+        refreshToken: response.data.refreshToken!,
+      );
+      userModel = response.data;
+      emit(LoginSuccessState(authResponseModel: userModel!));
+    } else if (response is Failure) {
+      emit(
+        LoginErrorState(message: ApiErrorHandler.handleError(response).message),
+      );
+    }
+  }
+
+  void emitForgotPasswordStates() async {
+    emit(LoginLoadingState());
+    final response = await _authRepository.forgotPassword(
+      ForgotPasswordRequestBody(email: emailController.text),
+    );
+
+    if (response is Success) {
+      emit(LoginSuccessState(authResponseModel: userModel!));
+    } else if (response is Failure) {
+      emit(LoginErrorState(message: response.error.toString()));
+    }
+  }
+
+  decodeJwt({required String token}) {
+    Map<String, dynamic> payload = JwtDecoder.decode(token);
+
+    userRole = payload.entries
+        .firstWhere(
+          (element) =>
+              element.key ==
+              'http://schemas.microsoft.com/ws/2008/06/identity/claims/role',
+        )
+        .value;
+  }
+
+  saveUserTokens({required String accessToken, required String refreshToken}) {
+    CacheHelper.saveSecuredData(
+      key: CacheHelperKeys.accessToken,
+      value: accessToken,
+    );
+    CacheHelper.saveSecuredData(
+      key: CacheHelperKeys.refreshToken,
+      value: refreshToken,
+    );
+  }
+}
