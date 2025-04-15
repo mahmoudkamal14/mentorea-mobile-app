@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_cubit.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_login_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/screens/mentee_register_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
@@ -19,8 +18,7 @@ import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/pa
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_cubit.dart';
-import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_login_screen.dart';
-import 'package:mentorea_mobile_app/users/mentor/auth/presentation/screen/mentor_register_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentor_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/home/presentation/screens/mentor_bottom_navigation_bar_screen.dart';
 
 class AppRouter {
@@ -62,13 +60,6 @@ class AppRouter {
       case Routes.chatsDetailsScreen:
         return smoothEaseInOutPageRoute(
           const ChatsDetailsScreen(),
-          settings: settings,
-        );
-
-      // Mentee Account
-      case Routes.menteeLoginScreen:
-        return smoothEaseInOutPageRoute(
-          const MenteeLoginScreen(),
           settings: settings,
         );
 
@@ -126,13 +117,6 @@ class AppRouter {
       case Routes.paymentMethodsScreen:
         return smoothEaseInOutPageRoute(
           const PaymentMethodsScreen(),
-          settings: settings,
-        );
-
-      // Mentor Account
-      case Routes.mentorLoginScreen:
-        return smoothEaseInOutPageRoute(
-          const MentorLoginScreen(),
           settings: settings,
         );
 

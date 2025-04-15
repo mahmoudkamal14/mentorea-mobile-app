@@ -9,7 +9,7 @@ class Routes {
   static const String chatsDetailsScreen = '/chatsDetailsScreen';
 
   // Mentee
-  static const String menteeLoginScreen = '/menteeLoginScreen';
+  static const String loginScreen = '/loginScreen';
   static const String menteeRegisterScreen = '/menteeRegisterScreen';
   static const String menteeBottomNavBar = '/menteeBottomNavBar';
   static const String menteePersonalInfo = '/menteePersonalInfo';
@@ -19,7 +19,6 @@ class Routes {
   static const String paymentMethodsScreen = '/paymentMethodsScreen';
 
   // Mentor
-  static const String mentorLoginScreen = '/mentorLoginScreen';
   static const String mentorRegisterScreen = '/mentorRegisterScreen';
   static const String mentorBottomNavBar = '/mentorBottomNavBar';
 }

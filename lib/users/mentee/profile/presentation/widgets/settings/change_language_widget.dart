@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mentorea_mobile_app/app/logic/app_cubit.dart';
 import 'package:mentorea_mobile_app/app/logic/app_state.dart';
-import 'package:mentorea_mobile_app/core/cache/shared_pref_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class ChangeLanguageWidget extends StatelessWidget {

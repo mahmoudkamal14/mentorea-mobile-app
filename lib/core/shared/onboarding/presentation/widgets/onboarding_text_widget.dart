@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/helpers/spacing.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 
 import 'build_item_onboarding.dart';
 

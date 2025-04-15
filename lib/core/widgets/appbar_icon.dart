@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/helpers/extentions.dart';
 
 class AppbarIcon extends StatelessWidget {
   const AppbarIcon({super.key});
@@ -8,7 +7,7 @@ class AppbarIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pop();
+        Navigator.pop(context);
       },
       child: Icon(
         Icons.arrow_back_ios_new_outlined,

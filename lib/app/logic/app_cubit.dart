@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/app/logic/app_state.dart';
-import 'package:mentorea_mobile_app/core/cache/shared_pref_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 
 enum ThemeModeState { light, dark, system }
 
