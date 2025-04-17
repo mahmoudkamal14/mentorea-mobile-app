@@ -11,6 +11,10 @@ class Routes {
   // Mentee
   static const String loginScreen = '/loginScreen';
   static const String menteeRegisterScreen = '/menteeRegisterScreen';
+
+  static const String forgotPasswordScreen = '/forgotPasswordScreen';
+  static const String resetPasswordScreen = '/reset-password';
+  static const String verifyEmailScreen = '/verify-email';
   static const String menteeBottomNavBar = '/menteeBottomNavBar';
   static const String menteePersonalInfo = '/menteePersonalInfo';
   static const String settingsScreen = '/settingsScreen';

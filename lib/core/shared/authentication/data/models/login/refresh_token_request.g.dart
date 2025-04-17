@@ -7,5 +7,8 @@ part of 'refresh_token_request.dart';
 // **************************************************************************
 
 Map<String, dynamic> _$RefreshTokenRequestToJson(
-  RefreshTokenRequest instance,
-) => <String, dynamic>{'refreshToken': instance.refreshToken};
+        RefreshTokenRequest instance) =>
+    <String, dynamic>{
+      'refreshToken': instance.refreshToken,
+      'token': instance.token,
+    };

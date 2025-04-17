@@ -5,7 +5,7 @@ import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/auth_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/repository/auth_repository.dart';
@@ -22,7 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
-  late AuthResponseModel? userModel;
+  late LoginResponseModel? userModel;
   String userRole = '';
 
   void emitLoginStates() async {
@@ -34,14 +34,14 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
 
-    if (response is Success<AuthResponseModel>) {
-      decodeJwt(token: response.data.accessToken!);
+    if (response is Success<LoginResponseModel>) {
+      decodeJwt(token: response.data.token!);
       saveUserTokens(
-        accessToken: response.data.accessToken!,
+        accessToken: response.data.token!,
         refreshToken: response.data.refreshToken!,
       );
       userModel = response.data;
-      emit(LoginSuccessState(authResponseModel: userModel!));
+      emit(LoginSuccessState(loginResponseModel: userModel!));
     } else if (response is Failure) {
       emit(
         LoginErrorState(message: ApiErrorHandler.handleError(response).message),
@@ -56,7 +56,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
 
     if (response is Success) {
-      emit(LoginSuccessState(authResponseModel: userModel!));
+      emit(LoginSuccessState(loginResponseModel: userModel!));
     } else if (response is Failure) {
       emit(LoginErrorState(message: response.error.toString()));
     }
@@ -67,9 +67,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     userRole = payload.entries
         .firstWhere(
-          (element) =>
-              element.key ==
-              'http://schemas.microsoft.com/ws/2008/06/identity/claims/role',
+          (element) => element.key == 'Role',
         )
         .value;
   }

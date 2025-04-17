@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -80,7 +82,7 @@ class BookingListViewItem extends StatelessWidget {
               Expanded(
                 child: AppTextButton(
                   buttonHeight: 48,
-                  textButton:status == '' ? 'Pay Now' : 'Start',
+                  textButton: status == '' ? 'Pay Now' : 'Start',
                   onPressed: onStartSession,
                 ),
               ),
@@ -157,7 +159,7 @@ class _CountdownTimerScreenState extends State<CountdownTimerScreen> {
         decoration: BoxDecoration(
           color: Colors.blue.shade100,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10,

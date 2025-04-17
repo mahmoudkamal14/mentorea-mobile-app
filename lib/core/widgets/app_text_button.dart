@@ -14,6 +14,7 @@ class AppTextButton extends StatelessWidget {
     this.borderRadius,
     this.verticalPadding,
     this.horizontalPadding,
+    this.isLoading,
   });
 
   final String textButton;
@@ -25,6 +26,7 @@ class AppTextButton extends StatelessWidget {
   final double? borderRadius;
   final double? verticalPadding;
   final double? horizontalPadding;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +43,15 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(
-            textAlign: TextAlign.center,
-            textButton,
-            style: textStyle ?? AppStyles.style18MeduimWhite,
-          ),
+          child: isLoading == true
+              ? const CircularProgressIndicator(
+                  color: Colors.white,
+                )
+              : Text(
+                  textAlign: TextAlign.center,
+                  textButton,
+                  style: textStyle ?? AppStyles.style18MeduimWhite,
+                ),
         ),
       ),
     );

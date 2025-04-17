@@ -1,13 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/resent_otp_forgot_password_rewuest_body.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/auth_response_model.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/client_register_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/reset_password_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentee_register_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentor_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/resend_otp_confirm_email_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/services/auth_service.dart';
 
@@ -16,7 +17,7 @@ class AuthRepository {
 
   AuthRepository(this._authServices);
 
-  Future<ApiResult<AuthResponseModel>> loginWithEmailPassword(
+  Future<ApiResult<LoginResponseModel>> loginWithEmailPassword(
     LoginRequestBody loginRequestBody,
   ) async {
     try {
@@ -34,13 +35,57 @@ class AuthRepository {
     }
   }
 
-  Future<ApiResult<AuthResponseModel>> registerWithEmailPassword(
-    ClientRegisterRequestBody registerRequestBody,
+  Future<ApiResult<void>> menteeRegister(
+    MenteeRegisterRequestBody mentee,
+    MultipartFile imageFile,
   ) async {
     try {
-      final result = await _authServices.registerWithEmailPassword(
-        registerRequestBody,
+      final FormData formData = FormData.fromMap({
+        'Email': mentee.email,
+        'Password': mentee.password,
+        'Name': mentee.name,
+        'Location': mentee.location,
+        'Image': imageFile,
+        'Gender': mentee.gender,
+        'PirthDate.Year': mentee.pirthDateYear,
+        'PirthDate.Month': mentee.pirthDateMonth,
+        'PirthDate.Day': mentee.pirthDateDay,
+        'FieldInterests': mentee.fieldInterests,
+        'About': mentee.about,
+      });
+      final result = await _authServices.menteeRegister(formData);
+      return ApiResult.success(result);
+    } catch (error) {
+      showToast(
+        msg: ApiErrorHandler.handleError(error).message,
+        color: Colors.red,
       );
+      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+    }
+  }
+
+  Future<ApiResult<void>> mentorRegister(
+    MentorRegisterRequestBody mentor,
+    MultipartFile imageFile,
+  ) async {
+    try {
+      final FormData formData = FormData.fromMap({
+        'Email': mentor.email,
+        'Password': mentor.password,
+        'Name': mentor.name,
+        'Location': mentor.location,
+        'Image': imageFile,
+        'Gender': mentor.gender,
+        'PirthDate.Year': mentor.pirthDateYear,
+        'PirthDate.Month': mentor.pirthDateMonth,
+        'PirthDate.Day': mentor.pirthDateDay,
+        'NumberOfExperience': mentor.numberOfExperience,
+        'PriceOfSession': mentor.priceOfSession,
+        'About': mentor.about,
+        'FieldId': mentor.fieldId,
+      });
+
+      final result = await _authServices.mentorRegister(formData);
       return ApiResult.success(result);
     } catch (error) {
       showToast(
@@ -52,11 +97,11 @@ class AuthRepository {
   }
 
   Future<ApiResult<void>> confirmEmail({
-    required String email,
-    required String otpCode,
+    required String userId,
+    required String code,
   }) async {
     try {
-      final result = await _authServices.confirmEmail(email, otpCode);
+      final result = await _authServices.confirmEmail(userId, code);
       return ApiResult.success(result);
     } catch (error) {
       showToast(
@@ -97,19 +142,6 @@ class AuthRepository {
         msg: ApiErrorHandler.handleError(error).message,
         color: Colors.red,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
-    }
-  }
-
-  Future<ApiResult<void>> resendOtpResetPassword(
-    ResentOtpForgotPasswordRewuestBody resentOtpForgotPasswordRewuestBody,
-  ) async {
-    try {
-      final result = await _authServices.resendOtpResetPassword(
-        resentOtpForgotPasswordRewuestBody,
-      );
-      return ApiResult.success(result);
-    } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handleError(error).message);
     }
   }

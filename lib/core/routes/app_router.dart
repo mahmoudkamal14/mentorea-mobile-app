@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorea_mobile_app/core/functions/build_page_route.dart';
+import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/mentor/mentor_register_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/forgot_password_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/reset_password_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/verify_email_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
@@ -17,7 +22,6 @@ import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/me
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
-import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentor_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/home/presentation/screens/mentor_bottom_navigation_bar_screen.dart';
 
@@ -48,6 +52,24 @@ class AppRouter {
       case Routes.userTypeScreen:
         return smoothEaseInOutPageRoute(
           const UserTypeScreen(),
+          settings: settings,
+        );
+
+      case Routes.forgotPasswordScreen:
+        return smoothEaseInOutPageRoute(
+          const ForgotPasswordScreen(),
+          settings: settings,
+        );
+
+      case Routes.resetPasswordScreen:
+        return smoothEaseInOutPageRoute(
+          const ResetPasswordScreen(),
+          settings: settings,
+        );
+
+      case Routes.verifyEmailScreen:
+        return smoothEaseInOutPageRoute(
+          const VerifyEmailScreen(),
           settings: settings,
         );
 
@@ -123,7 +145,7 @@ class AppRouter {
       case Routes.mentorRegisterScreen:
         return smoothEaseInOutPageRoute(
           BlocProvider(
-            create: (context) => MentorRegisterCubit(),
+            create: (context) => getIt<MentorRegisterCubit>(),
             child: const MentorRegisterScreen(),
           ),
           settings: settings,
