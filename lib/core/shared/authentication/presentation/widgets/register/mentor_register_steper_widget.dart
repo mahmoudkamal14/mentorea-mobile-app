@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentor_job_title_experience_dropdown.dart';
 import 'mentor_basic_information_step.dart';
 
 class MentorRegisterSteperWidget extends StatefulWidget {
@@ -76,13 +75,13 @@ class _MentorRegisterSteperWidgetState
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
-        Step(
-          content: const MentorJobTitleExperienceDropdown(),
-          title: Text(
-            'Experience Work',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
+        // Step(
+        //   content: const MentorJobTitleExperienceDropdown(),
+        //   title: Text(
+        //     'Experience Work',
+        //     style: Theme.of(context).textTheme.bodyLarge,
+        //   ),
+        // ),
         Step(
           content: const MentorBasicInformationStep(),
           title: Text(

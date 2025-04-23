@@ -22,10 +22,10 @@ class NameTextFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '  $name',
+          name,
           style: Theme.of(
             context,
-          ).textTheme.titleSmall!.copyWith(color: Color(0xff000000)),
+          ).textTheme.titleSmall,
         ),
         GestureDetector(
           onTap: () {

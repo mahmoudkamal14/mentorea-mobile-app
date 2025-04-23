@@ -3,7 +3,6 @@ import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_grid_view.dart';
 
 class MenteeInterestsAndBioStep extends StatelessWidget {
   const MenteeInterestsAndBioStep({super.key});
@@ -27,11 +26,15 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
         verticalSpace(20),
         GestureDetector(
           onTap: () {
-            showBottomSheet(
+            showModalBottomSheet(
               context: context,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Colors.transparent,
+              sheetAnimationStyle: AnimationStyle(
+                  curve: Curves.easeInCubic,
+                  duration: const Duration(milliseconds: 900)),
               builder: (context) {
-                return ContainerCardWidget(
+                return Container(
+                  decoration: BoxDecoration(color: Colors.grey[600]),
                   height: MediaQuery.sizeOf(context).height * 0.80,
                   child: Column(
                     children: [
@@ -40,7 +43,7 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       verticalSpace(30),
-                      const MenteeInterestsGridView(),
+                      // const MenteeInterestsGridView(),
                     ],
                   ),
                 );

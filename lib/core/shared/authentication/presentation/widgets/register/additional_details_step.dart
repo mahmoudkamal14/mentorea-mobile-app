@@ -3,16 +3,14 @@ import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_select_profile_image.dart';
 
-class MenteeAdditionalDetailsStep extends StatefulWidget {
-  const MenteeAdditionalDetailsStep({super.key});
+class AdditionalDetailsStep extends StatefulWidget {
+  const AdditionalDetailsStep({super.key});
 
   @override
-  State<MenteeAdditionalDetailsStep> createState() =>
-      _MenteeAdditionalDetailsStepState();
+  State<AdditionalDetailsStep> createState() => _AdditionalDetailsStepState();
 }
 
-class _MenteeAdditionalDetailsStepState
-    extends State<MenteeAdditionalDetailsStep> {
+class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
   String? selectedGender;
 
   @override

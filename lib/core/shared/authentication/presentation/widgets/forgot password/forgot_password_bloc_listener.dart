@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
-import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
-import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
-import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/forgot%20password/forgot_password_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/reset_password_screen.dart';
 
 class ForgotPasswordBlocListener extends StatelessWidget {
   const ForgotPasswordBlocListener({super.key, required this.child});
@@ -25,7 +23,9 @@ class ForgotPasswordBlocListener extends StatelessWidget {
                 msg: 'تم إرسال كود إعادة تعيين كلمة المرور إلي الايميل بنجاح',
                 color: Colors.green,
               );
-              context.navigateToReplacement(Routes.resetPasswordScreen);
+              _navigateToResetPasswordScreen(
+                  context: context,
+                  email: ForgotPasswordCubit.get(context).emailController.text);
 
             case ForgotPasswordErrorState():
               showToast(msg: 'فشل إرسال الكود إلي الايميل', color: Colors.red);
@@ -37,10 +37,25 @@ class ForgotPasswordBlocListener extends StatelessWidget {
     );
   }
 
-  void setupError(BuildContext context, error) {
-    showToast(
-      msg: ApiErrorHandler.handleError(error).message,
-      color: Colors.green,
+  void _navigateToResetPasswordScreen({
+    required BuildContext context,
+    required String email,
+  }) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ResetPasswordScreen(email: email),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var tween = Tween(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: Curves.easeInOut));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
     );
   }
 }

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/forgot%20password/forgot_password_cubit.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpCodeResetPasswordWidget extends StatefulWidget {
   const OtpCodeResetPasswordWidget({
     super.key,
-    required this.otpCodeController,
   });
-  final TextEditingController otpCodeController;
 
   @override
   State<OtpCodeResetPasswordWidget> createState() =>
@@ -20,6 +19,8 @@ class _OtpCodeResetPasswordWidgetState
 
   @override
   Widget build(BuildContext context) {
+    var cubit = ForgotPasswordCubit.get(context);
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: AutofillGroup(
@@ -34,7 +35,7 @@ class _OtpCodeResetPasswordWidgetState
               animationType: AnimationType.fade,
               cursorColor: Colors.black,
               animationDuration: const Duration(milliseconds: 300),
-              controller: widget.otpCodeController,
+              controller: cubit.otpCodeController,
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.box,
                 borderRadius: BorderRadius.circular(5),

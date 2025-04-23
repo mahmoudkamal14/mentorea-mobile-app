@@ -47,7 +47,7 @@ abstract class AuthServices {
     @Body() ForgotPasswordRequestBody forgotPasswordRequestBody,
   );
 
-  @PUT(ApiConstants.resetPassword)
+  @POST(ApiConstants.resetPassword)
   Future<void> resetPassword(
     @Body() ResetPasswordRequestBody resetPasswordRequestBody,
   );

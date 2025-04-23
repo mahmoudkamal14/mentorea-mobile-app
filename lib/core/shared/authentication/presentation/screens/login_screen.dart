@@ -5,7 +5,6 @@ import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widg
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/login/login_bloc_listener.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/login/login_form_widget.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/login/welcome_message_widget.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/login_with_google_and_linkedin.dart';
 import 'package:mentorea_mobile_app/core/shared/onboarding/data/models/user_type_model.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -25,15 +24,13 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
               child: Column(
                 children: [
-                  WelcomeMessageWidget(
-                    userType: userType,
-                  ),
+                  WelcomeMessageWidget(userType: userType),
                   verticalSpace(32),
                   const LoginFormWidget(),
-                  verticalSpace(24),
-                  const LoginWithGoogleAndLinkedin(),
                   verticalSpace(43),
-                  const DontHaveAnAccountWidget(),
+                  DontHaveAnAccountWidget(
+                    userType: userType,
+                  ),
                 ],
               ),
             ),

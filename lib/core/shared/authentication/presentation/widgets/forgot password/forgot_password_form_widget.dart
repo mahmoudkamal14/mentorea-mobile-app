@@ -10,37 +10,34 @@ class ForgotPasswordFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutofillGroup(
-      child: Form(
-        key: ForgotPasswordCubit.get(context).formKeyForgot,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            EmailTextFormField(
-              emailController: ForgotPasswordCubit.get(context).emailController,
-            ),
-            verticalSpace(32),
-            BlocBuilder<ForgotPasswordCubit, ForgotPasswordState>(
-              builder: (context, state) {
-                return SizedBox(
-                  width: double.infinity,
-                  child: AppTextButton(
-                    textButton: 'إرسال الرمز',
-                    isLoading:
-                        state is ForgotPasswordLoadingState ? true : false,
-                    onPressed: () {
-                      if (ForgotPasswordCubit.get(
-                        context,
-                      ).formKeyForgot.currentState!.validate()) {
-                        ForgotPasswordCubit.get(context).forgotPassword();
-                      }
-                    },
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+    var cubit = ForgotPasswordCubit.get(context);
+    return Form(
+      key: ForgotPasswordCubit.get(context).formKeyForgot,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          EmailTextFormField(
+            emailController: cubit.emailController,
+          ),
+          verticalSpace(32),
+          BlocBuilder<ForgotPasswordCubit, ForgotPasswordState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: double.infinity,
+                child: AppTextButton(
+                  textButton: 'إرسال الرمز',
+                  isLoading: state is ForgotPasswordLoadingState ? true : false,
+                  onPressed: () {
+                    if (cubit.formKeyForgot.currentState!.validate()) {
+                      ForgotPasswordCubit.get(context)
+                          .forgotPassword(email: cubit.emailController.text);
+                    }
+                  },
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

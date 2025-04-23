@@ -206,7 +206,7 @@ class _AuthServices implements AuthServices {
     final _data = <String, dynamic>{};
     _data.addAll(resetPasswordRequestBody.toJson());
     final _options = _setStreamType<void>(Options(
-      method: 'PUT',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )

@@ -4,9 +4,9 @@ import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_birthday_and_location_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_and_bio_step.dart';
-import 'mentee_additional_details_step.dart';
+import 'additional_details_step.dart';
 import 'mentee_basic_information_step.dart';
 
 class MenteeRegisterSteperWidget extends StatefulWidget {
@@ -80,14 +80,14 @@ class _MenteeRegisterSteperWidgetState
           ),
         ),
         Step(
-          content: const MenteeBirthdayAndLocationStep(),
+          content: const BirthdayAndLocationStep(),
           title: Text(
             'Contact & Personal Details',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Step(
-          content: const MenteeAdditionalDetailsStep(),
+          content: const AdditionalDetailsStep(),
           title: Text(
             S.current.additionalDetails,
             style: Theme.of(context).textTheme.bodyLarge,

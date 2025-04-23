@@ -33,7 +33,7 @@
       "verificationCodeTitle": "Enter Verification Code",
       "verificationCodeContent": "We have to sent the verification code to\n",
       "submit": "Submit",
-      "resendCodeAfter": "Resend code after",
+      "resendCodeAfter": "Resend code",
       "enterNewPasswordTitle": "Enter New Password",
       "enterNewPasswordContent": "Please enter your new password",
       "changePassword": "Change Password",

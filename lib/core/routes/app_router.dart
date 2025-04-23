@@ -3,11 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/build_page_route.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/mentee/mentee_register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/mentor/mentor_register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/forgot_password_screen.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/reset_password_screen.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/verify_email_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/auth/presentation/logic/register%20cubit/mentee_register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
@@ -61,12 +60,6 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.resetPasswordScreen:
-        return smoothEaseInOutPageRoute(
-          const ResetPasswordScreen(),
-          settings: settings,
-        );
-
       case Routes.verifyEmailScreen:
         return smoothEaseInOutPageRoute(
           const VerifyEmailScreen(),
@@ -88,7 +81,7 @@ class AppRouter {
       case Routes.menteeRegisterScreen:
         return smoothEaseInOutPageRoute(
           BlocProvider(
-            create: (context) => MenteeRegisterCubit(),
+            create: (context) => getIt<MenteeRegisterCubit>(),
             child: const MenteeRegisterScreen(),
           ),
           settings: settings,

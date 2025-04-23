@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
@@ -26,9 +27,11 @@ class MenteeRegisterCubit extends Cubit<MenteeRegisterState> {
   TextEditingController fieldInterestsController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
 
-  File? problemImageFile;
+  String userId = '';
+
+  File? profileImageFile;
   ImagePicker picker = ImagePicker();
-  Future<void> getProblemImage(ImageSource imageSource) async {
+  Future<void> getProfileImage(ImageSource imageSource) async {
     XFile? pickedFile;
     if (imageSource == ImageSource.gallery) {
       pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -36,7 +39,7 @@ class MenteeRegisterCubit extends Cubit<MenteeRegisterState> {
       pickedFile = await picker.pickImage(source: ImageSource.camera);
     }
     if (pickedFile != null) {
-      problemImageFile = File(pickedFile.path);
+      profileImageFile = File(pickedFile.path);
       emit(ImageSelectedSuccessState());
     } else {
       emit(ImageSelectedErrorState());
@@ -52,7 +55,7 @@ class MenteeRegisterCubit extends Cubit<MenteeRegisterState> {
   }) async {
     emit(RegisterLoadingState());
     var file = await MultipartFile.fromFile(
-      problemImageFile!.path,
+      profileImageFile!.path,
       filename: "problem.png",
     );
     final response = await _authRepository.menteeRegister(
@@ -78,7 +81,26 @@ class MenteeRegisterCubit extends Cubit<MenteeRegisterState> {
     }
   }
 
+  decodeJwt({required String token}) {
+    Map<String, dynamic> payload = JwtDecoder.decode(token);
+
+    userId = payload.entries
+        .firstWhere(
+          (element) => element.key == 'sub',
+        )
+        .value;
+
+    saveUserId(userId: userId);
+  }
+
   saveUserEmail(String email) {
     CacheHelper.saveSecuredData(key: CacheHelperKeys.email, value: email);
+  }
+
+  saveUserId({required String userId}) {
+    CacheHelper.saveSecuredData(
+      key: CacheHelperKeys.userId,
+      value: userId,
+    );
   }
 }

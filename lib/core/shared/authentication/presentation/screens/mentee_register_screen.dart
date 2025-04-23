@@ -15,11 +15,11 @@ class MenteeRegisterScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 40.h),
+            padding: EdgeInsets.symmetric(vertical: 30.h),
             child: Column(
               children: [
                 const MenteeCreateAccountMessageWidget(),
-                verticalSpace(24),
+                verticalSpace(12),
                 const MenteeRegisterSteperWidget(),
                 verticalSpace(20),
                 const MenteeAlreadyHaveAnAccountWidget(),

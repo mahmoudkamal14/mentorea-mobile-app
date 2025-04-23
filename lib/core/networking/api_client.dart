@@ -66,9 +66,7 @@ class ApiClient {
                 final response = await _dio.fetch(error.requestOptions);
                 return handler.resolve(response);
               } catch (e) {
-                // Refresh Token failed, log out the user
                 await CacheHelper.clearAllSecuredData();
-                // Navigate to login screen
               }
             }
           }

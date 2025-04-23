@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 
@@ -67,14 +68,18 @@ Widget buildValidationRow(String text, bool hasValidated, context) {
     children: [
       hasValidated
           ? const Icon(Icons.check_rounded, color: Colors.green)
-          : const CircleAvatar(radius: 2.5, backgroundColor: Colors.black),
+          : CircleAvatar(
+              radius: 2.5, backgroundColor: Theme.of(context).iconTheme.color),
       horizontalSpace(6),
       Text(
         text,
         style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              fontSize: 13.5.sp,
               decorationColor: Colors.green,
               decorationThickness: 2,
-              color: hasValidated ? Colors.green : Colors.black,
+              color: hasValidated
+                  ? Colors.green
+                  : Theme.of(context).iconTheme.color,
             ),
       ),
     ],

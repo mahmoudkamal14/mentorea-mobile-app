@@ -11,4 +11,11 @@ class ApiConstants {
   static const String resetPassword = '/Auth/RestPassword';
   static const String refreshToken = '/Auth/Refresh';
   static const String logout = '/Auth/Revoke';
+
+  // Profile Endpoints
+  static const String getMenteeProfile = '/me/mentee';
+  static const String getMentorProfile = '/me/mentor';
+  static const String updateMenteeProfile = '/me/mentee';
+  static const String updateMentorProfile = '/me/mentor';
+  static const String changePasswordAccount = '/me/ChangePassword';
 }

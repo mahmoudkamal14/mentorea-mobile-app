@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/app_regex.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
@@ -31,8 +32,9 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
           widget.title ?? S.current.password,
           style: Theme.of(
             context,
-          ).textTheme.titleSmall!.copyWith(color: const Color(0xff000000)),
+          ).textTheme.titleSmall,
         ),
+        verticalSpace(8),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
           hintText: '********',

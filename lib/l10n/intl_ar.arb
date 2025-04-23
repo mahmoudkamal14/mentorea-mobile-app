@@ -33,7 +33,7 @@
       "verificationCodeTitle": "أدخل رمز التحقق",
       "verificationCodeContent": "يتعين علينا إرسال رمز التحقق إلى",
       "submit": "تحقق",
-      "resendCodeAfter": "إعادة إرسال الرمز بعد",
+      "resendCodeAfter": "إعادة إرسال الرمز",
       "enterNewPasswordTitle": "أدخل كلمة المرور الجديدة",
       "enterNewPasswordContent": "الرجاء إدخال كلمة المرور الجديدة",
       "changePassword": "تغيير كلمة المرور",

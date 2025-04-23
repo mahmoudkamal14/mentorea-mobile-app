@@ -133,7 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "repost": MessageLookupByLibrary.simpleMessage("إعادة النشر"),
         "resendCodeAfter":
-            MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز بعد"),
+            MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
         "review": MessageLookupByLibrary.simpleMessage("مراجعة"),
         "reviews": MessageLookupByLibrary.simpleMessage("المراجعات"),
         "searchByName":

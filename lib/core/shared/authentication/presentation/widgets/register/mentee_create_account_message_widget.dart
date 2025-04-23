@@ -10,24 +10,42 @@ class MenteeCreateAccountMessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          S.of(context).createAccountMessage,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        verticalSpace(8),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Text(
-            S.of(context).createAccountMessageContent,
-            style: Theme.of(context).textTheme.bodySmall,
-            textAlign: TextAlign.center,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 6.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Text(
+                  S.of(context).createAccountMessage,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: SizedBox(
+                  width: 120,
+                  height: 100,
+                  child: Image.asset('assets/icons/Mentorea Icon.png'),
+                ),
+              ),
+            ],
           ),
-        ),
-      ],
+          verticalSpace(8),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Text(
+              S.of(context).createAccountMessageContent,
+              style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/app_regex.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/login/login_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/forgot%20password/forgot_password_widget.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
-import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/email_text_form_field.dart';
+import 'package:mentorea_mobile_app/core/widgets/password_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -31,41 +29,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
         children: [
           EmailTextFormField(emailController: loginCubit.emailController),
           verticalSpace(16),
-          Text(
-            S.of(context).password,
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
-          verticalSpace(8),
-          AppTextFormField(
-            textInputType: TextInputType.visiblePassword,
-            hintText: '********',
-            controller: loginCubit.passwordController,
-            prefixIcon: Icon(
-              Icons.lock_outline_rounded,
-              color: Theme.of(context).iconTheme.color,
-            ),
-            validator: (value) {
-              AppRegex.isPasswordValid(value!);
-              if (value.isEmpty) {
-                return isArabic() == true
-                    ? 'بالرجاء إدخال كلمة المرور'
-                    : 'Please enter your password';
-              } else {
-                return null;
-              }
-            },
-            isObscureText: isObscureText,
-            suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              icon: Icon(
-                isObscureText == true ? visibility : Icons.visibility,
-              ),
-            ),
-          ),
+          PasswordFormField(passwordController: loginCubit.passwordController),
           verticalSpace(8),
           const ForgotPasswordWidget(),
           verticalSpace(30),

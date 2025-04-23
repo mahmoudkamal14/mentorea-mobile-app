@@ -3,8 +3,8 @@ import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 
-class MenteeBirthdayAndLocationStep extends StatelessWidget {
-  const MenteeBirthdayAndLocationStep({super.key});
+class BirthdayAndLocationStep extends StatelessWidget {
+  const BirthdayAndLocationStep({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,15 @@ class MenteeBirthdayAndLocationStep extends StatelessWidget {
                     firstDate: DateTime(1980),
                     lastDate: DateTime(2010),
                     initialDate: DateTime(2003),
+                    keyboardType: TextInputType.datetime,
                   );
+
+                  // DateTime myDate = DateTime(2025, 4, 20);
+                  // var result = splitDate(myDate);
+
+                  // print("Year: ${result['year']}");
+                  // print("Month: ${result['month']}");
+                  // print("Day: ${result['day']}");
                 },
                 child: Icon(
                   Icons.date_range_rounded,
@@ -74,5 +82,13 @@ class MenteeBirthdayAndLocationStep extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Map<String, int> splitDate(DateTime date) {
+    return {
+      'year': date.year,
+      'month': date.month,
+      'day': date.day,
+    };
   }
 }

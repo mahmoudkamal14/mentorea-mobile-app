@@ -18,10 +18,21 @@ class WelcomeMessageWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              buildWelcomeMessage(userType).messageTitile,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge,
+            Expanded(
+              flex: 2,
+              child: Text(
+                buildWelcomeMessage(userType).messageTitile,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: SizedBox(
+                width: 120,
+                height: 100,
+                child: Image.asset('assets/icons/Mentorea Icon.png'),
+              ),
             ),
           ],
         ),

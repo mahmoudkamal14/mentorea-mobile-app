@@ -13,7 +13,6 @@ class ForgotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ForgotPasswordBlocListener(
       child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           leading: const AppbarIcon(),
           title: Text(S.current.forgotPasswordTitle),
