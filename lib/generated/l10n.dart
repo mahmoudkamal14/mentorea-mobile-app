@@ -390,10 +390,10 @@ class S {
     );
   }
 
-  /// `Resend code after`
+  /// `Resend code`
   String get resendCodeAfter {
     return Intl.message(
-      'Resend code after',
+      'Resend code',
       name: 'resendCodeAfter',
       desc: '',
       args: [],

@@ -3,7 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mentorea_mobile_app/core/functions/is_arabic.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';

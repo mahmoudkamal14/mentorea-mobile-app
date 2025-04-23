@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/enums.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
-import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_cubit.dart';
-import 'package:mentorea_mobile_app/users/mentor/auth/presentation/logic/register%20cubit/mentor_register_state.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/mentor/mentor_register_cubit.dart';
 
 class MentorSelectProfileImage extends StatelessWidget {
   const MentorSelectProfileImage({super.key});
@@ -84,7 +84,8 @@ class MentorSelectProfileImage extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                MentorRegisterCubit.get(context).getProfileImage('camera');
+                MentorRegisterCubit.get(context)
+                    .getProfileImage(ImageSourceLocation.camera);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +98,8 @@ class MentorSelectProfileImage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                MentorRegisterCubit.get(context).getProfileImage('gallery');
+                MentorRegisterCubit.get(context)
+                    .getProfileImage(ImageSourceLocation.gallery);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
-import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/resent_otp_forgot_password_rewuest_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/reset_password_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/repository/auth_repository.dart';
 
@@ -23,13 +20,11 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   GlobalKey<FormState> formKeyForgot = GlobalKey();
   GlobalKey<FormState> formKeyReset = GlobalKey();
 
-  void forgotPassword() async {
+  void forgotPassword({required String email}) async {
     emit(ForgotPasswordLoadingState());
     final response = await _authRepository.forgotPassword(
-      ForgotPasswordRequestBody(email: emailController.text),
+      ForgotPasswordRequestBody(email: email),
     );
-
-    saveUserEmail(emailController.text);
 
     if (response is Success) {
       emit(ForgotPasswordSuccessState());
@@ -38,28 +33,11 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     }
   }
 
-  void resendOtpResetPassword() async {
-    emit(ResendOTPForgotPasswordLoadingState());
-    final response = await _authRepository.resendOtpResetPassword(
-      ResentOtpForgotPasswordRewuestBody(
-        email: CacheHelper.getSecuredData(key: CacheHelperKeys.email),
-      ),
-    );
-
-    if (response is Success) {
-      emit(ResendOTPForgotPasswordSuccessState());
-    } else if (response is Failure) {
-      emit(
-        ResendOTPForgotPasswordErrorState(message: response.error.toString()),
-      );
-    }
-  }
-
   void resetPassword({required String email}) async {
     emit(ResetPasswordLoadingState());
     final response = await _authRepository.resetPassword(
       ResetPasswordRequestBody(
-        email: CacheHelper.getSecuredData(key: CacheHelperKeys.email),
+        email: email,
         otp: otpCodeController.text,
         newPassword: passwordController.text,
       ),
@@ -70,9 +48,5 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     } else if (response is Failure) {
       emit(ResetPasswordErrorState(message: response.error.toString()));
     }
-  }
-
-  saveUserEmail(String email) {
-    CacheHelper.saveSecuredData(key: CacheHelperKeys.email, value: email);
   }
 }

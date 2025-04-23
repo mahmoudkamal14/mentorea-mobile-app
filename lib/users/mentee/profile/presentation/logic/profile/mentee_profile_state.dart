@@ -1,0 +1,52 @@
+abstract class MenteeProfileState {}
+
+final class MenteeProfileInitialState extends MenteeProfileState {}
+
+// Get Profile
+final class GetMenteeProfileLoadingState extends MenteeProfileState {}
+
+final class GetMenteeProfileSuccessState extends MenteeProfileState {}
+
+final class GetMenteeProfileErrorState extends MenteeProfileState {
+  final String error;
+
+  GetMenteeProfileErrorState({required this.error});
+}
+
+// Select Image
+final class ImageSelectedSuccessState extends MenteeProfileState {}
+
+final class ImageSelectedErrorState extends MenteeProfileState {}
+
+// Update Profile
+final class UpdateMenteeProfileLoadingState extends MenteeProfileState {}
+
+final class UpdateMenteeProfileSuccessState extends MenteeProfileState {}
+
+final class UpdateMenteeProfileErrorState extends MenteeProfileState {
+  final String error;
+
+  UpdateMenteeProfileErrorState({required this.error});
+}
+
+// Change Password
+final class ChangePasswordLoadingState extends MenteeProfileState {}
+
+final class ChangePasswordSuccessState extends MenteeProfileState {}
+
+final class ChangePasswordErrorState extends MenteeProfileState {
+  final String error;
+
+  ChangePasswordErrorState({required this.error});
+}
+
+// Logout Profile
+final class LogoutLoadingState extends MenteeProfileState {}
+
+final class LogoutSuccessState extends MenteeProfileState {}
+
+final class LogoutErrorState extends MenteeProfileState {
+  final String error;
+
+  LogoutErrorState({required this.error});
+}

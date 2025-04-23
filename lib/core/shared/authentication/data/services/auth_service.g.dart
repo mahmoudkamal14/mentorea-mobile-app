@@ -11,8 +11,12 @@ part of 'auth_service.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _AuthServices implements AuthServices {
-  _AuthServices(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://safety.runasp.net/api';
+  _AuthServices(
+    this._dio, {
+    this.baseUrl,
+    this.errorLogger,
+  }) {
+    baseUrl ??= 'http://mentorea.runasp.net';
   }
 
   final Dio _dio;
@@ -22,28 +26,33 @@ class _AuthServices implements AuthServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AuthResponseModel> loginWithEmailPassword(
-    LoginRequestBody loginRequestBody,
-  ) async {
+  Future<LoginResponseModel> loginWithEmailPassword(
+      LoginRequestBody loginRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(loginRequestBody.toJson());
-    final _options = _setStreamType<AuthResponseModel>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Login',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<LoginResponseModel>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/login',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AuthResponseModel _value;
+    late LoginResponseModel _value;
     try {
-      _value = AuthResponseModel.fromJson(_result.data!);
+      _value = LoginResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -52,165 +61,197 @@ class _AuthServices implements AuthServices {
   }
 
   @override
-  Future<AuthResponseModel> registerWithEmailPassword(
-    ClientRegisterRequestBody clientRegisterRequestBody,
-  ) async {
+  Future<void> menteeRegister(FormData formData) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(clientRegisterRequestBody.toJson());
-    final _options = _setStreamType<AuthResponseModel>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Register',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AuthResponseModel _value;
-    try {
-      _value = AuthResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
+    final _data = formData;
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+        .compose(
+          _dio.options,
+          '/Auth/Mentee-Register',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    await _dio.fetch<void>(_options);
   }
 
   @override
-  Future<void> confirmEmail(String email, String otpCode) async {
+  Future<void> mentorRegister(FormData formData) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'Email': email, r'otp': otpCode};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = formData;
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+        .compose(
+          _dio.options,
+          '/Auth/Mentor-Register',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> confirmEmail(
+    String userId,
+    String otpCode,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'userId': userId,
+      r'code': otpCode,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<void>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Confirm-Email',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/Confirm-Email',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     await _dio.fetch<void>(_options);
   }
 
   @override
   Future<void> resendOtpConfirmEmail(
-    ResendOptConfirmEmailRequestBody resendOptConfirmEmailRequestBody,
-  ) async {
+      ResendOptConfirmEmailRequestBody resendOptConfirmEmailRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(resendOptConfirmEmailRequestBody.toJson());
-    final _options = _setStreamType<void>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Resend-EmailConfirmation-Otp',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/Resend-Confirm-Email',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     await _dio.fetch<void>(_options);
   }
 
   @override
   Future<void> forgotPassword(
-    ForgotPasswordRequestBody forgotPasswordRequestBody,
-  ) async {
+      ForgotPasswordRequestBody forgotPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(forgotPasswordRequestBody.toJson());
-    final _options = _setStreamType<void>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Forgot-Password',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    await _dio.fetch<void>(_options);
-  }
-
-  @override
-  Future<void> resendOtpResetPassword(
-    ResentOtpForgotPasswordRewuestBody resentOtpForgotPasswordRewuestBody,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(resentOtpForgotPasswordRewuestBody.toJson());
-    final _options = _setStreamType<void>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Resend-PasswordReset-Otp',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/ForgetPassword',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     await _dio.fetch<void>(_options);
   }
 
   @override
   Future<void> resetPassword(
-    ResetPasswordRequestBody resetPasswordRequestBody,
-  ) async {
+      ResetPasswordRequestBody resetPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(resetPasswordRequestBody.toJson());
-    final _options = _setStreamType<void>(
-      Options(method: 'PUT', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Reset-Password',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/RestPassword',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     await _dio.fetch<void>(_options);
   }
 
   @override
-  Future<AuthResponseModel> refreshToken(
-    RefreshTokenRequest refreshTokenRequest,
-  ) async {
+  Future<LoginResponseModel> refreshToken(
+      RefreshTokenRequest refreshTokenRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(refreshTokenRequest.toJson());
-    final _options = _setStreamType<AuthResponseModel>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/Authentication/Refresh-Token',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options = _setStreamType<LoginResponseModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/Auth/Refresh',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AuthResponseModel _value;
+    late LoginResponseModel _value;
     try {
-      _value = AuthResponseModel.fromJson(_result.data!);
+      _value = LoginResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -231,7 +272,10 @@ class _AuthServices implements AuthServices {
     return requestOptions;
   }
 
-  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

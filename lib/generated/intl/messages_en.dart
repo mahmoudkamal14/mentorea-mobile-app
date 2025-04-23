@@ -133,8 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Recommended for you"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "repost": MessageLookupByLibrary.simpleMessage("Repost"),
-        "resendCodeAfter":
-            MessageLookupByLibrary.simpleMessage("Resend code after"),
+        "resendCodeAfter": MessageLookupByLibrary.simpleMessage("Resend code"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "searchByName": MessageLookupByLibrary.simpleMessage("search by name"),

@@ -14,15 +14,6 @@ final class ForgotPasswordErrorState extends ForgotPasswordState {
   ForgotPasswordErrorState({required this.message});
 }
 
-final class ResendOTPForgotPasswordLoadingState extends ForgotPasswordState {}
-
-final class ResendOTPForgotPasswordSuccessState extends ForgotPasswordState {}
-
-final class ResendOTPForgotPasswordErrorState extends ForgotPasswordState {
-  final String message;
-  ResendOTPForgotPasswordErrorState({required this.message});
-}
-
 final class ResetPasswordLoadingState extends ForgotPasswordState {}
 
 final class ResetPasswordSuccessState extends ForgotPasswordState {}
