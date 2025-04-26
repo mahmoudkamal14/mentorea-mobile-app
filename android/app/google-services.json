@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "375754640780",
+    "project_id": "mentorea-16c34",
+    "storage_bucket": "mentorea-16c34.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375754640780:android:9fbbf4edd0f7a30f075aa9",
+        "android_client_info": {
+          "package_name": "com.example.mentorea_mobile_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp6AB4m-jU1zcJwAHPGyXput4U1K7z6Ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_and_bio_step.dart';
 import 'additional_details_step.dart';
-import 'mentee_basic_information_step.dart';
+import 'basic_information_step.dart';
 
 class MenteeRegisterSteperWidget extends StatefulWidget {
   const MenteeRegisterSteperWidget({super.key});
@@ -73,7 +73,7 @@ class _MenteeRegisterSteperWidgetState
       connectorThickness: 2,
       steps: [
         Step(
-          content: const MenteeBasicInformationStep(),
+          content: const BasicInformationStep(),
           title: Text(
             S.current.basicInformation,
             style: Theme.of(context).textTheme.bodyLarge,

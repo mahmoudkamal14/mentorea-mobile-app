@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
@@ -20,7 +22,9 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
         AppTextFormField(
           textInputType: TextInputType.text,
           maxLines: 5,
-          hintText: 'I am Mahmoud Kamal ........',
+          hintText: isArabic() == true
+              ? 'انا محمود كمال ........'
+              : 'I am Mahmoud Kamal ........',
           validator: (value) {},
         ),
         verticalSpace(20),
@@ -28,22 +32,43 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
           onTap: () {
             showModalBottomSheet(
               context: context,
-              backgroundColor: Colors.transparent,
+              isScrollControlled: true,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               sheetAnimationStyle: AnimationStyle(
                   curve: Curves.easeInCubic,
                   duration: const Duration(milliseconds: 900)),
               builder: (context) {
                 return Container(
-                  decoration: BoxDecoration(color: Colors.grey[600]),
-                  height: MediaQuery.sizeOf(context).height * 0.80,
+                  color: Colors.transparent,
+                  height: MediaQuery.sizeOf(context).height * 0.70,
+                  padding:
+                      EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
                   child: Column(
                     children: [
-                      Text(
-                        'Select your interests',
-                        style: Theme.of(context).textTheme.titleLarge,
+                      ContainerCardWidget(
+                        child: Text(
+                          'Select your interests',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
                       ),
                       verticalSpace(30),
-                      // const MenteeInterestsGridView(),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: 16,
+                          physics: const BouncingScrollPhysics(),
+                          itemBuilder: (context, index) => Padding(
+                            padding: EdgeInsets.only(bottom: 4.h),
+                            child: ContainerCardWidget(
+                              child: Text(
+                                'Select your interests',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 );
@@ -51,9 +76,13 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
             );
           },
           child: ContainerCardWidget(
+            color: Theme.of(context).appBarTheme.backgroundColor,
             child: Text(
               'Select your interests',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Colors.white),
             ),
           ),
         ),

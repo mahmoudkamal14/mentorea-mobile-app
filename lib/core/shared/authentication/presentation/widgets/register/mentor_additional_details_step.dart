@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_select_profile_image.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/select_profile_image.dart';
 
 class MentorAdditionalDetailsStep extends StatefulWidget {
   const MentorAdditionalDetailsStep({super.key});

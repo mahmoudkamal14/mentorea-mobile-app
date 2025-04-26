@@ -6,16 +6,14 @@ import 'package:mentorea_mobile_app/core/widgets/password_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/password_validator_instructions.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
-class MenteeBasicInformationStep extends StatefulWidget {
-  const MenteeBasicInformationStep({super.key});
+class BasicInformationStep extends StatefulWidget {
+  const BasicInformationStep({super.key});
 
   @override
-  State<MenteeBasicInformationStep> createState() =>
-      _MenteeBasicInformationStepState();
+  State<BasicInformationStep> createState() => _BasicInformationStepState();
 }
 
-class _MenteeBasicInformationStepState
-    extends State<MenteeBasicInformationStep> {
+class _BasicInformationStepState extends State<BasicInformationStep> {
   bool isObscureText = true;
   bool isObscureTextConfirm = true;
   IconData visibility = Icons.visibility_off_outlined;
