@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/mentee/mentee_register_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 
 class SelectProfileImage extends StatelessWidget {
@@ -13,10 +13,10 @@ class SelectProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MenteeRegisterCubit, MenteeRegisterState>(
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
         final File? profileImageFile =
-            MenteeRegisterCubit.get(context).profileImageFile;
+            RegisterCubit.get(context).profileImageFile;
 
         return Row(
           children: [
@@ -87,8 +87,7 @@ class SelectProfileImage extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                MenteeRegisterCubit.get(context)
-                    .getProfileImage(ImageSource.camera);
+                RegisterCubit.get(context).getProfileImage(ImageSource.camera);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,8 +100,7 @@ class SelectProfileImage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                MenteeRegisterCubit.get(context)
-                    .getProfileImage(ImageSource.gallery);
+                RegisterCubit.get(context).getProfileImage(ImageSource.gallery);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

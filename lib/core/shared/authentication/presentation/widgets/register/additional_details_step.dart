@@ -11,7 +11,7 @@ class AdditionalDetailsStep extends StatefulWidget {
 }
 
 class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
-  String? selectedGender;
+  String selectedGender = 'Male';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 selectedTileColor: Theme.of(context).iconTheme.color,
                 onChanged: (String? value) {
                   setState(() {
-                    selectedGender = value;
+                    selectedGender = value!;
                   });
                 },
               ),
@@ -49,7 +49,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 groupValue: selectedGender,
                 onChanged: (String? value) {
                   setState(() {
-                    selectedGender = value;
+                    selectedGender = value!;
                   });
                 },
               ),

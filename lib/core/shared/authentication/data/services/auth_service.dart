@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
@@ -56,4 +58,10 @@ abstract class AuthServices {
   Future<LoginResponseModel> refreshToken(
     @Body() RefreshTokenRequest refreshTokenRequest,
   );
+
+  @GET(ApiConstants.getAllFields)
+  Future<List<FieldResponseModel>> getAllFields();
+
+  @GET(ApiConstants.getAllSpecializations)
+  Future<List<SpecializationResponseModel>> getAllSpecializations();
 }

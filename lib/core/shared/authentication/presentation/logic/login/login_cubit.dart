@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
+import 'package:mentorea_mobile_app/core/networking/api_error_model.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
@@ -42,9 +43,11 @@ class LoginCubit extends Cubit<LoginState> {
       );
       userModel = response.data;
       emit(LoginSuccessState(loginResponseModel: userModel!));
-    } else if (response is Failure) {
+    } else if (response is Failure<ApiErrorModel>) {
       emit(
-        LoginErrorState(message: ApiErrorHandler.handleError(response).message),
+        LoginErrorState(
+          message: ApiErrorHandler.handleError(response).message,
+        ),
       );
     }
   }

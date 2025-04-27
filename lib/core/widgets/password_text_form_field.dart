@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/app_regex.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/validator.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -44,14 +43,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
             color: Theme.of(context).iconTheme.color,
           ),
           validator: (value) {
-            AppRegex.isPasswordValid(value!);
-            if (value.isEmpty) {
-              return isArabic() == true
-                  ? 'بالرجاء إدخال كلمة المرور'
-                  : 'Please enter your password';
-            } else {
-              return null;
-            }
+            return passwordValidator(value);
           },
           isObscureText: isObscureText,
           suffixIcon: IconButton(

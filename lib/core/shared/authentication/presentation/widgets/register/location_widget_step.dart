@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/local%20datasource/governorates_list.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 
 class LocationWidgetStep extends StatefulWidget {
   const LocationWidgetStep({super.key});
@@ -19,13 +20,15 @@ class _LocationWidgetStepState extends State<LocationWidgetStep> {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = RegisterCubit.get(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Location', style: Theme.of(context).textTheme.titleSmall),
         verticalSpace(4),
         DropdownButtonFormField<String>(
-          alignment: AlignmentDirectional.topCenter,
+          alignment: AlignmentDirectional.topStart,
           style: Theme.of(context).textTheme.bodyMedium,
           dropdownColor: Theme.of(context).scaffoldBackgroundColor,
           decoration: InputDecoration(
@@ -51,6 +54,7 @@ class _LocationWidgetStepState extends State<LocationWidgetStep> {
           onChanged: (value) {
             setState(() {
               selectedGovernorate = value;
+              cubit.locationUser = selectedGovernorate!;
             });
           },
           validator: (value) => value == null ? 'من فضلك اختر محافظة' : null,

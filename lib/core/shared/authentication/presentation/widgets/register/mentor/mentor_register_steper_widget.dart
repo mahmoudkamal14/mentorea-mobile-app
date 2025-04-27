@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
-import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_and_bio_step.dart';
-import 'additional_details_step.dart';
-import 'basic_information_step.dart';
 
-class MenteeRegisterSteperWidget extends StatefulWidget {
-  const MenteeRegisterSteperWidget({super.key});
+class MentorRegisterSteperWidget extends StatefulWidget {
+  const MentorRegisterSteperWidget({super.key});
 
   @override
-  State<MenteeRegisterSteperWidget> createState() =>
-      _MenteeRegisterSteperWidgetState();
+  State<MentorRegisterSteperWidget> createState() =>
+      _MentorRegisterSteperWidgetState();
 }
 
-class _MenteeRegisterSteperWidgetState
-    extends State<MenteeRegisterSteperWidget> {
+class _MentorRegisterSteperWidgetState
+    extends State<MentorRegisterSteperWidget> {
   int currentStep = 0;
 
   @override
@@ -45,17 +41,13 @@ class _MenteeRegisterSteperWidgetState
                       currentStep++;
                     });
                   } else {
-                    context.navigateToReplacement(Routes.menteeBottomNavBar);
+                    //  context.navigateToReplacement(Routes.mentorLoginScreen);
                   }
                 },
               ),
               AppTextButton(
                 textButton: S.of(context).cancel,
-                textStyle: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(color: Theme.of(context).hintColor),
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                backgroundColor: Colors.deepOrange,
                 buttonHeight: 40,
                 buttonWidth: 120,
                 borderRadius: 10,
@@ -72,31 +64,31 @@ class _MenteeRegisterSteperWidgetState
       connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
       connectorThickness: 2,
       steps: [
-        Step(
-          content: const BasicInformationStep(),
-          title: Text(
-            S.current.basicInformation,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
+        // Step(
+        //   content: const BasicInformationStep(),
+        //   title: Text(
+        //     S.current.basicInformation,
+        //     style: Theme.of(context).textTheme.bodyLarge,
+        //   ),
+        // ),
         Step(
           content: const BirthdayAndLocationStep(),
           title: Text(
-            'Contact & Personal Details',
+            'Birthday And Location',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
+        // Step(
+        //   content: const BasicInformationStep(),
+        //   title: Text(
+        //     'Additional Details',
+        //     style: Theme.of(context).textTheme.bodyLarge,
+        //   ),
+        // ),
         Step(
           content: const AdditionalDetailsStep(),
           title: Text(
             S.current.additionalDetails,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: const MenteeInterestsAndBioStep(),
-          title: Text(
-            'Interests & Bio',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
