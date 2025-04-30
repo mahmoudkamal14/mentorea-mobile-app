@@ -14,9 +14,9 @@ class DontHaveAnAccountWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (userType == UserType.mentee) {
-          context.navigateToReplacement(Routes.menteeRegisterScreen);
+          context.navigateTo(Routes.menteeRegisterScreen);
         } else if (userType == UserType.mentor) {
-          context.navigateToReplacement(Routes.mentorRegisterScreen);
+          context.navigateTo(Routes.mentorRegisterScreen);
         }
       },
       child: Text(

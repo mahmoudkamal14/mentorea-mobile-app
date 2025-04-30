@@ -9,10 +9,12 @@ part of 'mentee_profile_response_model.dart';
 MenteeProfileResponseModel _$MenteeProfileResponseModelFromJson(
         Map<String, dynamic> json) =>
     MenteeProfileResponseModel(
-      name: json['name'] as String,
-      email: json['email'] as String,
-      pathPhoto: json['pathPhoto'] as String,
-      pirthDate: DateTime.parse(json['pirthDate'] as String),
-      location: json['location'] as String,
-      about: json['about'] as String,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      pathPhoto: json['pathPhoto'] as String?,
+      pirthDate: json['pirthDate'] == null
+          ? null
+          : DateTime.parse(json['pirthDate'] as String),
+      location: json['location'] as String?,
+      about: json['about'] as String?,
     );

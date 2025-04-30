@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'mentor_basic_information_step.dart';
 
 class MentorRegisterSteperWidget extends StatefulWidget {
   const MentorRegisterSteperWidget({super.key});
@@ -62,30 +63,32 @@ class _MentorRegisterSteperWidgetState
       },
       connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
       connectorThickness: 2,
-      onStepTapped: (value) {
-        setState(() {
-          currentStep = value;
-        });
-      },
       steps: [
-        Step(
-          content: const MentorBasicInformationStep(),
-          title: Text(
-            'Basic Information',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
         // Step(
-        //   content: const MentorJobTitleExperienceDropdown(),
+        //   content: const BasicInformationStep(),
         //   title: Text(
-        //     'Experience Work',
+        //     S.current.basicInformation,
         //     style: Theme.of(context).textTheme.bodyLarge,
         //   ),
         // ),
         Step(
-          content: const MentorBasicInformationStep(),
+          content: const BirthdayAndLocationStep(),
           title: Text(
-            'Additional Details',
+            'Birthday And Location',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+        // Step(
+        //   content: const BasicInformationStep(),
+        //   title: Text(
+        //     'Additional Details',
+        //     style: Theme.of(context).textTheme.bodyLarge,
+        //   ),
+        // ),
+        Step(
+          content: const AdditionalDetailsStep(),
+          title: Text(
+            S.current.additionalDetails,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),

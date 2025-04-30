@@ -10,10 +10,10 @@ class ChangePasswordRequestBody {
   });
 
   @JsonKey(name: 'CurrentPassword')
-  final String currentPassword;
+  final String? currentPassword;
 
   @JsonKey(name: 'NewPassword')
-  final String newPassword;
+  final String? newPassword;
 
   Map<String, dynamic> toJson() => _$ChangePasswordRequestBodyToJson(this);
 }

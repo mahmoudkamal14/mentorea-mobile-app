@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_select_profile_image.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/select_profile_image.dart';
 
 class AdditionalDetailsStep extends StatefulWidget {
   const AdditionalDetailsStep({super.key});
@@ -11,7 +11,7 @@ class AdditionalDetailsStep extends StatefulWidget {
 }
 
 class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
-  String? selectedGender;
+  String selectedGender = 'Male';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 selectedTileColor: Theme.of(context).iconTheme.color,
                 onChanged: (String? value) {
                   setState(() {
-                    selectedGender = value;
+                    selectedGender = value!;
                   });
                 },
               ),
@@ -49,7 +49,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 groupValue: selectedGender,
                 onChanged: (String? value) {
                   setState(() {
-                    selectedGender = value;
+                    selectedGender = value!;
                   });
                 },
               ),

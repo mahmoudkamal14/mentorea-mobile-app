@@ -6,6 +6,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool? isObscureText;
   final bool? enabled;
+  final bool? readOnly;
   final int? maxLines;
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -13,7 +14,7 @@ class AppTextFormField extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final TextStyle? hintTextStyle;
   final Color? backGroundColorHint;
-  final TextInputType textInputType;
+  final TextInputType? textInputType;
   final TextEditingController? controller;
   final Function(String?) validator;
   final Function(String? value)? onChanged;
@@ -30,12 +31,13 @@ class AppTextFormField extends StatelessWidget {
     this.contentPadding,
     this.hintTextStyle,
     this.backGroundColorHint,
-    required this.textInputType,
+    this.textInputType,
     this.controller,
     required this.validator,
     this.onChanged,
     this.maxLines,
     this.enabled,
+    this.readOnly,
   });
 
   @override
@@ -47,6 +49,7 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: textInputType,
       enabled: enabled ?? true,
       onChanged: onChanged,
+      readOnly: readOnly ?? false,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: Theme.of(context).inputDecorationTheme.contentPadding,

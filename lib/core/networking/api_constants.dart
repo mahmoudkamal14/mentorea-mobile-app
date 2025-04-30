@@ -3,6 +3,8 @@ class ApiConstants {
 
   // Authentication Endpoints
   static const String login = '/Auth/login';
+  static const String getAllFields = '/api/Field';
+  static const String getAllSpecializations = '/api/Specializations';
   static const String mentorRegister = '/Auth/Mentor-Register';
   static const String menteeRegister = '/Auth/Mentee-Register';
   static const String confirmEmail = '/Auth/Confirm-Email';

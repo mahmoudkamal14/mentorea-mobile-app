@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
@@ -31,7 +33,9 @@ class AuthRepository {
         msg: ApiErrorHandler.handleError(error).message,
         color: Colors.red,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
+      );
     }
   }
 
@@ -50,8 +54,8 @@ class AuthRepository {
         'PirthDate.Year': mentee.pirthDateYear,
         'PirthDate.Month': mentee.pirthDateMonth,
         'PirthDate.Day': mentee.pirthDateDay,
-        'FieldInterests': mentee.fieldInterests,
         'About': mentee.about,
+        'FieldInterests': mentee.fieldInterests.map((e) => e).toList(),
       });
       final result = await _authServices.menteeRegister(formData);
       return ApiResult.success(result);
@@ -60,7 +64,9 @@ class AuthRepository {
         msg: ApiErrorHandler.handleError(error).message,
         color: Colors.red,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
+      );
     }
   }
 
@@ -92,7 +98,9 @@ class AuthRepository {
         msg: ApiErrorHandler.handleError(error).message,
         color: Colors.red,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
+      );
     }
   }
 
@@ -104,11 +112,9 @@ class AuthRepository {
       final result = await _authServices.confirmEmail(userId, code);
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
     }
   }
 
@@ -121,11 +127,9 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
     }
   }
 
@@ -138,11 +142,9 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
     }
   }
 
@@ -155,11 +157,34 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
       );
-      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+    }
+  }
+
+  Future<ApiResult<List<FieldResponseModel>>> getAllFields() async {
+    try {
+      final result = await _authServices.getAllFields();
+
+      return ApiResult.success(result);
+    } catch (error) {
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
+      );
+    }
+  }
+
+  Future<ApiResult<List<SpecializationResponseModel>>>
+      getAllSpecializations() async {
+    try {
+      final result = await _authServices.getAllSpecializations();
+
+      return ApiResult.success(result);
+    } catch (error) {
+      return ApiResult.failure(
+        ApiErrorHandler.handleError(error).message,
+      );
     }
   }
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
-import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/basic_information_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_and_bio_step.dart';
-import 'additional_details_step.dart';
-import 'mentee_basic_information_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee/mentee_interests_and_bio_step.dart';
 
 class MenteeRegisterSteperWidget extends StatefulWidget {
   const MenteeRegisterSteperWidget({super.key});
@@ -21,8 +21,13 @@ class _MenteeRegisterSteperWidgetState
     extends State<MenteeRegisterSteperWidget> {
   int currentStep = 0;
 
+  GlobalKey<FormState> basicInfoFormKey = GlobalKey();
+  GlobalKey<FormState> aboutFormKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
+    var cubit = RegisterCubit.get(context);
+
     return Stepper(
       currentStep: currentStep,
       physics: const NeverScrollableScrollPhysics(),
@@ -40,13 +45,27 @@ class _MenteeRegisterSteperWidgetState
                 buttonWidth: 120.w,
                 borderRadius: 10.r,
                 onPressed: () {
-                  if (currentStep < 3) {
-                    setState(() {
-                      currentStep++;
-                    });
-                  } else {
-                    context.navigateToReplacement(Routes.menteeBottomNavBar);
+                  if (currentStep == 0 &&
+                      basicInfoFormKey.currentState!.validate()) {
+                    currentStep++;
+                  } else if (currentStep == 1 &&
+                      cubit.pirthDateUser() == true &&
+                      cubit.locationUser.isNotEmpty) {
+                    currentStep++;
+                  } else if (currentStep == 2 &&
+                      aboutFormKey.currentState!.validate() &&
+                      cubit.fieldInterests.isNotEmpty) {
+                    currentStep++;
                   }
+                  // if (currentStep < 3) {
+                  //   setState(() {
+                  //     currentStep++;
+                  //   });
+                  // }
+                  // else {
+                  //   context.navigateToReplacement(Routes.menteeBottomNavBar);
+                  // }
+                  setState(() {});
                 },
               ),
               AppTextButton(
@@ -60,9 +79,13 @@ class _MenteeRegisterSteperWidgetState
                 buttonWidth: 120,
                 borderRadius: 10,
                 onPressed: () {
-                  setState(() {
-                    currentStep--;
-                  });
+                  if (currentStep == 0) {
+                    context.pop();
+                  } else {
+                    setState(() {
+                      currentStep--;
+                    });
+                  }
                 },
               ),
             ],
@@ -73,7 +96,9 @@ class _MenteeRegisterSteperWidgetState
       connectorThickness: 2,
       steps: [
         Step(
-          content: const MenteeBasicInformationStep(),
+          content: BasicInformationStep(
+            basicInformationFormKey: basicInfoFormKey,
+          ),
           title: Text(
             S.current.basicInformation,
             style: Theme.of(context).textTheme.bodyLarge,
@@ -87,16 +112,16 @@ class _MenteeRegisterSteperWidgetState
           ),
         ),
         Step(
-          content: const AdditionalDetailsStep(),
+          content: MenteeInterestsAndBioStep(aboutFormKey: aboutFormKey),
           title: Text(
-            S.current.additionalDetails,
+            'Interests & Bio',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Step(
-          content: const MenteeInterestsAndBioStep(),
+          content: const AdditionalDetailsStep(),
           title: Text(
-            'Interests & Bio',
+            S.current.additionalDetails,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),

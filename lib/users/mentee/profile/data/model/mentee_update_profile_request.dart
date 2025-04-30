@@ -11,9 +11,9 @@ class MenteeUpdateProfileRequest {
   });
 
   @JsonKey(name: 'Name')
-  final String name;
-  final String location;
-  final String about;
+  final String? name;
+  final String? location;
+  final String? about;
 
   Map<String, dynamic> toJson() => _$MenteeUpdateProfileRequestToJson(this);
 }

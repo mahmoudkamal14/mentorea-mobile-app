@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/app_regex.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/validator.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -31,13 +30,7 @@ class EmailTextFormField extends StatelessWidget {
             color: Theme.of(context).iconTheme.color,
           ),
           validator: (value) {
-            if (AppRegex.isEmailValid(value!) == false) {
-              return isArabic() == true
-                  ? 'بالرجاء إدخال بريد إلكتروني صالح'
-                  : 'Please enter a valid email address';
-            } else {
-              return null;
-            }
+            return validateEmail(value);
           },
         ),
       ],
