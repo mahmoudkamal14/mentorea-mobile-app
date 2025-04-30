@@ -7,7 +7,7 @@ import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widg
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_and_bio_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee/mentee_interests_and_bio_step.dart';
 
 class MenteeRegisterSteperWidget extends StatefulWidget {
   const MenteeRegisterSteperWidget({super.key});

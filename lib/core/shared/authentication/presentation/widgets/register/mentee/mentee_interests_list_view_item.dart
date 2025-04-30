@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
@@ -5,11 +7,12 @@ import 'package:mentorea_mobile_app/core/shared/authentication/data/models/field
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 
 class MenteeInterestsListViewItem extends StatefulWidget {
-  const MenteeInterestsListViewItem(
-      {super.key, required this.fieldItem, required this.index});
+  const MenteeInterestsListViewItem({
+    super.key,
+    required this.fieldItem,
+  });
 
   final FieldResponseModel fieldItem;
-  final int index;
 
   @override
   State<MenteeInterestsListViewItem> createState() =>
@@ -18,9 +21,11 @@ class MenteeInterestsListViewItem extends StatefulWidget {
 
 class _MenteeInterestsListViewItemState
     extends State<MenteeInterestsListViewItem> {
+  List<String> selectedInterests = [];
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    var selectedInterests = RegisterCubit.get(context).fieldInterests;
+    // var selectedInterests = RegisterCubit.get(context).fieldInterests;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,17 +45,25 @@ class _MenteeInterestsListViewItemState
 
               return SizedBox(
                 height: 50.h,
-                child: ListTile(
+                child: CheckboxListTile(
+                  value: isSelected,
                   title: Text(
                     interest.name,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
-                  leading: Checkbox(
-                    value: isSelected,
-                    onChanged: (value) {
-                      _onCheckboxChanged(value, interest.id);
-                    },
-                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      if (value == true) {
+                        selectedInterests.add(interest.id);
+                      } else {
+                        selectedInterests.remove(interest.id);
+                      }
+                      log('Selected Interests: $selectedInterests');
+                      RegisterCubit.get(context).fieldInterests =
+                          selectedInterests;
+                      log('Selected Interests: ${RegisterCubit.get(context).fieldInterests}');
+                    });
+                  },
                 ),
               );
             },
@@ -59,17 +72,5 @@ class _MenteeInterestsListViewItemState
         verticalSpace(16),
       ],
     );
-  }
-
-  void _onCheckboxChanged(bool? value, String interest) {
-    var selectedInterests = RegisterCubit.get(context).fieldInterests;
-
-    setState(() {
-      if (value == true) {
-        selectedInterests.add(interest);
-      } else {
-        selectedInterests.remove(interest);
-      }
-    });
   }
 }

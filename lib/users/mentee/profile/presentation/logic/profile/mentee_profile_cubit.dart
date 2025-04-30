@@ -20,7 +20,7 @@ class MenteeProfileCubit extends Cubit<MenteeProfileState> {
   TextEditingController locationController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
 
-  late MenteeProfileResponseModel profileModel;
+  MenteeProfileResponseModel? profileModel;
 
   Future<void> getMenteeProfile() async {
     emit(GetMenteeProfileLoadingState());
@@ -29,7 +29,7 @@ class MenteeProfileCubit extends Cubit<MenteeProfileState> {
 
     if (response is Success<MenteeProfileResponseModel>) {
       profileModel = response.data;
-      emit(GetMenteeProfileSuccessState());
+      emit(GetMenteeProfileSuccessState(profileModel: response.data));
     } else if (response is Failure) {
       emit(GetMenteeProfileErrorState(error: response.toString()));
     }
@@ -70,7 +70,7 @@ class MenteeProfileCubit extends Cubit<MenteeProfileState> {
 
     if (response is Success<MenteeProfileResponseModel>) {
       profileModel = response.data;
-      emit(GetMenteeProfileSuccessState());
+      emit(GetMenteeProfileSuccessState(profileModel: response.data));
     } else if (response is Failure) {
       emit(GetMenteeProfileErrorState(error: response.toString()));
     }

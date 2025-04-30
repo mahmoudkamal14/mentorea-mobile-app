@@ -54,8 +54,8 @@ class AuthRepository {
         'PirthDate.Year': mentee.pirthDateYear,
         'PirthDate.Month': mentee.pirthDateMonth,
         'PirthDate.Day': mentee.pirthDateDay,
-        'FieldInterests': mentee.fieldInterests,
         'About': mentee.about,
+        'FieldInterests': mentee.fieldInterests.map((e) => e).toList(),
       });
       final result = await _authServices.menteeRegister(formData);
       return ApiResult.success(result);
@@ -112,10 +112,6 @@ class AuthRepository {
       final result = await _authServices.confirmEmail(userId, code);
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
-      );
       return ApiResult.failure(
         ApiErrorHandler.handleError(error).message,
       );
@@ -131,10 +127,6 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
-      );
       return ApiResult.failure(
         ApiErrorHandler.handleError(error).message,
       );
@@ -150,10 +142,6 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
-      );
       return ApiResult.failure(
         ApiErrorHandler.handleError(error).message,
       );
@@ -169,10 +157,6 @@ class AuthRepository {
       );
       return ApiResult.success(result);
     } catch (error) {
-      showToast(
-        msg: ApiErrorHandler.handleError(error).message,
-        color: Colors.red,
-      );
       return ApiResult.failure(
         ApiErrorHandler.handleError(error).message,
       );

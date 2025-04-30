@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
-import 'package:mentorea_mobile_app/core/networking/api_error_model.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
@@ -43,7 +44,7 @@ class LoginCubit extends Cubit<LoginState> {
       );
       userModel = response.data;
       emit(LoginSuccessState(loginResponseModel: userModel!));
-    } else if (response is Failure<ApiErrorModel>) {
+    } else if (response is Failure) {
       emit(
         LoginErrorState(
           message: ApiErrorHandler.handleError(response).message,
@@ -70,9 +71,13 @@ class LoginCubit extends Cubit<LoginState> {
 
     userRole = payload.entries
         .firstWhere(
-          (element) => element.key == 'Role',
+          (element) =>
+              element.key ==
+              'http://schemas.microsoft.com/ws/2008/06/identity/claims/role',
         )
         .value;
+
+    log(userRole);
   }
 
   saveUserTokens({required String accessToken, required String refreshToken}) {

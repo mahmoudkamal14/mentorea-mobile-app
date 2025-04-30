@@ -13,12 +13,12 @@ class MenteeProfileResponseModel {
     required this.about,
   });
 
-  final String name;
-  final String email;
-  final String pathPhoto;
-  final DateTime pirthDate;
-  final String location;
-  final String about;
+  final String? name;
+  final String? email;
+  final String? pathPhoto;
+  final DateTime? pirthDate;
+  final String? location;
+  final String? about;
 
   factory MenteeProfileResponseModel.fromJson(Map<String, dynamic> json) =>
       _$MenteeProfileResponseModelFromJson(json);

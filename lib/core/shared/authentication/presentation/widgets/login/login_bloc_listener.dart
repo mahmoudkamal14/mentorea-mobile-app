@@ -29,6 +29,7 @@ class LoginBlocListener extends StatelessWidget {
           switch (state) {
             case LoginSuccessState():
               setupSuccess(context);
+              break;
             default:
           }
         },
@@ -50,6 +51,6 @@ class LoginBlocListener extends StatelessWidget {
         value: Routes.menteeBottomNavBar,
       );
     }
-    showToast(msg: 'تم تسجيل إلي حسابك الدخول بنجاح', color: Colors.green);
+    showToast(msg: 'تم تسجيل الدخول إلي حسابك بنجاح', color: Colors.green);
   }
 }

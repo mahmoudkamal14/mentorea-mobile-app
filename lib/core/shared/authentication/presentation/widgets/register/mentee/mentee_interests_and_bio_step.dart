@@ -4,7 +4,7 @@ import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/validator.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee_interests_list_view_item.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentee/mentee_interests_list_view_item.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -74,7 +74,6 @@ class MenteeInterestsAndBioStep extends StatelessWidget {
                               itemBuilder: (context, index) =>
                                   MenteeInterestsListViewItem(
                                 fieldItem: fieldsList[index],
-                                index: index,
                               ),
                             ),
                           ),

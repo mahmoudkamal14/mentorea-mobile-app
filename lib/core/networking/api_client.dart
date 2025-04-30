@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
+import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/refresh_token_request.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/services/auth_service.dart';
@@ -13,6 +14,17 @@ class ApiClient {
   factory ApiClient() {
     return _instance;
   }
+
+  final List<String> noRefreshEndpoints = [
+    ApiConstants.login,
+    ApiConstants.menteeRegister,
+    ApiConstants.mentorRegister,
+    ApiConstants.confirmEmail,
+    ApiConstants.resendOtpConfirmEmail,
+    ApiConstants.forgotPassword,
+    ApiConstants.resetPassword,
+    ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
+  ];
 
   static Dio getDio() {
     Duration timeOut = const Duration(seconds: 60);
@@ -28,39 +40,45 @@ class ApiClient {
   ApiClient._internal() {
     _dio.interceptors.add(
       InterceptorsWrapper(
-        onRequest: (options, handler) async {
-          final accessToken = await CacheHelper.getSecuredData(
-            key: CacheHelperKeys.accessToken,
-          );
-          if (accessToken != null) {
-            options.headers['Authorization'] = 'Bearer $accessToken';
-          }
-          return handler.next(options);
-        },
+        // onRequest: (options, handler) async {
+        //   final accessToken = await CacheHelper.getSecuredData(
+        //     key: CacheHelperKeys.accessToken,
+        //   );
+        //   if (accessToken != null) {
+        //     options.headers['Authorization'] = 'Bearer $accessToken';
+        //   }
+        //   return handler.next(options);
+        // },
         onError: (DioException error, handler) async {
-          if (error.response?.statusCode == 401) {
-            // Access Token expired
+          final requestPath = error.requestOptions.path;
+
+          final isUnauthorized = error.response?.statusCode == 401;
+          final isRefreshable = !noRefreshEndpoints.any(
+            (endpoint) => requestPath.contains(endpoint),
+          );
+
+          if (isUnauthorized && isRefreshable) {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );
             final accessToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.accessToken,
             );
+
             if (refreshToken != null) {
               try {
                 final newTokens =
                     await _refreshToken(refreshToken, accessToken);
 
-                CacheHelper.saveSecuredData(
+                await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.accessToken,
                   value: newTokens.token,
                 );
-                CacheHelper.saveSecuredData(
+                await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.refreshToken,
                   value: newTokens.refreshToken,
                 );
 
-                // Retry the original request with the new access token
                 error.requestOptions.headers['Authorization'] =
                     'Bearer ${newTokens.token}';
                 final response = await _dio.fetch(error.requestOptions);
@@ -70,6 +88,7 @@ class ApiClient {
               }
             }
           }
+
           return handler.next(error);
         },
       ),

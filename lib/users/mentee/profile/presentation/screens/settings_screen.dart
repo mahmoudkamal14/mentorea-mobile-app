@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
+import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/settings/card_setting_item_widget.dart';
@@ -32,7 +34,9 @@ class SettingsScreen extends StatelessWidget {
             CardSettingItemWidget(
               title: S.current.EditProfile,
               image: 'assets/icons/user-pen.svg',
-              onTap: () {},
+              onTap: () {
+                context.navigateTo(Routes.menteePersonalInfo);
+              },
             ),
             CardSettingItemWidget(
               title: S.current.changePassword,

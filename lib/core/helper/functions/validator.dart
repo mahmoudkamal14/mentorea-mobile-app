@@ -70,10 +70,10 @@ String? validateAbout(String? value) {
         : 'About must be at least 100 characters';
   }
 
-  if (value.trim().length > 500) {
+  if (value.trim().length > 1000) {
     return isArabic() == true
         ? 'النبذة يجب ألا تتجاوز 500 حرف'
-        : 'About must not exceed 500 characters';
+        : 'About must not exceed 1000 characters';
   }
 
   return null;
