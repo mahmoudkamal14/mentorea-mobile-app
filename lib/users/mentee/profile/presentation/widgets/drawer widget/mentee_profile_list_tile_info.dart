@@ -31,7 +31,7 @@ class MenteeProfileListTileInfo extends StatelessWidget {
           image: 'assets/icons/settings.svg',
           title: S.of(context).Settings,
           onTap: () {
-            context.navigateTo(Routes.settingsScreen);
+            context.navigateTo(Routes.menteeSettingsScreen);
           },
         ),
         ProfileListTileWidget(

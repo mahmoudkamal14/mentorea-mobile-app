@@ -72,12 +72,12 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
                   return AppTextButton(
                     textButton: 'التحقق من الرمز',
                     isLoading: state is ConfirmEmailLoadingState ? true : false,
-                    onPressed: () {
+                    onPressed: () async {
                       if (ConfirmEmailCubit.get(
                         context,
                       ).formKeyConfirm.currentState!.validate()) {
                         ConfirmEmailCubit.get(context).confirmEmail(
-                          userId: CacheHelper.getSecuredData(
+                          userId: await CacheHelper.getSecuredData(
                             key: CacheHelperKeys.email,
                           ),
                           code: otpCodeController.text,

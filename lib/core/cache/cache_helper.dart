@@ -1,5 +1,5 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
   static SharedPreferences sharedPreferences = CacheHelper.sharedPreferences;
@@ -39,11 +39,14 @@ class CacheHelper {
     return await sharedPreferences.setDouble(key, value);
   }
 
-  static saveSecuredData({required String key, required dynamic value}) async {
+  static Future<dynamic> saveSecuredData({
+    required String key,
+    required dynamic value,
+  }) async {
     await flutterSecureStorage.write(key: key, value: value);
   }
 
-  static getSecuredData({required String key}) async {
+  static Future<dynamic> getSecuredData({required String key}) async {
     return await flutterSecureStorage.read(key: key) ?? '';
   }
 

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/logout_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/settings/data/model/change_password_request_body.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/data/model/mentee_profile_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -20,6 +21,12 @@ abstract class MenteeProfileService {
   Future<void> updateMenteeProfile(
     @Header('Authorization') String userToken,
     @Body() FormData formData,
+  );
+
+  @GET(ApiConstants.changePasswordAccount)
+  Future<void> changePasswordAccount(
+    @Header('Authorization') String userToken,
+    @Body() ChangePasswordRequestBody changePasswordRequestBody,
   );
 
   @POST(ApiConstants.logout)

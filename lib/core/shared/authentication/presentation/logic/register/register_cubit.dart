@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,16 @@ class RegisterCubit extends Cubit<RegisterState> {
   int? pirthDateMonth;
   int? pirthDateDay;
   List<String> fieldInterests = [];
+
+  void selectFieldInterests(String fieldId) {
+    if (fieldInterests.contains(fieldId)) {
+      fieldInterests.remove(fieldId);
+    } else {
+      fieldInterests.add(fieldId);
+    }
+
+    log('Selected Interests: $fieldInterests');
+  }
 
   File? profileImageFile;
   ImagePicker picker = ImagePicker();

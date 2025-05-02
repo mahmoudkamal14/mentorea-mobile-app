@@ -37,6 +37,7 @@
       "enterNewPasswordTitle": "أدخل كلمة المرور الجديدة",
       "enterNewPasswordContent": "الرجاء إدخال كلمة المرور الجديدة",
       "changePassword": "تغيير كلمة المرور",
+      "changePasswordContent": "من أجل أمانك، يُرجى إدخال كلمة المرور الحالية واختيار كلمة مرور جديدة لم تستخدمها من قبل",
       "passwordUpdateSuccessfullyTitle": "تم تحديث كلمة المرور بنجاح",
       "passwordUpdateSuccessfullyContent": "لقد تم تحديث كلمة المرور الخاصة بك بنجاح",
       "backToLogin": "العودة إلى تسجيل الدخول",

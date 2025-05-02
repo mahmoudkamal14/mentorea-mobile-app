@@ -10,6 +10,7 @@ import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/register_fcm_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/repository/auth_repository.dart';
 
 part 'login_state.dart';
@@ -37,11 +38,11 @@ class LoginCubit extends Cubit<LoginState> {
     );
 
     if (response is Success<LoginResponseModel>) {
-      decodeJwt(token: response.data.token!);
       saveUserTokens(
         accessToken: response.data.token!,
         refreshToken: response.data.refreshToken!,
       );
+      decodeJwt(token: response.data.token!);
       userModel = response.data;
       emit(LoginSuccessState(loginResponseModel: userModel!));
     } else if (response is Failure) {
@@ -50,6 +51,21 @@ class LoginCubit extends Cubit<LoginState> {
           message: ApiErrorHandler.handleError(response).message,
         ),
       );
+    }
+  }
+
+  void emitRegisterFcmTokenStates({required String userId}) async {
+    final fcmToken = await CacheHelper.getSecuredData(
+      key: CacheHelperKeys.fcmToken,
+    );
+    final response = await _authRepository.registerFcmToken(
+      RegisterFcmRequestBody(userId: userId, deviceToken: fcmToken),
+    );
+
+    if (response is Success) {
+      log('FCM token registered successfully: ${response.data}');
+    } else if (response is Failure) {
+      log('Error while registering FCM token: ${response.error}');
     }
   }
 
@@ -77,15 +93,23 @@ class LoginCubit extends Cubit<LoginState> {
         )
         .value;
 
-    log(userRole);
+    String userId =
+        payload.entries.firstWhere((element) => element.key == 'sub').value;
+
+    // log(const JsonEncoder.withIndent('  ').convert(payload));
+
+    emitRegisterFcmTokenStates(userId: userId);
   }
 
-  saveUserTokens({required String accessToken, required String refreshToken}) {
-    CacheHelper.saveSecuredData(
+  saveUserTokens({
+    required String accessToken,
+    required String refreshToken,
+  }) async {
+    await CacheHelper.saveSecuredData(
       key: CacheHelperKeys.accessToken,
       value: accessToken,
     );
-    CacheHelper.saveSecuredData(
+    await CacheHelper.saveSecuredData(
       key: CacheHelperKeys.refreshToken,
       value: refreshToken,
     );

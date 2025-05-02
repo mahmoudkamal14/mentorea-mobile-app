@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/refresh_token_request.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/services/auth_service.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/datasource/auth_service.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
@@ -40,15 +42,15 @@ class ApiClient {
   ApiClient._internal() {
     _dio.interceptors.add(
       InterceptorsWrapper(
-        // onRequest: (options, handler) async {
-        //   final accessToken = await CacheHelper.getSecuredData(
-        //     key: CacheHelperKeys.accessToken,
-        //   );
-        //   if (accessToken != null) {
-        //     options.headers['Authorization'] = 'Bearer $accessToken';
-        //   }
-        //   return handler.next(options);
-        // },
+        onRequest: (options, handler) async {
+          final accessToken = await CacheHelper.getSecuredData(
+            key: CacheHelperKeys.accessToken,
+          );
+          if (accessToken != null) {
+            options.headers['Authorization'] = 'Bearer $accessToken';
+          }
+          return handler.next(options);
+        },
         onError: (DioException error, handler) async {
           final requestPath = error.requestOptions.path;
 
@@ -61,14 +63,17 @@ class ApiClient {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );
+
             final accessToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.accessToken,
             );
 
             if (refreshToken != null) {
               try {
-                final newTokens =
-                    await _refreshToken(refreshToken, accessToken);
+                final newTokens = await _refreshToken(
+                  refreshToken: refreshToken,
+                  token: accessToken,
+                );
 
                 await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.accessToken,
@@ -84,9 +89,18 @@ class ApiClient {
                 final response = await _dio.fetch(error.requestOptions);
                 return handler.resolve(response);
               } catch (e) {
-                await CacheHelper.clearAllSecuredData();
+                //  await CacheHelper.clearAllSecuredData();
               }
+            } else {
+              log('Error: Refresh token is null or expired.');
+              log('Request path: $requestPath');
+              log('Status code: ${error.response?.statusCode}');
+              // await CacheHelper.clearAllSecuredData();
             }
+          } else {
+            log('Error: ${error.message}');
+            log('Request path: $requestPath');
+            log('Status code: ${error.response?.statusCode}');
           }
 
           return handler.next(error);
@@ -95,10 +109,12 @@ class ApiClient {
     );
   }
 
-  Future<LoginResponseModel> _refreshToken(
-      String refreshToken, String accessToken) async {
+  Future<LoginResponseModel> _refreshToken({
+    required String refreshToken,
+    required String token,
+  }) async {
     final response = await apiService.refreshToken(
-      RefreshTokenRequest(refreshToken: refreshToken, token: accessToken),
+      RefreshTokenRequest(refreshToken: refreshToken, token: token),
     );
     return response;
   }
