@@ -3,6 +3,7 @@ import 'package:mentorea_mobile_app/core/helper/functions/build_page_route.dart'
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/forgot_password_screen.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentee_register_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/settings/presentation/screens/change_password_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
@@ -12,10 +13,11 @@ import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/
 import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/splash_screen.dart';
 import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/user_type_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/notifications_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/edit_mentee_profile_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/mentee_personal_info_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/payment_methods_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/privacy_policy_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/screens/settings_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/settings/presentation/screens/privacy_policy_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/settings/presentation/screens/mentee_settings_screen.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/mentor_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/home/presentation/screens/mentor_bottom_navigation_bar_screen.dart';
 
@@ -97,11 +99,35 @@ class AppRouter {
           settings: settings,
         );
 
-      case Routes.settingsScreen:
+      case Routes.menteeSettingsScreen:
         return smoothEaseInOutPageRoute(
-          const SettingsScreen(),
+          const MenteeSettingsScreen(),
           settings: settings,
         );
+
+      // case Routes.mentorSettingsScreen:
+      //   return smoothEaseInOutPageRoute(
+      //     const MentorSettingsScreen(),
+      //     settings: settings,
+      //   );
+
+      case Routes.changePasswordScreen:
+        return smoothEaseInOutPageRoute(
+          const ChangePasswordScreen(),
+          settings: settings,
+        );
+
+      case Routes.editMenteeProfileScreen:
+        return smoothEaseInOutPageRoute(
+          const EditMenteeProfileScreen(),
+          settings: settings,
+        );
+
+      // case Routes.editMentorProfileScreen:
+      //   return smoothEaseInOutPageRoute(
+      //     const EditMentorProfileScreen(),
+      //     settings: settings,
+      //   );
 
       // case Routes.mentorProfileScreen:
       //   return smoothEaseInOutPageRoute(

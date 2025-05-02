@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/register_fcm_request_body.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
@@ -19,6 +20,11 @@ abstract class AuthServices {
   @POST(ApiConstants.login)
   Future<LoginResponseModel> loginWithEmailPassword(
     @Body() LoginRequestBody loginRequestBody,
+  );
+
+  @POST(ApiConstants.registerFcmToken)
+  Future<void> registerFcmToken(
+    @Body() RegisterFcmRequestBody registerFcmRequestBody,
   );
 
   @POST(ApiConstants.menteeRegister)
@@ -54,7 +60,7 @@ abstract class AuthServices {
     @Body() ResetPasswordRequestBody resetPasswordRequestBody,
   );
 
-  @GET(ApiConstants.refreshToken)
+  @POST(ApiConstants.refreshToken)
   Future<LoginResponseModel> refreshToken(
     @Body() RefreshTokenRequest refreshTokenRequest,
   );

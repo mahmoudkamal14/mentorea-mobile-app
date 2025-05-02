@@ -1,6 +1,6 @@
-import 'dart:developer';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/notification/local_notifications_service.dart';
 
 class PushNotificationsService {
@@ -9,7 +9,8 @@ class PushNotificationsService {
   static Future init() async {
     await messaging.requestPermission();
     await messaging.getToken().then((value) {
-      log('Firebase Messaging Token: $value');
+      // save the token in secure storage
+      CacheHelper.saveSecuredData(key: CacheHelperKeys.fcmToken, value: value);
     });
 
     // foreground only

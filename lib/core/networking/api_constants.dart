@@ -3,6 +3,7 @@ class ApiConstants {
 
   // Authentication Endpoints
   static const String login = '/Auth/login';
+  static const String registerFcmToken = '/api/DeviceToken/add-token';
   static const String getAllFields = '/api/Field';
   static const String getAllSpecializations = '/api/Specializations';
   static const String mentorRegister = '/Auth/Mentor-Register';

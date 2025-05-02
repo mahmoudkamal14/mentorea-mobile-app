@@ -28,7 +28,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   Text(
                     S.current.forgotPasswordContent,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const ForgotPasswordFormWidget(),
                 ],
