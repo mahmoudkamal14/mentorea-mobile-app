@@ -13,7 +13,7 @@ import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentee_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentor_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/resend_otp_confirm_email_request_body.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/services/auth_service.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/datasource/auth_service.dart';
 
 class AuthRepository {
   final AuthServices _authServices;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/local%20datasource/governorates_list.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/datasource/governorates_list.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 
 class LocationWidgetStep extends StatefulWidget {
@@ -32,7 +32,7 @@ class _LocationWidgetStepState extends State<LocationWidgetStep> {
           style: Theme.of(context).textTheme.bodyMedium,
           dropdownColor: Theme.of(context).scaffoldBackgroundColor,
           decoration: InputDecoration(
-            hintText: 'اختر المحافظة',
+            hintText: isArabic() ? 'اختر المحافظة' : 'Select the governorate',
             hintStyle: Theme.of(context).textTheme.bodyMedium,
             contentPadding:
                 EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
@@ -57,7 +57,11 @@ class _LocationWidgetStepState extends State<LocationWidgetStep> {
               cubit.locationUser = selectedGovernorate!;
             });
           },
-          validator: (value) => value == null ? 'من فضلك اختر محافظة' : null,
+          validator: (value) => value == null
+              ? isArabic()
+                  ? 'من فضلك اختر محافظة'
+                  : 'Please select a governorate'
+              : null,
         ),
       ],
     );

@@ -25,8 +25,6 @@ class _MenteeInterestsListViewItemState
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    // var selectedInterests = RegisterCubit.get(context).fieldInterests;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

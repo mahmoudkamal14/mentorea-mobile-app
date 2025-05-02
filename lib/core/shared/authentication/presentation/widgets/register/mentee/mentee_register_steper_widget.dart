@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
@@ -28,104 +29,102 @@ class _MenteeRegisterSteperWidgetState
   Widget build(BuildContext context) {
     var cubit = RegisterCubit.get(context);
 
-    return Stepper(
-      currentStep: currentStep,
-      physics: const NeverScrollableScrollPhysics(),
-      controlsBuilder: (context, details) {
-        return Padding(
-          padding: EdgeInsets.only(top: 16.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AppTextButton(
-                textButton: currentStep < 3
-                    ? S.of(context).Continue
-                    : S.of(context).register,
-                buttonHeight: 40.h,
-                buttonWidth: 120.w,
-                borderRadius: 10.r,
-                onPressed: () {
-                  if (currentStep == 0 &&
-                      basicInfoFormKey.currentState!.validate()) {
-                    currentStep++;
-                  } else if (currentStep == 1 &&
-                      cubit.pirthDateUser() == true &&
-                      cubit.locationUser.isNotEmpty) {
-                    currentStep++;
-                  } else if (currentStep == 2 &&
-                      aboutFormKey.currentState!.validate() &&
-                      cubit.fieldInterests.isNotEmpty) {
-                    currentStep++;
-                  }
-                  // if (currentStep < 3) {
-                  //   setState(() {
-                  //     currentStep++;
-                  //   });
-                  // }
-                  // else {
-                  //   context.navigateToReplacement(Routes.menteeBottomNavBar);
-                  // }
-                  setState(() {});
-                },
+    return BlocBuilder<RegisterCubit, RegisterState>(
+      builder: (context, state) {
+        return Stepper(
+          currentStep: currentStep,
+          physics: const NeverScrollableScrollPhysics(),
+          controlsBuilder: (context, details) {
+            return Padding(
+              padding: EdgeInsets.only(top: 16.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AppTextButton(
+                    textButton: currentStep < 3
+                        ? S.of(context).Continue
+                        : S.of(context).register,
+                    buttonHeight: 40.h,
+                    buttonWidth: 120.w,
+                    borderRadius: 10.r,
+                    onPressed: () {
+                      if (currentStep == 0 &&
+                          basicInfoFormKey.currentState!.validate()) {
+                        currentStep++;
+                      } else if (currentStep == 1 &&
+                          cubit.pirthDateUser() == true &&
+                          cubit.locationUser.isNotEmpty) {
+                        currentStep++;
+                      } else if (currentStep == 2 &&
+                          aboutFormKey.currentState!.validate() &&
+                          cubit.fieldInterests.isNotEmpty) {
+                        currentStep++;
+                      } else if (currentStep == 3) {
+                        currentStep++;
+                      }
+                      setState(() {});
+                    },
+                  ),
+                  AppTextButton(
+                    textButton: S.of(context).cancel,
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(color: Theme.of(context).hintColor),
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    buttonHeight: 40,
+                    buttonWidth: 120,
+                    borderRadius: 10,
+                    onPressed: () {
+                      if (currentStep == 0) {
+                        context.pop();
+                      } else {
+                        setState(() {
+                          currentStep--;
+                        });
+                      }
+                    },
+                  ),
+                ],
               ),
-              AppTextButton(
-                textButton: S.of(context).cancel,
-                textStyle: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(color: Theme.of(context).hintColor),
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                buttonHeight: 40,
-                buttonWidth: 120,
-                borderRadius: 10,
-                onPressed: () {
-                  if (currentStep == 0) {
-                    context.pop();
-                  } else {
-                    setState(() {
-                      currentStep--;
-                    });
-                  }
-                },
+            );
+          },
+          connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
+          connectorThickness: 2,
+          steps: [
+            Step(
+              content: BasicInformationStep(
+                basicInformationFormKey: basicInfoFormKey,
               ),
-            ],
-          ),
+              title: Text(
+                S.current.basicInformation,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+            Step(
+              content: const BirthdayAndLocationStep(),
+              title: Text(
+                'Contact & Personal Details',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+            Step(
+              content: MenteeInterestsAndBioStep(aboutFormKey: aboutFormKey),
+              title: Text(
+                'Interests & Bio',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+            Step(
+              content: const AdditionalDetailsStep(),
+              title: Text(
+                S.current.additionalDetails,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+          ],
         );
       },
-      connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
-      connectorThickness: 2,
-      steps: [
-        Step(
-          content: BasicInformationStep(
-            basicInformationFormKey: basicInfoFormKey,
-          ),
-          title: Text(
-            S.current.basicInformation,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: const BirthdayAndLocationStep(),
-          title: Text(
-            'Contact & Personal Details',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: MenteeInterestsAndBioStep(aboutFormKey: aboutFormKey),
-          title: Text(
-            'Interests & Bio',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        Step(
-          content: const AdditionalDetailsStep(),
-          title: Text(
-            S.current.additionalDetails,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-      ],
     );
   }
 }
