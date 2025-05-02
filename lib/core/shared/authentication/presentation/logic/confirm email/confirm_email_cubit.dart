@@ -39,7 +39,7 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
     emit(ResendConfirmEmailLoadingState());
     final response = await _authRepository.resendOtpConfirmEmail(
       ResendOptConfirmEmailRequestBody(
-        email: CacheHelper.getSecuredData(key: CacheHelperKeys.email),
+        email: await CacheHelper.getSecuredData(key: CacheHelperKeys.email),
       ),
     );
     if (response is Success) {

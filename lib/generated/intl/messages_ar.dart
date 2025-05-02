@@ -62,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "changePasswordContent": MessageLookupByLibrary.simpleMessage(
+            "من أجل أمانك، يُرجى إدخال كلمة المرور الحالية واختيار كلمة مرور جديدة لم تستخدمها من قبل"),
         "chooseAccountType":
             MessageLookupByLibrary.simpleMessage("اختر نوع الحساب"),
         "chooseYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),

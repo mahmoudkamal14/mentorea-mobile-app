@@ -17,7 +17,12 @@ class Routes {
   static const String verifyEmailScreen = '/verify-email';
   static const String menteeBottomNavBar = '/menteeBottomNavBar';
   static const String menteePersonalInfo = '/menteePersonalInfo';
-  static const String settingsScreen = '/settingsScreen';
+  static const String menteeSettingsScreen = '/menteeSettingsScreen';
+  static const String mentorSettingsScreen = '/mentorSettingsScreen';
+  static const String menteeProfileScreen = '/menteeProfileScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
+  static const String editMenteeProfileScreen = '/editMenteeProfileScreen';
+  static const String editMentorProfileScreen = '/editMentorProfileScreen';
   static const String mentorProfileScreen = '/mentorProfileScreen';
   static const String bookSessionScreen = '/bookSessionScreen';
   static const String paymentMethodsScreen = '/paymentMethodsScreen';

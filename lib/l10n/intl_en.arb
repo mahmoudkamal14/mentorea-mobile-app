@@ -37,6 +37,7 @@
       "enterNewPasswordTitle": "Enter New Password",
       "enterNewPasswordContent": "Please enter your new password",
       "changePassword": "Change Password",
+      "changePasswordContent": "For your security, please enter your current password and choose a new password that you haven’t used before",
       "passwordUpdateSuccessfullyTitle": "Password Update Successfully",
       "passwordUpdateSuccessfullyContent": "Your password has been\n updated successfully",
       "backToLogin": "Back to Login",

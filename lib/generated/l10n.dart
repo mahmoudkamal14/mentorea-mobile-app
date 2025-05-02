@@ -430,6 +430,16 @@ class S {
     );
   }
 
+  /// `For your security, please enter your current password and choose a new password that you haven’t used before`
+  String get changePasswordContent {
+    return Intl.message(
+      'For your security, please enter your current password and choose a new password that you haven’t used before',
+      name: 'changePasswordContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password Update Successfully`
   String get passwordUpdateSuccessfullyTitle {
     return Intl.message(

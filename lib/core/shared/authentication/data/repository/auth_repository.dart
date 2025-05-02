@@ -9,6 +9,7 @@ import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/reset_password_request_body.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/register_fcm_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentee_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentor_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/resend_otp_confirm_email_request_body.dart';
@@ -36,6 +37,19 @@ class AuthRepository {
       return ApiResult.failure(
         ApiErrorHandler.handleError(error).message,
       );
+    }
+  }
+
+  Future<ApiResult<void>> registerFcmToken(
+    RegisterFcmRequestBody registerFcmRequestBody,
+  ) async {
+    try {
+      final result = await _authServices.registerFcmToken(
+        registerFcmRequestBody,
+      );
+      return ApiResult.success(result);
+    } catch (error) {
+      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
     }
   }
 

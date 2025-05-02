@@ -19,14 +19,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await CacheHelper.init();
+  setupGetIt();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  await CacheHelper.init();
-  await setupGetIt();
   await PushNotificationsService.init();
   await LocalNotificationService.init();
   await ScreenUtil.ensureScreenSize();
