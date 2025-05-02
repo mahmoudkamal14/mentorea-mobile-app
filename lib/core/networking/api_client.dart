@@ -6,7 +6,7 @@ import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/refresh_token_request.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/services/auth_service.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/datasource/auth_service.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
@@ -55,11 +55,11 @@ class ApiClient {
           final requestPath = error.requestOptions.path;
 
           final isUnauthorized = error.response?.statusCode == 401;
-          // final isRefreshable = !noRefreshEndpoints.any(
-          //   (endpoint) => requestPath.contains(endpoint),
-          // );
+          final isRefreshable = !noRefreshEndpoints.any(
+            (endpoint) => requestPath.contains(endpoint),
+          );
 
-          if (isUnauthorized) {
+          if (isUnauthorized && isRefreshable) {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );
