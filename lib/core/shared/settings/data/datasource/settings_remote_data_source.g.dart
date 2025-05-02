@@ -36,7 +36,7 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
     _headers.removeWhere((k, v) => v == null);
     final _data = formData;
     final _options = _setStreamType<void>(Options(
-      method: 'GET',
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )
@@ -65,7 +65,7 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
     _headers.removeWhere((k, v) => v == null);
     final _data = formData;
     final _options = _setStreamType<void>(Options(
-      method: 'GET',
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )
@@ -95,7 +95,7 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
     final _data = <String, dynamic>{};
     _data.addAll(changePasswordRequestBody.toJson());
     final _options = _setStreamType<void>(Options(
-      method: 'GET',
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )

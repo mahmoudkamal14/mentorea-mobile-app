@@ -11,19 +11,19 @@ abstract class SettingsRemoteDataSource {
   factory SettingsRemoteDataSource(Dio dio, {String baseUrl}) =
       _SettingsRemoteDataSource;
 
-  @GET(ApiConstants.updateMenteeProfile)
+  @PUT(ApiConstants.updateMenteeProfile)
   Future<void> updateMenteeProfile(
     @Header('Authorization') String userToken,
     @Body() FormData formData,
   );
 
-  @GET(ApiConstants.updateMentorProfile)
+  @PUT(ApiConstants.updateMentorProfile)
   Future<void> updateMentorProfile(
     @Header('Authorization') String userToken,
     @Body() FormData formData,
   );
 
-  @GET(ApiConstants.changePasswordAccount)
+  @PUT(ApiConstants.changePasswordAccount)
   Future<void> changePasswordAccount(
     @Header('Authorization') String userToken,
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
