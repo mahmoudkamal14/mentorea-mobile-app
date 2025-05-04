@@ -19,25 +19,24 @@ class CommunityPostListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _navigateToPostDetailsScreen(
-          context: context,
-          post: postModel,
-        );
-      },
-      child: ContainerCardWidget(
-        child: Column(
-          children: [
-            PostHeaderWidget(postModel: postModel),
-            verticalSpace(16),
-            PostBodyWidget(postModel: postModel),
-            verticalSpace(4),
-            const Divider(color: Color(0xFF103A69)),
-            verticalSpace(4),
-            const PostFooterWidget(),
-          ],
-        ),
+    return ContainerCardWidget(
+      child: Column(
+        children: [
+          PostHeaderWidget(postModel: postModel),
+          verticalSpace(16),
+          GestureDetector(
+              onTap: () {
+                _navigateToPostDetailsScreen(
+                  context: context,
+                  post: postModel,
+                );
+              },
+              child: PostBodyWidget(postModel: postModel)),
+          verticalSpace(4),
+          const Divider(color: Color(0xFF103A69)),
+          verticalSpace(4),
+          PostFooterWidget(postId: postModel.id!),
+        ],
       ),
     );
   }

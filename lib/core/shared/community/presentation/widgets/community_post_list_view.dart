@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/post/community_post_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/post/community_post_state.dart';
 import 'package:mentorea_mobile_app/core/shared/community/presentation/widgets/community_post_list_view_item.dart';
@@ -15,23 +16,50 @@ class CommunityPostListView extends StatelessWidget {
       builder: (context, state) {
         var posts = CommunityPostCubit.get(context).postsListResponseModel;
 
-        return state is GetAllPostsLoading
-            ? const PostShimmerLoadingWidget()
-            : SizedBox(
-                height: 700.h,
-                child: ListView.builder(
-                  itemCount: posts!.items!.length,
-                  reverse: true,
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.h),
-                    child: CommunityPostListViewItem(
-                      postModel: posts.items![index],
-                      selectedItem: index,
-                    ),
+        if (state is GetAllPostsLoading) {
+          return setupLoading();
+        } else {
+          if (posts!.items!.isEmpty) {
+            return emptyList(context);
+          } else {
+            return SizedBox(
+              height: 700.h,
+              child: ListView.builder(
+                itemCount: posts.items!.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                  child: CommunityPostListViewItem(
+                    postModel: posts.items![index],
+                    selectedItem: index,
                   ),
                 ),
-              );
+              ),
+            );
+          }
+        }
       },
+    );
+  }
+
+  SizedBox setupLoading() {
+    return SizedBox(
+      height: 700.h,
+      child: ListView.builder(
+        itemCount: 3,
+        itemBuilder: (context, index) => Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h),
+          child: const PostShimmerLoadingWidget(),
+        ),
+      ),
+    );
+  }
+
+  Center emptyList(BuildContext context) {
+    return Center(
+      child: Text(
+        isArabic() ? 'لا يوجد اي بوستات حتى الآن' : 'No posts available',
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
     );
   }
 }

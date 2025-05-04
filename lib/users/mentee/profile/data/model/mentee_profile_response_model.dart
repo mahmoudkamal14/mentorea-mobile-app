@@ -6,6 +6,7 @@ part 'mentee_profile_response_model.g.dart';
 class MenteeProfileResponseModel {
   MenteeProfileResponseModel({
     required this.name,
+    required this.id,
     required this.email,
     required this.pathPhoto,
     required this.pirthDate,
@@ -14,6 +15,7 @@ class MenteeProfileResponseModel {
   });
 
   final String? name;
+  final String? id;
   final String? email;
   final String? pathPhoto;
   final DateTime? pirthDate;

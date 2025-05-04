@@ -19,6 +19,8 @@ abstract class CommunityReactsRemoteDataScource {
   Future<CommentsListResponseModel> getAllCommentsPost(
     @Header('Authorization') String userToken,
     @Path('postId') String postId,
+    @Query('PageNumber') int pageNumber,
+    @Query('PageSize') int pageSize,
   );
   // Get comment details
   @GET(ApiConstants.getCommentPost)
@@ -67,5 +69,7 @@ abstract class CommunityReactsRemoteDataScource {
   Future<UsersLikedPostResponseModel> usersLikedPost(
     @Header('Authorization') String userToken,
     @Path('postId') String postId,
+    @Query('PageNumber') int pageNumber,
+    @Query('PageSize ') int pageSize,
   );
 }

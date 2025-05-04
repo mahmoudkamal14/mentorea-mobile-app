@@ -34,6 +34,7 @@ class CommunityReactsRepository {
   /// Get users who liked a post
   Future<ApiResult<UsersLikedPostResponseModel>> getUsersLikedPost(
     String postId,
+    int? pageNumber,
   ) async {
     try {
       final userToken =
@@ -42,6 +43,8 @@ class CommunityReactsRepository {
       final response = await _remoteDataSource.usersLikedPost(
         userToken,
         postId,
+        pageNumber ?? 1,
+        10,
       );
       return ApiResult.success(response);
     } catch (e) {
@@ -142,6 +145,7 @@ class CommunityReactsRepository {
 
   Future<ApiResult<CommentsListResponseModel>> getAllCommentsPost(
     String postId,
+    int? pageNumber,
   ) async {
     try {
       final userToken =
@@ -150,6 +154,8 @@ class CommunityReactsRepository {
       final response = await _remoteDataSource.getAllCommentsPost(
         userToken,
         postId,
+        pageNumber ?? 1,
+        10,
       );
       return ApiResult.success(response);
     } catch (e) {

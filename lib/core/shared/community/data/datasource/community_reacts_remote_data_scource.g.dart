@@ -28,9 +28,14 @@ class _CommunityReactsRemoteDataScource
   Future<CommentsListResponseModel> getAllCommentsPost(
     String userToken,
     String postId,
+    int pageNumber,
+    int pageSize,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'PageNumber': pageNumber,
+      r'PageSize': pageSize,
+    };
     final _headers = <String, dynamic>{r'Authorization': userToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
@@ -41,7 +46,7 @@ class _CommunityReactsRemoteDataScource
     )
         .compose(
           _dio.options,
-          '/api/Post/${postId}/comment',
+          '/api/posts/${postId}/Comment',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -79,7 +84,7 @@ class _CommunityReactsRemoteDataScource
     )
         .compose(
           _dio.options,
-          '/api/Post/${postId}/comment/${commentId}',
+          '/api/posts/${postId}/Comment/${commentId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -118,7 +123,7 @@ class _CommunityReactsRemoteDataScource
     )
         .compose(
           _dio.options,
-          '/api/Post/${postId}/comment',
+          '/api/posts/${postId}/Comment',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -158,7 +163,7 @@ class _CommunityReactsRemoteDataScource
     )
         .compose(
           _dio.options,
-          '/api/Post/${postId}/comment/${commentId}',
+          '/api/posts/${postId}/Comment/${commentId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -188,7 +193,7 @@ class _CommunityReactsRemoteDataScource
     )
         .compose(
           _dio.options,
-          '/api/Post/${postId}/comment/${commentId}',
+          '/api/posts/${postId}/Comment/${commentId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -264,9 +269,14 @@ class _CommunityReactsRemoteDataScource
   Future<UsersLikedPostResponseModel> usersLikedPost(
     String userToken,
     String postId,
+    int pageNumber,
+    int pageSize,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'PageNumber': pageNumber,
+      r'PageSize ': pageSize,
+    };
     final _headers = <String, dynamic>{r'Authorization': userToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

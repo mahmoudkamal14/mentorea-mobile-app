@@ -30,11 +30,12 @@ class ApiConstants {
   static const String updatePost = '/api/Post/{postId}';
   static const String deletePost = '/api/Post/{postId}';
 
-  static const String getCommentPost = '/api/Post/{postId}/comment/{commentId}';
-  static const String getAllCommentsPost = '/api/Post/{postId}/comment';
-  static const String createComment = '/api/Post/{postId}/comment';
-  static const String updateComment = '/api/Post/{postId}/comment/{commentId}';
-  static const String deleteComment = '/api/Post/{postId}/comment/{commentId}';
+  static const String getCommentPost =
+      '/api/posts/{postId}/Comment/{commentId}';
+  static const String getAllCommentsPost = '/api/posts/{postId}/Comment';
+  static const String createComment = '/api/posts/{postId}/Comment';
+  static const String updateComment = '/api/posts/{postId}/Comment/{commentId}';
+  static const String deleteComment = '/api/posts/{postId}/Comment/{commentId}';
 
   static const String toggleLikePost = '/api/posts/{postId}/Like';
   static const String countLikePost = '/api/posts/{postId}/Like/Count';

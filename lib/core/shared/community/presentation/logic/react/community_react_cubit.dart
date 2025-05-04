@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
+import 'package:mentorea_mobile_app/core/shared/community/data/model/react/comment_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/community/data/model/react/comments_list_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/community/data/model/react/create_comment_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/community/data/model/react/toggle_like_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/community/data/repository/community_reacts_repository.dart';
@@ -28,10 +30,11 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
   }
 
   // Get Users Who Liked Post
-  Future<void> getUsersWhoLikedPost(String postId) async {
+  Future<void> getUsersWhoLikedPost(String postId, int? pageNumber) async {
     emit(const CommunityReactState.getUsersWhoLikedPostLoading());
 
-    final response = await communityReactsRepository.getUsersLikedPost(postId);
+    final response = await communityReactsRepository.getUsersLikedPost(
+        postId, pageNumber ?? 1);
 
     if (response is Success<void>) {
       emit(const CommunityReactState.getUsersWhoLikedPostSuccess());
@@ -56,7 +59,9 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
 
   // Create Comment
   Future<void> createComment(
-      String postId, String userId, String content) async {
+      {required String postId,
+      required String userId,
+      required String content}) async {
     emit(const CommunityReactState.createCommentLoading());
 
     final response = await communityReactsRepository.createComment(
@@ -71,7 +76,9 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
 
   // Update Comment
   Future<void> updateComment(
-      String postId, String commentId, String content) async {
+      {required String postId,
+      required String commentId,
+      required String content}) async {
     emit(const CommunityReactState.updateCommentLoading());
 
     final response = await communityReactsRepository.updateComment(
@@ -98,15 +105,20 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
     }
   }
 
+  CommentResponseModel? commentResponseModel;
+  CommentsListResponseModel? commentsListResponseModel;
+
   // Get All Comments
-  Future<void> getAllComments(String postId) async {
+  Future<void> getAllComments(String postId, int? pageNumber) async {
     emit(const CommunityReactState.getAllCommentsLoading());
 
-    final response = await communityReactsRepository.getAllCommentsPost(postId);
+    final response = await communityReactsRepository.getAllCommentsPost(
+        postId, pageNumber ?? 1);
 
-    if (response is Success<void>) {
+    if (response is Success<CommentsListResponseModel>) {
+      commentsListResponseModel = response.data;
       emit(const CommunityReactState.getAllCommentsSuccess());
-    } else if (response is Failure<void>) {
+    } else if (response is Failure) {
       emit(CommunityReactState.getAllCommentsFailure(response.toString()));
     }
   }
@@ -118,7 +130,8 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
     final response =
         await communityReactsRepository.getCommentPost(postId, commentId);
 
-    if (response is Success) {
+    if (response is Success<CommentResponseModel>) {
+      commentResponseModel = response.data;
       emit(const CommunityReactState.getCommentDetailsSuccess());
     } else if (response is Failure) {
       emit(CommunityReactState.getCommentDetailsFailure(response.toString()));

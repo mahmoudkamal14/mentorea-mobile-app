@@ -58,13 +58,13 @@ class _Initial implements CommunityReactState {
 
 /// @nodoc
 
-class _ToggleLikePostLoading implements CommunityReactState {
-  const _ToggleLikePostLoading();
+class ToggleLikePostLoading implements CommunityReactState {
+  const ToggleLikePostLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _ToggleLikePostLoading);
+        (other.runtimeType == runtimeType && other is ToggleLikePostLoading);
   }
 
   @override
@@ -78,13 +78,13 @@ class _ToggleLikePostLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _ToggleLikePostSuccess implements CommunityReactState {
-  const _ToggleLikePostSuccess();
+class ToggleLikePostSuccess implements CommunityReactState {
+  const ToggleLikePostSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _ToggleLikePostSuccess);
+        (other.runtimeType == runtimeType && other is ToggleLikePostSuccess);
   }
 
   @override
@@ -98,8 +98,8 @@ class _ToggleLikePostSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _ToggleLikePostFailure implements CommunityReactState {
-  const _ToggleLikePostFailure(this.error);
+class ToggleLikePostFailure implements CommunityReactState {
+  const ToggleLikePostFailure(this.error);
 
   final String error;
 
@@ -107,15 +107,15 @@ class _ToggleLikePostFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ToggleLikePostFailureCopyWith<_ToggleLikePostFailure> get copyWith =>
-      __$ToggleLikePostFailureCopyWithImpl<_ToggleLikePostFailure>(
+  $ToggleLikePostFailureCopyWith<ToggleLikePostFailure> get copyWith =>
+      _$ToggleLikePostFailureCopyWithImpl<ToggleLikePostFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ToggleLikePostFailure &&
+            other is ToggleLikePostFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -129,22 +129,22 @@ class _ToggleLikePostFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$ToggleLikePostFailureCopyWith<$Res>
+abstract mixin class $ToggleLikePostFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$ToggleLikePostFailureCopyWith(_ToggleLikePostFailure value,
-          $Res Function(_ToggleLikePostFailure) _then) =
-      __$ToggleLikePostFailureCopyWithImpl;
+  factory $ToggleLikePostFailureCopyWith(ToggleLikePostFailure value,
+          $Res Function(ToggleLikePostFailure) _then) =
+      _$ToggleLikePostFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$ToggleLikePostFailureCopyWithImpl<$Res>
-    implements _$ToggleLikePostFailureCopyWith<$Res> {
-  __$ToggleLikePostFailureCopyWithImpl(this._self, this._then);
+class _$ToggleLikePostFailureCopyWithImpl<$Res>
+    implements $ToggleLikePostFailureCopyWith<$Res> {
+  _$ToggleLikePostFailureCopyWithImpl(this._self, this._then);
 
-  final _ToggleLikePostFailure _self;
-  final $Res Function(_ToggleLikePostFailure) _then;
+  final ToggleLikePostFailure _self;
+  final $Res Function(ToggleLikePostFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -152,7 +152,7 @@ class __$ToggleLikePostFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_ToggleLikePostFailure(
+    return _then(ToggleLikePostFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -163,14 +163,14 @@ class __$ToggleLikePostFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _GetUsersWhoLikedPostLoading implements CommunityReactState {
-  const _GetUsersWhoLikedPostLoading();
+class GetUsersWhoLikedPostLoading implements CommunityReactState {
+  const GetUsersWhoLikedPostLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GetUsersWhoLikedPostLoading);
+            other is GetUsersWhoLikedPostLoading);
   }
 
   @override
@@ -184,14 +184,14 @@ class _GetUsersWhoLikedPostLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _GetUsersWhoLikedPostSuccess implements CommunityReactState {
-  const _GetUsersWhoLikedPostSuccess();
+class GetUsersWhoLikedPostSuccess implements CommunityReactState {
+  const GetUsersWhoLikedPostSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GetUsersWhoLikedPostSuccess);
+            other is GetUsersWhoLikedPostSuccess);
   }
 
   @override
@@ -205,8 +205,8 @@ class _GetUsersWhoLikedPostSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _GetUsersWhoLikedPostFailure implements CommunityReactState {
-  const _GetUsersWhoLikedPostFailure(this.error);
+class GetUsersWhoLikedPostFailure implements CommunityReactState {
+  const GetUsersWhoLikedPostFailure(this.error);
 
   final String error;
 
@@ -214,15 +214,15 @@ class _GetUsersWhoLikedPostFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$GetUsersWhoLikedPostFailureCopyWith<_GetUsersWhoLikedPostFailure>
-      get copyWith => __$GetUsersWhoLikedPostFailureCopyWithImpl<
-          _GetUsersWhoLikedPostFailure>(this, _$identity);
+  $GetUsersWhoLikedPostFailureCopyWith<GetUsersWhoLikedPostFailure>
+      get copyWith => _$GetUsersWhoLikedPostFailureCopyWithImpl<
+          GetUsersWhoLikedPostFailure>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GetUsersWhoLikedPostFailure &&
+            other is GetUsersWhoLikedPostFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -236,23 +236,23 @@ class _GetUsersWhoLikedPostFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$GetUsersWhoLikedPostFailureCopyWith<$Res>
+abstract mixin class $GetUsersWhoLikedPostFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$GetUsersWhoLikedPostFailureCopyWith(
-          _GetUsersWhoLikedPostFailure value,
-          $Res Function(_GetUsersWhoLikedPostFailure) _then) =
-      __$GetUsersWhoLikedPostFailureCopyWithImpl;
+  factory $GetUsersWhoLikedPostFailureCopyWith(
+          GetUsersWhoLikedPostFailure value,
+          $Res Function(GetUsersWhoLikedPostFailure) _then) =
+      _$GetUsersWhoLikedPostFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$GetUsersWhoLikedPostFailureCopyWithImpl<$Res>
-    implements _$GetUsersWhoLikedPostFailureCopyWith<$Res> {
-  __$GetUsersWhoLikedPostFailureCopyWithImpl(this._self, this._then);
+class _$GetUsersWhoLikedPostFailureCopyWithImpl<$Res>
+    implements $GetUsersWhoLikedPostFailureCopyWith<$Res> {
+  _$GetUsersWhoLikedPostFailureCopyWithImpl(this._self, this._then);
 
-  final _GetUsersWhoLikedPostFailure _self;
-  final $Res Function(_GetUsersWhoLikedPostFailure) _then;
+  final GetUsersWhoLikedPostFailure _self;
+  final $Res Function(GetUsersWhoLikedPostFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -260,7 +260,7 @@ class __$GetUsersWhoLikedPostFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_GetUsersWhoLikedPostFailure(
+    return _then(GetUsersWhoLikedPostFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -271,13 +271,13 @@ class __$GetUsersWhoLikedPostFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _CountLikePostLoading implements CommunityReactState {
-  const _CountLikePostLoading();
+class CountLikePostLoading implements CommunityReactState {
+  const CountLikePostLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _CountLikePostLoading);
+        (other.runtimeType == runtimeType && other is CountLikePostLoading);
   }
 
   @override
@@ -291,13 +291,13 @@ class _CountLikePostLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _CountLikePostSuccess implements CommunityReactState {
-  const _CountLikePostSuccess();
+class CountLikePostSuccess implements CommunityReactState {
+  const CountLikePostSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _CountLikePostSuccess);
+        (other.runtimeType == runtimeType && other is CountLikePostSuccess);
   }
 
   @override
@@ -311,8 +311,8 @@ class _CountLikePostSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _CountLikePostFailure implements CommunityReactState {
-  const _CountLikePostFailure(this.error);
+class CountLikePostFailure implements CommunityReactState {
+  const CountLikePostFailure(this.error);
 
   final String error;
 
@@ -320,15 +320,15 @@ class _CountLikePostFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$CountLikePostFailureCopyWith<_CountLikePostFailure> get copyWith =>
-      __$CountLikePostFailureCopyWithImpl<_CountLikePostFailure>(
+  $CountLikePostFailureCopyWith<CountLikePostFailure> get copyWith =>
+      _$CountLikePostFailureCopyWithImpl<CountLikePostFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CountLikePostFailure &&
+            other is CountLikePostFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -342,22 +342,22 @@ class _CountLikePostFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$CountLikePostFailureCopyWith<$Res>
+abstract mixin class $CountLikePostFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$CountLikePostFailureCopyWith(_CountLikePostFailure value,
-          $Res Function(_CountLikePostFailure) _then) =
-      __$CountLikePostFailureCopyWithImpl;
+  factory $CountLikePostFailureCopyWith(CountLikePostFailure value,
+          $Res Function(CountLikePostFailure) _then) =
+      _$CountLikePostFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$CountLikePostFailureCopyWithImpl<$Res>
-    implements _$CountLikePostFailureCopyWith<$Res> {
-  __$CountLikePostFailureCopyWithImpl(this._self, this._then);
+class _$CountLikePostFailureCopyWithImpl<$Res>
+    implements $CountLikePostFailureCopyWith<$Res> {
+  _$CountLikePostFailureCopyWithImpl(this._self, this._then);
 
-  final _CountLikePostFailure _self;
-  final $Res Function(_CountLikePostFailure) _then;
+  final CountLikePostFailure _self;
+  final $Res Function(CountLikePostFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -365,7 +365,7 @@ class __$CountLikePostFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_CountLikePostFailure(
+    return _then(CountLikePostFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -376,13 +376,13 @@ class __$CountLikePostFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _CreateCommentLoading implements CommunityReactState {
-  const _CreateCommentLoading();
+class CreateCommentLoading implements CommunityReactState {
+  const CreateCommentLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _CreateCommentLoading);
+        (other.runtimeType == runtimeType && other is CreateCommentLoading);
   }
 
   @override
@@ -396,13 +396,13 @@ class _CreateCommentLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _CreateCommentSuccess implements CommunityReactState {
-  const _CreateCommentSuccess();
+class CreateCommentSuccess implements CommunityReactState {
+  const CreateCommentSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _CreateCommentSuccess);
+        (other.runtimeType == runtimeType && other is CreateCommentSuccess);
   }
 
   @override
@@ -416,8 +416,8 @@ class _CreateCommentSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _CreateCommentFailure implements CommunityReactState {
-  const _CreateCommentFailure(this.error);
+class CreateCommentFailure implements CommunityReactState {
+  const CreateCommentFailure(this.error);
 
   final String error;
 
@@ -425,15 +425,15 @@ class _CreateCommentFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$CreateCommentFailureCopyWith<_CreateCommentFailure> get copyWith =>
-      __$CreateCommentFailureCopyWithImpl<_CreateCommentFailure>(
+  $CreateCommentFailureCopyWith<CreateCommentFailure> get copyWith =>
+      _$CreateCommentFailureCopyWithImpl<CreateCommentFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CreateCommentFailure &&
+            other is CreateCommentFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -447,22 +447,22 @@ class _CreateCommentFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$CreateCommentFailureCopyWith<$Res>
+abstract mixin class $CreateCommentFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$CreateCommentFailureCopyWith(_CreateCommentFailure value,
-          $Res Function(_CreateCommentFailure) _then) =
-      __$CreateCommentFailureCopyWithImpl;
+  factory $CreateCommentFailureCopyWith(CreateCommentFailure value,
+          $Res Function(CreateCommentFailure) _then) =
+      _$CreateCommentFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$CreateCommentFailureCopyWithImpl<$Res>
-    implements _$CreateCommentFailureCopyWith<$Res> {
-  __$CreateCommentFailureCopyWithImpl(this._self, this._then);
+class _$CreateCommentFailureCopyWithImpl<$Res>
+    implements $CreateCommentFailureCopyWith<$Res> {
+  _$CreateCommentFailureCopyWithImpl(this._self, this._then);
 
-  final _CreateCommentFailure _self;
-  final $Res Function(_CreateCommentFailure) _then;
+  final CreateCommentFailure _self;
+  final $Res Function(CreateCommentFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -470,7 +470,7 @@ class __$CreateCommentFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_CreateCommentFailure(
+    return _then(CreateCommentFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -481,13 +481,13 @@ class __$CreateCommentFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _UpdateCommentLoading implements CommunityReactState {
-  const _UpdateCommentLoading();
+class UpdateCommentLoading implements CommunityReactState {
+  const UpdateCommentLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _UpdateCommentLoading);
+        (other.runtimeType == runtimeType && other is UpdateCommentLoading);
   }
 
   @override
@@ -501,13 +501,13 @@ class _UpdateCommentLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _UpdateCommentSuccess implements CommunityReactState {
-  const _UpdateCommentSuccess();
+class UpdateCommentSuccess implements CommunityReactState {
+  const UpdateCommentSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _UpdateCommentSuccess);
+        (other.runtimeType == runtimeType && other is UpdateCommentSuccess);
   }
 
   @override
@@ -521,8 +521,8 @@ class _UpdateCommentSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _UpdateCommentFailure implements CommunityReactState {
-  const _UpdateCommentFailure(this.error);
+class UpdateCommentFailure implements CommunityReactState {
+  const UpdateCommentFailure(this.error);
 
   final String error;
 
@@ -530,15 +530,15 @@ class _UpdateCommentFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$UpdateCommentFailureCopyWith<_UpdateCommentFailure> get copyWith =>
-      __$UpdateCommentFailureCopyWithImpl<_UpdateCommentFailure>(
+  $UpdateCommentFailureCopyWith<UpdateCommentFailure> get copyWith =>
+      _$UpdateCommentFailureCopyWithImpl<UpdateCommentFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdateCommentFailure &&
+            other is UpdateCommentFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -552,22 +552,22 @@ class _UpdateCommentFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$UpdateCommentFailureCopyWith<$Res>
+abstract mixin class $UpdateCommentFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$UpdateCommentFailureCopyWith(_UpdateCommentFailure value,
-          $Res Function(_UpdateCommentFailure) _then) =
-      __$UpdateCommentFailureCopyWithImpl;
+  factory $UpdateCommentFailureCopyWith(UpdateCommentFailure value,
+          $Res Function(UpdateCommentFailure) _then) =
+      _$UpdateCommentFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$UpdateCommentFailureCopyWithImpl<$Res>
-    implements _$UpdateCommentFailureCopyWith<$Res> {
-  __$UpdateCommentFailureCopyWithImpl(this._self, this._then);
+class _$UpdateCommentFailureCopyWithImpl<$Res>
+    implements $UpdateCommentFailureCopyWith<$Res> {
+  _$UpdateCommentFailureCopyWithImpl(this._self, this._then);
 
-  final _UpdateCommentFailure _self;
-  final $Res Function(_UpdateCommentFailure) _then;
+  final UpdateCommentFailure _self;
+  final $Res Function(UpdateCommentFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -575,7 +575,7 @@ class __$UpdateCommentFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_UpdateCommentFailure(
+    return _then(UpdateCommentFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -586,13 +586,13 @@ class __$UpdateCommentFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _DeleteCommentLoading implements CommunityReactState {
-  const _DeleteCommentLoading();
+class DeleteCommentLoading implements CommunityReactState {
+  const DeleteCommentLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _DeleteCommentLoading);
+        (other.runtimeType == runtimeType && other is DeleteCommentLoading);
   }
 
   @override
@@ -606,13 +606,13 @@ class _DeleteCommentLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _DeleteCommentSuccess implements CommunityReactState {
-  const _DeleteCommentSuccess();
+class DeleteCommentSuccess implements CommunityReactState {
+  const DeleteCommentSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _DeleteCommentSuccess);
+        (other.runtimeType == runtimeType && other is DeleteCommentSuccess);
   }
 
   @override
@@ -626,8 +626,8 @@ class _DeleteCommentSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _DeleteCommentFailure implements CommunityReactState {
-  const _DeleteCommentFailure(this.error);
+class DeleteCommentFailure implements CommunityReactState {
+  const DeleteCommentFailure(this.error);
 
   final String error;
 
@@ -635,15 +635,15 @@ class _DeleteCommentFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$DeleteCommentFailureCopyWith<_DeleteCommentFailure> get copyWith =>
-      __$DeleteCommentFailureCopyWithImpl<_DeleteCommentFailure>(
+  $DeleteCommentFailureCopyWith<DeleteCommentFailure> get copyWith =>
+      _$DeleteCommentFailureCopyWithImpl<DeleteCommentFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DeleteCommentFailure &&
+            other is DeleteCommentFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -657,22 +657,22 @@ class _DeleteCommentFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$DeleteCommentFailureCopyWith<$Res>
+abstract mixin class $DeleteCommentFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$DeleteCommentFailureCopyWith(_DeleteCommentFailure value,
-          $Res Function(_DeleteCommentFailure) _then) =
-      __$DeleteCommentFailureCopyWithImpl;
+  factory $DeleteCommentFailureCopyWith(DeleteCommentFailure value,
+          $Res Function(DeleteCommentFailure) _then) =
+      _$DeleteCommentFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$DeleteCommentFailureCopyWithImpl<$Res>
-    implements _$DeleteCommentFailureCopyWith<$Res> {
-  __$DeleteCommentFailureCopyWithImpl(this._self, this._then);
+class _$DeleteCommentFailureCopyWithImpl<$Res>
+    implements $DeleteCommentFailureCopyWith<$Res> {
+  _$DeleteCommentFailureCopyWithImpl(this._self, this._then);
 
-  final _DeleteCommentFailure _self;
-  final $Res Function(_DeleteCommentFailure) _then;
+  final DeleteCommentFailure _self;
+  final $Res Function(DeleteCommentFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -680,7 +680,7 @@ class __$DeleteCommentFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_DeleteCommentFailure(
+    return _then(DeleteCommentFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -691,13 +691,13 @@ class __$DeleteCommentFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _GetAllCommentsLoading implements CommunityReactState {
-  const _GetAllCommentsLoading();
+class GetAllCommentsLoading implements CommunityReactState {
+  const GetAllCommentsLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _GetAllCommentsLoading);
+        (other.runtimeType == runtimeType && other is GetAllCommentsLoading);
   }
 
   @override
@@ -711,13 +711,13 @@ class _GetAllCommentsLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _GetAllCommentsSuccess implements CommunityReactState {
-  const _GetAllCommentsSuccess();
+class GetAllCommentsSuccess implements CommunityReactState {
+  const GetAllCommentsSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _GetAllCommentsSuccess);
+        (other.runtimeType == runtimeType && other is GetAllCommentsSuccess);
   }
 
   @override
@@ -731,8 +731,8 @@ class _GetAllCommentsSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _GetAllCommentsFailure implements CommunityReactState {
-  const _GetAllCommentsFailure(this.error);
+class GetAllCommentsFailure implements CommunityReactState {
+  const GetAllCommentsFailure(this.error);
 
   final String error;
 
@@ -740,15 +740,15 @@ class _GetAllCommentsFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$GetAllCommentsFailureCopyWith<_GetAllCommentsFailure> get copyWith =>
-      __$GetAllCommentsFailureCopyWithImpl<_GetAllCommentsFailure>(
+  $GetAllCommentsFailureCopyWith<GetAllCommentsFailure> get copyWith =>
+      _$GetAllCommentsFailureCopyWithImpl<GetAllCommentsFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GetAllCommentsFailure &&
+            other is GetAllCommentsFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -762,22 +762,22 @@ class _GetAllCommentsFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$GetAllCommentsFailureCopyWith<$Res>
+abstract mixin class $GetAllCommentsFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$GetAllCommentsFailureCopyWith(_GetAllCommentsFailure value,
-          $Res Function(_GetAllCommentsFailure) _then) =
-      __$GetAllCommentsFailureCopyWithImpl;
+  factory $GetAllCommentsFailureCopyWith(GetAllCommentsFailure value,
+          $Res Function(GetAllCommentsFailure) _then) =
+      _$GetAllCommentsFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$GetAllCommentsFailureCopyWithImpl<$Res>
-    implements _$GetAllCommentsFailureCopyWith<$Res> {
-  __$GetAllCommentsFailureCopyWithImpl(this._self, this._then);
+class _$GetAllCommentsFailureCopyWithImpl<$Res>
+    implements $GetAllCommentsFailureCopyWith<$Res> {
+  _$GetAllCommentsFailureCopyWithImpl(this._self, this._then);
 
-  final _GetAllCommentsFailure _self;
-  final $Res Function(_GetAllCommentsFailure) _then;
+  final GetAllCommentsFailure _self;
+  final $Res Function(GetAllCommentsFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -785,7 +785,7 @@ class __$GetAllCommentsFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_GetAllCommentsFailure(
+    return _then(GetAllCommentsFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -796,14 +796,13 @@ class __$GetAllCommentsFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _GetCommentDetailsLoading implements CommunityReactState {
-  const _GetCommentDetailsLoading();
+class GetCommentDetailsLoading implements CommunityReactState {
+  const GetCommentDetailsLoading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _GetCommentDetailsLoading);
+        (other.runtimeType == runtimeType && other is GetCommentDetailsLoading);
   }
 
   @override
@@ -817,14 +816,13 @@ class _GetCommentDetailsLoading implements CommunityReactState {
 
 /// @nodoc
 
-class _GetCommentDetailsSuccess implements CommunityReactState {
-  const _GetCommentDetailsSuccess();
+class GetCommentDetailsSuccess implements CommunityReactState {
+  const GetCommentDetailsSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _GetCommentDetailsSuccess);
+        (other.runtimeType == runtimeType && other is GetCommentDetailsSuccess);
   }
 
   @override
@@ -838,8 +836,8 @@ class _GetCommentDetailsSuccess implements CommunityReactState {
 
 /// @nodoc
 
-class _GetCommentDetailsFailure implements CommunityReactState {
-  const _GetCommentDetailsFailure(this.error);
+class GetCommentDetailsFailure implements CommunityReactState {
+  const GetCommentDetailsFailure(this.error);
 
   final String error;
 
@@ -847,15 +845,15 @@ class _GetCommentDetailsFailure implements CommunityReactState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$GetCommentDetailsFailureCopyWith<_GetCommentDetailsFailure> get copyWith =>
-      __$GetCommentDetailsFailureCopyWithImpl<_GetCommentDetailsFailure>(
+  $GetCommentDetailsFailureCopyWith<GetCommentDetailsFailure> get copyWith =>
+      _$GetCommentDetailsFailureCopyWithImpl<GetCommentDetailsFailure>(
           this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GetCommentDetailsFailure &&
+            other is GetCommentDetailsFailure &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -869,22 +867,22 @@ class _GetCommentDetailsFailure implements CommunityReactState {
 }
 
 /// @nodoc
-abstract mixin class _$GetCommentDetailsFailureCopyWith<$Res>
+abstract mixin class $GetCommentDetailsFailureCopyWith<$Res>
     implements $CommunityReactStateCopyWith<$Res> {
-  factory _$GetCommentDetailsFailureCopyWith(_GetCommentDetailsFailure value,
-          $Res Function(_GetCommentDetailsFailure) _then) =
-      __$GetCommentDetailsFailureCopyWithImpl;
+  factory $GetCommentDetailsFailureCopyWith(GetCommentDetailsFailure value,
+          $Res Function(GetCommentDetailsFailure) _then) =
+      _$GetCommentDetailsFailureCopyWithImpl;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$GetCommentDetailsFailureCopyWithImpl<$Res>
-    implements _$GetCommentDetailsFailureCopyWith<$Res> {
-  __$GetCommentDetailsFailureCopyWithImpl(this._self, this._then);
+class _$GetCommentDetailsFailureCopyWithImpl<$Res>
+    implements $GetCommentDetailsFailureCopyWith<$Res> {
+  _$GetCommentDetailsFailureCopyWithImpl(this._self, this._then);
 
-  final _GetCommentDetailsFailure _self;
-  final $Res Function(_GetCommentDetailsFailure) _then;
+  final GetCommentDetailsFailure _self;
+  final $Res Function(GetCommentDetailsFailure) _then;
 
   /// Create a copy of CommunityReactState
   /// with the given fields replaced by the non-null parameter values.
@@ -892,7 +890,7 @@ class __$GetCommentDetailsFailureCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_GetCommentDetailsFailure(
+    return _then(GetCommentDetailsFailure(
       null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

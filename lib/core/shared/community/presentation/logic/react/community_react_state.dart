@@ -8,65 +8,65 @@ class CommunityReactState with _$CommunityReactState {
 
   // Toggle Like Post
   const factory CommunityReactState.toggleLikePostLoading() =
-      _ToggleLikePostLoading;
+      ToggleLikePostLoading;
   const factory CommunityReactState.toggleLikePostSuccess() =
-      _ToggleLikePostSuccess;
+      ToggleLikePostSuccess;
   const factory CommunityReactState.toggleLikePostFailure(String error) =
-      _ToggleLikePostFailure;
+      ToggleLikePostFailure;
 
   // Get Users Who Liked Post
   const factory CommunityReactState.getUsersWhoLikedPostLoading() =
-      _GetUsersWhoLikedPostLoading;
+      GetUsersWhoLikedPostLoading;
   const factory CommunityReactState.getUsersWhoLikedPostSuccess() =
-      _GetUsersWhoLikedPostSuccess;
+      GetUsersWhoLikedPostSuccess;
   const factory CommunityReactState.getUsersWhoLikedPostFailure(String error) =
-      _GetUsersWhoLikedPostFailure;
+      GetUsersWhoLikedPostFailure;
 
   // Count Likes Post
   const factory CommunityReactState.countLikePostLoading() =
-      _CountLikePostLoading;
+      CountLikePostLoading;
   const factory CommunityReactState.countLikePostSuccess() =
-      _CountLikePostSuccess;
+      CountLikePostSuccess;
   const factory CommunityReactState.countLikePostFailure(String error) =
-      _CountLikePostFailure;
+      CountLikePostFailure;
 
   // Create Comment
   const factory CommunityReactState.createCommentLoading() =
-      _CreateCommentLoading;
+      CreateCommentLoading;
   const factory CommunityReactState.createCommentSuccess() =
-      _CreateCommentSuccess;
+      CreateCommentSuccess;
   const factory CommunityReactState.createCommentFailure(String error) =
-      _CreateCommentFailure;
+      CreateCommentFailure;
 
   // Update Comment
   const factory CommunityReactState.updateCommentLoading() =
-      _UpdateCommentLoading;
+      UpdateCommentLoading;
   const factory CommunityReactState.updateCommentSuccess() =
-      _UpdateCommentSuccess;
+      UpdateCommentSuccess;
   const factory CommunityReactState.updateCommentFailure(String error) =
-      _UpdateCommentFailure;
+      UpdateCommentFailure;
 
   // Delete Comment
   const factory CommunityReactState.deleteCommentLoading() =
-      _DeleteCommentLoading;
+      DeleteCommentLoading;
   const factory CommunityReactState.deleteCommentSuccess() =
-      _DeleteCommentSuccess;
+      DeleteCommentSuccess;
   const factory CommunityReactState.deleteCommentFailure(String error) =
-      _DeleteCommentFailure;
+      DeleteCommentFailure;
 
   // Get All Comments
   const factory CommunityReactState.getAllCommentsLoading() =
-      _GetAllCommentsLoading;
+      GetAllCommentsLoading;
   const factory CommunityReactState.getAllCommentsSuccess() =
-      _GetAllCommentsSuccess;
+      GetAllCommentsSuccess;
   const factory CommunityReactState.getAllCommentsFailure(String error) =
-      _GetAllCommentsFailure;
+      GetAllCommentsFailure;
 
   // Get Comment Details
   const factory CommunityReactState.getCommentDetailsLoading() =
-      _GetCommentDetailsLoading;
+      GetCommentDetailsLoading;
   const factory CommunityReactState.getCommentDetailsSuccess() =
-      _GetCommentDetailsSuccess;
+      GetCommentDetailsSuccess;
   const factory CommunityReactState.getCommentDetailsFailure(String error) =
-      _GetCommentDetailsFailure;
+      GetCommentDetailsFailure;
 }

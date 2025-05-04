@@ -16,6 +16,7 @@ import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/m
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/profile/presentation/logic/mentee_profile_cubit.dart';
 
 class MenteeBottomNavigationBarScreen extends StatefulWidget {
   const MenteeBottomNavigationBarScreen({super.key});
@@ -40,6 +41,9 @@ class _BottomNavigationBarScreenState
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+            create: (context) =>
+                getIt<MenteeProfileCubit>()..getMenteeProfile()),
         BlocProvider(
             create: (context) => getIt<CommunityPostCubit>()..getAllPosts()),
         BlocProvider(create: (context) => getIt<CommunityReactCubit>()),
