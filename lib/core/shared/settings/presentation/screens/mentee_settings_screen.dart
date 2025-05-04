@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
@@ -51,7 +55,16 @@ class MenteeSettingsScreen extends StatelessWidget {
                     title: S.current.EditProfile,
                     image: 'assets/icons/user-pen.svg',
                     onTap: () async {
-                      context.navigateTo(Routes.editMenteeProfileScreen);
+                      //  context.navigateTo(Routes.editMenteeProfileScreen);
+                      final refreshToken = await CacheHelper.getSecuredData(
+                        key: CacheHelperKeys.refreshToken,
+                      );
+                      final accessToken = await CacheHelper.getSecuredData(
+                        key: CacheHelperKeys.accessToken,
+                      );
+
+                      log('Refresh token: $refreshToken');
+                      log('Access token: $accessToken');
                     },
                   );
                 },

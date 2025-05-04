@@ -8,7 +8,7 @@ import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
-import 'package:mentorea_mobile_app/core/shared/community/presentation/screens/community_screen.dart';
+import 'package:mentorea_mobile_app/core/shared/community/presentation/screens/mentor_community_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
 import 'package:mentorea_mobile_app/users/mentor/dashboard/presentation/screen/mentor_dashboard_screen.dart';
@@ -27,7 +27,7 @@ class _BottomNavigationBarScreenState
     const MenteeHomeScreen(),
     const MentorDashboardScreen(),
     const MenteeBookingsScreen(),
-    const CommunityScreen(),
+    const MentorCommunityScreen(),
   ];
 
   int _currentIndex = 0;

@@ -9,8 +9,8 @@ class RefreshTokenRequest {
     required this.token,
   });
 
-  final String? refreshToken;
-  final String? token;
+  final String refreshToken;
+  final String token;
 
   Map<String, dynamic> toJson() => _$RefreshTokenRequestToJson(this);
 }

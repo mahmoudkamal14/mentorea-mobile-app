@@ -25,7 +25,7 @@ class ApiClient {
     ApiConstants.resendOtpConfirmEmail,
     ApiConstants.forgotPassword,
     ApiConstants.resetPassword,
-    ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
+    // ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
   ];
 
   static Dio getDio() {
@@ -63,17 +63,17 @@ class ApiClient {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );
-
             final accessToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.accessToken,
             );
 
+            log('Refresh token: $refreshToken');
+            log('Access token: $accessToken');
+
             if (refreshToken != null) {
               try {
-                final newTokens = await _refreshToken(
-                  refreshToken: refreshToken,
-                  token: accessToken,
-                );
+                final newTokens =
+                    await _refreshToken(refreshToken, accessToken);
 
                 await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.accessToken,
@@ -89,18 +89,9 @@ class ApiClient {
                 final response = await _dio.fetch(error.requestOptions);
                 return handler.resolve(response);
               } catch (e) {
-                //  await CacheHelper.clearAllSecuredData();
+                await CacheHelper.clearAllSecuredData();
               }
-            } else {
-              log('Error: Refresh token is null or expired.');
-              log('Request path: $requestPath');
-              log('Status code: ${error.response?.statusCode}');
-              // await CacheHelper.clearAllSecuredData();
             }
-          } else {
-            log('Error: ${error.message}');
-            log('Request path: $requestPath');
-            log('Status code: ${error.response?.statusCode}');
           }
 
           return handler.next(error);
@@ -109,13 +100,13 @@ class ApiClient {
     );
   }
 
-  Future<LoginResponseModel> _refreshToken({
-    required String refreshToken,
-    required String token,
-  }) async {
+  Future<LoginResponseModel> _refreshToken(
+      String refreshToken, String token) async {
     final response = await apiService.refreshToken(
       RefreshTokenRequest(refreshToken: refreshToken, token: token),
     );
+
+    log('Response: $response');
     return response;
   }
 

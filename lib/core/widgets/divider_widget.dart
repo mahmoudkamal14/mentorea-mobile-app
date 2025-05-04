@@ -5,16 +5,18 @@ class DividerWidget extends StatelessWidget {
   const DividerWidget({
     super.key,
     this.color,
+    this.indent,
   });
 
   final Color? color;
+  final double? indent;
 
   @override
   Widget build(BuildContext context) {
     return Divider(
       color: color ?? const Color(0xFF103A69),
-      indent: 16.w,
-      endIndent: 16.w,
+      indent: indent ?? 16.w,
+      endIndent: indent ?? 16.w,
     );
   }
 }
