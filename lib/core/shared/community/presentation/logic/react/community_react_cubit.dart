@@ -109,11 +109,15 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
   CommentsListResponseModel? commentsListResponseModel;
 
   // Get All Comments
-  Future<void> getAllComments(String postId, int? pageNumber) async {
+  Future<void> getAllComments(
+      {required String postId, int? pageNumber, String? sortDirection}) async {
     emit(const CommunityReactState.getAllCommentsLoading());
 
     final response = await communityReactsRepository.getAllCommentsPost(
-        postId, pageNumber ?? 1);
+      postId,
+      pageNumber ?? 1,
+      sortDirection ?? 'DESC',
+    );
 
     if (response is Success<CommentsListResponseModel>) {
       commentsListResponseModel = response.data;

@@ -28,11 +28,13 @@ class _CommunityReactsRemoteDataScource
   Future<CommentsListResponseModel> getAllCommentsPost(
     String userToken,
     String postId,
+    String sortDirection,
     int pageNumber,
     int pageSize,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'SortDirection': sortDirection,
       r'PageNumber': pageNumber,
       r'PageSize': pageSize,
     };

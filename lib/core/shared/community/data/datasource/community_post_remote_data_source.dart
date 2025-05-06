@@ -35,6 +35,7 @@ abstract class CommunityPostRemoteDataSource {
   @GET(ApiConstants.getAllPost)
   Future<PostsListResponseModel> getAllPosts(
     @Header('Authorization') String userToken,
+    @Query('SortDirection') String sortDirection,
   );
   // Get posts by followed mentors
   @GET(ApiConstants.getPostsFollowingMentors)

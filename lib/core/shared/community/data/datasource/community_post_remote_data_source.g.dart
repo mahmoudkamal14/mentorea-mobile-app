@@ -122,9 +122,12 @@ class _CommunityPostRemoteDataSource implements CommunityPostRemoteDataSource {
   }
 
   @override
-  Future<PostsListResponseModel> getAllPosts(String userToken) async {
+  Future<PostsListResponseModel> getAllPosts(
+    String userToken,
+    String sortDirection,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'SortDirection': sortDirection};
     final _headers = <String, dynamic>{r'Authorization': userToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/local/mentors_data.dart';
-import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentor_profile_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 
 class MentorCardListViewItem extends StatelessWidget {
   const MentorCardListViewItem({
@@ -12,16 +11,16 @@ class MentorCardListViewItem extends StatelessWidget {
     required this.mentor,
   });
 
-  final MentorInfo mentor;
+  final MentorResponseModel mentor;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (builder) => MentorProfileScreen(mentor: mentor)));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (builder) => MentorProfileScreen(mentor: mentor)));
       },
       child: ContainerCardWidget(
         child: Column(
@@ -34,21 +33,28 @@ class MentorCardListViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.r),
                 ),
               ),
-              child: Image.asset(
-                mentor.image,
-                fit: BoxFit.fill,
-                height: 200.h,
-                width: double.infinity,
-              ),
+              child: mentor.pathPhoto != null
+                  ? Image.network(
+                      mentor.pathPhoto!,
+                      fit: BoxFit.fill,
+                      height: 200.h,
+                      width: double.infinity,
+                    )
+                  : Image.asset(
+                      'assets/images/default_user.png',
+                      fit: BoxFit.fill,
+                      height: 200.h,
+                      width: double.infinity,
+                    ),
             ),
             verticalSpace(10),
             Text(
-              mentor.name,
+              mentor.name!,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             verticalSpace(4),
             Text(
-              '${mentor.job} at Google',
+              mentor.fieldName!,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             verticalSpace(12),
@@ -68,14 +74,18 @@ class MentorCardListViewItem extends StatelessWidget {
                     ),
                     verticalSpace(4),
                     Text(
-                      '${mentor.experience} ${S.current.years}',
+                      '4 ${S.current.years}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),
                 const Spacer(),
                 Text(
-                  '${mentor.pricePerSession} ' r'$' ' /  ${S.current.session}',
+                  mentor.numberOfSession == null
+                      ? 'New Mentor'
+                      : '${mentor.numberOfSession} '
+                          r'$'
+                          ' /  ${S.current.session}',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
@@ -89,11 +99,12 @@ class MentorCardListViewItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '${mentor.numOfSessions} ${S.current.session}  ',
+                        text:
+                            '${mentor.numberOfSession} ${S.current.session}  ',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       TextSpan(
-                        text: '(${mentor.numOfReviews} ${S.current.review})',
+                        text: '(${mentor.numberOfSession} ${S.current.review})',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],

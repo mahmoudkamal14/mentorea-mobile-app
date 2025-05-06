@@ -56,7 +56,7 @@ class PostFooterWidget extends StatelessWidget {
                   listener: (context, state) {
                     if (state is CreateCommentSuccess) {
                       commentController.clear();
-                      commentCubit.getAllComments(postId, 1);
+                      commentCubit.getAllComments(postId: postId);
                       CommunityPostCubit.get(context).getPostDetails(postId);
                     }
                   },

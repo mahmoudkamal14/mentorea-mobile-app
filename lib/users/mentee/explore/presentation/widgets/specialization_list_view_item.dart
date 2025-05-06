@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 
-class FieldListViewItem extends StatelessWidget {
-  const FieldListViewItem({
+class SpecializationListViewItem extends StatelessWidget {
+  const SpecializationListViewItem({
     super.key,
     required this.index,
     required this.selectedIndex,
-    required this.fields,
+    required this.specializationModel,
   });
 
   final int index;
   final int selectedIndex;
-  final List<String> fields;
+  final SpecializationResponseModel specializationModel;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class FieldListViewItem extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          fields[index],
+          specializationModel.name,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),

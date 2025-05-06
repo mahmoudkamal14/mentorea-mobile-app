@@ -13,6 +13,7 @@ import 'package:mentorea_mobile_app/core/shared/community/presentation/screens/m
 import 'package:mentorea_mobile_app/core/widgets/action_icon_appbar.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/explore_mentor_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
@@ -42,10 +43,15 @@ class _BottomNavigationBarScreenState
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) =>
-                getIt<MenteeProfileCubit>()..getMenteeProfile()),
+          create: (context) =>
+              getIt<ExploreMentorCubit>()..getAllSpecializations(),
+        ),
         BlocProvider(
-            create: (context) => getIt<CommunityPostCubit>()..getAllPosts()),
+          create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),
+        ),
         BlocProvider(create: (context) => getIt<CommunityReactCubit>()),
         BlocProvider(create: (context) => getIt<CommunityConnectionsCubit>()),
       ],

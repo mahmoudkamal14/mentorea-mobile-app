@@ -29,8 +29,10 @@ class PostDetailsScreen extends StatelessWidget {
               getIt<CommunityPostCubit>()..getPostDetails(postModel.id!),
         ),
         BlocProvider(
-          create: (context) =>
-              getIt<CommunityReactCubit>()..getAllComments(postModel.id!, 1),
+          create: (context) => getIt<CommunityReactCubit>()
+            ..getAllComments(
+              postId: postModel.id!,
+            ),
         ),
         BlocProvider(
           create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),

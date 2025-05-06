@@ -65,7 +65,7 @@ class CommunityPostRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.getAllPosts(userToken);
+      final response = await _remoteDataSource.getAllPosts(userToken, 'DESC');
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);

@@ -19,6 +19,7 @@ abstract class CommunityReactsRemoteDataScource {
   Future<CommentsListResponseModel> getAllCommentsPost(
     @Header('Authorization') String userToken,
     @Path('postId') String postId,
+    @Query('SortDirection') String sortDirection,
     @Query('PageNumber') int pageNumber,
     @Query('PageSize') int pageSize,
   );

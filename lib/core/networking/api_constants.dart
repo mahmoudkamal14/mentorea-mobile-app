@@ -48,4 +48,8 @@ class ApiConstants {
       '/api/Follow/{userId}/followings/count';
   static const String getFollowersMentor = '/api/Follow/Mentor';
   static const String getFollowingMentor = '/api/Follow/Follower';
+
+  // Explore Endpoints
+  static const String searchMentor = '/api/result';
+  static const String getMentorsBySpecialization = '/api/result/Specialization';
 }

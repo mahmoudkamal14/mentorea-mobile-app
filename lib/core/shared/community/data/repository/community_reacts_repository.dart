@@ -146,6 +146,7 @@ class CommunityReactsRepository {
   Future<ApiResult<CommentsListResponseModel>> getAllCommentsPost(
     String postId,
     int? pageNumber,
+    String sortDirection,
   ) async {
     try {
       final userToken =
@@ -154,6 +155,7 @@ class CommunityReactsRepository {
       final response = await _remoteDataSource.getAllCommentsPost(
         userToken,
         postId,
+        sortDirection,
         pageNumber ?? 1,
         10,
       );
