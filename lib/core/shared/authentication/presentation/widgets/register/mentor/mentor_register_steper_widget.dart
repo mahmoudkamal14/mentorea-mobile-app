@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/basic_information_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -16,6 +17,8 @@ class MentorRegisterSteperWidget extends StatefulWidget {
 class _MentorRegisterSteperWidgetState
     extends State<MentorRegisterSteperWidget> {
   int currentStep = 0;
+
+  GlobalKey<FormState> basicInfoFormKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +67,15 @@ class _MentorRegisterSteperWidgetState
       connectorColor: const WidgetStatePropertyAll(Color(0xFF103A69)),
       connectorThickness: 2,
       steps: [
-        // Step(
-        //   content: const BasicInformationStep(),
-        //   title: Text(
-        //     S.current.basicInformation,
-        //     style: Theme.of(context).textTheme.bodyLarge,
-        //   ),
-        // ),
+        Step(
+          content: BasicInformationStep(
+            basicInformationFormKey: basicInfoFormKey,
+          ),
+          title: Text(
+            S.current.basicInformation,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
         Step(
           content: const BirthdayAndLocationStep(),
           title: Text(

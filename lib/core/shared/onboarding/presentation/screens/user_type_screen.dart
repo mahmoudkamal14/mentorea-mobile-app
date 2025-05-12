@@ -24,38 +24,40 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.only(
+                left: 24.w, right: 24.w, top: 60.h, bottom: 30.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   S.current.chooseAccountType,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 verticalSpace(40),
-                SizedBox(
-                  height: 530.h,
-                  width: 300.w,
-                  child: ListView.builder(
-                    itemCount: listUserType.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(bottom: 40.w),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selectedIndex = index;
-                            });
-                          },
-                          child: UserTypeItemWidget(
-                            userType: listUserType,
-                            index: index,
-                            selectedIndex: selectedIndex,
+                Expanded(
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ListView.builder(
+                      itemCount: listUserType.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 40.w),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: UserTypeItemWidget(
+                              userType: listUserType,
+                              index: index,
+                              selectedIndex: selectedIndex,
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
                 verticalSpace(30),

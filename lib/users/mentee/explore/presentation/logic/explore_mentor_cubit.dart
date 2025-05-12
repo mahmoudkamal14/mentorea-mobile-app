@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentors_list_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/repository/explore_mentor_repository.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/explore_mentor_state.dart';
@@ -10,11 +11,10 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   ExploreMentorCubit(this._mentorRepository)
       : super(const ExploreMentorState.initial());
 
-  static ExploreMentorCubit get(context) =>
-      BlocProvider.of<ExploreMentorCubit>(context);
+  static ExploreMentorCubit get(context) => BlocProvider.of(context);
 
   // Get all specializations
-  List<SpecializationResponseModel>? specializationList;
+  List<SpecializationResponseModel> specializationList = [];
   Future<void> getAllSpecializations() async {
     emit(const ExploreMentorState.getAllSpecializationsLoading());
     final response = await _mentorRepository.getAllSpecializations();
@@ -30,24 +30,26 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
 
   // Search for mentors by Name
   MentorsListResponseModel? mentorsListResponseModel;
-  Future<void> searchMentor(
-    int pageNumber,
+
+  List<MentorResponseModel> mentorsListResponseModelBySpecialization = [];
+  Future<void> searchMentor({
+    int? pageNumber,
     int? pageSize,
-    String sortDirection,
-    String sortBy,
-    String searchValue,
-  ) async {
+    String? sortDirection,
+    String? sortBy,
+    String? searchValue,
+  }) async {
     emit(const ExploreMentorState.searchingForMentorLoading());
     final response = await _mentorRepository.searchMentor(
-      pageNumber,
-      pageSize,
-      sortDirection,
-      sortBy,
-      searchValue,
+      pageNumber ?? 1,
+      pageSize ?? 10,
+      sortDirection ?? 'DESC',
+      sortBy ?? 'rate',
+      searchValue ?? '',
     );
 
     if (response is Success<MentorsListResponseModel>) {
-      mentorsListResponseModel = response.data;
+      mentorsListResponseModelBySpecialization = response.data.items!;
       emit(const ExploreMentorState.searchingForMentorSuccess());
     } else if (response is Failure) {
       emit(ExploreMentorState.searchingForMentorFailure(response.toString()));
@@ -55,25 +57,24 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   }
 
   // Get mentors by specialization
-  MentorsListResponseModel? mentorsListResponseModelBySpecialization;
-  Future<void> getMentorsBySpecialization(
-    int pageNumber,
+  Future<void> getMentorsBySpecialization({
+    int? pageNumber,
     int? pageSize,
-    String sortDirection,
-    String sortBy,
-    String searchValue,
-  ) async {
+    String? sortDirection,
+    String? sortBy,
+    required String searchValue,
+  }) async {
     emit(const ExploreMentorState.getMentorsBySpecializationLoading());
     final response = await _mentorRepository.getMentorsBySpecialization(
-      pageNumber,
-      pageSize,
-      sortDirection,
-      sortBy,
+      pageNumber ?? 1,
+      pageSize ?? 10,
+      sortDirection ?? 'DESC',
+      sortBy ?? 'rate',
       searchValue,
     );
 
     if (response is Success<MentorsListResponseModel>) {
-      mentorsListResponseModelBySpecialization = response.data;
+      mentorsListResponseModelBySpecialization = response.data.items!;
       emit(const ExploreMentorState.getMentorsBySpecializationSuccess());
     } else if (response is Failure) {
       emit(ExploreMentorState.getMentorsBySpecializationFailure(

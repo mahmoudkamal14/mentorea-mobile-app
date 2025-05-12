@@ -5,33 +5,40 @@ import 'package:mentorea_mobile_app/core/shared/authentication/data/models/field
 class SpecializationListViewItem extends StatelessWidget {
   const SpecializationListViewItem({
     super.key,
-    required this.index,
-    required this.selectedIndex,
+    required this.itemIndex,
     required this.specializationModel,
+    required this.selectedIndex,
   });
 
-  final int index;
+  final int itemIndex;
   final int selectedIndex;
+
   final SpecializationResponseModel specializationModel;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).scaffoldBackgroundColor,
+        color: itemIndex == selectedIndex
+            ? Colors.blue
+            : Theme.of(context).scaffoldBackgroundColor,
         border: Border.all(
           width: 1.3.w,
-          color: index == selectedIndex
-              ? const Color(0xFF103A69)
+          color: itemIndex == selectedIndex
+              ? Colors.blue
               : Theme.of(context).iconTheme.color!,
         ),
       ),
       child: Center(
         child: Text(
           specializationModel.name,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: itemIndex == selectedIndex
+              ? Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Colors.white,
+                  )
+              : Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

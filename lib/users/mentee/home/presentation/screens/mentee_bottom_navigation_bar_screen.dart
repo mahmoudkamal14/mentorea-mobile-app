@@ -43,9 +43,8 @@ class _BottomNavigationBarScreenState
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              getIt<ExploreMentorCubit>()..getAllSpecializations(),
-        ),
+            create: (context) =>
+                getIt<ExploreMentorCubit>()..getAllSpecializations()),
         BlocProvider(
           create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),
         ),

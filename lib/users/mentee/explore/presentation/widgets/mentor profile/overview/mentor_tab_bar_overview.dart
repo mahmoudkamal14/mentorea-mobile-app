@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/user_activity_widget.dart';
 
 class MentorTabBarOverview extends StatelessWidget {
-  const MentorTabBarOverview({super.key});
+  const MentorTabBarOverview({super.key, required this.mentor});
+
+  final MentorResponseModel mentor;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class MentorTabBarOverview extends StatelessWidget {
                 Text('About', style: Theme.of(context).textTheme.bodyLarge),
                 verticalSpace(12),
                 Text(
-                  "I'm Daniel ✦ a Senior and Back-End Developer with 5+ years of experience in startups and large companies. I love to create user-centered products that solve real problems. I'm skilled in product management, UXUI, product design, interaction design, agile methodology, user research, wireframing, prototyping, usability testing, and more!",
+                  mentor.about!,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],

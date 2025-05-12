@@ -15,12 +15,12 @@ class TopMentorsListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (builder) => MentorProfileScreen(mentor: mentor),
-          ),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (builder) => MentorProfileScreen(mentor: mentor),
+        //   ),
+        // );
       },
       child: ContainerCardWidget(
         width: 240.w,

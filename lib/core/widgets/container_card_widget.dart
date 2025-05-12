@@ -8,6 +8,7 @@ class ContainerCardWidget extends StatelessWidget {
     this.height,
     this.width,
     this.color,
+    this.colorBorderSide,
   });
 
   final Widget child;
@@ -15,6 +16,7 @@ class ContainerCardWidget extends StatelessWidget {
   final double? height;
   final double? width;
   final Color? color;
+  final Color? colorBorderSide;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,9 @@ class ContainerCardWidget extends StatelessWidget {
       decoration: ShapeDecoration(
         color: color ?? Theme.of(context).scaffoldBackgroundColor,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1.01.w, color: const Color(0x19718096)),
+          side: BorderSide(
+              width: 1.01.w,
+              color: colorBorderSide ?? Theme.of(context).iconTheme.color!),
           borderRadius: BorderRadius.circular(16.12.r),
         ),
         shadows: [
