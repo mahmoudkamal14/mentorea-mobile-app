@@ -22,4 +22,11 @@ class SettingsState with _$SettingsState {
 
   const factory SettingsState.imageSelectedSuccess() = ImageSelectedSuccess;
   const factory SettingsState.imageSelectedError() = ImageSelectedError;
+
+  const factory SettingsState.updateProfileImageLoading() =
+      UpdateProfileImageLoading;
+  const factory SettingsState.updateProfileImageSuccess() =
+      UpdateProfileImageSuccess;
+  const factory SettingsState.updateProfileImageFailure(
+      {required String error}) = UpdateProfileImageFailure;
 }

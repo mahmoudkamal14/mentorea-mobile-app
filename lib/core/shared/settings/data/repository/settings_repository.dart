@@ -14,19 +14,16 @@ class SettingsRepository {
 
   SettingsRepository(this._remoteDataSource);
 
-  Future<ApiResult<void>> updateMenteeProfile(MultipartFile imageFile,
+  Future<ApiResult<void>> updateMenteeProfile(
       MenteeUpdateProfileRequest menteeUpdateProfileRequest) async {
     try {
       final token =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
-      final FormData formData = FormData.fromMap({
-        "Name": menteeUpdateProfileRequest.name,
-        "location": menteeUpdateProfileRequest.location,
-        "about": menteeUpdateProfileRequest.about,
-        "Image": imageFile,
-      });
+
       final result = await _remoteDataSource.updateMenteeProfile(
-          'Bearer $token', formData);
+        'Bearer $token',
+        menteeUpdateProfileRequest,
+      );
 
       return ApiResult.success(result);
     } catch (error) {
@@ -34,20 +31,16 @@ class SettingsRepository {
     }
   }
 
-  Future<ApiResult<void>> updateMentorProfile(MultipartFile imageFile,
+  Future<ApiResult<void>> updateMentorProfile(
       MentorUpdateProfileRequest mentorUpdateProfileRequest) async {
     try {
       final token =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
-      final FormData formData = FormData.fromMap({
-        "Name": mentorUpdateProfileRequest.name,
-        "location": mentorUpdateProfileRequest.location,
-        "about": mentorUpdateProfileRequest.about,
-        "priceOfSession": mentorUpdateProfileRequest.priceOfSession,
-        "Image": imageFile,
-      });
+
       final result = await _remoteDataSource.updateMentorProfile(
-          'Bearer $token', formData);
+        'Bearer $token',
+        mentorUpdateProfileRequest,
+      );
 
       return ApiResult.success(result);
     } catch (error) {
@@ -62,7 +55,25 @@ class SettingsRepository {
       final refreshToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.refreshToken);
       final result = await _remoteDataSource.logoutUser(
-          LogoutRequestBody(refreshToken: refreshToken, token: accessToken));
+          LogoutRequestBody(refreshToken: refreshToken!, token: accessToken!));
+
+      return ApiResult.success(result);
+    } catch (error) {
+      return ApiResult.failure(ApiErrorHandler.handleError(error).message);
+    }
+  }
+
+  Future<ApiResult<void>> updateProfileImage(MultipartFile profileImage) async {
+    try {
+      final accessToken =
+          await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
+
+      final FormData formData = FormData.fromMap({'Image': profileImage});
+
+      final result = await _remoteDataSource.updateProfileImage(
+        accessToken!,
+        formData,
+      );
 
       return ApiResult.success(result);
     } catch (error) {
@@ -77,7 +88,9 @@ class SettingsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final result = await _remoteDataSource.changePasswordAccount(
-          accessToken, changePasswordRequestBody);
+        accessToken!,
+        changePasswordRequestBody,
+      );
 
       return ApiResult.success(result);
     } catch (error) {

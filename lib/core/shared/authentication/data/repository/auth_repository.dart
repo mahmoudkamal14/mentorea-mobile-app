@@ -4,7 +4,6 @@ import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
 import 'package:mentorea_mobile_app/core/networking/api_error_handler.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/login_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/forgot%20password/forgot_password_request_body.dart';
@@ -53,10 +52,8 @@ class AuthRepository {
     }
   }
 
-  Future<ApiResult<void>> menteeRegister(
-    MenteeRegisterRequestBody mentee,
-    MultipartFile imageFile,
-  ) async {
+  Future<ApiResult<void>> menteeRegister(MenteeRegisterRequestBody mentee,
+      {required MultipartFile? imageFile}) async {
     try {
       final FormData formData = FormData.fromMap({
         'Email': mentee.email,
@@ -84,10 +81,8 @@ class AuthRepository {
     }
   }
 
-  Future<ApiResult<void>> mentorRegister(
-    MentorRegisterRequestBody mentor,
-    MultipartFile imageFile,
-  ) async {
+  Future<ApiResult<void>> mentorRegister(MentorRegisterRequestBody mentor,
+      {required MultipartFile? imageFile}) async {
     try {
       final FormData formData = FormData.fromMap({
         'Email': mentor.email,
@@ -119,11 +114,11 @@ class AuthRepository {
   }
 
   Future<ApiResult<void>> confirmEmail({
-    required String userId,
+    required String email,
     required String code,
   }) async {
     try {
-      final result = await _authServices.confirmEmail(userId, code);
+      final result = await _authServices.confirmEmail(email, code);
       return ApiResult.success(result);
     } catch (error) {
       return ApiResult.failure(
@@ -180,19 +175,6 @@ class AuthRepository {
   Future<ApiResult<List<FieldResponseModel>>> getAllFields() async {
     try {
       final result = await _authServices.getAllFields();
-
-      return ApiResult.success(result);
-    } catch (error) {
-      return ApiResult.failure(
-        ApiErrorHandler.handleError(error).message,
-      );
-    }
-  }
-
-  Future<ApiResult<List<SpecializationResponseModel>>>
-      getAllSpecializations() async {
-    try {
-      final result = await _authServices.getAllSpecializations();
 
       return ApiResult.success(result);
     } catch (error) {

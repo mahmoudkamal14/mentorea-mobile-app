@@ -18,7 +18,7 @@ class CommunityConnectionsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.toggleFollowMentor(
-        userToken,
+        userToken!,
         toggleFollowRequestBody,
       );
       return ApiResult.success(response);
@@ -33,7 +33,7 @@ class CommunityConnectionsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.countFollowersMentor(
-        userToken,
+        userToken!,
         userId,
       );
       return ApiResult.success(response);
@@ -48,7 +48,7 @@ class CommunityConnectionsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.countFollowingMentor(
-        userToken,
+        userToken!,
         userId,
       );
       return ApiResult.success(response);
@@ -62,7 +62,7 @@ class CommunityConnectionsRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.getFollowersMentor(userToken);
+      final response = await _remoteDataSource.getFollowersMentor(userToken!);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);
@@ -74,7 +74,7 @@ class CommunityConnectionsRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.getFollowingMentor(userToken);
+      final response = await _remoteDataSource.getFollowingMentor(userToken!);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);

@@ -43,18 +43,13 @@ class SettingsCubit extends Cubit<SettingsState> {
   Future<void> updateMenteeProfile() async {
     emit(const SettingsState.updateProfileLoading());
 
-    var file = await MultipartFile.fromFile(
-      profileImageFile!.path,
-      filename: "problem.png",
-    );
-
     final response = await _repository.updateMenteeProfile(
-        file,
-        MenteeUpdateProfileRequest(
-          name: nameController.text,
-          location: locationController.text,
-          about: aboutController.text,
-        ));
+      MenteeUpdateProfileRequest(
+        name: nameController.text,
+        location: locationController.text,
+        about: aboutController.text,
+      ),
+    );
 
     if (response is Success) {
       emit(const SettingsState.updateProfileSuccess());
@@ -66,19 +61,14 @@ class SettingsCubit extends Cubit<SettingsState> {
   Future<void> updateMentorProfile({required int priceOfSession}) async {
     emit(const SettingsState.updateProfileLoading());
 
-    var file = await MultipartFile.fromFile(
-      profileImageFile!.path,
-      filename: "problem.png",
-    );
-
     final response = await _repository.updateMentorProfile(
-        file,
-        MentorUpdateProfileRequest(
-          name: nameController.text,
-          location: locationController.text,
-          priceOfSession: priceOfSession,
-          about: aboutController.text,
-        ));
+      MentorUpdateProfileRequest(
+        name: nameController.text,
+        location: locationController.text,
+        priceOfSession: priceOfSession,
+        about: aboutController.text,
+      ),
+    );
 
     if (response is Success) {
       emit(const SettingsState.updateProfileSuccess());
@@ -100,6 +90,23 @@ class SettingsCubit extends Cubit<SettingsState> {
       emit(const SettingsState.changePasswordSuccess());
     } else if (response is Failure) {
       emit(SettingsState.changePasswordFailure(error: response.toString()));
+    }
+  }
+
+  Future<void> updateProfileImage() async {
+    emit(const SettingsState.updateProfileImageLoading());
+
+    var file = await MultipartFile.fromFile(
+      profileImageFile!.path,
+      filename: "profileImageFile.jpg",
+    );
+
+    final response = await _repository.updateProfileImage(file);
+
+    if (response is Success) {
+      emit(const SettingsState.updateProfileImageSuccess());
+    } else if (response is Failure) {
+      emit(SettingsState.updateProfileImageFailure(error: response.toString()));
     }
   }
 

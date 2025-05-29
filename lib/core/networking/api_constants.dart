@@ -21,6 +21,7 @@ class ApiConstants {
   static const String updateMenteeProfile = '/me/mentee';
   static const String updateMentorProfile = '/me/mentor';
   static const String changePasswordAccount = '/me/ChangePassword';
+  static const String updateProfileImage = '/me/Image';
 
   // Community Endpoints
   static const String getAllPost = '/api/Post';
@@ -52,4 +53,16 @@ class ApiConstants {
   // Explore Endpoints
   static const String searchMentor = '/api/result';
   static const String getMentorsBySpecialization = '/api/result/Specialization';
+
+  // Mentor Availability Endpoints
+  static const String getMentorAvailabilityList =
+      '/api/mentors/{mentorId}/availability';
+  static const String getMentorAvailability =
+      '/api/mentors/{mentorId}/availability/{availabilityId}';
+  static const String createMentorAvailability =
+      '/api/mentors/{mentorId}/availability';
+  static const String updateMentorAvailability =
+      '/api/mentors/{availabilityId}';
+  static const String deleteMentorAvailability =
+      '/api/mentors/{availabilityId}';
 }

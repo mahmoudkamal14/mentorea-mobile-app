@@ -12,8 +12,8 @@ import 'package:mentorea_mobile_app/core/shared/community/presentation/widgets/c
 import 'package:mentorea_mobile_app/core/shared/community/presentation/widgets/post_footer_widget.dart';
 import 'package:mentorea_mobile_app/core/shared/community/presentation/widgets/post_info_widget.dart';
 import 'package:mentorea_mobile_app/core/shared/community/presentation/widgets/post_shimmer_loading_widget.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/presentation/logic/profile_cubit.dart';
 import 'package:mentorea_mobile_app/core/widgets/appbar_icon.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/logic/mentee_profile_cubit.dart';
 
 class PostDetailsScreen extends StatelessWidget {
   const PostDetailsScreen({super.key, required this.postModel});
@@ -35,7 +35,7 @@ class PostDetailsScreen extends StatelessWidget {
             ),
         ),
         BlocProvider(
-          create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),
+          create: (context) => getIt<ProfileCubit>()..getMenteeProfile(),
         ),
       ],
       child: Scaffold(

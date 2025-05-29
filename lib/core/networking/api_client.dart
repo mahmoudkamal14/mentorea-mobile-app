@@ -73,15 +73,15 @@ class ApiClient {
             if (refreshToken != null) {
               try {
                 final newTokens =
-                    await _refreshToken(refreshToken, accessToken);
+                    await _refreshToken(refreshToken, accessToken!);
 
                 await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.accessToken,
-                  value: newTokens.token,
+                  value: newTokens.token!,
                 );
                 await CacheHelper.saveSecuredData(
                   key: CacheHelperKeys.refreshToken,
-                  value: newTokens.refreshToken,
+                  value: newTokens.refreshToken!,
                 );
 
                 error.requestOptions.headers['Authorization'] =

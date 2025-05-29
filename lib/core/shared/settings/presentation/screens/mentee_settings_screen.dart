@@ -15,8 +15,8 @@ import 'package:mentorea_mobile_app/core/shared/settings/presentation/widgets/ca
 import 'package:mentorea_mobile_app/core/shared/settings/presentation/widgets/change_language_widget.dart';
 import 'package:mentorea_mobile_app/core/shared/settings/presentation/widgets/change_theme_mode.dart';
 import 'package:mentorea_mobile_app/core/shared/settings/presentation/widgets/notification_playing_widget.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/logic/mentee_profile_cubit.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/logic/mentee_profile_state.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/presentation/logic/profile_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/presentation/logic/profile_state.dart';
 
 class MenteeSettingsScreen extends StatelessWidget {
   const MenteeSettingsScreen({super.key});
@@ -26,7 +26,7 @@ class MenteeSettingsScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),
+          create: (context) => getIt<ProfileCubit>()..getMenteeProfile(),
         ),
         BlocProvider(
           create: (context) => getIt<SettingsCubit>(),
@@ -49,7 +49,7 @@ class MenteeSettingsScreen extends StatelessWidget {
           child: Column(
             spacing: 10.h,
             children: [
-              BlocBuilder<MenteeProfileCubit, MenteeProfileState>(
+              BlocBuilder<ProfileCubit, ProfileState>(
                 builder: (context, state) {
                   return CardSettingItemWidget(
                     title: S.current.EditProfile,

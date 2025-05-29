@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentorea_mobile_app/core/cache/cache_helper.dart'
-    show CacheHelper;
-import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/confirm%20email/confirm_email_cubit.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinCodeVerification extends StatefulWidget {
-  const PinCodeVerification({super.key});
+  const PinCodeVerification({super.key, required this.email});
+
+  final String email;
 
   @override
   State<PinCodeVerification> createState() => _PinCodeVerificationState();
@@ -73,13 +72,12 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
                     textButton: 'التحقق من الرمز',
                     isLoading: state is ConfirmEmailLoadingState ? true : false,
                     onPressed: () async {
-                      if (ConfirmEmailCubit.get(
-                        context,
-                      ).formKeyConfirm.currentState!.validate()) {
+                      if (ConfirmEmailCubit.get(context)
+                          .formKeyConfirm
+                          .currentState!
+                          .validate()) {
                         ConfirmEmailCubit.get(context).confirmEmail(
-                          userId: await CacheHelper.getSecuredData(
-                            key: CacheHelperKeys.email,
-                          ),
+                          email: widget.email,
                           code: otpCodeController.text,
                         );
                       }
@@ -90,7 +88,8 @@ class _PinCodeVerificationState extends State<PinCodeVerification> {
               verticalSpace(22),
               GestureDetector(
                 onTap: () {
-                  ConfirmEmailCubit.get(context).resendOtpConfirmEmail();
+                  ConfirmEmailCubit.get(context)
+                      .resendOtpConfirmEmail(email: widget.email);
                 },
                 child: Text(
                   'إعادة إرسال الرمز',

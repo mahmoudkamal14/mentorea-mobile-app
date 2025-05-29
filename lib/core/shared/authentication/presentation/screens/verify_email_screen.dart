@@ -39,7 +39,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   ),
                 ),
                 verticalSpace(22),
-                const PinCodeVerification(),
+                PinCodeVerification(email: email),
               ],
             ),
           ),

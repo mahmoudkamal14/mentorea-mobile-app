@@ -25,16 +25,6 @@ final class GetAllFieldsErrorState extends RegisterState {
   GetAllFieldsErrorState(this.error);
 }
 
-final class GetAllSpecializationsLoadingState extends RegisterState {}
-
-final class GetAllSpecializationsSuccessState extends RegisterState {}
-
-final class GetAllSpecializationsErrorState extends RegisterState {
-  final String error;
-
-  GetAllSpecializationsErrorState(this.error);
-}
-
 final class ImageSelectedSuccessState extends RegisterState {}
 
 final class ImageSelectedErrorState extends RegisterState {}

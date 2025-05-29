@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/cache/models/user_model.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/widgets/drawer%20widget/mentee_profile_list_tile_info.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/presentation/widgets/drawer%20widget/mentee_profile_list_tile_info.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/drawer_profile_image.dart';
 
 class MenteeDrawerWidget extends StatelessWidget {
@@ -25,12 +26,12 @@ class MenteeDrawerWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Ali Daif Taha',
+                    getCachedUserData()!.name,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   verticalSpace(10),
                   Text(
-                    'Machine Learning Engineer',
+                    getCachedUserData()!.email,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   verticalSpace(20),

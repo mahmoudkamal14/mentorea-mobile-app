@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: unused_element_parameter
+
 part of 'auth_service.dart';
 
 // **************************************************************************
@@ -139,12 +141,12 @@ class _AuthServices implements AuthServices {
 
   @override
   Future<void> confirmEmail(
-    String userId,
+    String email,
     String otpCode,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'userId': userId,
+      r'email': email,
       r'code': otpCode,
     };
     final _headers = <String, dynamic>{};
@@ -312,42 +314,6 @@ class _AuthServices implements AuthServices {
       _value = _result.data!
           .map((dynamic i) =>
               FieldResponseModel.fromJson(i as Map<String, dynamic>))
-          .toList();
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<List<SpecializationResponseModel>> getAllSpecializations() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<SpecializationResponseModel>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/Specializations',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<SpecializationResponseModel> _value;
-    try {
-      _value = _result.data!
-          .map((dynamic i) =>
-              SpecializationResponseModel.fromJson(i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);

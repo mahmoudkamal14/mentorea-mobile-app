@@ -409,4 +409,111 @@ class ImageSelectedError implements SettingsState {
   }
 }
 
+/// @nodoc
+
+class UpdateProfileImageLoading implements SettingsState {
+  const UpdateProfileImageLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateProfileImageLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState.updateProfileImageLoading()';
+  }
+}
+
+/// @nodoc
+
+class UpdateProfileImageSuccess implements SettingsState {
+  const UpdateProfileImageSuccess();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateProfileImageSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState.updateProfileImageSuccess()';
+  }
+}
+
+/// @nodoc
+
+class UpdateProfileImageFailure implements SettingsState {
+  const UpdateProfileImageFailure({required this.error});
+
+  final String error;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UpdateProfileImageFailureCopyWith<UpdateProfileImageFailure> get copyWith =>
+      _$UpdateProfileImageFailureCopyWithImpl<UpdateProfileImageFailure>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateProfileImageFailure &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'SettingsState.updateProfileImageFailure(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UpdateProfileImageFailureCopyWith<$Res>
+    implements $SettingsStateCopyWith<$Res> {
+  factory $UpdateProfileImageFailureCopyWith(UpdateProfileImageFailure value,
+          $Res Function(UpdateProfileImageFailure) _then) =
+      _$UpdateProfileImageFailureCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$UpdateProfileImageFailureCopyWithImpl<$Res>
+    implements $UpdateProfileImageFailureCopyWith<$Res> {
+  _$UpdateProfileImageFailureCopyWithImpl(this._self, this._then);
+
+  final UpdateProfileImageFailure _self;
+  final $Res Function(UpdateProfileImageFailure) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(UpdateProfileImageFailure(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
 // dart format on

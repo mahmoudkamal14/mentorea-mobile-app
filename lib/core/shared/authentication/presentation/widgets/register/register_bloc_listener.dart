@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/screens/verify_email_screen.dart';
@@ -13,9 +14,7 @@ class RegisterBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<RegisterCubit>()
-        ..getAllSpecializations()
-        ..getAllFields(),
+      create: (context) => getIt<RegisterCubit>()..getAllFields(),
       child: BlocListener<RegisterCubit, RegisterState>(
         listener: (context, state) {
           var cubit = RegisterCubit.get(context);
@@ -23,6 +22,14 @@ class RegisterBlocListener extends StatelessWidget {
           switch (state) {
             case RegisterSuccessState():
               _setupSuccess(context, email: cubit.emailController.text);
+              break;
+            case GetAllFieldsErrorState():
+              showToast(
+                msg: isArabic()
+                    ? 'لا يوجد اتصال بالانترنت الرجاء تفقد الشبكة وإعادة المحاولة في وقتٍ لاحق'
+                    : 'There is no internet, please check the network and try again later',
+                color: Colors.red,
+              );
               break;
             default:
           }

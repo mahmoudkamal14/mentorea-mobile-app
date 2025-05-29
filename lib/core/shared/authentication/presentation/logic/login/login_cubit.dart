@@ -43,6 +43,7 @@ class LoginCubit extends Cubit<LoginState> {
         refreshToken: response.data.refreshToken!,
       );
       decodeJwt(token: response.data.token!);
+      emitRegisterFcmTokenStates(userId: response.data.id!);
       userModel = response.data;
       emit(LoginSuccessState(loginResponseModel: userModel!));
     } else if (response is Failure) {
@@ -82,7 +83,7 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  decodeJwt({required String token}) {
+  decodeJwt({required String token}) async {
     Map<String, dynamic> payload = JwtDecoder.decode(token);
 
     userRole = payload.entries
@@ -93,12 +94,12 @@ class LoginCubit extends Cubit<LoginState> {
         )
         .value;
 
-    String userId =
-        payload.entries.firstWhere((element) => element.key == 'sub').value;
+    await CacheHelper.saveData(
+      key: CacheHelperKeys.userRole,
+      value: userRole,
+    );
 
     // log(const JsonEncoder.withIndent('  ').convert(payload));
-
-    emitRegisterFcmTokenStates(userId: userId);
   }
 
   saveUserTokens({

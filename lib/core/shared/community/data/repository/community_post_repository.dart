@@ -20,7 +20,7 @@ class CommunityPostRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.createPost(
-        userToken,
+        userToken!,
         createPostRequestBody,
       );
       return ApiResult.success(response);
@@ -38,7 +38,7 @@ class CommunityPostRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.updatePost(
-        userToken,
+        userToken!,
         createPostRequestBody,
         postId,
       );
@@ -53,7 +53,7 @@ class CommunityPostRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.deletePost(userToken, postId);
+      final response = await _remoteDataSource.deletePost(userToken!, postId);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);
@@ -65,7 +65,7 @@ class CommunityPostRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.getAllPosts(userToken, 'DESC');
+      final response = await _remoteDataSource.getAllPosts(userToken!, 'DESC');
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);
@@ -78,7 +78,7 @@ class CommunityPostRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response =
-          await _remoteDataSource.getPostsFollowingMentors(userToken);
+          await _remoteDataSource.getPostsFollowingMentors(userToken!);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);
@@ -91,7 +91,7 @@ class CommunityPostRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response =
-          await _remoteDataSource.getPostDetails(userToken, postId);
+          await _remoteDataSource.getPostDetails(userToken!, postId);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);

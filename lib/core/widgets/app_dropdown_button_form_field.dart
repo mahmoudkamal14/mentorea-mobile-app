@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppDropdownButtonFormField extends StatelessWidget {
+class AppDropdownButtonFormField<T> extends StatelessWidget {
   const AppDropdownButtonFormField({
     super.key,
     required this.value,
@@ -9,16 +9,16 @@ class AppDropdownButtonFormField extends StatelessWidget {
     required this.onChanged,
   });
 
-  final String? value;
+  final T? value;
   final String label;
-
-  final List<DropdownMenuItem<String>>? items;
-  final Function(String? value) onChanged;
+  final List<DropdownMenuItem<T>>? items;
+  final Function(T? value) onChanged;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
+    return DropdownButtonFormField<T>(
       value: value,
+      isExpanded: true,
       icon: const SizedBox.shrink(),
       style: Theme.of(context).textTheme.bodyMedium,
       dropdownColor: Theme.of(context).scaffoldBackgroundColor,

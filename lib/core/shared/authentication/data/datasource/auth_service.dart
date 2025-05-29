@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/login/register_fcm_request_body.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
@@ -41,7 +40,7 @@ abstract class AuthServices {
 
   @POST(ApiConstants.confirmEmail)
   Future<void> confirmEmail(
-    @Query("userId") String userId,
+    @Query("email") String email,
     @Query("code") String otpCode,
   );
 
@@ -67,7 +66,4 @@ abstract class AuthServices {
 
   @GET(ApiConstants.getAllFields)
   Future<List<FieldResponseModel>> getAllFields();
-
-  @GET(ApiConstants.getAllSpecializations)
-  Future<List<SpecializationResponseModel>> getAllSpecializations();
 }

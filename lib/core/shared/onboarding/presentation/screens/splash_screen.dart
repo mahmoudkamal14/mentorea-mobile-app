@@ -3,22 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/shared/onboarding/presentation/screens/language_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-        backgroundColor: const Color(0xff040B32),
-        splash: Image.asset('assets/icons/Mentorea Icon.png'),
-        splashIconSize: 200,
-        pageTransitionType: PageTransitionType.topToBottom,
-        animationDuration: const Duration(milliseconds: 800),
-        nextScreen: const LanguageScreen());
+      backgroundColor: const Color(0xff040B32),
+      splash: Image.asset('assets/icons/Mentorea Icon.png'),
+      splashIconSize: 200,
+      pageTransitionType: PageTransitionType.topToBottom,
+      animationDuration: const Duration(milliseconds: 800),
+      nextScreen: const LanguageScreen(),
+    );
   }
 }

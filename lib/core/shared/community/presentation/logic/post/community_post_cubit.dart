@@ -16,6 +16,8 @@ class CommunityPostCubit extends Cubit<CommunityPostState> {
       BlocProvider.of<CommunityPostCubit>(context);
 
   TextEditingController contentController = TextEditingController();
+  GlobalKey<FormState> createPostFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> updatePostFormKey = GlobalKey<FormState>();
 
   PostResponseModel? postResponseModel;
   PostsListResponseModel? postsListResponseModel;
@@ -48,13 +50,15 @@ class CommunityPostCubit extends Cubit<CommunityPostState> {
   }
 
   // Create Post
-  Future<void> createPost(String postId) async {
+  Future<void> createPost() async {
     emit(const CommunityPostState.createPostLoading());
     final response = await communityPostRepository
         .createPost(CreatePostRequestBody(content: contentController.text));
 
     if (response is Success<PostResponseModel>) {
       postResponseModel = response.data;
+      contentController.clear();
+      getAllPosts();
       emit(const CommunityPostState.createPostSuccess());
     } else if (response is Failure<PostResponseModel>) {
       emit(CommunityPostState.createPostFailure(response.error));

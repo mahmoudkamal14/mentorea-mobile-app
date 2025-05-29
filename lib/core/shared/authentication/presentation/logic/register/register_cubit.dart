@@ -8,7 +8,6 @@ import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/field_response_model.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentee_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/models/register/mentor_register_request_body.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/data/repository/auth_repository.dart';
@@ -26,6 +25,11 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
+  String selectedGender = 'Male';
+
+  String? fieldId;
+  int? numberOfExperience;
+  int? priceOfSession;
 
   String locationUser = '';
   int? pirthDateYear;
@@ -75,42 +79,27 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  List<SpecializationResponseModel> allSpecializationsList = [];
-
-  Future<void> getAllSpecializations() async {
-    emit(GetAllSpecializationsLoadingState());
-    final response = await _authRepository.getAllSpecializations();
-
-    if (response is Success<List<SpecializationResponseModel>>) {
-      allSpecializationsList = response.data;
-      emit(GetAllSpecializationsSuccessState());
-    } else {
-      emit(GetAllSpecializationsErrorState(response.toString()));
-    }
-  }
-
-  void menteeRegister({
-    required String gender,
-  }) async {
+  void menteeRegister() async {
     emit(RegisterLoadingState());
     var file = await MultipartFile.fromFile(
       profileImageFile!.path,
-      filename: "problem.png",
+      filename: "userImage.png",
     );
     final response = await _authRepository.menteeRegister(
-        MenteeRegisterRequestBody(
-          email: emailController.text,
-          password: passwordController.text,
-          name: nameController.text,
-          location: locationUser,
-          gender: gender,
-          pirthDateYear: pirthDateYear!,
-          pirthDateMonth: pirthDateMonth!,
-          pirthDateDay: pirthDateDay!,
-          fieldInterests: fieldInterests,
-          about: aboutController.text,
-        ),
-        file);
+      imageFile: file,
+      MenteeRegisterRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+        name: nameController.text,
+        location: locationUser,
+        gender: selectedGender,
+        pirthDateYear: pirthDateYear!,
+        pirthDateMonth: pirthDateMonth!,
+        pirthDateDay: pirthDateDay!,
+        fieldInterests: fieldInterests,
+        about: aboutController.text,
+      ),
+    );
 
     if (response is Success) {
       saveUserEmail(emailController.text);
@@ -120,32 +109,29 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  void mentorRegister({
-    required String gender,
-    required int numberOfExperience,
-    required int priceOfSession,
-    required String fieldId,
-  }) async {
+  void mentorRegister() async {
     emit(RegisterLoadingState());
     var file = await MultipartFile.fromFile(
       profileImageFile!.path,
-      filename: "problem.png",
+      filename: "userImage.png",
     );
     final response = await _authRepository.mentorRegister(
-        MentorRegisterRequestBody(
-            email: emailController.text,
-            password: passwordController.text,
-            name: nameController.text,
-            location: locationUser,
-            gender: gender,
-            pirthDateYear: pirthDateYear!,
-            pirthDateMonth: pirthDateMonth!,
-            pirthDateDay: pirthDateDay!,
-            numberOfExperience: numberOfExperience,
-            priceOfSession: priceOfSession,
-            about: aboutController.text,
-            fieldId: fieldId),
-        file);
+      imageFile: file,
+      MentorRegisterRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+        name: nameController.text,
+        location: locationUser,
+        gender: selectedGender,
+        pirthDateYear: pirthDateYear!,
+        pirthDateMonth: pirthDateMonth!,
+        pirthDateDay: pirthDateDay!,
+        numberOfExperience: numberOfExperience ?? 3,
+        priceOfSession: priceOfSession ?? 100,
+        about: aboutController.text,
+        fieldId: fieldId!,
+      ),
+    );
 
     if (response is Success) {
       saveUserEmail(emailController.text);

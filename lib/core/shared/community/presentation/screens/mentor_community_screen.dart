@@ -8,11 +8,11 @@ class MentorCommunityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        const SliverToBoxAdapter(child: CreateNewPostWidget()),
-        SliverToBoxAdapter(child: verticalSpace(20)),
-        const CommunityPostListView(),
+    return Column(
+      children: [
+        const CreateNewPostWidget(),
+        verticalSpace(20),
+        const Expanded(child: CommunityPostListView()),
       ],
     );
   }

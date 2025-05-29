@@ -21,12 +21,13 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
 
   LoginResponseModel? userModel;
 
-  void confirmEmail({required String userId, required String code}) async {
+  void confirmEmail({
+    required String code,
+    required String email,
+  }) async {
     emit(ConfirmEmailLoadingState());
-    final response = await _authRepository.confirmEmail(
-      userId: userId,
-      code: code,
-    );
+    final response =
+        await _authRepository.confirmEmail(code: code, email: email);
 
     if (response is Success) {
       emit(ConfirmEmailSuccessState());
@@ -35,11 +36,11 @@ class ConfirmEmailCubit extends Cubit<ConfirmEmailState> {
     }
   }
 
-  void resendOtpConfirmEmail() async {
+  void resendOtpConfirmEmail({required String email}) async {
     emit(ResendConfirmEmailLoadingState());
     final response = await _authRepository.resendOtpConfirmEmail(
       ResendOptConfirmEmailRequestBody(
-        email: await CacheHelper.getSecuredData(key: CacheHelperKeys.email),
+        email: email,
       ),
     );
     if (response is Success) {

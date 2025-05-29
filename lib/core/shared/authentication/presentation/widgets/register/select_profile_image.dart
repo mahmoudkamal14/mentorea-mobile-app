@@ -107,8 +107,10 @@ class SelectProfileImage extends StatelessWidget {
                 children: [
                   Image.asset('assets/images/apple.png', height: 80.h),
                   verticalSpace(8),
-                  Text('Gallery',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  Text(
+                    'Gallery',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ],
               ),
             ),

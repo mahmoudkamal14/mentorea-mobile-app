@@ -32,9 +32,7 @@ class CommunityPostListViewItem extends StatelessWidget {
                 );
               },
               child: PostBodyWidget(postModel: postModel)),
-          verticalSpace(4),
           const Divider(color: Color(0xFF103A69)),
-          verticalSpace(4),
           PostFooterWidget(postId: postModel.id!),
         ],
       ),

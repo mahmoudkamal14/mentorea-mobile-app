@@ -54,11 +54,14 @@ class CommunityPostListView extends StatelessWidget {
     );
   }
 
-  Center emptyList(BuildContext context) {
-    return Center(
-      child: Text(
-        isArabic() ? 'لا يوجد اي بوستات حتى الآن' : 'No posts available',
-        style: Theme.of(context).textTheme.bodyMedium,
+  Widget emptyList(BuildContext context) {
+    return SizedBox(
+      height: 400.h,
+      child: Center(
+        child: Text(
+          isArabic() ? 'لا يوجد اي بوستات حتى الآن' : 'No posts available',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
     );
   }

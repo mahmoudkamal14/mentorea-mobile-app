@@ -3,23 +3,16 @@ import 'package:mentorea_mobile_app/core/shared/authentication/data/datasource/a
 import 'package:mentorea_mobile_app/core/shared/community/data/datasource/community_dependency.dart';
 import 'package:mentorea_mobile_app/core/shared/settings/data/datasource/settings_dependency.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/explore_dependency.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/data/datasource/mentee_profile_dependency.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/data/datasource/profile_dependency.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  // Auth Dependencies
-  await authDependency();
-
-  // Settings Dependencies
-  await settingsDependency();
-
-  // Explore Mentor Dependencies
-  await exploreMentorDependency();
-
-  // Mentee Profile Dependencies
-  await menteeProfileDependency();
-
-  // Community Dependencies
-  await communityDependency();
+  await Future.wait([
+    authDependency(),
+    settingsDependency(),
+    exploreMentorDependency(),
+    profileDependency(),
+    communityDependency(),
+  ]);
 }

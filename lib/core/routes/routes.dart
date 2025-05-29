@@ -30,4 +30,6 @@ class Routes {
   // Mentor
   static const String mentorRegisterScreen = '/mentorRegisterScreen';
   static const String mentorBottomNavBar = '/mentorBottomNavBar';
+  static const String createMentorAvailability = '/createMentorAvailability';
+  static const String createNewPostScreen = '/createNewPostScreen';
 }

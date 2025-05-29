@@ -17,7 +17,7 @@ import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/expl
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
-import 'package:mentorea_mobile_app/users/mentee/profile/presentation/logic/mentee_profile_cubit.dart';
+import 'package:mentorea_mobile_app/core/shared/profile/presentation/logic/profile_cubit.dart';
 
 class MenteeBottomNavigationBarScreen extends StatefulWidget {
   const MenteeBottomNavigationBarScreen({super.key});
@@ -46,7 +46,7 @@ class _BottomNavigationBarScreenState
             create: (context) =>
                 getIt<ExploreMentorCubit>()..getAllSpecializations()),
         BlocProvider(
-          create: (context) => getIt<MenteeProfileCubit>()..getMenteeProfile(),
+          create: (context) => getIt<ProfileCubit>()..getMenteeProfile(),
         ),
         BlocProvider(
           create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),

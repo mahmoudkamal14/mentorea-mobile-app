@@ -18,6 +18,7 @@ class LanguageScreen extends StatelessWidget {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 30.h),

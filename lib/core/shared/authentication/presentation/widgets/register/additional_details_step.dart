@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/select_profile_image.dart';
 
@@ -11,10 +12,10 @@ class AdditionalDetailsStep extends StatefulWidget {
 }
 
 class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
-  String selectedGender = 'Male';
-
   @override
   Widget build(BuildContext context) {
+    String selectedGender = RegisterCubit.get(context).selectedGender;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -37,6 +38,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 onChanged: (String? value) {
                   setState(() {
                     selectedGender = value!;
+                    RegisterCubit.get(context).selectedGender = value;
                   });
                 },
               ),
@@ -50,6 +52,7 @@ class _AdditionalDetailsStepState extends State<AdditionalDetailsStep> {
                 onChanged: (String? value) {
                   setState(() {
                     selectedGender = value!;
+                    RegisterCubit.get(context).selectedGender = value;
                   });
                 },
               ),

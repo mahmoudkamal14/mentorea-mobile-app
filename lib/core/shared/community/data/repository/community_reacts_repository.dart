@@ -21,7 +21,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.toggleLikePost(
-        userToken,
+        userToken!,
         postId,
         toggleLikeRequestBody,
       );
@@ -41,7 +41,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.usersLikedPost(
-        userToken,
+        userToken!,
         postId,
         pageNumber ?? 1,
         10,
@@ -58,7 +58,8 @@ class CommunityReactsRepository {
       final userToken =
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
-      final response = await _remoteDataSource.countLikePost(userToken, postId);
+      final response =
+          await _remoteDataSource.countLikePost(userToken!, postId);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handleError(e).message);
@@ -74,7 +75,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.createComment(
-        userToken,
+        userToken!,
         postId,
         createCommentRequestBody,
       );
@@ -93,7 +94,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.getCommentPost(
-        userToken,
+        userToken!,
         postId,
         commentId,
       );
@@ -113,7 +114,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.updateComment(
-        userToken,
+        userToken!,
         postId,
         commentId,
         createCommentRequestBody,
@@ -133,7 +134,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.deleteComment(
-        userToken,
+        userToken!,
         postId,
         commentId,
       );
@@ -153,7 +154,7 @@ class CommunityReactsRepository {
           await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
 
       final response = await _remoteDataSource.getAllCommentsPost(
-        userToken,
+        userToken!,
         postId,
         sortDirection,
         pageNumber ?? 1,

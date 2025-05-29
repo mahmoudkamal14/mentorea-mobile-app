@@ -26,13 +26,14 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
   @override
   Future<void> updateMenteeProfile(
     String userToken,
-    FormData formData,
+    MenteeUpdateProfileRequest updateMenteeProfileRequest,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': userToken};
     _headers.removeWhere((k, v) => v == null);
-    final _data = formData;
+    final _data = <String, dynamic>{};
+    _data.addAll(updateMenteeProfileRequest.toJson());
     final _options = _setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
@@ -55,13 +56,14 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
   @override
   Future<void> updateMentorProfile(
     String userToken,
-    FormData formData,
+    MentorUpdateProfileRequest updateMentorProfileRequest,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': userToken};
     _headers.removeWhere((k, v) => v == null);
-    final _data = formData;
+    final _data = <String, dynamic>{};
+    _data.addAll(updateMentorProfileRequest.toJson());
     final _options = _setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
@@ -70,6 +72,35 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
         .compose(
           _dio.options,
           '/me/mentor',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> updateProfileImage(
+    String userToken,
+    FormData profileImage,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': userToken};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = profileImage;
+    final _options = _setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/me/Image',
           queryParameters: queryParameters,
           data: _data,
         )

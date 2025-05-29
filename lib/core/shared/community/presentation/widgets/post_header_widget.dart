@@ -39,9 +39,18 @@ class PostHeaderWidget extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        Icon(
-          Icons.more_vert_outlined,
-          color: Theme.of(context).iconTheme.color,
+        PopupMenuButton<String>(
+          onSelected: (value) {
+            // Handle selection
+          },
+          itemBuilder: (context) => [
+            const PopupMenuItem(value: 'option 1', child: Text('Option 1')),
+            const PopupMenuItem(value: 'option 2', child: Text('Option 2')),
+          ],
+          child: Icon(
+            Icons.more_vert_outlined,
+            color: Theme.of(context).iconTheme.color,
+          ),
         ),
       ],
     );
