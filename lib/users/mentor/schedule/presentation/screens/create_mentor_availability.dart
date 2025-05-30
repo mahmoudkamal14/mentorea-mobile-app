@@ -65,9 +65,9 @@ class CreateMentorAvailability extends StatelessWidget {
               verticalSpace(30),
               Row(
                 children: [
-                  Expanded(child: AppTextFormField()),
+                  const Expanded(child: AppTextFormField()),
                   horizontalSpace(16),
-                  Expanded(child: AppTextFormField()),
+                  const Expanded(child: AppTextFormField()),
                 ],
               )
             ],

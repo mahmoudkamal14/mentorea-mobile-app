@@ -20,8 +20,6 @@ class MenteeRegisterRequestBody {
   final int pirthDateMonth;
   @JsonKey(name: 'PirthDate.Day')
   final int pirthDateDay;
-  @JsonKey(name: 'FieldInterests')
-  final List<String> fieldInterests;
   @JsonKey(name: 'About')
   final String about;
 
@@ -34,7 +32,6 @@ class MenteeRegisterRequestBody {
     required this.pirthDateYear,
     required this.pirthDateMonth,
     required this.pirthDateDay,
-    required this.fieldInterests,
     required this.about,
   });
 

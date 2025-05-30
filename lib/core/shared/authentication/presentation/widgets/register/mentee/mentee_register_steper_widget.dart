@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/show_toast.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
@@ -59,8 +60,15 @@ class _MenteeRegisterSteperWidgetState
                           aboutFormKey.currentState!.validate() &&
                           cubit.fieldInterests.isNotEmpty) {
                         currentStep++;
-                      } else if (currentStep == 3) {
-                        currentStep++;
+                      } else if (currentStep == 3 &&
+                          cubit.profileImageFile != null) {
+                        cubit.menteeRegister();
+                      } else if (currentStep == 3 &&
+                          cubit.profileImageFile == null) {
+                        showToast(
+                          msg: 'يجب اختيار صورة للبروفايل',
+                          color: Colors.red,
+                        );
                       }
                       setState(() {});
                     },

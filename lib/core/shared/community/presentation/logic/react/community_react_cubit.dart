@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/core/shared/community/data/model/react/comment_response_model.dart';
@@ -14,6 +15,8 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
 
   static CommunityReactCubit get(context) =>
       BlocProvider.of<CommunityReactCubit>(context);
+
+  TextEditingController commentController = TextEditingController();
 
   // Toggle Like Post
   Future<void> toggleLikePost(String postId, String userId) async {
@@ -58,10 +61,11 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
   }
 
   // Create Comment
-  Future<void> createComment(
-      {required String postId,
-      required String userId,
-      required String content}) async {
+  Future<void> createComment({
+    required String postId,
+    required String userId,
+    required String content,
+  }) async {
     emit(const CommunityReactState.createCommentLoading());
 
     final response = await communityReactsRepository.createComment(
@@ -75,10 +79,11 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
   }
 
   // Update Comment
-  Future<void> updateComment(
-      {required String postId,
-      required String commentId,
-      required String content}) async {
+  Future<void> updateComment({
+    required String postId,
+    required String commentId,
+    required String content,
+  }) async {
     emit(const CommunityReactState.updateCommentLoading());
 
     final response = await communityReactsRepository.updateComment(
@@ -92,7 +97,8 @@ class CommunityReactCubit extends Cubit<CommunityReactState> {
   }
 
   // Delete Comment
-  Future<void> deleteComment(String postId, String commentId) async {
+  Future<void> deleteComment(
+      {required String postId, required String commentId}) async {
     emit(const CommunityReactState.deleteCommentLoading());
 
     final response =

@@ -52,22 +52,34 @@ class AuthRepository {
     }
   }
 
-  Future<ApiResult<void>> menteeRegister(MenteeRegisterRequestBody mentee,
-      {required MultipartFile? imageFile}) async {
+  Future<ApiResult<void>> menteeRegister(
+    MenteeRegisterRequestBody mentee, {
+    required MultipartFile? imageFile,
+    required List<String> fieldInterests,
+  }) async {
     try {
-      final FormData formData = FormData.fromMap({
-        'Email': mentee.email,
-        'Password': mentee.password,
-        'Name': mentee.name,
-        'Location': mentee.location,
-        'Image': imageFile,
-        'Gender': mentee.gender,
-        'PirthDate.Year': mentee.pirthDateYear,
-        'PirthDate.Month': mentee.pirthDateMonth,
-        'PirthDate.Day': mentee.pirthDateDay,
-        'About': mentee.about,
-        'FieldInterests': mentee.fieldInterests.map((e) => e).toList(),
-      });
+      final formData = FormData();
+
+      formData.fields.addAll([
+        MapEntry('Email', mentee.email),
+        MapEntry('Password', mentee.password),
+        MapEntry('Name', mentee.name),
+        MapEntry('Location', mentee.location),
+        MapEntry('Gender', mentee.gender),
+        MapEntry('PirthDate.Year', mentee.pirthDateYear.toString()),
+        MapEntry('PirthDate.Month', mentee.pirthDateMonth.toString()),
+        MapEntry('PirthDate.Day', mentee.pirthDateDay.toString()),
+        MapEntry('About', mentee.about),
+      ]);
+
+      for (final interest in fieldInterests) {
+        formData.fields.add(MapEntry('FieldInterests', interest));
+      }
+
+      if (imageFile != null) {
+        formData.files.add(MapEntry('Image', imageFile));
+      }
+
       final result = await _authServices.menteeRegister(formData);
       return ApiResult.success(result);
     } catch (error) {

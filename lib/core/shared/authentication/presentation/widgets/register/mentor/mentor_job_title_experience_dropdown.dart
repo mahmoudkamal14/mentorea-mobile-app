@@ -12,11 +12,11 @@ class MentorJobTitleExperienceDropdown extends StatefulWidget {
   const MentorJobTitleExperienceDropdown({super.key});
 
   @override
-  _MentorJobTitleExperienceDropdownState createState() =>
-      _MentorJobTitleExperienceDropdownState();
+  MentorJobTitleExperienceDropdownState createState() =>
+      MentorJobTitleExperienceDropdownState();
 }
 
-class _MentorJobTitleExperienceDropdownState
+class MentorJobTitleExperienceDropdownState
     extends State<MentorJobTitleExperienceDropdown> {
   String? selectedSpecialization;
   String? selectedField;

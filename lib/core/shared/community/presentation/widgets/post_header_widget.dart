@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/cache/models/user_model.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/format_post_time.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/shared/community/data/model/post/post_response_model.dart';
+import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/post/community_post_cubit.dart';
 
 class PostHeaderWidget extends StatelessWidget {
   const PostHeaderWidget({super.key, required this.postModel});
@@ -11,6 +13,7 @@ class PostHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var post = CommunityPostCubit.get(context);
     return Row(
       children: [
         CircleAvatar(
@@ -40,12 +43,28 @@ class PostHeaderWidget extends StatelessWidget {
         ),
         const Spacer(),
         PopupMenuButton<String>(
+          elevation: 0,
           onSelected: (value) {
-            // Handle selection
+            if (value == 'option 1') {
+              post.updatePost(postModel.id!);
+            } else if (value == 'option 2') {
+              post.deletePost(postModel.id!);
+            }
           },
+          enabled: postModel.id! == getCachedUserData()!.id ? true : false,
           itemBuilder: (context) => [
-            const PopupMenuItem(value: 'option 1', child: Text('Option 1')),
-            const PopupMenuItem(value: 'option 2', child: Text('Option 2')),
+            PopupMenuItem(
+                value: 'option 1',
+                child: Text(
+                  'Edit',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                )),
+            PopupMenuItem(
+                value: 'option 2',
+                child: Text(
+                  'Delete',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                )),
           ],
           child: Icon(
             Icons.more_vert_outlined,

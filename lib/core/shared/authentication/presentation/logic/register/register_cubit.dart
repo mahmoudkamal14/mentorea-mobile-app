@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -35,16 +34,19 @@ class RegisterCubit extends Cubit<RegisterState> {
   int? pirthDateYear;
   int? pirthDateMonth;
   int? pirthDateDay;
-  List<String> fieldInterests = [];
+  Set<String> fieldInterests = {};
 
-  void selectFieldInterests(String fieldId) {
+  void setFields(List<Field> fields) {
+    fieldsList = fields;
+  }
+
+  void toggleFieldSelection({required String fieldId}) {
     if (fieldInterests.contains(fieldId)) {
       fieldInterests.remove(fieldId);
     } else {
       fieldInterests.add(fieldId);
     }
-
-    log('Selected Interests: $fieldInterests');
+    emit(FieldSelectionUpdated());
   }
 
   File? profileImageFile;
@@ -65,6 +67,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   List<FieldResponseModel> allFieldsList = [];
+  List<Field> fieldsList = [];
 
   Future<void> getAllFields() async {
     emit(GetAllFieldsLoadingState());
@@ -73,10 +76,28 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     if (response is Success<List<FieldResponseModel>>) {
       allFieldsList = response.data;
+      extractUniqueFields(response.data);
+      fieldsList = extractUniqueFields(response.data);
       emit(GetAllFieldsSuccessState());
     } else {
       emit(GetAllFieldsErrorState(response.toString()));
     }
+  }
+
+  List<Field> extractUniqueFields(List<FieldResponseModel> specialties) {
+    final Set<String> fieldIds = {};
+    final List<Field> uniqueFields = [];
+
+    for (final specialty in specialties) {
+      for (final field in specialty.fields) {
+        if (!fieldIds.contains(field.id)) {
+          fieldIds.add(field.id);
+          uniqueFields.add(field);
+        }
+      }
+    }
+
+    return uniqueFields;
   }
 
   void menteeRegister() async {
@@ -87,6 +108,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     final response = await _authRepository.menteeRegister(
       imageFile: file,
+      fieldInterests: fieldInterests.toList(),
       MenteeRegisterRequestBody(
         email: emailController.text,
         password: passwordController.text,
@@ -96,7 +118,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         pirthDateYear: pirthDateYear!,
         pirthDateMonth: pirthDateMonth!,
         pirthDateDay: pirthDateDay!,
-        fieldInterests: fieldInterests,
         about: aboutController.text,
       ),
     );

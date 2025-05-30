@@ -4,8 +4,8 @@ import 'package:mentorea_mobile_app/core/helper/functions/validator.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logic/register/register_cubit.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 
-class MentorAboutWidgetStep extends StatelessWidget {
-  const MentorAboutWidgetStep({super.key, required this.aboutFormKey});
+class AboutWidgetStep extends StatelessWidget {
+  const AboutWidgetStep({super.key, required this.aboutFormKey});
 
   final GlobalKey<FormState> aboutFormKey;
 

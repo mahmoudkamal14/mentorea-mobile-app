@@ -28,3 +28,5 @@ final class GetAllFieldsErrorState extends RegisterState {
 final class ImageSelectedSuccessState extends RegisterState {}
 
 final class ImageSelectedErrorState extends RegisterState {}
+
+final class FieldSelectionUpdated extends RegisterState {}

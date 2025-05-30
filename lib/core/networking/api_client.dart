@@ -46,7 +46,10 @@ class ApiClient {
           final accessToken = await CacheHelper.getSecuredData(
             key: CacheHelperKeys.accessToken,
           );
-          if (accessToken != null) {
+          if (accessToken != null &&
+              !noRefreshEndpoints.any(
+                (endpoint) => options.path.contains(endpoint),
+              )) {
             options.headers['Authorization'] = 'Bearer $accessToken';
           }
           return handler.next(options);

@@ -13,11 +13,13 @@ import 'package:mentorea_mobile_app/firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Future.wait([
+    Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    ),
+    CacheHelper.init(),
+  ]);
 
-  await CacheHelper.init();
   await setupGetIt();
 
   await Future.wait([

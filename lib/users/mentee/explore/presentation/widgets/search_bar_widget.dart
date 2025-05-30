@@ -12,9 +12,7 @@ class SearchBarWidget extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () {
-              print('Search tapped');
-            },
+            onTap: () {},
             child: ContainerCardWidget(
               child: Row(
                 children: [
@@ -35,9 +33,7 @@ class SearchBarWidget extends StatelessWidget {
         ),
         horizontalSpace(10),
         GestureDetector(
-          onTap: () {
-            print('Filter tapped');
-          },
+          onTap: () {},
           child: Container(
             width: 74,
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),

@@ -17,6 +17,5 @@ Map<String, dynamic> _$MenteeRegisterRequestBodyToJson(
       'PirthDate.Year': instance.pirthDateYear,
       'PirthDate.Month': instance.pirthDateMonth,
       'PirthDate.Day': instance.pirthDateDay,
-      'FieldInterests': instance.fieldInterests,
       'About': instance.about,
     };

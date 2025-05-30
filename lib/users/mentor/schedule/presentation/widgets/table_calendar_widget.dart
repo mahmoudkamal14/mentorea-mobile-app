@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class TableCalendarWidget extends StatefulWidget {
@@ -88,7 +87,7 @@ class _TableCalendarWidgetState extends State<TableCalendarWidget> {
                       _selectedDay = selectedDay;
                       _focusedDay = focusedDay;
                     });
-                    print(DateFormat.yMMMMd().format(_selectedDay!));
+                    // print(DateFormat.yMMMMd().format(_selectedDay!));
                   },
                 ),
               ],

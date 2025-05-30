@@ -6,7 +6,7 @@ import 'package:mentorea_mobile_app/core/shared/authentication/presentation/logi
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/additional_details_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/basic_information_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/birthday_and_location_step.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentor/mentor_about_widget_step.dart';
+import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/about_widget_step.dart';
 import 'package:mentorea_mobile_app/core/shared/authentication/presentation/widgets/register/mentor/mentor_job_title_experience_dropdown.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -120,7 +120,7 @@ class _MentorRegisterSteperWidgetState
               ),
             ),
             Step(
-              content: MentorAboutWidgetStep(aboutFormKey: aboutFormKey),
+              content: AboutWidgetStep(aboutFormKey: aboutFormKey),
               title: Text(
                 'The Biography',
                 style: Theme.of(context).textTheme.bodyLarge,
