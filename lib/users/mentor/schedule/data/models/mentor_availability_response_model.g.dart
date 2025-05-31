@@ -11,6 +11,7 @@ MentorAvailabilityResponseModel _$MentorAvailabilityResponseModelFromJson(
     MentorAvailabilityResponseModel(
       id: json['id'] as String,
       mentorId: json['mentorId'] as String,
-      startTime: DateTime.parse(json['startTime'] as String),
-      endTime: DateTime.parse(json['endTime'] as String),
+      date: json['date'] as String,
+      startTime: json['startTime'] as String,
+      endTime: json['endTime'] as String,
     );

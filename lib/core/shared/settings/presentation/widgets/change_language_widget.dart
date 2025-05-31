@@ -47,6 +47,8 @@ class ChangeLanguageWidget extends StatelessWidget {
                   AppCubit.get(context).selectLanguage(LanguageState.arabic);
                 } else if (language == LanguageState.english) {
                   AppCubit.get(context).selectLanguage(LanguageState.english);
+                } else {
+                  AppCubit.get(context).selectLanguage(LanguageState.system);
                 }
               },
               items: [
@@ -63,6 +65,14 @@ class ChangeLanguageWidget extends StatelessWidget {
                   alignment: AlignmentDirectional.center,
                   child: Text(
                     S.current.english,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: LanguageState.system,
+                  alignment: AlignmentDirectional.center,
+                  child: Text(
+                    S.current.system,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),

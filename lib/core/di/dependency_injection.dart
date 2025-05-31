@@ -4,6 +4,7 @@ import 'package:mentorea_mobile_app/core/shared/community/data/datasource/commun
 import 'package:mentorea_mobile_app/core/shared/settings/data/datasource/settings_dependency.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/explore_dependency.dart';
 import 'package:mentorea_mobile_app/core/shared/profile/data/datasource/profile_dependency.dart';
+import 'package:mentorea_mobile_app/users/mentor/schedule/data/datasource/schedule_dependency.dart';
 
 final getIt = GetIt.instance;
 
@@ -13,6 +14,7 @@ Future<void> setupGetIt() async {
     settingsDependency(),
     exploreMentorDependency(),
     profileDependency(),
+    scheduleDependency(),
     communityDependency(),
   ]);
 }

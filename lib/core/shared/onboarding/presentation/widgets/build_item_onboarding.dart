@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/build_animation.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
@@ -93,6 +95,10 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                                 onPressed: () {
                                   context.navigateToReplacement(
                                       Routes.userTypeScreen);
+                                  CacheHelper.saveData(
+                                    key: CacheHelperKeys.onBoarding,
+                                    value: true,
+                                  );
                                 },
                               ),
                             )
@@ -130,6 +136,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
       });
     } else {
       context.navigateToReplacement(Routes.userTypeScreen);
+      CacheHelper.saveData(key: CacheHelperKeys.onBoarding, value: true);
     }
   }
 }

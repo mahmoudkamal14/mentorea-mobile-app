@@ -7,14 +7,16 @@ class MentorAvailabilityResponseModel {
   MentorAvailabilityResponseModel({
     required this.id,
     required this.mentorId,
+    required this.date,
     required this.startTime,
     required this.endTime,
   });
 
   final String id;
   final String mentorId;
-  final DateTime startTime;
-  final DateTime endTime;
+  final String date;
+  final String startTime;
+  final String endTime;
 
   factory MentorAvailabilityResponseModel.fromJson(Map<String, dynamic> json) =>
       _$MentorAvailabilityResponseModelFromJson(json);

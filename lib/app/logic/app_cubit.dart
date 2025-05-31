@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/app/logic/app_state.dart';
@@ -5,7 +7,7 @@ import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 
 enum ThemeModeState { light, dark, system }
 
-enum LanguageState { arabic, english }
+enum LanguageState { arabic, english, system }
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitialState()) {
@@ -16,7 +18,7 @@ class AppCubit extends Cubit<AppState> {
   static AppCubit get(context) => BlocProvider.of(context);
 
   ThemeModeState currentTheme = ThemeModeState.system;
-  LanguageState currentLanguage = LanguageState.arabic;
+  LanguageState currentLanguage = LanguageState.system;
 
   Future<void> selectTheme(ThemeModeState theme) async {
     currentTheme = theme;
@@ -74,11 +76,15 @@ class AppCubit extends Cubit<AppState> {
   }
 
   String getCurrentLanguage() {
+    String deviceLocale = PlatformDispatcher.instance.locale.languageCode;
+
     switch (currentLanguage) {
       case LanguageState.arabic:
         return 'ar';
       case LanguageState.english:
         return 'en';
+      case LanguageState.system:
+        return deviceLocale;
     }
   }
 }

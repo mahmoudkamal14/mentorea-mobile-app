@@ -13,6 +13,7 @@ class _CommunityConnectionsRemoteDataSource
   _CommunityConnectionsRemoteDataSource(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   }) {
     baseUrl ??= 'http://mentorea.runasp.net';
   }
@@ -20,6 +21,8 @@ class _CommunityConnectionsRemoteDataSource
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<void> toggleFollowMentor(

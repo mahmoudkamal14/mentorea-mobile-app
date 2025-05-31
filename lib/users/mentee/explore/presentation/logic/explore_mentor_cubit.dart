@@ -57,17 +57,21 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   }
 
   // Get mentors by specialization
+  // int _currentPage = 1;
+  // bool _isLastPage = false;
+  // bool _isLoadingMore = false;
   Future<void> getMentorsBySpecialization({
     int? pageNumber,
-    int? pageSize,
+    int pageSize = 10,
     String? sortDirection,
     String? sortBy,
     required String searchValue,
+    bool isLoadMore = false,
   }) async {
     emit(const ExploreMentorState.getMentorsBySpecializationLoading());
     final response = await _mentorRepository.getMentorsBySpecialization(
       pageNumber ?? 1,
-      pageSize ?? 10,
+      pageSize,
       sortDirection ?? 'DESC',
       sortBy ?? 'rate',
       searchValue,

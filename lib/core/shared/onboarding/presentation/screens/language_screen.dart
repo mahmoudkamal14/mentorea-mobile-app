@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/build_animation.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
@@ -26,7 +28,6 @@ class LanguageScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SvgPicture.asset('assets/images/Globalization-pana.svg'),
-                  //verticalSpace(20),
                   Text(
                     'حدد لغتك',
                     style: Theme.of(context).textTheme.titleLarge,
@@ -37,6 +38,7 @@ class LanguageScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
+                  verticalSpace(20),
                   const Spacer(),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -53,6 +55,10 @@ class LanguageScreen extends StatelessWidget {
                               context.navigateToReplacement(
                                 Routes.onboardingScreen,
                               );
+                              CacheHelper.saveData(
+                                key: CacheHelperKeys.languageScreen,
+                                value: true,
+                              );
                             },
                           ),
                         ),
@@ -68,6 +74,10 @@ class LanguageScreen extends StatelessWidget {
                                   .selectLanguage(LanguageState.english);
                               context.navigateToReplacement(
                                 Routes.onboardingScreen,
+                              );
+                              CacheHelper.saveData(
+                                key: CacheHelperKeys.languageScreen,
+                                value: true,
                               );
                             },
                           ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mentorea_mobile_app/core/cache/models/user_model.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
@@ -18,6 +19,7 @@ import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
 import 'package:mentorea_mobile_app/users/mentor/dashboard/presentation/screen/mentor_dashboard_screen.dart';
+import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/logic/schedule_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/screens/mentor_schedule_screen.dart';
 
 class MentorBottomNavigationBarScreen extends StatefulWidget {
@@ -45,6 +47,10 @@ class _BottomNavigationBarScreenState
       providers: [
         BlocProvider(
           create: (context) => getIt<ProfileCubit>()..getMentorProfile(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ScheduleCubit>()
+            ..getMentorAvailability(mentorId: getCachedUserData()!.id),
         ),
         BlocProvider(
           create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),

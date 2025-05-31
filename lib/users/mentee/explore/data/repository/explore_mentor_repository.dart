@@ -21,7 +21,7 @@ class ExploreMentorRepository {
 
   Future<ApiResult<MentorsListResponseModel>> searchMentor(
     int pageNumber,
-    int? pageSize,
+    int pageSize,
     String sortDirection,
     String sortBy,
     String searchValue,
@@ -29,7 +29,7 @@ class ExploreMentorRepository {
     try {
       final response = await _exploreMentorDataSource.searchMentor(
         pageNumber,
-        pageSize ?? 10,
+        pageSize,
         sortDirection,
         sortBy,
         searchValue,
@@ -42,7 +42,7 @@ class ExploreMentorRepository {
 
   Future<ApiResult<MentorsListResponseModel>> getMentorsBySpecialization(
     int pageNumber,
-    int? pageSize,
+    int pageSize,
     String sortDirection,
     String sortBy,
     String searchValue,
@@ -51,7 +51,7 @@ class ExploreMentorRepository {
       final response =
           await _exploreMentorDataSource.getMentorsBySpecialization(
         pageNumber,
-        pageSize ?? 10,
+        pageSize,
         sortDirection,
         sortBy,
         searchValue,

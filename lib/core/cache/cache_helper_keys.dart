@@ -8,5 +8,6 @@ class CacheHelperKeys {
   static const String userData = 'userData';
 
   static const String onBoarding = 'onBoarding';
+  static const String languageScreen = 'languageScreen';
   static const String login = 'login';
 }

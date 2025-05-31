@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/logic/schedule_cubit.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class TableCalendarWidget extends StatefulWidget {
@@ -21,6 +25,7 @@ class _TableCalendarWidgetState extends State<TableCalendarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var scheduleCubit = ScheduleCubit.get(context);
     return Column(
       children: [
         Center(
@@ -36,8 +41,8 @@ class _TableCalendarWidgetState extends State<TableCalendarWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TableCalendar(
-                  firstDay: DateTime.utc(2025, 1, 1),
-                  lastDay: DateTime.utc(2030, 12, 31),
+                  firstDay: DateTime.now(),
+                  lastDay: DateTime.now().add(const Duration(days: 30)),
                   focusedDay: _focusedDay,
                   selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
                   calendarFormat: CalendarFormat.week,
@@ -87,7 +92,11 @@ class _TableCalendarWidgetState extends State<TableCalendarWidget> {
                       _selectedDay = selectedDay;
                       _focusedDay = focusedDay;
                     });
-                    // print(DateFormat.yMMMMd().format(_selectedDay!));
+
+                    scheduleCubit.selectedDate =
+                        DateFormat("M/d/y").format(_selectedDay!);
+
+                    log(scheduleCubit.selectedDate!);
                   },
                 ),
               ],

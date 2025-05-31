@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
@@ -25,7 +23,7 @@ class ApiClient {
     ApiConstants.resendOtpConfirmEmail,
     ApiConstants.forgotPassword,
     ApiConstants.resetPassword,
-    // ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
+    ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
   ];
 
   static Dio getDio() {
@@ -34,7 +32,7 @@ class ApiClient {
       ..options.connectTimeout = timeOut
       ..options.receiveTimeout = timeOut;
 
-    addDioInterceptor();
+    addPrettyDioLogger();
     ApiClient._internal();
     return _dio;
   }
@@ -46,10 +44,7 @@ class ApiClient {
           final accessToken = await CacheHelper.getSecuredData(
             key: CacheHelperKeys.accessToken,
           );
-          if (accessToken != null &&
-              !noRefreshEndpoints.any(
-                (endpoint) => options.path.contains(endpoint),
-              )) {
+          if (accessToken != null) {
             options.headers['Authorization'] = 'Bearer $accessToken';
           }
           return handler.next(options);
@@ -69,9 +64,6 @@ class ApiClient {
             final accessToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.accessToken,
             );
-
-            log('Refresh token: $refreshToken');
-            log('Access token: $accessToken');
 
             if (refreshToken != null) {
               try {
@@ -109,13 +101,12 @@ class ApiClient {
       RefreshTokenRequest(refreshToken: refreshToken, token: token),
     );
 
-    log('Response: $response');
     return response;
   }
 
   AuthServices get apiService => AuthServices(_dio);
 
-  static void addDioInterceptor() {
+  static void addPrettyDioLogger() {
     _dio.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
