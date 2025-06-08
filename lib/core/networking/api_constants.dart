@@ -52,6 +52,8 @@ class ApiConstants {
 
   // Explore Endpoints
   static const String searchMentor = '/api/result';
+  static const String topRatedMentors = '/api/result';
+  static const String recommendedMentors = '/api/Result/Recommended';
   static const String getMentorsBySpecialization = '/api/result/Specialization';
 
   // Mentor Availability Endpoints
@@ -65,4 +67,29 @@ class ApiConstants {
       '/api/mentors/{availabilityId}';
   static const String deleteMentorAvailability =
       '/api/mentors/{availabilityId}';
+
+  // Mentee Sessions
+  static const String createSession = '/api/sessions';
+  static const String submitSessionReport = '/api/sessions/{sessionId}/report';
+  static const String setSessionOutcome = '/api/sessions/{sessionId}/outcome';
+  static const String giveSessionFeedback =
+      '/api/sessions/{sessionId}/feedback';
+  static const String respondToSessionUpdate =
+      '/api/sessions/{sessionId}/respond-to-update';
+
+  // Mentor Sessions
+  static const String updateSessionDetails = '/api/sessions/{sessionId}';
+  static const String respondToSessionBeforePayment =
+      '/api/sessions/{sessionId}/respond-to-update';
+
+  // Shared Session
+  static const String cancelSession = '/api/sessions/{sessionId}/cancel';
+  static const String getAllSessionsByUser = '/api/sessions/{sessionId}/cancel';
+  static const String getSessionById = '/api/sessions/{sessionId}';
 }
+
+
+
+// Admin 
+// Get Payment Recipient
+// Get ALL Sessions

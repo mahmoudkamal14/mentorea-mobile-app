@@ -14,9 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Future.wait([
-    Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    ),
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
     CacheHelper.init(),
   ]);
 

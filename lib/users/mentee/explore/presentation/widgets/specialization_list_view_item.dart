@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
+import 'package:mentorea_mobile_app/shared/authentication/data/models/fields/specialization_response_model.dart';
 
 class SpecializationListViewItem extends StatelessWidget {
   const SpecializationListViewItem({

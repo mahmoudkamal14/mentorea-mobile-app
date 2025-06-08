@@ -5,8 +5,8 @@ part 'mentor_response_model.g.dart';
 @JsonSerializable(createToJson: false)
 class MentorResponseModel {
   MentorResponseModel({
-    required this.name,
     required this.id,
+    required this.name,
     required this.email,
     required this.pathPhoto,
     required this.pirthDate,
@@ -14,19 +14,23 @@ class MentorResponseModel {
     required this.rate,
     required this.priceOfSession,
     required this.numberOfSession,
+    required this.numberOfExperience,
+    required this.numerOfComment,
     required this.about,
     required this.fieldName,
   });
 
-  final String? name;
   final String? id;
+  final String? name;
   final String? email;
   final dynamic pathPhoto;
   final DateTime? pirthDate;
   final String? location;
-  final dynamic rate;
+  final double? rate;
   final int? priceOfSession;
-  final dynamic numberOfSession;
+  final int? numberOfSession;
+  final int? numberOfExperience;
+  final int? numerOfComment;
   final String? about;
   final String? fieldName;
 

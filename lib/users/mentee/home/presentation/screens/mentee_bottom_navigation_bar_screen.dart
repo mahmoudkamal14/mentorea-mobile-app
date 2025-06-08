@@ -6,18 +6,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
-import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/connection/community_connections_cubit.dart';
-import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/post/community_post_cubit.dart';
-import 'package:mentorea_mobile_app/core/shared/community/presentation/logic/react/community_react_cubit.dart';
-import 'package:mentorea_mobile_app/core/shared/community/presentation/screens/mentee_community_screen.dart';
+import 'package:mentorea_mobile_app/shared/bookings/presentation/screens/mentee_bookings_screen.dart';
+import 'package:mentorea_mobile_app/shared/community/presentation/logic/connection/community_connections_cubit.dart';
+import 'package:mentorea_mobile_app/shared/community/presentation/logic/post/community_post_cubit.dart';
+import 'package:mentorea_mobile_app/shared/community/presentation/logic/react/community_react_cubit.dart';
+import 'package:mentorea_mobile_app/shared/community/presentation/screens/mentee_community_screen.dart';
 import 'package:mentorea_mobile_app/core/widgets/action_icon_appbar.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/bookings/presentation/screens/mentee_bookings_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/explore_mentor_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/logic/recommended_mentors_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_home_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentee_drawer_widget.dart';
-import 'package:mentorea_mobile_app/core/shared/profile/presentation/logic/profile_cubit.dart';
+import 'package:mentorea_mobile_app/shared/profile/presentation/logic/profile_cubit.dart';
 
 class MenteeBottomNavigationBarScreen extends StatefulWidget {
   const MenteeBottomNavigationBarScreen({super.key});
@@ -42,6 +43,9 @@ class _BottomNavigationBarScreenState
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+            create: (context) =>
+                getIt<RecommendedMentorsCubit>()..getTopRatedMentors()),
         BlocProvider(
             create: (context) =>
                 getIt<ExploreMentorCubit>()..getAllSpecializations()),
@@ -71,7 +75,12 @@ class _BottomNavigationBarScreenState
         drawer: const MenteeDrawerWidget(),
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+            padding: EdgeInsets.only(
+              top: 10.h,
+              bottom: 30.h,
+              right: 16.w,
+              left: 16.w,
+            ),
             child: screens[_currentIndex],
           ),
         ),

@@ -27,9 +27,8 @@ class ContainerCardWidget extends StatelessWidget {
       decoration: ShapeDecoration(
         color: color ?? Theme.of(context).scaffoldBackgroundColor,
         shape: RoundedRectangleBorder(
-          side: BorderSide(
-              width: 1.01.w,
-              color: colorBorderSide ?? Theme.of(context).iconTheme.color!),
+          side:
+              BorderSide(width: 1.01.w, color: colorBorderSide ?? Colors.grey),
           borderRadius: BorderRadius.circular(16.12.r),
         ),
         shadows: [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
-import 'package:mentorea_mobile_app/core/shared/profile/presentation/widgets/user_activity_widget.dart';
+import 'package:mentorea_mobile_app/shared/profile/presentation/widgets/user_activity_widget.dart';
 
 class MentorTabBarOverview extends StatelessWidget {
   const MentorTabBarOverview({super.key, required this.mentor});

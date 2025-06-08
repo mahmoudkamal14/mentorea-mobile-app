@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
+import 'package:mentorea_mobile_app/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentors_list_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 

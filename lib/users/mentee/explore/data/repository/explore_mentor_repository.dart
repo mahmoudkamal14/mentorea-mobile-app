@@ -1,5 +1,5 @@
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
-import 'package:mentorea_mobile_app/core/shared/authentication/data/models/fields/specialization_response_model.dart';
+import 'package:mentorea_mobile_app/shared/authentication/data/models/fields/specialization_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/explore_mentor_data_source.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentors_list_response_model.dart';
 

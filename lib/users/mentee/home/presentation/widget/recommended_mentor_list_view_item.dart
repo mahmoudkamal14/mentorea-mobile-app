@@ -21,7 +21,7 @@ class RecommendedMentorListViewItem extends StatelessWidget {
         // );
       },
       child: ContainerCardWidget(
-        width: 240.w,
+        width: 270.w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
