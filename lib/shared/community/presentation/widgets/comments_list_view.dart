@@ -13,31 +13,28 @@ class CommentsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CommunityReactCubit, CommunityReactState>(
-      builder: (context, state) {
-        var cubit = CommunityReactCubit.get(context).commentsListResponseModel;
+        builder: (context, state) {
+      var cubit = CommunityReactCubit.get(context).commentsListResponseModel;
 
-        if (state is GetAllCommentsLoading) {
-          return setupLoading();
-        } else {
-          if (cubit!.items!.isEmpty) {
-            return noComments(context);
-          } else {
-            return SizedBox(
-              height: 400.h,
-              child: ListView.builder(
-                itemCount: cubit.items!.length,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return CommentListViewItem(
-                    commentResponseModel: cubit.items![index],
-                  );
-                },
-              ),
-            );
-          }
-        }
-      },
-    );
+      if (state is GetAllCommentsLoading) {
+        return setupLoading();
+      } else if (state is GetAllCommentsSuccess && cubit!.items!.isEmpty) {
+        return noComments(context);
+      } else {
+        return SizedBox(
+          height: 400.h,
+          child: ListView.builder(
+            itemCount: cubit!.items!.length,
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return CommentListViewItem(
+                commentResponseModel: cubit.items![index],
+              );
+            },
+          ),
+        );
+      }
+    });
   }
 
   SizedBox noComments(BuildContext context) {

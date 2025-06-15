@@ -49,8 +49,7 @@ class _BottomNavigationBarScreenState
           create: (context) => getIt<ProfileCubit>()..getMentorProfile(),
         ),
         BlocProvider(
-          create: (context) => getIt<ScheduleCubit>()
-            ..getMentorAvailability(mentorId: getCachedUserData()!.id),
+          create: (context) => getIt<ScheduleCubit>(),
         ),
         BlocProvider(
           create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),

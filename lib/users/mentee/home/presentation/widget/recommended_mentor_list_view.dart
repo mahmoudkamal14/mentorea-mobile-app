@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/is_arabic.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
-import 'package:mentorea_mobile_app/users/mentee/explore/data/datasource/mentors_data.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/logic/recommended_mentors_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/logic/recommended_mentors_state.dart';
-import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/recommended_mentor_list_view_item.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentors_home_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/mentors_list_view_horizontal_item.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/widget/recommended_mentor_shimmer_loading.dart';
 
 class RecommendedMentorListView extends StatelessWidget {
@@ -15,9 +16,14 @@ class RecommendedMentorListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mentors = listOfMentors;
     return BlocBuilder<RecommendedMentorsCubit, RecommendedMentorsState>(
+      buildWhen: (previous, current) =>
+          current is RecommendedMentorsLoadingState ||
+          current is RecommendedMentorsSuccessState ||
+          current is RecommendedMentorsErrorState,
       builder: (context, state) {
+        var mentors = RecommendedMentorsCubit.get(context).recommendedMentors;
+
         return Column(
           children: [
             Row(
@@ -29,9 +35,14 @@ class RecommendedMentorListView extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // if (mentors!.items!.isNotEmpty) {
-                    //   // Navigate to See All Mentors
-                    // }
+                    if (mentors.isNotEmpty) {
+                      // Navigate to See All Mentors
+                      _navigateToMentorsHomeScreen(
+                        context,
+                        topRatedMentors: mentors,
+                        title: S.current.recommendedForYou,
+                      );
+                    }
                   },
                   child: Text(
                     S.current.seeAll,
@@ -44,16 +55,16 @@ class RecommendedMentorListView extends StatelessWidget {
             SizedBox(
               height: 350.h,
               child: ListView.builder(
-                itemCount: state is RecommendedMentorsLoadingState ? 3 : 6,
+                itemCount: mentors.isEmpty ? 3 : 6,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Padding(
                   padding: EdgeInsets.only(
                     right: isArabic() ? 0 : 16.h,
                     left: isArabic() ? 16.h : 0,
                   ),
-                  child: state is RecommendedMentorsLoadingState
+                  child: mentors.isEmpty
                       ? const RecommendedMentorShimmerLoading()
-                      : RecommendedMentorListViewItem(
+                      : MentorsListViewHorizontalItem(
                           mentor: mentors[index],
                         ),
                 ),
@@ -62,6 +73,32 @@ class RecommendedMentorListView extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  void _navigateToMentorsHomeScreen(
+    BuildContext context, {
+    required List<MentorResponseModel> topRatedMentors,
+    required String title,
+  }) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            MentorsHomeScreen(
+          mentors: topRatedMentors,
+          title: title,
+        ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var tween = Tween(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: Curves.easeInOut));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
     );
   }
 }

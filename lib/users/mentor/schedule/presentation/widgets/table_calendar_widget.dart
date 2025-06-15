@@ -94,7 +94,7 @@ class _TableCalendarWidgetState extends State<TableCalendarWidget> {
                     });
 
                     scheduleCubit.selectedDate =
-                        DateFormat("M/d/y").format(_selectedDay!);
+                        DateFormat("d/MM/y").format(_selectedDay!);
 
                     log(scheduleCubit.selectedDate!);
                   },

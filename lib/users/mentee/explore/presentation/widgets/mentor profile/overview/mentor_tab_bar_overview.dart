@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
+import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
-import 'package:mentorea_mobile_app/shared/profile/presentation/widgets/user_activity_widget.dart';
 
 class MentorTabBarOverview extends StatelessWidget {
   const MentorTabBarOverview({super.key, required this.mentor});
@@ -33,40 +33,32 @@ class MentorTabBarOverview extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Education', style: Theme.of(context).textTheme.bodyLarge),
+                Text(
+                  S.current.Experience,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
                 verticalSpace(8),
                 SizedBox(
                   height: 74,
                   child: ListTile(
-                    leading: const Icon(
-                      Icons.school_outlined,
+                    leading: Icon(
+                      Icons.work,
                       size: 30,
-                      color: Colors.amber,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                     title: Text(
-                      'Software Engineering',
+                      mentor.fieldName!,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Bachelor's degree",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        Text(
-                          "( 2021 - 2025 )",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ],
+                    subtitle: Text(
+                      '${mentor.numberOfExperience!} ${S.current.years}',
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          verticalSpace(30),
-          const UserActivityWidget(),
         ],
       ),
     );

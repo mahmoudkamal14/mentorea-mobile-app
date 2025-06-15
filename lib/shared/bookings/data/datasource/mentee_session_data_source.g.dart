@@ -24,13 +24,14 @@ class _MenteeSessionDataSource implements MenteeSessionDataSource {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<void> createSession(
+  Future<SessionResponseModel> createSession(
       CreateSessionRequestBody createSessionRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = createSessionRequestBody;
-    final _options = _setStreamType<void>(Options(
+    final _data = <String, dynamic>{};
+    _data.addAll(createSessionRequestBody.toJson());
+    final _options = _setStreamType<SessionResponseModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -46,7 +47,15 @@ class _MenteeSessionDataSource implements MenteeSessionDataSource {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    await _dio.fetch<void>(_options);
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SessionResponseModel _value;
+    try {
+      _value = SessionResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override

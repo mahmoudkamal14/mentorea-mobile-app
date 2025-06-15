@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
+import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
@@ -47,6 +49,11 @@ class MenteeProfileListTileInfo extends StatelessWidget {
           lastItem: true,
           onTap: () {
             context.navigateToReplacement(Routes.userTypeScreen);
+            CacheHelper.removeSecuredData(key: CacheHelperKeys.accessToken);
+            CacheHelper.removeSecuredData(key: CacheHelperKeys.refreshToken);
+            CacheHelper.removeSecuredData(key: CacheHelperKeys.userRole);
+            CacheHelper.removeData(key: CacheHelperKeys.login);
+            CacheHelper.removeData(key: CacheHelperKeys.userData);
           },
         ),
       ],

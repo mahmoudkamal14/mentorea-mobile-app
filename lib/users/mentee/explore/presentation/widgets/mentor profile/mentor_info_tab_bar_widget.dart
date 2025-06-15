@@ -63,7 +63,7 @@ class _MentorInfoTabBarWidgetState extends State<MentorInfoTabBarWidget>
               controller: tabController,
               children: [
                 MentorTabBarOverview(mentor: widget.mentor),
-                const MentorTabBarSession(),
+                MentorTabBarSession(mentor: widget.mentor),
                 const MentorTabBarReviews(),
               ],
             ),

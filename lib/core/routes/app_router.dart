@@ -5,9 +5,9 @@ import 'package:mentorea_mobile_app/shared/authentication/presentation/screens/f
 import 'package:mentorea_mobile_app/shared/authentication/presentation/screens/mentee_register_screen.dart';
 import 'package:mentorea_mobile_app/shared/community/presentation/screens/create_post_screen.dart';
 import 'package:mentorea_mobile_app/shared/settings/presentation/screens/change_password_screen.dart';
-import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/book_session_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_details_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/chats_screen.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/mentors_search_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/screens/mentee_bottom_navigation_bar_screen.dart';
 import 'package:mentorea_mobile_app/shared/onboarding/presentation/screens/language_screen.dart';
 import 'package:mentorea_mobile_app/shared/onboarding/presentation/screens/onboarding_screen.dart';
@@ -137,15 +137,21 @@ class AppRouter {
       //     settings: settings,
       //   );
 
-      case Routes.bookSessionScreen:
-        return smoothEaseInOutPageRoute(
-          const BookSessionScreen(),
-          settings: settings,
-        );
+      // case Routes.bookSessionScreen:
+      //   return smoothEaseInOutPageRoute(
+      //     const BookSessionScreen(),
+      //     settings: settings,
+      //   );
 
       case Routes.paymentMethodsScreen:
         return smoothEaseInOutPageRoute(
           const PaymentMethodsScreen(),
+          settings: settings,
+        );
+
+      case Routes.mentorsSearchScreen:
+        return smoothEaseInOutPageRoute(
+          const MentorsSearchScreen(),
           settings: settings,
         );
 

@@ -29,27 +29,26 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   }
 
   // Search for mentors by Name
-  MentorsListResponseModel? mentorsListResponseModel;
+  List<MentorResponseModel> mentorsListResponseModel = [];
 
-  List<MentorResponseModel> mentorsListResponseModelBySpecialization = [];
   Future<void> searchMentor({
     int? pageNumber,
     int? pageSize,
     String? sortDirection,
     String? sortBy,
-    String? searchValue,
+    required String searchValue,
   }) async {
     emit(const ExploreMentorState.searchingForMentorLoading());
     final response = await _mentorRepository.searchMentor(
       pageNumber ?? 1,
       pageSize ?? 10,
       sortDirection ?? 'DESC',
-      sortBy ?? 'rate',
-      searchValue ?? '',
+      sortBy ?? 'name',
+      searchValue,
     );
 
     if (response is Success<MentorsListResponseModel>) {
-      mentorsListResponseModelBySpecialization = response.data.items!;
+      mentorsListResponseModel = response.data.items!;
       emit(const ExploreMentorState.searchingForMentorSuccess());
     } else if (response is Failure) {
       emit(ExploreMentorState.searchingForMentorFailure(response.toString()));
@@ -60,6 +59,8 @@ class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   // int _currentPage = 1;
   // bool _isLastPage = false;
   // bool _isLoadingMore = false;
+  List<MentorResponseModel> mentorsListResponseModelBySpecialization = [];
+
   Future<void> getMentorsBySpecialization({
     int? pageNumber,
     int pageSize = 10,

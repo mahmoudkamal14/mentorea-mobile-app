@@ -56,12 +56,10 @@ class PostDetailsScreen extends StatelessWidget {
               children: [
                 BlocBuilder<CommunityPostCubit, CommunityPostState>(
                   builder: (context, state) {
-                    var post =
-                        CommunityPostCubit.get(context).postResponseModel;
                     if (state is GetPostDetailsLoading) {
                       return const PostShimmerLoadingWidget();
                     } else {
-                      return PostInfoWidget(postModel: post!);
+                      return PostInfoWidget(postModel: postModel);
                     }
                   },
                 ),

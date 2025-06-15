@@ -18,24 +18,22 @@ class CommunityPostListView extends StatelessWidget {
 
         if (state is GetAllPostsLoading) {
           return setupLoading();
+        } else if (posts.isEmpty) {
+          return emptyList(context);
         } else {
-          if (posts!.items!.isEmpty) {
-            return emptyList(context);
-          } else {
-            return SizedBox(
-              height: 700.h,
-              child: ListView.builder(
-                itemCount: posts.items!.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
-                  child: CommunityPostListViewItem(
-                    postModel: posts.items![index],
-                    selectedItem: index,
-                  ),
+          return SizedBox(
+            height: 700.h,
+            child: ListView.builder(
+              itemCount: posts.length,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.h),
+                child: CommunityPostListViewItem(
+                  postModel: posts[index],
+                  selectedItem: index,
                 ),
               ),
-            );
-          }
+            ),
+          );
         }
       },
     );

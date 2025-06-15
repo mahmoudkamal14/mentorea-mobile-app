@@ -23,7 +23,6 @@ class ApiClient {
     ApiConstants.resendOtpConfirmEmail,
     ApiConstants.forgotPassword,
     ApiConstants.resetPassword,
-    ApiConstants.refreshToken, // مهم جدًا عشان ما يعملش loop لا نهائي
   ];
 
   static Dio getDio() {
@@ -44,20 +43,18 @@ class ApiClient {
           final accessToken = await CacheHelper.getSecuredData(
             key: CacheHelperKeys.accessToken,
           );
-          if (accessToken != null) {
-            options.headers['Authorization'] = 'Bearer $accessToken';
-          }
+          options.headers['Authorization'] = 'Bearer $accessToken';
           return handler.next(options);
         },
         onError: (DioException error, handler) async {
-          final requestPath = error.requestOptions.path;
+          // final requestPath = error.requestOptions.path;
 
           final isUnauthorized = error.response?.statusCode == 401;
-          final isRefreshable = !noRefreshEndpoints.any(
-            (endpoint) => requestPath.contains(endpoint),
-          );
+          // final isRefreshable = !noRefreshEndpoints.any(
+          //   (endpoint) => requestPath.contains(endpoint),
+          // );
 
-          if (isUnauthorized && isRefreshable) {
+          if (isUnauthorized) {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );

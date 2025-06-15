@@ -1,10 +1,7 @@
 // ignore_for_file: must_be_immutable
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mentorea_mobile_app/core/helper/functions/availability_time_has_conflict.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/format_time_availability.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
@@ -13,11 +10,10 @@ import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/logic/schedule_cubit.dart';
 
 class AvailabilityTimeWidegt extends StatelessWidget {
-  AvailabilityTimeWidegt({
-    super.key,
-  });
+  AvailabilityTimeWidegt({super.key});
 
   TextEditingController startTimeController = TextEditingController();
+
   TextEditingController endTimeController = TextEditingController();
 
   @override
@@ -63,13 +59,11 @@ class AvailabilityTimeWidegt extends StatelessWidget {
                                   selectedTime.minute,
                                 );
 
-                                scheduleCubit.startTime =
-                                    DateFormat.Hm().format(dateTime);
+                                scheduleCubit.startTimeController.text =
+                                    DateFormat('HH:mm').format(dateTime);
 
                                 startTimeController.text =
                                     formatTimeAvailability(dateTime);
-
-                                log(scheduleCubit.startTime!);
                               }
                             });
                           },
@@ -114,14 +108,13 @@ class AvailabilityTimeWidegt extends StatelessWidget {
                                 selectedTime.hour,
                                 selectedTime.minute,
                               );
-
-                              scheduleCubit.endTime =
-                                  DateFormat.Hm().format(dateTime);
+                              scheduleCubit.endTimeController.text =
+                                  DateFormat('HH:mm')
+                                      .format(dateTime)
+                                      .toString();
 
                               endTimeController.text =
                                   formatTimeAvailability(dateTime);
-
-                              log(scheduleCubit.endTime!);
                             }
                           });
                         },
@@ -141,32 +134,7 @@ class AvailabilityTimeWidegt extends StatelessWidget {
           AppTextButton(
             textButton: 'Add Schedule',
             onPressed: () {
-              bool x = isValidSlot(
-                newDate: scheduleCubit.selectedDate!,
-                newStartTime: scheduleCubit.startTime!,
-                newEndTime: scheduleCubit.endTime!,
-                existingSlots: scheduleCubit.mentorAvailabilityList,
-              );
-              log('isValidSlot: $x');
-              // if (isValidSlot(
-              //       newDate: scheduleCubit.selectedDate!,
-              //       newStartTime: scheduleCubit.startTime!,
-              //       newEndTime: scheduleCubit.endTime!,
-              //       existingSlots: scheduleCubit.mentorAvailabilityList,
-              //     ) &&
-              //     !isInThePast(
-              //       scheduleCubit.selectedDate!,
-              //       scheduleCubit.startTime!,
-              //     )) {
-              //   showToast(
-              //     msg: isArabic()
-              //         ? 'يوجد تعارض بين المواعيد المحدد ومواعيد سابقة'
-              //         : 'There is a conflict between the selected time and previous schedules',
-              //     color: Colors.red,
-              //   );
-              // } else {
-              //   print('No conflict, adding schedule');
-              // }
+              scheduleCubit.addMentorAvailability();
             },
           ),
         ],

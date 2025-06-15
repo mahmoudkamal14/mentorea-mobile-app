@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
+import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 
 class CommunityStatisticsWidget extends StatelessWidget {
-  const CommunityStatisticsWidget({
-    super.key,
-  });
+  const CommunityStatisticsWidget({super.key, required this.mentor});
+
+  final MentorResponseModel mentor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class CommunityStatisticsWidget extends StatelessWidget {
               ),
             ),
             title: Text(
-              '420 mins',
+              '${(mentor.numberOfSession! * 45)} mins',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             subtitle: Text(
@@ -60,7 +61,7 @@ class CommunityStatisticsWidget extends StatelessWidget {
               ),
             ),
             title: Text(
-              '14 Sessions',
+              '${mentor.numberOfSession} Sessions',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             subtitle: Text(

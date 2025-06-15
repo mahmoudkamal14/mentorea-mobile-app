@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mentorea_mobile_app/core/di/dependency_injection.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
+import 'package:mentorea_mobile_app/shared/bookings/presentation/logic/session/session_cubit.dart';
 import 'package:mentorea_mobile_app/shared/bookings/presentation/screens/mentee_bookings_screen.dart';
 import 'package:mentorea_mobile_app/shared/community/presentation/logic/connection/community_connections_cubit.dart';
 import 'package:mentorea_mobile_app/shared/community/presentation/logic/post/community_post_cubit.dart';
@@ -43,12 +44,15 @@ class _BottomNavigationBarScreenState
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => getIt<RecommendedMentorsCubit>()),
         BlocProvider(
-            create: (context) =>
-                getIt<RecommendedMentorsCubit>()..getTopRatedMentors()),
+          create: (context) => getIt<ExploreMentorCubit>()
+            ..getAllSpecializations()
+            ..getMentorsBySpecialization(searchValue: 'Database'),
+        ),
         BlocProvider(
-            create: (context) =>
-                getIt<ExploreMentorCubit>()..getAllSpecializations()),
+          create: (context) => getIt<SessionCubit>()..getAllSessionsByUser(),
+        ),
         BlocProvider(
           create: (context) => getIt<ProfileCubit>()..getMenteeProfile(),
         ),

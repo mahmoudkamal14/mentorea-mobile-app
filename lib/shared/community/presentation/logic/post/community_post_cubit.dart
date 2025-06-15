@@ -10,7 +10,9 @@ import 'package:mentorea_mobile_app/shared/community/presentation/logic/post/com
 class CommunityPostCubit extends Cubit<CommunityPostState> {
   final CommunityPostRepository communityPostRepository;
   CommunityPostCubit(this.communityPostRepository)
-      : super(const CommunityPostState.initial());
+      : super(const CommunityPostState.initial()) {
+    getAllPosts();
+  }
 
   static CommunityPostCubit get(context) =>
       BlocProvider.of<CommunityPostCubit>(context);
@@ -20,8 +22,8 @@ class CommunityPostCubit extends Cubit<CommunityPostState> {
   GlobalKey<FormState> updatePostFormKey = GlobalKey<FormState>();
 
   PostResponseModel? postResponseModel;
-  PostsListResponseModel? postsListResponseModel;
-  PostsListResponseModel? postsFollowingMentorsListResponseModel;
+  List<PostResponseModel> postsListResponseModel = [];
+  List<PostResponseModel> postsFollowingMentorsListResponseModel = [];
 
   // Get All Posts
   Future<void> getAllPosts() async {
@@ -29,7 +31,7 @@ class CommunityPostCubit extends Cubit<CommunityPostState> {
     final response = await communityPostRepository.getAllPosts();
 
     if (response is Success<PostsListResponseModel>) {
-      postsListResponseModel = response.data;
+      postsListResponseModel = response.data.items!;
       emit(const CommunityPostState.getAllPostsSuccess());
     } else if (response is Failure<PostsListResponseModel>) {
       emit(CommunityPostState.getPostsFailure(response.error));
@@ -96,7 +98,7 @@ class CommunityPostCubit extends Cubit<CommunityPostState> {
     final response = await communityPostRepository.getPostsFollowingMentors();
 
     if (response is Success<PostsListResponseModel>) {
-      postsFollowingMentorsListResponseModel = response.data;
+      postsFollowingMentorsListResponseModel = response.data.items!;
       emit(const CommunityPostState.getPostsFollowingMentorsSuccess());
     } else if (response is Failure<PostsListResponseModel>) {
       emit(CommunityPostState.getPostsFollowingMentorsFailure(response.error));

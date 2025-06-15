@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mentorea_mobile_app/core/cache/models/user_model.dart';
 
 class DrawerProfileImage extends StatelessWidget {
-  const DrawerProfileImage({
-    super.key,
-  });
+  const DrawerProfileImage({super.key, required this.profileImage});
+
+  final String? profileImage;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +25,8 @@ class DrawerProfileImage extends StatelessWidget {
             child: CircleAvatar(
               radius: 76,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              backgroundImage: getCachedUserData()!.image != null
-                  ? NetworkImage(getCachedUserData()!.image!)
+              backgroundImage: profileImage != null
+                  ? NetworkImage(profileImage!)
                   : const AssetImage(
                       'assets/images/default_user.png',
                     ) as ImageProvider,

@@ -19,11 +19,8 @@ Future<void> main() async {
   ]);
 
   await setupGetIt();
-
-  await Future.wait([
-    PushNotificationsService.init(),
-    ScreenUtil.ensureScreenSize(),
-  ]);
+  await PushNotificationsService.init();
+  await ScreenUtil.ensureScreenSize();
 
   runApp(MentoreaApp(appRouter: AppRouter()));
 }

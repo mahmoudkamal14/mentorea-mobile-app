@@ -12,6 +12,7 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
   _SettingsRemoteDataSource(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   }) {
     baseUrl ??= 'http://mentorea.runasp.net';
   }
@@ -19,6 +20,8 @@ class _SettingsRemoteDataSource implements SettingsRemoteDataSource {
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<void> updateMenteeProfile(

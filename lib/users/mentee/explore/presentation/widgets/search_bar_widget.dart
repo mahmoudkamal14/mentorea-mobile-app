@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconly/iconly.dart';
+import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
+import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 
 class SearchBarWidget extends StatelessWidget {
@@ -12,12 +15,14 @@ class SearchBarWidget extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.navigateTo(Routes.mentorsSearchScreen);
+            },
             child: ContainerCardWidget(
               child: Row(
                 children: [
                   Icon(
-                    Icons.search,
+                    IconlyLight.search,
                     size: 30,
                     color: Theme.of(context).iconTheme.color!,
                   ),
@@ -44,7 +49,7 @@ class SearchBarWidget extends StatelessWidget {
               ),
             ),
             child: Icon(
-              Icons.filter_list,
+              IconlyLight.filter,
               color: Theme.of(context).iconTheme.color!,
             ),
           ),

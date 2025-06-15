@@ -26,6 +26,7 @@ class Routes {
   static const String mentorProfileScreen = '/mentorProfileScreen';
   static const String bookSessionScreen = '/bookSessionScreen';
   static const String paymentMethodsScreen = '/paymentMethodsScreen';
+  static const String mentorsSearchScreen = '/mentorsSearchScreen';
 
   // Mentor
   static const String mentorRegisterScreen = '/mentorRegisterScreen';

@@ -1,0 +1,2 @@
+H:/Graduation Project/mentorea_mobile_app/android/app/.cxx/Debug/3810c1xg/armeabi-v7a/CMakeFiles/edit_cache.dir
+H:/Graduation Project/mentorea_mobile_app/android/app/.cxx/Debug/3810c1xg/armeabi-v7a/CMakeFiles/rebuild_cache.dir

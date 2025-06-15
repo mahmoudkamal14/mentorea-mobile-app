@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'create_session_request_body.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class CreateSessionRequestBody {
   CreateSessionRequestBody({
     required this.mentorId,
@@ -14,14 +14,16 @@ class CreateSessionRequestBody {
     required this.notes,
   });
 
-  final String mentorId;
-  final String menteeId;
-  final String startDate;
-  final String startTime;
-  final int durationMinutes;
-  final int waitingTime;
-  final String notes;
+  final String? mentorId;
+  final String? menteeId;
+  final String? startDate;
+  final String? startTime;
+  final int? durationMinutes;
+  final int? waitingTime;
+  final String? notes;
 
   factory CreateSessionRequestBody.fromJson(Map<String, dynamic> json) =>
       _$CreateSessionRequestBodyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CreateSessionRequestBodyToJson(this);
 }

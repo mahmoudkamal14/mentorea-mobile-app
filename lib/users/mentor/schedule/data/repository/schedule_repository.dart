@@ -19,11 +19,11 @@ class ScheduleRepository {
     }
   }
 
-  Future<ApiResult<void>> addMentorAvailability(
-      String mentorId, MentorAvailabilityRequestBody requestBody) async {
+  Future<ApiResult<MentorAvailabilityResponseModel>> addMentorAvailability(
+      MentorAvailabilityRequestBody requestBody) async {
     try {
-      final response = await _scheduleDataSource.addMentorAvailability(
-          mentorId, requestBody);
+      final response =
+          await _scheduleDataSource.addMentorAvailability(requestBody);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(e.toString());

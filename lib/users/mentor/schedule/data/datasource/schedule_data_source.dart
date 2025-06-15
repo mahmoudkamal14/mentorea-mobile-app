@@ -12,23 +12,22 @@ abstract class ScheduleDataSource {
 
   @GET(ApiConstants.getMentorAvailabilityList)
   Future<List<MentorAvailabilityResponseModel>> getMentorAvailability(
-    @Query("mentorId") String mentorId,
+    @Path("mentorId") String mentorId,
   );
 
   @POST(ApiConstants.createMentorAvailability)
-  Future<void> addMentorAvailability(
-    @Query("mentorId") String mentorId,
+  Future<MentorAvailabilityResponseModel> addMentorAvailability(
     @Body() MentorAvailabilityRequestBody mentorAvailabilityRequestBody,
   );
 
   @DELETE(ApiConstants.deleteMentorAvailability)
   Future<void> deleteMentorAvailability(
-    @Query("availabilityId") String availabilityId,
+    @Path("availabilityId") String availabilityId,
   );
 
   @PUT(ApiConstants.updateMentorAvailability)
   Future<void> updateMentorAvailability(
-    @Query("availabilityId") String availabilityId,
+    @Path("availabilityId") String availabilityId,
     @Body() MentorAvailabilityRequestBody mentorAvailabilityRequestBody,
   );
 }

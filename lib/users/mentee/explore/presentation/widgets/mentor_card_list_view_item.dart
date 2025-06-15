@@ -6,10 +6,7 @@ import 'package:mentorea_mobile_app/generated/l10n.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/data/models/mentor_response_model.dart';
 
 class MentorCardListViewItem extends StatelessWidget {
-  const MentorCardListViewItem({
-    super.key,
-    required this.mentor,
-  });
+  const MentorCardListViewItem({super.key, required this.mentor});
 
   final MentorResponseModel mentor;
 

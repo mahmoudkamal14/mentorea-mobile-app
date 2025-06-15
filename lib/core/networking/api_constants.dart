@@ -61,8 +61,7 @@ class ApiConstants {
       '/api/mentors/{mentorId}/availability';
   static const String getMentorAvailability =
       '/api/mentors/{mentorId}/availability/{availabilityId}';
-  static const String createMentorAvailability =
-      '/api/mentors/{mentorId}/availability';
+  static const String createMentorAvailability = '/api/mentors';
   static const String updateMentorAvailability =
       '/api/mentors/{availabilityId}';
   static const String deleteMentorAvailability =
@@ -81,11 +80,13 @@ class ApiConstants {
   static const String updateSessionDetails = '/api/sessions/{sessionId}';
   static const String respondToSessionBeforePayment =
       '/api/sessions/{sessionId}/respond-to-update';
+  static const String cancelSession = '/api/sessions/{sessionId}/cancel';
 
   // Shared Session
-  static const String cancelSession = '/api/sessions/{sessionId}/cancel';
-  static const String getAllSessionsByUser = '/api/sessions/{sessionId}/cancel';
+  static const String getAllSessionsByUser = '/api/sessions/user';
   static const String getSessionById = '/api/sessions/{sessionId}';
+  static const String markSessionAttendedByOneParty =
+      '/api/sessions/{sessionId}/attended';
 }
 
 

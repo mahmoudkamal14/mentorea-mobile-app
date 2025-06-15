@@ -27,7 +27,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
   Future<List<MentorAvailabilityResponseModel>> getMentorAvailability(
       String mentorId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'mentorId': mentorId};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options =
@@ -38,7 +38,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
     )
             .compose(
               _dio.options,
-              '/api/mentors/{mentorId}/availability',
+              '/api/mentors/${mentorId}/availability',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -62,23 +62,21 @@ class _ScheduleDataSource implements ScheduleDataSource {
   }
 
   @override
-  Future<void> addMentorAvailability(
-    String mentorId,
-    MentorAvailabilityRequestBody mentorAvailabilityRequestBody,
-  ) async {
+  Future<MentorAvailabilityResponseModel> addMentorAvailability(
+      MentorAvailabilityRequestBody mentorAvailabilityRequestBody) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'mentorId': mentorId};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mentorAvailabilityRequestBody.toJson());
-    final _options = _setStreamType<void>(Options(
+    final _options = _setStreamType<MentorAvailabilityResponseModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/api/mentors/{mentorId}/availability',
+          '/api/mentors',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -87,15 +85,21 @@ class _ScheduleDataSource implements ScheduleDataSource {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    await _dio.fetch<void>(_options);
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MentorAvailabilityResponseModel _value;
+    try {
+      _value = MentorAvailabilityResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
   Future<void> deleteMentorAvailability(String availabilityId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'availabilityId': availabilityId
-    };
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<void>(Options(
@@ -105,7 +109,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
     )
         .compose(
           _dio.options,
-          '/api/mentors/{availabilityId}',
+          '/api/mentors/${availabilityId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -123,9 +127,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
     MentorAvailabilityRequestBody mentorAvailabilityRequestBody,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'availabilityId': availabilityId
-    };
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mentorAvailabilityRequestBody.toJson());
@@ -136,7 +138,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
     )
         .compose(
           _dio.options,
-          '/api/mentors/{availabilityId}',
+          '/api/mentors/${availabilityId}',
           queryParameters: queryParameters,
           data: _data,
         )

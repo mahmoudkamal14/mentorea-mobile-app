@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mentorea_mobile_app/core/networking/api_result.dart';
 import 'package:mentorea_mobile_app/users/mentor/schedule/data/models/mentor_availability_request_body.dart';
@@ -12,17 +13,17 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   static ScheduleCubit get(context) => BlocProvider.of(context);
 
   String? selectedDate;
-  String? startTime;
-  String? endTime;
 
-  Future<void> addMentorAvailability({required String mentorId}) async {
+  TextEditingController startTimeController = TextEditingController();
+  TextEditingController endTimeController = TextEditingController();
+
+  Future<void> addMentorAvailability() async {
     emit(CreateAvailabilityLoadingState());
     final response = await _scheduleRepository.addMentorAvailability(
-      mentorId,
       MentorAvailabilityRequestBody(
         date: selectedDate!,
-        startTime: startTime!,
-        endTime: endTime!,
+        startTime: startTimeController.text,
+        endTime: endTimeController.text,
       ),
     );
 
@@ -47,16 +48,17 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     }
   }
 
-  Future<void> updateMentorAvailability({
-    required String availabilityId,
-  }) async {
+  Future<void> updateMentorAvailability(
+      {required String availabilityId,
+      required String startTime,
+      required String endTime}) async {
     emit(UpdateAvailabilityLoadingState());
     final response = await _scheduleRepository.updateMentorAvailability(
       availabilityId,
       MentorAvailabilityRequestBody(
         date: selectedDate!,
-        startTime: startTime!,
-        endTime: endTime!,
+        startTime: startTime,
+        endTime: endTime,
       ),
     );
 

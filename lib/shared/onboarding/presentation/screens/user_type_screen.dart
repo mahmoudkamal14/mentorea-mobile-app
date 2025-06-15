@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mentorea_mobile_app/core/helper/functions/navigate_to.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
 import 'package:mentorea_mobile_app/shared/authentication/presentation/screens/login_screen.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
@@ -66,11 +67,15 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
                   buttonWidth: 300.w,
                   onPressed: () {
                     if (selectedIndex == 0) {
-                      _navigateToLoginScreen(context,
-                          userType: UserType.mentee);
+                      navigateTo(
+                        context,
+                        screen: const LoginScreen(userType: UserType.mentee),
+                      );
                     } else if (selectedIndex == 1) {
-                      _navigateToLoginScreen(context,
-                          userType: UserType.mentor);
+                      navigateTo(
+                        context,
+                        screen: const LoginScreen(userType: UserType.mentor),
+                      );
                     }
                   },
                 ),
@@ -78,26 +83,6 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  void _navigateToLoginScreen(BuildContext context,
-      {required UserType userType}) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            LoginScreen(userType: userType),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var tween = Tween(
-            begin: const Offset(1.0, 0.0),
-            end: Offset.zero,
-          ).chain(CurveTween(curve: Curves.easeInOut));
-          var offsetAnimation = animation.drive(tween);
-
-          return SlideTransition(position: offsetAnimation, child: child);
-        },
       ),
     );
   }
