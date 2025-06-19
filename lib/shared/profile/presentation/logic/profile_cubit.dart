@@ -13,7 +13,18 @@ import 'package:mentorea_mobile_app/shared/profile/presentation/logic/profile_st
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepository _repository;
-  ProfileCubit(this._repository) : super(ProfileInitialState());
+  ProfileCubit(this._repository) : super(ProfileInitialState()) {
+    start();
+  }
+
+  void start() async {
+    var role = await CacheHelper.getSecuredData(key: CacheHelperKeys.userRole);
+    if (role == 'Mentee') {
+      getMenteeProfile();
+    } else {
+      getMentorProfile();
+    }
+  }
 
   static ProfileCubit get(context) => BlocProvider.of(context);
 

@@ -23,16 +23,18 @@ class LanguageScreen extends StatelessWidget {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 30.h),
+              padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 16.w),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset('assets/images/Globalization-pana.svg'),
+                  SizedBox(
+                      height: 400,
+                      child: SvgPicture.asset(
+                          'assets/images/Globalization-pana.svg')),
                   Text(
                     'حدد لغتك',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  verticalSpace(20),
+                  verticalSpace(10),
                   Text(
                     'أختر لغة واجهة منتوريا التي تفضلها وبإمكانك تعديلها لاحقاً',
                     textAlign: TextAlign.center,

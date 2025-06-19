@@ -103,7 +103,6 @@ class MenteeBookingListView extends StatelessWidget {
     if (status == 'pending') {
       SessionCubit.get(context).cancelSession(sessionId: sessionId);
     } else if (status == 'awaiting_payment') {
-      // Payment
     } else {
       SessionCubit.get(context)
           .markSessionAttendedByOneParty(sessionId: sessionId);

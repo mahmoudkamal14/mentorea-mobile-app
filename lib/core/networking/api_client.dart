@@ -43,18 +43,19 @@ class ApiClient {
           final accessToken = await CacheHelper.getSecuredData(
             key: CacheHelperKeys.accessToken,
           );
+
           options.headers['Authorization'] = 'Bearer $accessToken';
           return handler.next(options);
         },
         onError: (DioException error, handler) async {
-          // final requestPath = error.requestOptions.path;
+          final requestPath = error.requestOptions.path;
 
           final isUnauthorized = error.response?.statusCode == 401;
-          // final isRefreshable = !noRefreshEndpoints.any(
-          //   (endpoint) => requestPath.contains(endpoint),
-          // );
+          final isRefreshable = !noRefreshEndpoints.any(
+            (endpoint) => requestPath.contains(endpoint),
+          );
 
-          if (isUnauthorized) {
+          if (isUnauthorized && isRefreshable) {
             final refreshToken = await CacheHelper.getSecuredData(
               key: CacheHelperKeys.refreshToken,
             );

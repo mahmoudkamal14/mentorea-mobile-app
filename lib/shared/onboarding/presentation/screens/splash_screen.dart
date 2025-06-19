@@ -23,13 +23,9 @@ class SplashScreen extends StatelessWidget {
   Future<String> startedScreen() async {
     var login = CacheHelper.getData(key: CacheHelperKeys.login);
     var onBoarding = CacheHelper.getData(key: CacheHelperKeys.onBoarding);
-    String? token =
-        await CacheHelper.getSecuredData(key: CacheHelperKeys.accessToken);
     var language = CacheHelper.getData(key: CacheHelperKeys.languageScreen);
 
-    if (token == null) {
-      return Routes.userTypeScreen;
-    } else if (login == Routes.menteeBottomNavBar) {
+    if (login == Routes.menteeBottomNavBar) {
       return Routes.menteeBottomNavBar;
     } else if (login == Routes.mentorBottomNavBar) {
       return Routes.mentorBottomNavBar;
