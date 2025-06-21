@@ -9,11 +9,7 @@ part of 'schedule_data_source.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _ScheduleDataSource implements ScheduleDataSource {
-  _ScheduleDataSource(
-    this._dio, {
-    this.baseUrl,
-    this.errorLogger,
-  }) {
+  _ScheduleDataSource(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'http://mentorea.runasp.net';
   }
 
@@ -25,34 +21,31 @@ class _ScheduleDataSource implements ScheduleDataSource {
 
   @override
   Future<List<MentorAvailabilityResponseModel>> getMentorAvailability(
-      String mentorId) async {
+    String mentorId,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options =
-        _setStreamType<List<MentorAvailabilityResponseModel>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/mentors/${mentorId}/availability',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            )));
+    final _options = _setStreamType<List<MentorAvailabilityResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/mentors/${mentorId}/availability',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<List<dynamic>>(_options);
     late List<MentorAvailabilityResponseModel> _value;
     try {
       _value = _result.data!
-          .map((dynamic i) => MentorAvailabilityResponseModel.fromJson(
-              i as Map<String, dynamic>))
+          .map(
+            (dynamic i) => MentorAvailabilityResponseModel.fromJson(
+              i as Map<String, dynamic>,
+            ),
+          )
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -63,28 +56,23 @@ class _ScheduleDataSource implements ScheduleDataSource {
 
   @override
   Future<MentorAvailabilityResponseModel> addMentorAvailability(
-      MentorAvailabilityRequestBody mentorAvailabilityRequestBody) async {
+    MentorAvailabilityRequestBody mentorAvailabilityRequestBody,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mentorAvailabilityRequestBody.toJson());
-    final _options = _setStreamType<MentorAvailabilityResponseModel>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/mentors',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<MentorAvailabilityResponseModel>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/mentors',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late MentorAvailabilityResponseModel _value;
     try {
@@ -102,22 +90,16 @@ class _ScheduleDataSource implements ScheduleDataSource {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/mentors/${availabilityId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/mentors/${availabilityId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     await _dio.fetch<void>(_options);
   }
 
@@ -131,22 +113,16 @@ class _ScheduleDataSource implements ScheduleDataSource {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mentorAvailabilityRequestBody.toJson());
-    final _options = _setStreamType<void>(Options(
-      method: 'PUT',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/api/mentors/${availabilityId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/mentors/${availabilityId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     await _dio.fetch<void>(_options);
   }
 
@@ -163,10 +139,7 @@ class _ScheduleDataSource implements ScheduleDataSource {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

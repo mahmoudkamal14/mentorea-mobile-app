@@ -17,8 +17,8 @@ class MenteeDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        return getCachedUserData()!.image == null
-            ? const CircularProgressIndicator()
+        return getCachedUserData() == null
+            ? const SizedBox.shrink()
             : Drawer(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 child: SingleChildScrollView(
@@ -34,12 +34,12 @@ class MenteeDrawerWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              getCachedUserData()!.name,
+                              getCachedUserData()!.name!,
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             verticalSpace(10),
                             Text(
-                              getCachedUserData()!.email,
+                              getCachedUserData()!.email!,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                             verticalSpace(20),

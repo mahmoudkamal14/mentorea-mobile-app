@@ -71,7 +71,7 @@ class PostFooterWidget extends StatelessWidget {
                       onTap: () {
                         if (formKey.currentState!.validate()) {
                           commentCubit.createComment(
-                            userId: userProfile.id,
+                            userId: userProfile.id!,
                             postId: postId,
                             content: commentController.text,
                           );

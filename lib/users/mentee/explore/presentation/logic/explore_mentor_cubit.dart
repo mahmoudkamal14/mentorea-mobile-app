@@ -9,7 +9,10 @@ import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/expl
 class ExploreMentorCubit extends Cubit<ExploreMentorState> {
   final ExploreMentorRepository _mentorRepository;
   ExploreMentorCubit(this._mentorRepository)
-      : super(const ExploreMentorState.initial());
+      : super(const ExploreMentorState.initial()) {
+    getAllSpecializations();
+    getMentorsBySpecialization(searchValue: 'Database');
+  }
 
   static ExploreMentorCubit get(context) => BlocProvider.of(context);
 

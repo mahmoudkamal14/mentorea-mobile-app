@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:mentorea_mobile_app/core/helper/functions/format_time_availability.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/spacing.dart';
@@ -8,9 +9,11 @@ import 'package:mentorea_mobile_app/core/widgets/app_text_button.dart';
 import 'package:mentorea_mobile_app/core/widgets/app_text_form_field.dart';
 import 'package:mentorea_mobile_app/core/widgets/container_card_widget.dart';
 import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/logic/schedule_cubit.dart';
+import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/logic/schedule_state.dart';
 
 class AvailabilityTimeWidegt extends StatelessWidget {
-  AvailabilityTimeWidegt({super.key});
+  AvailabilityTimeWidegt({super.key, this.textButton});
+  final String? textButton;
 
   TextEditingController startTimeController = TextEditingController();
 
@@ -19,9 +22,7 @@ class AvailabilityTimeWidegt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var scheduleCubit = ScheduleCubit.get(context);
-    final now = DateTime.now();
-    DateTime dateTime =
-        DateTime(now.year, now.month, now.day, now.hour, now.minute);
+    DateTime dateTime = DateTime(2025, 6, 21, 1, 0);
     return ContainerCardWidget(
       child: Column(
         children: [
@@ -131,10 +132,16 @@ class AvailabilityTimeWidegt extends StatelessWidget {
             ],
           ),
           verticalSpace(20),
-          AppTextButton(
-            textButton: 'Add Schedule',
-            onPressed: () {
-              scheduleCubit.addMentorAvailability();
+          BlocBuilder<ScheduleCubit, ScheduleState>(
+            builder: (context, state) {
+              return AppTextButton(
+                textButton: textButton ?? 'Add Schedule',
+                isLoading:
+                    state is CreateAvailabilityLoadingState ? true : false,
+                onPressed: () {
+                  scheduleCubit.addMentorAvailability();
+                },
+              );
             },
           ),
         ],

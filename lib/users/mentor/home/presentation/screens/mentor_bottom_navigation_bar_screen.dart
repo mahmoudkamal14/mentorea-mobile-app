@@ -40,24 +40,28 @@ class _BottomNavigationBarScreenState
   ];
 
   int _currentIndex = 0;
+  String? userId;
+
+  void getUserId() async {
+    userId = getCachedUserData()!.id;
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => getIt<ProfileCubit>()..getMentorProfile(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<ScheduleCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),
-        ),
+        BlocProvider(create: (context) => getIt<ProfileCubit>()),
+        BlocProvider(create: (context) => getIt<ScheduleCubit>()),
+        BlocProvider(create: (context) => getIt<CommunityPostCubit>()),
         BlocProvider(create: (context) => getIt<CommunityReactCubit>()),
         BlocProvider(create: (context) => getIt<CommunityConnectionsCubit>()),
       ],
-      child: BlocBuilder<ProfileCubit, ProfileState>(
+      child: BlocConsumer<ProfileCubit, ProfileState>(
+        listener: (context, state) {
+          if (state is LogoutSuccessState) {
+            context.navigateToReplacement(Routes.userTypeScreen);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,

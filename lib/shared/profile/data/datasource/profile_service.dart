@@ -21,7 +21,7 @@ abstract class ProfileService {
     @Header('Authorization') String userToken,
   );
 
-  @POST(ApiConstants.logout)
+  @PUT(ApiConstants.logout)
   Future<void> logoutUser(
     @Body() LogoutRequestBody logoutRequestBody,
   );

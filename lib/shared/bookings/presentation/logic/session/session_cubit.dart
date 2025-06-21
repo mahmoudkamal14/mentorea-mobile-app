@@ -7,7 +7,9 @@ import 'package:mentorea_mobile_app/shared/bookings/presentation/logic/session/s
 
 class SessionCubit extends Cubit<SessionState> {
   final SessionRepository _repository;
-  SessionCubit(this._repository) : super(SessionInitialState());
+  SessionCubit(this._repository) : super(SessionInitialState()) {
+    getAllSessionsByUser();
+  }
 
   static SessionCubit get(context) => BlocProvider.of(context);
 

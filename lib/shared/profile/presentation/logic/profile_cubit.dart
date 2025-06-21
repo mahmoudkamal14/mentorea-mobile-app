@@ -13,18 +13,7 @@ import 'package:mentorea_mobile_app/shared/profile/presentation/logic/profile_st
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepository _repository;
-  ProfileCubit(this._repository) : super(ProfileInitialState()) {
-    start();
-  }
-
-  void start() async {
-    var role = await CacheHelper.getSecuredData(key: CacheHelperKeys.userRole);
-    if (role == 'Mentee') {
-      getMenteeProfile();
-    } else {
-      getMentorProfile();
-    }
-  }
+  ProfileCubit(this._repository) : super(ProfileInitialState());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
 
@@ -102,9 +91,9 @@ class ProfileCubit extends Cubit<ProfileState> {
     final response = await _repository.logoutUser();
 
     if (response is Success) {
-      await CacheHelper.removeData(key: CacheHelperKeys.accessToken);
-      await CacheHelper.removeData(key: CacheHelperKeys.refreshToken);
-      await CacheHelper.removeData(key: CacheHelperKeys.userData);
+      CacheHelper.clearAllSecuredData();
+      CacheHelper.removeData(key: CacheHelperKeys.login);
+      CacheHelper.removeData(key: CacheHelperKeys.userData);
       emit(LogoutSuccessState());
     } else if (response is Failure) {
       emit(LogoutErrorState(error: response.toString()));

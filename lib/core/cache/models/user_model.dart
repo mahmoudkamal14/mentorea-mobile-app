@@ -1,13 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 
 class UserModel {
-  final String id;
-  final String name;
-  final String email;
-  final String role;
+  final String? id;
+  final String? name;
+  final String? email;
+  final String? role;
   final String? image;
 
   UserModel({
@@ -28,12 +29,22 @@ class UserModel {
     };
   }
 
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'name': name,
+      'email': email,
+      'role': role,
+      'image': image,
+    };
+  }
+
   factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      email: map['email'] as String,
-      role: map['role'] as String,
+      id: map['id'] != null ? map['id'] as String : null,
+      name: map['name'] != null ? map['name'] as String : null,
+      email: map['email'] != null ? map['email'] as String : null,
+      role: map['role'] != null ? map['role'] as String : null,
       image: map['image'] != null ? map['image'] as String : null,
     );
   }

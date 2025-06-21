@@ -42,6 +42,10 @@ class LoginCubit extends Cubit<LoginState> {
         accessToken: response.data.token!,
         refreshToken: response.data.refreshToken!,
       );
+      await CacheHelper.saveSecuredData(
+        key: CacheHelperKeys.userId,
+        value: response.data.id!,
+      );
       decodeJwt(token: response.data.token!);
       emitRegisterFcmTokenStates(userId: response.data.id!);
       userModel = response.data;

@@ -21,7 +21,6 @@ import 'package:mentorea_mobile_app/shared/settings/presentation/screens/privacy
 import 'package:mentorea_mobile_app/shared/settings/presentation/screens/mentee_settings_screen.dart';
 import 'package:mentorea_mobile_app/shared/authentication/presentation/screens/mentor_register_screen.dart';
 import 'package:mentorea_mobile_app/users/mentor/home/presentation/screens/mentor_bottom_navigation_bar_screen.dart';
-import 'package:mentorea_mobile_app/users/mentor/schedule/presentation/screens/create_mentor_availability.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -164,12 +163,6 @@ class AppRouter {
       case Routes.mentorBottomNavBar:
         return smoothEaseInOutPageRoute(
           const MentorBottomNavigationBarScreen(),
-          settings: settings,
-        );
-
-      case Routes.createMentorAvailability:
-        return smoothEaseInOutPageRoute(
-          const CreateMentorAvailability(),
           settings: settings,
         );
 

@@ -10,7 +10,6 @@ class RecommendedMentorsCubit extends Cubit<RecommendedMentorsState> {
   RecommendedMentorsCubit(this._mentorsRepository)
       : super(RecommendedMentorsInitialState()) {
     getTopRatedMentors();
-    getRecommendedMentors();
   }
 
   static RecommendedMentorsCubit get(context) => BlocProvider.of(context);

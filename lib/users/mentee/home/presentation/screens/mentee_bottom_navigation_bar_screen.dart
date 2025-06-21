@@ -14,6 +14,7 @@ import 'package:mentorea_mobile_app/shared/community/presentation/logic/react/co
 import 'package:mentorea_mobile_app/shared/community/presentation/screens/mentee_community_screen.dart';
 import 'package:mentorea_mobile_app/core/widgets/action_icon_appbar.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/shared/profile/presentation/logic/profile_state.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/logic/explore_mentor_cubit.dart';
 import 'package:mentorea_mobile_app/users/mentee/explore/presentation/screens/explore_screen.dart';
 import 'package:mentorea_mobile_app/users/mentee/home/presentation/logic/recommended_mentors_cubit.dart';
@@ -45,116 +46,118 @@ class _BottomNavigationBarScreenState
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => getIt<RecommendedMentorsCubit>()),
+        BlocProvider(create: (context) => getIt<ExploreMentorCubit>()),
+        BlocProvider(create: (context) => getIt<SessionCubit>()),
         BlocProvider(
-          create: (context) => getIt<ExploreMentorCubit>()
-            ..getAllSpecializations()
-            ..getMentorsBySpecialization(searchValue: 'Database'),
-        ),
-        BlocProvider(
-          create: (context) => getIt<SessionCubit>()..getAllSessionsByUser(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<ProfileCubit>()..getMenteeProfile(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<CommunityPostCubit>()..getAllPosts(),
-        ),
+            create: (context) => getIt<ProfileCubit>()..getMenteeProfile()),
+        BlocProvider(create: (context) => getIt<CommunityPostCubit>()),
         BlocProvider(create: (context) => getIt<CommunityReactCubit>()),
         BlocProvider(create: (context) => getIt<CommunityConnectionsCubit>()),
       ],
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          iconTheme: Theme.of(context).appBarTheme.iconTheme,
-          actionsIconTheme: Theme.of(context).appBarTheme.actionsIconTheme,
-          elevation: 0.0,
-          title: Text(
-            S.of(context).Mentorea,
-            style: Theme.of(context).appBarTheme.titleTextStyle,
-          ),
-          centerTitle: true,
-          actions: [actionAppBar(_currentIndex)],
-        ),
-        drawer: const MenteeDrawerWidget(),
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 10.h,
-              bottom: 30.h,
-              right: 16.w,
-              left: 16.w,
-            ),
-            child: screens[_currentIndex],
-          ),
-        ),
-        bottomNavigationBar: CurvedNavigationBar(
-          height: 74.h,
-          animationDuration: const Duration(milliseconds: 900),
+      child: BlocListener<ProfileCubit, ProfileState>(
+        listener: (context, state) {
+          if (state is LogoutSuccessState) {
+            context.navigateToReplacement(Routes.userTypeScreen);
+          }
+        },
+        child: Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          buttonBackgroundColor:
-              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-          color: Theme.of(context).hoverColor,
-          index: _currentIndex,
-          items: [
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.home_outlined,
-                size: 30,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .selectedIconTheme
-                    ?.color,
-              ),
-              label: S.of(context).Home,
-              labelStyle:
-                  Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            iconTheme: Theme.of(context).appBarTheme.iconTheme,
+            actionsIconTheme: Theme.of(context).appBarTheme.actionsIconTheme,
+            elevation: 0.0,
+            title: Text(
+              S.of(context).Mentorea,
+              style: Theme.of(context).appBarTheme.titleTextStyle,
             ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.explore_outlined,
-                size: 30,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .selectedIconTheme
-                    ?.color,
+            centerTitle: true,
+            actions: [actionAppBar(_currentIndex)],
+          ),
+          drawer: const MenteeDrawerWidget(),
+          body: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: 10.h,
+                bottom: 30.h,
+                right: 16.w,
+                left: 16.w,
               ),
-              label: S.of(context).Explore,
-              labelStyle:
-                  Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
+              child: screens[_currentIndex],
             ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.access_time,
-                size: 30,
-                color: Theme.of(context)
+          ),
+          bottomNavigationBar: CurvedNavigationBar(
+            height: 74.h,
+            animationDuration: const Duration(milliseconds: 900),
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            buttonBackgroundColor:
+                Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+            color: Theme.of(context).hoverColor,
+            index: _currentIndex,
+            items: [
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.home_outlined,
+                  size: 30,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedIconTheme
+                      ?.color,
+                ),
+                label: S.of(context).Home,
+                labelStyle: Theme.of(context)
                     .bottomNavigationBarTheme
-                    .selectedIconTheme
-                    ?.color,
+                    .selectedLabelStyle,
               ),
-              label: S.of(context).Bookings,
-              labelStyle:
-                  Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
-            ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.people_alt_outlined,
-                size: 30,
-                color: Theme.of(context)
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.explore_outlined,
+                  size: 30,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedIconTheme
+                      ?.color,
+                ),
+                label: S.of(context).Explore,
+                labelStyle: Theme.of(context)
                     .bottomNavigationBarTheme
-                    .selectedIconTheme
-                    ?.color,
+                    .selectedLabelStyle,
               ),
-              label: S.of(context).Community,
-              labelStyle:
-                  Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
-            ),
-          ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.access_time,
+                  size: 30,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedIconTheme
+                      ?.color,
+                ),
+                label: S.of(context).Bookings,
+                labelStyle: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .selectedLabelStyle,
+              ),
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.people_alt_outlined,
+                  size: 30,
+                  color: Theme.of(context)
+                      .bottomNavigationBarTheme
+                      .selectedIconTheme
+                      ?.color,
+                ),
+                label: S.of(context).Community,
+                labelStyle: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .selectedLabelStyle,
+              ),
+            ],
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
         ),
       ),
     );

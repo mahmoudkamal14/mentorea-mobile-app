@@ -74,7 +74,7 @@ class BookSessionScreen extends StatelessWidget {
                             if (cubit.formKey.currentState!.validate()) {
                               cubit.createSession(
                                 mentorId: mentor.id!,
-                                menteeId: getCachedUserData()!.id,
+                                menteeId: getCachedUserData()!.id!,
                               );
                             }
                           },

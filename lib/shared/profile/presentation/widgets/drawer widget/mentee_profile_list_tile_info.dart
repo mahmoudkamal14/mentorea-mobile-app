@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
-import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/helper/utils/extentions.dart';
 import 'package:mentorea_mobile_app/core/routes/routes.dart';
 import 'package:mentorea_mobile_app/generated/l10n.dart';
+import 'package:mentorea_mobile_app/shared/profile/presentation/widgets/drawer%20widget/logout_account_widget.dart';
 import 'package:mentorea_mobile_app/shared/profile/presentation/widgets/drawer%20widget/profile_list_tile_widget.dart';
 
 class MenteeProfileListTileInfo extends StatelessWidget {
@@ -43,19 +42,7 @@ class MenteeProfileListTileInfo extends StatelessWidget {
             context.navigateTo(Routes.privacyPolicy);
           },
         ),
-        ProfileListTileWidget(
-          image: 'assets/icons/power_settings_new.svg',
-          title: S.of(context).Logout,
-          lastItem: true,
-          onTap: () {
-            context.navigateToReplacement(Routes.userTypeScreen);
-            CacheHelper.removeSecuredData(key: CacheHelperKeys.accessToken);
-            CacheHelper.removeSecuredData(key: CacheHelperKeys.refreshToken);
-            CacheHelper.removeSecuredData(key: CacheHelperKeys.userRole);
-            CacheHelper.removeData(key: CacheHelperKeys.login);
-            CacheHelper.removeData(key: CacheHelperKeys.userData);
-          },
-        ),
+        const LogoutAccountWidget(),
       ],
     );
   }

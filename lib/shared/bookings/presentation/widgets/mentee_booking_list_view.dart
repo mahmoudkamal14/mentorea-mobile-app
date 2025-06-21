@@ -30,8 +30,8 @@ class MenteeBookingListView extends StatelessWidget {
                   if (state is MarkSessionAttendedByOnePartySuccessState) {
                     await SessionService.join(
                       roomName: sessionList[index].id!,
-                      userName: getCachedUserData()!.name,
-                      email: getCachedUserData()!.email,
+                      userName: getCachedUserData()!.name!,
+                      email: getCachedUserData()!.email!,
                     );
                   } else if (state is MarkSessionAttendedByOnePartyErrorState) {
                     showToast(
