@@ -1,5 +1,5 @@
-import 'package:mentorea_mobile_app/shared/authentication/data/models/welcome_message_model.dart';
-import 'package:mentorea_mobile_app/shared/onboarding/data/models/user_type_model.dart';
+import 'package:mentorea_mobile_app/features/authentication/data/models/welcome_message_model.dart';
+import 'package:mentorea_mobile_app/features/onboarding/data/models/user_type_model.dart';
 
 WelcomeMessage buildWelcomeMessage(UserType userType) {
   List<WelcomeMessage> listMessages = listWelcomeMessage;

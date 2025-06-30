@@ -1,0 +1,19 @@
+
+
+default_platform(:android)
+
+platform :android do
+  desc "New Android Version Build for the App"
+  lane :firebase_distribution do
+    sh "flutter clean"
+    sh "flutter build apk --release --no-tree-shake-icons"
+    firebase_app_distribution(
+    app: "1:375754640780:android:9fbbf4edd0f7a30f075aa9",
+    firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+    android_artifact_type: "APK",
+    apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
+    testers: "mkelsafty1838@gmail.com",
+    release_notes: "First Android Version Build for the App"
+  )
+  end
+end

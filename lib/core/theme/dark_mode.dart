@@ -9,7 +9,7 @@ ThemeData darkTheme = ThemeData(
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: Color(0xFF161617),
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.light,
     ),
     backgroundColor: const Color(0xFF1C1C1E),
@@ -70,7 +70,7 @@ ThemeData darkTheme = ThemeData(
   ),
   useMaterial3: false,
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: const Color(0xFF161617),
+    backgroundColor: Colors.white,
     selectedIconTheme: const IconThemeData(color: Color(0xFFE0E0E0)),
     unselectedIconTheme: const IconThemeData(color: Color(0xFFE0E0E0)),
     selectedLabelStyle: TextStyle(

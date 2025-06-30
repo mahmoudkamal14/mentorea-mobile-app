@@ -87,6 +87,12 @@ class ApiConstants {
   static const String getSessionById = '/api/sessions/{sessionId}';
   static const String markSessionAttendedByOneParty =
       '/api/sessions/{sessionId}/attended';
+
+  // Chat Endpoints
+  static const String getChatHistory = '/api/chat/history/{receiverId}';
+  static const String deleteChat = '/api/Chat/DeleteChat/{receiverId}';
+  static const String deleteMessage = '/api/Chat/{MessageId}';
+  static const String uploadMessageFile = '/api/chat';
 }
 
 

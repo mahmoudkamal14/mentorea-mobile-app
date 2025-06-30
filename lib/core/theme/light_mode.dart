@@ -8,8 +8,8 @@ ThemeData lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Color(0xFF103A69),
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
     backgroundColor: const Color(0xFF103A69),

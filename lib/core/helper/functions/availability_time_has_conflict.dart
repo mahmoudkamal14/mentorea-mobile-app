@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:mentorea_mobile_app/users/mentor/schedule/data/models/mentor_availability_response_model.dart';
+import 'package:mentorea_mobile_app/features/schedule/data/models/mentor_availability_response_model.dart';
 
 bool isValidSlot({
   required String newDate, // "15/05/2025"

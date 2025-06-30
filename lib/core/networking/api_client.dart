@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper.dart';
 import 'package:mentorea_mobile_app/core/cache/cache_helper_keys.dart';
 import 'package:mentorea_mobile_app/core/networking/api_constants.dart';
-import 'package:mentorea_mobile_app/shared/authentication/data/models/login/login_response_model.dart';
-import 'package:mentorea_mobile_app/shared/authentication/data/models/login/refresh_token_request.dart';
-import 'package:mentorea_mobile_app/shared/authentication/data/datasource/auth_service.dart';
+import 'package:mentorea_mobile_app/features/authentication/data/models/login/login_response_model.dart';
+import 'package:mentorea_mobile_app/features/authentication/data/models/login/refresh_token_request.dart';
+import 'package:mentorea_mobile_app/features/authentication/data/datasource/auth_service.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
