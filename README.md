@@ -15,13 +15,31 @@
 ---
 
 ## 🛠️ Tech Stack
-### **Frontend** (Flutter)
-- State Management: Bloc (Cubit)
-- Key Dependencies:
-  - `flutter_bloc`
-  - `dio`
-  - `cached_network_image`
-  - `shared_preferences`
+### 🖼️ Frontend (Flutter)
+
+- 🧠 **State Management**: BLoC (Cubit)
+- 📲 **Networking**: Retrofit + Dio
+- 🧱 **Architecture**: Clean Architecture + Repository Pattern
+- 🎨 **UI**: Responsive Layout + Custom Widgets
+- 🔔 **Notifications**: Firebase Cloud Messaging (FCM)
+- 📦 **Local Storage**: Shared Preferences
+- 💬 **Real-time Chat**: SignalR via `signalr_netcore` package
+- 🌐 **Multi-language Support**: Arabic & English with full RTL support
+- 📸 **Media**: Cached Network Images
+
+#### 🧰 Key Dependencies
+
+```yaml
+dependencies:
+  flutter_bloc: ^...
+  dio: ^...
+  retrofit: ^...
+  cached_network_image: ^...
+  shared_preferences: ^...
+  signalr_netcore: ^1.4.3
+  firebase_messaging: ^...
+  intl: ^...  # For localization
+```
 
 ### **Backend** (ASP.NET Core Web API)
 - Architecture: CQRS Pattern
